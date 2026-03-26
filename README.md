@@ -1,21 +1,8 @@
-<style type="text/css">
-  .qmsomos{
-      width: 50%;
-      height: auto;
-  }
-  </style>
-
 <div align="center">
   <img width=600px height=430px src='https://github.com/user-attachments/assets/c2646d13-4fa5-4750-be79-b002b9a94c64'>
   <br>
   <img src="http://img.shields.io/static/v1?label=language&message=php&color=rgb(246,120,40)&style=plastic">
 </div>
-
-1. Identificação
-a. Identidade Visual do projeto
-b. Redes sociais do projeto (opcional)
-c. Organização da Equipe (papel e responsabilidade dos membros da equipe)
-d. Data criação do projeto
 
 <div>
   <h2>O que é o GRIOT - Memória e História Afro-Brasileira</h2>
@@ -36,17 +23,12 @@ d. Data criação do projeto
 </div>
 
 <div>
-<h2>Quem somos</h2>
-
+  <h2>Quem somos</h2>
+    <h3>Maria Eduarda Gomes dos Santos</h3>
+    <img width=200px height=200px src='https://github.com/user-attachments/assets/eb9a82b4-4622-4934-8a95-99a72159b675'>
+    <p>Responsável pela parte de front-end, experiência de usuário e redações das telas da aplicação web</p>
+    <br>
+    <h3>Lucas Ancacio dos Santos</h3>
+    <img width=200px height=200px src='https://github.com/user-attachments/assets/c702ad93-085e-4bd2-9c36-4f3e345e9d83'>
+    <p>Responsável pela parte de back-end, sistemas de persistência de dados e povoamento do banco de dados</p>
 </div>
-
-<h2>Considerações finais</h2>
-<p> A falha de ClickJacking possui valor baixo na maioria dos serviços de bug bounty, e cabe ao hacker argumentar sobre sua capacidade de impacto com as empresas inscritas no serviço. Um exemplo disso é o ClickJacking pode ser feito em telas de login, o que é perigoso e rende certo bounty. Mas outra coisa é o phishing ser feito em uma tela onde não há entrada para informações pessoais.</p>
-
-
-<div class="aqmsomos">8</div>   
-
-<div class="qmsomos">8</div>
-
-<div class="qmsomos">8</div>
-
