@@ -5,13 +5,21 @@
 
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta name="description" content="Museu virtual com tematica racial">
-  <meta name="author" content="Lucas Ancacio e Maria Eduarda Gomes">
+  <meta name="author" content=" ">
   <meta charset="UTF-8">
   <link rel="icon" href=" galeria\assets\images\FavIcon_SF.png">
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap"
     rel="stylesheet">
 
   <title>GRIOT</title>
+
+
+   <!-- Scripts -->
+  <script src="galeria/vendor/jquery/jquery.min.js"></script>
+  <script src="galeria/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="galeria/assets/js/owl-carousel.js"></script>
+  <script src="galeria/assets/js/templatemo-custom.js"></script>
+
 
   <!-- Bootstrap core CSS -->
   <link href="galeria/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -25,36 +33,6 @@
 TemplateMo 562 Space Dynamic
 https://templatemo.com/tm-562-space-dynamic
 -->
-
-  <!-- CSS da galeria -->
-  <style type="text/css">
-    .elem,
-    .elem * {
-      box-sizing: border-box;
-      margin: 0 !important;
-    }
-
-    .elem {
-      display: inline-block;
-      font-size: 0;
-      width: 33%;
-      border: 20px solid transparent;
-      border-bottom: none;
-      background: #fff;
-      padding: 10px;
-      height: auto;
-      background-clip: padding-box;
-    }
-
-    .elem>span {
-      display: block;
-      cursor: pointer;
-      height: 0;
-      padding-bottom: 70%;
-      background-size: cover;
-      background-position: center center;
-    }
-  </style>
 
 
   <!-- LIGHTBOX FADING SHOW/HIDE EFFECT (as explained in documentation) -->
@@ -120,13 +98,14 @@ https://templatemo.com/tm-562-space-dynamic
             <!-- ***** Logo End ***** -->
             <!-- ***** Menu Start ***** -->
             <ul class="nav">
-              <li class="scroll-to-section"><a href="#top" class="active">Inicio</a></li>
-              <li class="scroll-to-section"><a href="#about">Sobre nós</a></li>
-              <li class="scroll-to-section"><a href="#portfolio">Galeria</a></li>
-              <li class="scroll-to-section">
-                <a href="./conexao/login.php" class="main-red-button">Login</a>
+
+            
+              <li class="scroll-to-section"><a href="./conexao/login.php" class="main-button">Login</a>
+              </li>
+              <li class="scroll-to-section"><a href="./conexao/criar.php" class="main-red-button">Criar Conta</a>
               </li>
             </ul>
+
             <a class='menu-trigger'>
               <span>Menu</span>
             </a>
@@ -169,7 +148,6 @@ https://templatemo.com/tm-562-space-dynamic
   <div id="about" class="about-us section">
     <div class="container">
       <div class="row">
-
         <div class="col-lg-4">
           <div class="left-image wow fadeIn" data-wow-duration="1s" data-wow-delay="0.2s">
             <img src="galeria/assets/images/FotoDureg.png" alt="Homem negro com durag amarela.">
@@ -179,17 +157,21 @@ https://templatemo.com/tm-562-space-dynamic
         <div class="col-lg-8 align-self-center">
           <div class="services">
             <div class="row">
+
               <div class="col-lg-6">
                 <div class="item wow fadeIn" data-wow-duration="1s" data-wow-delay="0.5s">
                   <div class="icon">
-                    <img src="galeria/assets/images/1-icon.png" alt="reporting">
+                    <a href="Galeria.php">
+                      <img src="galeria/assets/images/1-icon.png" alt="reporting">
+                    </a>
                   </div>
                   <div class="right-text">
                     <h4>Imagens</h4>
-                    <p>link</p>
+                    <a href="Galeria.php"></a>
                   </div>
                 </div>
               </div>
+
               <div class="col-lg-6">
                 <div class="item wow fadeIn" data-wow-duration="1s" data-wow-delay="0.7s">
                   <div class="icon">
@@ -229,27 +211,6 @@ https://templatemo.com/tm-562-space-dynamic
       </div>
     </div>
   </div>
-
-
-  <div id="portfolio" class="our-portfolio section">
-    <div class="container">
-      <?php
-      require_once("conexao/config.php");
-      $consulta = $mysqli->query("SELECT * FROM quadros ORDER BY ID_Quadros DESC");
-      while ($row = $consulta->fetch_assoc()):
-        $imgBase64 = base64_encode($row['imagem']);
-      ?>
-        <a class="elem"
-          href="data:image/jpeg;base64,<?= $imgBase64 ?>"
-          title="<?= $row['titulo'] ?>"
-          data-lcl-txt="<?= $row['descricao'] ?>"
-          data-lcl-author="<?= $row['autor'] ?> (<?= $row['ano_obra'] ?>)">
-          <span style="background-image: url(data:image/jpeg;base64,<?= $imgBase64 ?>);"></span>
-        </a>
-      <?php endwhile; ?>
-    </div>
-  </div>
-
 
 
   <div id="contact" class="contact-us section">
@@ -314,14 +275,6 @@ https://templatemo.com/tm-562-space-dynamic
       </div>
     </div>
   </footer>
-  <!-- Scripts -->
-  <script src="galeria/vendor/jquery/jquery.min.js"></script>
-  <script src="galeria/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-  <script src="galeria/assets/js/owl-carousel.js"></script>
-  <script src="galeria/assets/js/animation.js"></script>
-  <script src="galeria/assets/js/imagesloaded.js"></script>
-  <script src="galeria/assets/js/templatemo-custom.js"></script>
-
   <!-- LIGHTBOX INITIALIZATION -->
   <script type="text/javascript">
     $(document).ready(function(e) {

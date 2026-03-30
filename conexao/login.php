@@ -162,11 +162,10 @@ a:hover {
 <body>
     <div class= "container">
          <div class="imagem">
-            <img src="../assets/images/FotoPrincipal2.jpg" alt="Dureg">
+            <img src="../galeria/assets/images/FotoPrincipal2.jpg" alt="Dureg">
         </div>
 
     <form method="post" action="verificador.php" class="form">
-         <img src="../assets/images/Logo_rmbd.png" alt="Dureg">
 
         <label for="email_login">Digite seu e-mail</label>
         <input type="email" id="email_login" name="email_login" required autocomplete="email">

@@ -124,12 +124,11 @@
     <div class="container">
         
         <div class="imagem">
-            <img src="../assets/images/FotoPrincipal.jpg" alt="Dureg">
+            <img src="../galeria/assets/images/FotoPrincipal.jpg" alt="Dureg">
         </div>
 
         
         <div class="form">
-              <img src="../assets/images/Logo_rmbd.png" alt="Dureg">
             <form method="post" action="verificador.php">
                 <label>Digite seu nome:</label>
                 <input type="text" name="nome_criar" required>

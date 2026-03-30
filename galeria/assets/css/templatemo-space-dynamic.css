@@ -14,12 +14,9 @@ Table of contents
 03. global styles
 04. header
 05. banner
-06. features
-07. testimonials
 08. contact
 09. footer
 10. preloader
-11. search
 12. portfolio
 
 --------------------------------------------- */
@@ -187,69 +184,26 @@ body {
   line-height: 44px;
 }
 
-.section-heading h2 em {
-  font-style: normal;
-  color: #03a4ed;
-}
 
-.section-heading h2 span {
-  color: #fe3f40;
-}
-
-.main-blue-button a {
-  display: inline-block;
-  background-color: #03a4ed;
-  font-size: 15px;
-  font-weight: 400;
-  color: #fff;
-  text-transform: capitalize;
-  padding: 12px 25px;
-  border-radius: 23px;
-  letter-spacing: 0.25px;
-}
-
-.main-blue-button {
-  display: inline-block;
-  background-color: #03a4ed;
-  font-size: 15px;
-  font-weight: 400;
-  color: #fff;
-  text-transform: capitalize;
-  padding: 12px 25px;
-  border-radius: 23px;
-  letter-spacing: 0.25px;
-}
-
-
+/* Botão Vermelho (Criar Conta) */
 .nav li a.main-red-button {
-  display: inline-block !important;
+  display: inline-flex;
   background-color: #fe3f40;
   color: #fff !important;
   font-size: 15px;
   font-weight: 500;
   text-transform: capitalize;
-  padding: 10px 24px !important;        
-  border-radius: 30px !important;        
+  padding: 10px 24px;
+  border-radius: 30px;
   letter-spacing: 0.25px;
-  line-height: 1.4 !important;        
-  margin: 0 8px;                        
+  margin: 0 8px;
   transition: all 0.3s;
-  min-height: 44px;                     
-  display: inline-flex !important;      
   align-items: center;
   justify-content: center;
 }
 
-.main-white-button a {
-  display: inline-block;
-  background-color: #fff;
-  font-size: 15px;
-  font-weight: 400;
-  color: #fe3f40;
-  text-transform: capitalize;
-  padding: 12px 25px;
-  border-radius: 23px;
-  letter-spacing: 0.25px;
+.nav li a.main-red-button:hover {
+  background-color: #e63536; /* Vermelho um pouco mais escuro */
 }
 
 /* 
@@ -644,9 +598,7 @@ header
     color: #fe3f40!important;
     opacity: 1;
   }
-  .header-area.header-sticky .nav li.search-icon a {
-    width: 100%;
-  }
+ 
   .header-area {
     background-color: #f7f7f7;
     padding: 0px 15px;
@@ -987,14 +939,8 @@ About Us Style
   
 }
 
-.about-us .services .item .icon {
-  float: left;
-  margin-right: 25px;
-}
 
-.about-us .services .item .icon img {
-  max-width: 70px;
-}
+
 
 .about-us .services .item h4 {
   color: #fff;
@@ -1006,6 +952,7 @@ About Us Style
 .about-us .services .item p {
   color: #fff;
 }
+
 
 
 /* 
@@ -1058,31 +1005,6 @@ Services Style
   left: 88%;
 }
 
-.our-services .progress-skill-bar h4 {
-  font-size: 18px;
-  font-weight: 700;
-  color: #2a2a2a;
-  margin-bottom: 14px;
-}
-
-.our-services .progress-skill-bar .full-bar {
-  width: 100%;
-  height: 6px;
-  border-radius: 3px;
-  background-color: #f7eff1;
-  position: relative;
-  z-index: 1;
-}
-
-.our-services .progress-skill-bar .filled-bar {
-  background: rgb(255,77,30);
-  background: linear-gradient(105deg, rgba(255,77,30,1) 0%, rgba(255,44,109,1) 100%);
-  height: 6px;
-  border-radius: 3px;
-  margin-bottom: -6px;
-  position: relative;
-  z-index: 2;
-}
 
 .our-services .first-bar .filled-bar {
   width: 71%;
@@ -1094,126 +1016,6 @@ Services Style
 
 .our-services .third-bar .filled-bar {
   width: 90%;
-}
-
-
-
-/* 
----------------------------------------------
-Blog
---------------------------------------------- 
-*/
-
-.our-blog {
-  position: relative;
-  margin-top: 80px;
-  padding-top: 120px;
-}
-
-.our-blog .section-heading h2 {
-  margin-right: 180px;
-}
-
-.our-blog .top-dec {
-  text-align: right;
-  margin-top: -80px;
-}
-
-.our-blog .top-dec img {
-  max-width: 270px;
-}
-
-.our-blog .left-image {
-  position: relative;
-}
-
-.our-blog .left-image img {
-  border-radius: 20px;
-  box-shadow: 0px 0px 15px rgba(0,0,0,0.1);
-}
-
-.our-blog .left-image .info {
-  position: relative;
-}
-
-.our-blog .left-image .info .inner-content {
-  background-color: #fff;
-  box-shadow: 0px 0px 15px rgba(0,0,0,0.1);
-  border-radius: 20px;
-  margin-right: 75px;
-  position: absolute;
-  margin-top: -100px;
-  padding: 30px;
-}
-
-.our-blog .left-image ul li {
-  display: inline-block;
-  font-size: 15px;
-  color: #afafaf;
-  font-weight: 300;
-  margin-right: 20px;
-}
-
-.our-blog .left-image ul li:last-child {
-  margin-right: 0px;
-}
-
-.our-blog .left-image ul li i {
-  color: #ff4d61;
-  font-size: 16px;
-  margin-right: 8px;
-}
-
-.our-blog .left-image h4 {
-  font-size: 20px;
-  font-weight: 700;
-  color: #2a2a2a;
-  margin: 20px 0px 15px 0px;
-}
-
-.our-blog .left-image .info .main-blue-button {
-  position: absolute;
-  bottom: -80px;
-  left: 0;
-}
-
-.our-blog .right-list {
-  margin-left: 30px;
-}
-
-.our-blog .right-list ul li {
-  display: inline-flex;
-  width: 100%;
-  margin-bottom: 30px;
-}
-
-.our-blog .right-list .left-content {
-  margin-right: 45px;
-}
-
-.our-blog .right-list .left-content span {
-  font-size: 15px;
-  color: #afafaf;
-  font-weight: 300;
-}
-
-.our-blog .right-list .left-content span i {
-  color: #ff4d61;
-  font-size: 16px;
-  margin-right: 8px;
-}
-
-.our-blog .right-list .left-content h4 {
-  font-size: 20px;
-  font-weight: 700;
-  color: #2a2a2a;
-  margin: 20px 0px 15px 0px;
-}
-
-
-.our-blog .right-list .right-image img {
-  width: 250px;
-  border-radius: 20px;
 }
 
 
@@ -1364,34 +1166,6 @@ footer p {
 footer p a {
   color: #fe3f40;
 }
-/* Galeria nova - linda e responsiva */
-    .portfolio-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-      gap: 30px;
-      padding: 40px 0;
-    }
-    .elem {
-      position: relative;
-      overflow: hidden;
-      border-radius: 16px;
-      box-shadow: 0 10px 30px rgba(0,0,0,.15);
-      aspect-ratio: 4 / 3;
-      transition: all .4s ease;
-    }
-    .elem:hover {
-      transform: translateY(-12px);
-      box-shadow: 0 20px 40px rgba(0,0,0,.25);
-    }
-    .elem span {
-      position: absolute;
-      inset: 0;
-      background-size: cover;
-      background-position: center;
-      transition: transform .6s;
-    }
-    .elem:hover span { transform: scale(1.12); }
-
 
 /* 
 ---------------------------------------------
@@ -1402,6 +1176,12 @@ responsive
 @media (max-width: 1645px) {
   form#contact .contact-dec {
     display: none;
+  }
+}
+
+@media (min-width: 992px) {
+  .header-area .nav {
+    display: flex !important;
   }
 }
 
