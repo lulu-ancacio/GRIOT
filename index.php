@@ -29,10 +29,6 @@
   <link rel="stylesheet" href="galeria/assets/css/templatemo-space-dynamic.css">
   <link rel="stylesheet" href="galeria/assets/css/animated.css">
   <link rel="stylesheet" href="galeria/assets/css/owl.css">
-  <!--
-TemplateMo 562 Space Dynamic
-https://templatemo.com/tm-562-space-dynamic
--->
 
 
   <!-- LIGHTBOX FADING SHOW/HIDE EFFECT (as explained in documentation) -->
@@ -145,72 +141,64 @@ https://templatemo.com/tm-562-space-dynamic
     </div>
   </div>
 
-  <div id="about" class="about-us section">
-    <div class="container">
-      <div class="row">
-        <div class="col-lg-4">
-          <div class="left-image wow fadeIn" data-wow-duration="1s" data-wow-delay="0.2s">
-            <img src="galeria/assets/images/FotoDureg.png" alt="Homem negro com durag amarela.">
-          </div>
-        </div>
 
-        <div class="col-lg-8 align-self-center">
-          <div class="services">
-            <div class="row">
-
-              <div class="col-lg-6">
-                <div class="item wow fadeIn" data-wow-duration="1s" data-wow-delay="0.5s">
-                  <div class="icon">
-                    <a href="Galeria.php">
-                      <img src="galeria/assets/images/1-icon.png" alt="reporting">
-                    </a>
-                  </div>
-                  <div class="right-text">
-                    <h4>Imagens</h4>
-                    <a href="Galeria.php"></a>
-                  </div>
-                </div>
-              </div>
-
-              <div class="col-lg-6">
-                <div class="item wow fadeIn" data-wow-duration="1s" data-wow-delay="0.7s">
-                  <div class="icon">
-                    <img src="galeria/assets/images/2-icon.png" alt="">
-                  </div>
-                  <div class="right-text">
-                    <h4>Livros</h4>
-                    <p>link</p>
-                  </div>
-                </div>
-              </div>
-              <div class="col-lg-6">
-                <div class="item wow fadeIn" data-wow-duration="1s" data-wow-delay="0.9s">
-                  <div class="icon">
-                    <img src="galeria/assets/images/4-icon.png" alt="">
-                  </div>
-                  <div class="right-text">
-                    <h4>Legislações</h4>
-                    <p>Link.</p>
-                  </div>
-                </div>
-              </div>
-              <div class="col-lg-6">
-                <div class="item wow fadeIn" data-wow-duration="1s" data-wow-delay="1.1s">
-                  <div class="icon">
-                    <img src="galeria/assets/images/3-icon.png" alt="">
-                  </div>
-                  <div class="right-text">
-                    <h4>Impacto Social</h4>
-                    <p>link</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
+<br>
+<div id="redirection" class="section">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12">
+        <div class="section-heading text-center">
+          <h2>Conteúdos que valorizam a <em>Cultura Negra</em></h2>
+          <p>Fotografias, Pinturas, Recomendações de Filmes e Músicas. <br>Selecione o seu desejado e acesse um mundo novo.</p>
         </div>
       </div>
+      
+      <div class="col-lg-4 col-md-6">
+        <a href="Fotografias.php" class="content-card card-roxo">
+          <div class="icon-box">
+             <i class="fa fa-camera"></i>
+       </div>
+          <h4>Fotografias</h4>
+        </a>
+      </div>
+
+      <div class="col-lg-4 col-md-6">
+        <a href="Pinturas.php" class="content-card card-amarela">
+          <div class="icon-box">
+             <i class="fa fa-paint-brush"></i> </div>
+          <h4>Pinturas</h4>
+        </a>
+      </div>
+
+
+      <div class="col-lg-4 col-md-6">
+        <a href="Livros.php" class="content-card card-vermelho">
+          <div class="icon-box">
+             <i class="fa fa-book"></i> </div>
+          <h4>Livros <br><span>(Em breve)</span></h4>
+        </a>
+      </div>
+
+      <div class="col-lg-4 col-md-6">
+        <a href="Musicas.php" class="content-card card-vermelho">
+          <div class="icon-box">
+             <i class="fa fa-music"></i> </div>
+          <h4> Músicas <br><span>(Em breve)</span></h4>
+        </a>
+      </div>
+
+      <div class="col-lg-4 col-md-6">
+        <a href="Filmes.php" class="content-card card-marrom">
+          <div class="icon-box">
+             <i class="fa fa-film"></i> </div>
+          <h4>Filmes <br><span>(Em breve)</span></h4>
+        </a>
+      </div>
+
     </div>
   </div>
+</div>
+
 
 
   <div id="contact" class="contact-us section">

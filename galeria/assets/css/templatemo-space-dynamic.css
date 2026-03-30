@@ -929,115 +929,59 @@ Banner Style
   color: #fff;
 }
 
-
-
-/* 
----------------------------------------------
-About Us Style
---------------------------------------------- 
-*/
-
-#about {
-  margin-top: 0px;
-}
-
-.about-us {
-  background-image: url(../images/A4.png);
-  background-repeat: no-repeat;
-  background-position: center center;
-  background-size: cover;
-  padding: 140px 0px 120px 0px;
-}
-
-.about-us .left-image {
-  margin: 0;
-  padding: 0;
-}
-
-.about-us .services .item {
-  margin-bottom: 0px;
-  margin-top: 95px;
-  
-}
-
-
-
-
-.about-us .services .item h4 {
-  color: #fff;
-  font-size: 20px;
-  font-weight: 700;
-  margin-bottom: 12px;
-}
-
-.about-us .services .item p {
-  color: #fff;
-}
-
-
-
-/* 
----------------------------------------------
-Services Style
---------------------------------------------- 
-*/
-
-.our-services {
-  margin-top: 0px;
-  padding-top: 120px;
-}
-
-.our-services .left-image {
-  margin-right: 45px;
-}
-
-.our-services .section-heading h2 {
-  margin-right: 100px;
-}
-
-.our-services .section-heading p {
-  margin-top: 30px;
-  margin-bottom: 60px;
-}
-
-.our-services .progress-skill-bar {
+/* Estilo dos Cards */
+.content-card {
+  background: #fff;
+  padding: 30px;
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
   margin-bottom: 30px;
-  position: relative;
-  width: 100%;
+  text-decoration: none !important;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+  transition: all 0.3s ease;
 }
 
-.our-services .progress-skill-bar span {
-  position: absolute;
-  top: 0;
+.content-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+}
+
+.content-card .icon-box {
+  width: 60px;
+  height: 60px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 20px;
+  font-size: 24px;
+}
+
+.content-card h4 {
   font-size: 18px;
-  font-weight: 600;
-  color: #03a4ed;
+  color: #2a2a2a;
+  font-weight: 700;
+  margin: 0;
 }
 
-.our-services .first-bar span {
-  left: 69%;
+.content-card span {
+  font-size: 12px;
+  color: #a3a3a3;
+  font-weight: 400;
 }
 
-.our-services .second-bar span {
-  left: 81%;
-}
+/* Cores Pastéis (iguais à sua imagem) */
+.card-roxo .icon-box { background-color: #fff9e6; color: #5F3554; }
+.card-amarela .icon-box { background-color: #fff0f0; color: #EECC3F; }
+.card-vermelho .icon-box { background-color: #e6f9f3; color: #DA3A2D; }
+.card-azul .icon-box { background-color: #e6f0ff; color: #3A7BD5; }
+.card-marrom .icon-box { background-color: #e6f9f3; color: #4D2613; }
 
-.our-services .third-bar span {
-  left: 88%;
-}
+
+.text-center { text-align: center; margin-bottom: 50px; }
 
 
-.our-services .first-bar .filled-bar {
-  width: 71%;
-}
-
-.our-services .second-bar .filled-bar {
-  width: 83%;
-}
-
-.our-services .third-bar .filled-bar {
-  width: 90%;
-}
 
 
 /* 
@@ -1223,74 +1167,7 @@ responsive
   .main-banner .left-content form input {
     width: 100%!important;
   }
-  #about {
-    margin-top: 0px;
-  }
-  .about-us {
-    position: relative;
-    background-image: none;
-    padding: 0px;
-  }
-  .about-us .left-image {
-    margin-right: 0px;
-    position: absolute;
-    bottom: -220px;
-    right: 0;
-  }
-  .about-us .services {
-    text-align: center;
-  }
-  .about-us .services .item  {
-    background: rgb(255,77,30);
-    background: linear-gradient(105deg, rgba(255,77,30,1) 0%, rgba(255,44,109,1) 100%);
-    padding: 30px;
-    border-radius: 20px;
-    display: inline-block;
-  }
-  .about-us .services .item .right-text {
-    text-align: left;
-  }
-  .our-services {
-    margin-top: 200px;
-  }
-  .our-services .left-image {
-    margin-right: 0px;
-    margin-bottom: 45px;
-  }
-  .our-services .section-heading h2,
-  .our-services .section-heading p {
-    margin-right: 0px;
-    text-align: center;
-  }
-  .our-portfolio .section-heading h2 {
-    margin: 0px 0px 80px 0px;
-  }
-  .our-portfolio .item {
-    margin-bottom: 15px;
-  }
-  .our-blog {
-    margin-top: 0px;
-  }
-  .our-blog .top-dec {
-    display: none;
-  }
-  .our-blog .section-heading h2 {
-    margin-right: 0px;
-    text-align: center;
-    margin-bottom: 45px;
-  }
-  .our-blog .left-image .info .inner-content {
-    position: relative;
-    margin-right: 0px;
-  }
-  .our-blog .left-image .info .main-blue-button {
-    position: relative;
-    bottom: 0px;
-    margin-top: 30px;
-  }
-  .our-blog .left-image {
-    margin-bottom: 45px;
-  }
+
   .contact-us {
     margin-top: 60px;
     padding: 120px 0px;
@@ -1311,26 +1188,6 @@ responsive
 }
 
 @media (max-width: 767px) {
-  .about-us .left-image {
-    bottom: -280px;
-  }
-  .our-blog .right-list {
-    margin-left: 0px;
-  }
-  .our-blog .right-list ul li {
-    display: inline-block;
-    margin-top: 0px;
-    padding-top: 30px;
-    border-top: 1px solid #eee;
-  }
-  .our-blog .right-list .left-content {
-    margin-right: 0px;
-    width: 100%;
-    margin-bottom: 15px;
-  }
-  .our-blog .right-list .right-image,
-  .our-blog .right-list .right-image img {
-    width: 100%;
   }
   .phone-info h4 span {
     display: block;
@@ -1339,7 +1196,3 @@ responsive
   .phone-info h4 span i {
     margin-left: 0px;
   }
-}
- @media (max-width:768px) {
-      .portfolio-grid { grid-template-columns: 1fr; gap:20px; }
-    }
