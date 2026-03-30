@@ -281,7 +281,7 @@
 		};
 		
 		
-		/* returns title/text/author detecting whether to get an attribute or selector */
+		/* returns title/text/or detecting whether to get an attribute or selector */
 		var attr_or_selector_data = function($elem, subj_key) {
 			var o = lcl_ai_opts;
 			var subj = o[subj_key];
