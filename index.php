@@ -98,11 +98,11 @@ https://templatemo.com/tm-562-space-dynamic
             <!-- ***** Logo End ***** -->
             <!-- ***** Menu Start ***** -->
             <ul class="nav">
-
-            
-              <li class="scroll-to-section"><a href="./conexao/login.php" class="main-button">Login</a>
+              <li class="scroll-to-section">
+                <a href="./conexao/login.php" class="main-blue-button">Login</a>
               </li>
-              <li class="scroll-to-section"><a href="./conexao/criar.php" class="main-red-button">Criar Conta</a>
+              <li class="scroll-to-section">
+                <a href="./conexao/criar.php" class="main-red-button">Criar Conta</a>
               </li>
             </ul>
 

@@ -184,27 +184,48 @@ body {
   line-height: 44px;
 }
 
-
-/* Botão Vermelho (Criar Conta) */
-.nav li a.main-red-button {
-  display: inline-flex;
-  background-color: #fe3f40;
+/* Botão Azul (Login) */
+.nav li a.main-blue-button {
+  display: inline-flex !important;
+  align-items: center;
+  justify-content: center;
+  background-color: #03a4ed;
   color: #fff !important;
   font-size: 15px;
-  font-weight: 500;
+  font-weight: 600;
   text-transform: capitalize;
-  padding: 10px 24px;
+  
+  padding: 8px 24px 12px 24px !important; 
   border-radius: 30px;
   letter-spacing: 0.25px;
   margin: 0 8px;
   transition: all 0.3s;
-  align-items: center;
-  justify-content: center;
+  height: 45px; 
 }
 
-.nav li a.main-red-button:hover {
-  background-color: #e63536; /* Vermelho um pouco mais escuro */
+/* Botão Vermelho (Criar Conta) */
+.nav li a.main-red-button {
+  display: inline-flex !important;
+  align-items: center;
+  justify-content: center;
+  background-color: #fe3f40;
+  color: #fff !important;
+  font-size: 15px;
+  font-weight: 600;
+  text-transform: capitalize;
+  
+  padding: 8px 24px 12px 24px !important;
+  
+  border-radius: 30px;
+  letter-spacing: 0.25px;
+  margin: 0 8px;
+  transition: all 0.3s;
+  height: 45px;
 }
+
+/* Efeito de Hover */
+.nav li a.main-blue-button:hover { background-color: #0288c7; }
+.nav li a.main-red-button:hover { background-color: #e63536; }
 
 /* 
 ---------------------------------------------
