@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Acessar conta na EKÓ</title>
+    <title>Acessar sua conta</title>
 
     <style>
         .body
@@ -160,12 +160,20 @@ a:hover {
     </style>
 </head>
 <body>
+
+
     <div class= "container">
          <div class="imagem">
             <img src="../galeria/assets/images/FotoPrincipal2.jpg" alt="Dureg">
-        </div>
+    </div>
 
     <form method="post" action="verificador.php" class="form">
+
+    <!-- ***** Logo Start ***** -->
+        <div class="logo">
+            <img src="../galeria\assets\images\LogoEst_SF.png">
+        </div>
+    <!-- ***** Logo End ***** -->
 
         <label for="email_login">Digite seu e-mail</label>
         <input type="email" id="email_login" name="email_login" required autocomplete="email">
@@ -173,7 +181,7 @@ a:hover {
         <label for="senha_login">Digite sua senha</label>
         <input type="password" id="senha_login" name="senha_login" required autocomplete="current-password">
 
-        <input type="submit" value="Entrar na EKÓ">
+        <input type="submit" value="Entrar no Griot">
        <a href='./criar.php'>Não tenho uma conta.</a>
        <a href='../index.php'>◃ Voltar ao início..</a>
 

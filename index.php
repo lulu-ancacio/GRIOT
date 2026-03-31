@@ -89,7 +89,7 @@
           <nav class="main-nav">
             <!-- ***** Logo Start ***** -->
             <div class="logo">
-              <img src="galeria/assets/images/LogoEst_SF">
+              <img src="galeria\assets\images\LogoEst_SF.png">
             </div>
             <!-- ***** Logo End ***** -->
             <!-- ***** Menu Start ***** -->
@@ -120,14 +120,14 @@
           <div class="row">
             <div class="col-lg-6 align-self-center">
               <div class="left-content header-text wow fadeInLeft" data-wow-duration="1s" data-wow-delay="1s">
-                <h6>Bem Vindo a EKÓ</h6>
-                <h2>Sua galeria <em>com temática</em> <span> racial</span></h2>
+                <h6>Bem Vindo ao GRIOT</h6>
+                <h2>Seu repositório <em>com temática</em> <span> racial</span></h2>
 
-                <p>O Museu EKÓ é um site web interativo que reúne fotografias sobre cultura negra. Projetado como uma
+                <p>O GRIOT é um site web interativo que reúne pinturas sobre cultura negra. Projetado como uma
                   experiência imersiva, o site convida
                   visitantes a percorrer linhas do tempo, e refletir sobre as marcas da ancestralidade na sociedade
                   contemporânea.
-                  Ideal para educação, pesquisa e reflexão comunitária, a EKÓ transforma memória em diálogo.</p>
+                  Ideal para educação, pesquisa e reflexão comunitária, o GRIOT transforma memória em diálogo.</p>
               </div>
             </div>
             <div class="col-lg-6">

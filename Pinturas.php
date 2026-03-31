@@ -135,7 +135,7 @@ https://templatemo.com/tm-562-space-dynamic
             <div class="col-lg-6 align-self-center">
               <div class="left-content header-text wow fadeInLeft" data-wow-duration="1s" data-wow-delay="1s">
                 <h2>xxxxxx <em>xxxxx</em> <span>GRIOT!</span></h2>
-                <p>A galeria de pinturas do Museu EKÓ apresenta um conjunto de obras que expressam,
+                <p>A galeria de pinturas do GRIOT apresenta um conjunto de obras que expressam,
                      por meio da arte, a profundidade da cultura afro-brasileira e as múltiplas 
                      dimensões da experiência negra. Cada pintura revela traços de história, 
                      identidade e resistência, traduzidos em cores, 
