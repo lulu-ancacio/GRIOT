@@ -14,7 +14,7 @@
   <title>GRIOT</title>
 
 
-   <!-- Scripts -->
+  <!-- Scripts -->
   <script src="galeria/vendor/jquery/jquery.min.js"></script>
   <script src="galeria/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
   <script src="galeria/assets/js/owl-carousel.js"></script>
@@ -142,62 +142,85 @@
   </div>
 
 
-<br>
-<div id="redirection" class="section">
-  <div class="container">
-    <div class="row">
-      <div class="col-lg-12">
-        <div class="section-heading text-center">
-          <h2>Conteúdos que valorizam a <em>Cultura Negra</em></h2>
-          <p>Fotografias, Pinturas, Recomendações de Filmes e Músicas. <br>Selecione o seu desejado e acesse um mundo novo.</p>
+  <br>
+  <div id="redirection" class="section">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12">
+          <div class="section-heading text-center">
+            <h2>Conteúdos que valorizam a <em>Cultura Negra</em></h2>
+            <p>Fotografias, Pinturas, Recomendações de Filmes e Músicas. <br>Selecione o seu desejado e acesse um mundo
+              novo.</p>
+          </div>
         </div>
-      </div>
-      
-      <div class="col-lg-4 col-md-6">
-        <a href="Fotografias.php" class="content-card card-roxo">
-          <div class="icon-box">
-             <i class="fa fa-camera"></i>
-       </div>
-          <h4>Fotografias</h4>
-        </a>
-      </div>
 
-      <div class="col-lg-4 col-md-6">
-        <a href="Pinturas.php" class="content-card card-amarela">
-          <div class="icon-box">
-             <i class="fa fa-paint-brush"></i> </div>
-          <h4>Pinturas</h4>
-        </a>
+        <div class="col-lg-4 col-md-6">
+          <a href="Fotografias.php" class="content-card card-roxo">
+            <div class="icon-box">
+              <i class="fa fa-camera"></i>
+            </div>
+            <h4>Fotografias</h4>
+          </a>
+        </div>
+
+        <div class="col-lg-4 col-md-6">
+          <a href="Pinturas.php" class="content-card card-amarela">
+            <div class="icon-box">
+              <i class="fa fa-paint-brush"></i>
+            </div>
+            <h4>Pinturas</h4>
+          </a>
+        </div>
+
+
+        <div class="col-lg-4 col-md-6">
+          <a href="Livros.php" class="content-card card-vermelho">
+            <div class="icon-box">
+              <i class="fa fa-book"></i>
+            </div>
+            <h4>Livros <br><span>(Em breve)</span></h4>
+          </a>
+        </div>
+
+        <div class="col-lg-4 col-md-6">
+          <a href="Filmes.php" class="content-card card-marrom">
+            <div class="icon-box">
+              <i class="fa fa-film"></i>
+            </div>
+            <h4>Filmes</h4>
+          </a>
+        </div>
+
+        <div class="col-lg-4 col-md-6">
+          <a href="Musicas.php" class="content-card card-azul">
+            <div class="icon-box">
+              <i class="fa fa-music"></i>
+            </div>
+            <h4>Músicas <br><span>(Em breve)</span></h4>
+          </a>
+        </div>
+
+        <div class="col-lg-4 col-md-6">
+          <a href="LinhaDoTempo.php" class="content-card card-rosa">
+            <div class="icon-box">
+              <i class="fa fa-clock-o"></i>
+            </div>
+            <h4> Linha do Tempo</h4>
+          </a>
+        </div>
+
+        <div class="col-lg-4 col-md-6">
+          <a href="Legislacao.php" class="content-card card-laranja">
+            <div class="icon-box">
+              <i class="fa fa-gavel"></i>
+            </div>
+            <h4> Legislação</h4>
+          </a>
+        </div>
+
       </div>
-
-
-      <div class="col-lg-4 col-md-6">
-        <a href="Livros.php" class="content-card card-vermelho">
-          <div class="icon-box">
-             <i class="fa fa-book"></i> </div>
-          <h4>Livros <br><span>(Em breve)</span></h4>
-        </a>
-      </div>
-
-      <div class="col-lg-4 col-md-6">
-        <a href="Musicas.php" class="content-card card-vermelho">
-          <div class="icon-box">
-             <i class="fa fa-music"></i> </div>
-          <h4> Músicas <br><span>(Em breve)</span></h4>
-        </a>
-      </div>
-
-      <div class="col-lg-4 col-md-6">
-        <a href="Filmes.php" class="content-card card-marrom">
-          <div class="icon-box">
-             <i class="fa fa-film"></i> </div>
-          <h4>Filmes <br><span>(Em breve)</span></h4>
-        </a>
-      </div>
-
     </div>
   </div>
-</div>
 
 
 
@@ -265,7 +288,7 @@
   </footer>
   <!-- LIGHTBOX INITIALIZATION -->
   <script type="text/javascript">
-    $(document).ready(function(e) {
+    $(document).ready(function (e) {
 
       // live handler
       lc_lightbox('.elem', {

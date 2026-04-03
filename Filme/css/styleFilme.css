@@ -93,24 +93,29 @@ body {
     color: #fff;
 }
 
-/* --- CONTEÚDO EXPANDIDO (DETALHES) --- */
+
 .ca-content-wrapper {
     position: absolute;
     width: 0px; 
-    height: 440px;
+    height: auto !important; /* Força o tamanho do conteúdo */
+    max-height: 440px;        /* Não deixa passar da altura do carrossel */
     top: 10px;
     z-index: 10000;
     overflow: hidden;
+    height: auto !important;
 }
 
 .ca-content {
     width: 660px;
-    height: 100%;
+    height: auto !important;     /* Força a altura a ser automática */
+    min-height: 0 !important;    /* Remove qualquer trava de altura mínima */
     background: #ffffff;
     border-radius: 20px;
     box-shadow: 0 20px 50px rgba(0,0,0,0.3);
     color: #333;
     text-align: left;
+    padding-bottom: 30px; 
+    height: auto !important;
 }
 
 .ca-content h6 {
@@ -130,19 +135,18 @@ body {
 
 /* --- AJUSTE DO BOTÃO FECHAR --- */
 .ca-close {
-    position: absolute;      /* Essencial para tirar ele do fluxo do texto */
-    top: 20px;               /* Distância do topo do card branco */
-    right: 20px;             /* Distância da borda direita */
+    position: absolute;      /
+    top: 10px;               
+    right: 20px;            
     width: 32px;
     height: 32px;
     line-height: 32px;
     text-align: center;
     text-decoration: none;
     color: #333;
-    font-size: 24px;         /* Deixa o X um pouco maior */
+    font-size: 24px;        
     background: none !important;
     text-indent: 0 !important;
-    z-index: 1000;           /* Garante que ele fique por cima de tudo */
     transition: all 0.3s ease;
     cursor: pointer;
 }

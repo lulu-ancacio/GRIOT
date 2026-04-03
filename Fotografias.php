@@ -100,10 +100,11 @@ https://templatemo.com/tm-562-space-dynamic
           <nav class="main-nav">
             <!-- ***** Logo Start ***** -->
             <div class="logo">
+              <a href="index.php">
               <img src="galeria\assets\images\LogoEst_SF.png">
+              <a/>
             </div>
             <!-- ***** Logo End ***** -->
-              <!-- ***** Logo End ***** -->
             <!-- ***** Menu Start ***** -->
             <ul class="nav">
               <li class="scroll-to-section">
