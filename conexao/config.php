@@ -2,8 +2,8 @@
 // // ========== Config ============
 $_DB['server'] = 'localhost'; // Servidor MySQL
 $_DB['user'] = 'root'; // Usuário MySQL
-$_DB['password'] = 'IFPR2023'; // Senha MySQL
-$_DB['database'] = 'bd'; // Banco de dados MySQL
+$_DB['password'] = 'SPAMspam4545*'; // Senha MySQL
+$_DB['database'] = 'bd_eko'; // Banco de dados MySQL
 // ==============================
 mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT); // Desativa relatórios de erros
 try {

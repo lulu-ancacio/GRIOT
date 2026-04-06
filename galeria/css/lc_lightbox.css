@@ -480,6 +480,7 @@
 #lcl_corner_close:before,
 .lcl_postered_video:not(.lcl_poster_clicked):before {
 	font-family: 'lc_lightbox' !important;
+	speak: none;
 	font-style: normal;
 	font-weight: normal;
 	font-variant: normal;
@@ -1345,6 +1346,13 @@
 	box-shadow: 0px 2px 2px 0 rgba(0, 0, 0, 0.4);
 	transition: opacity .6s ease;		
 }
+.lcl_loading_videojs #lcl_progressbar,
+.lcl_loading_iframe #lcl_progressbar {
+	opacity: 0; !important;
+	transition-duration: 0s;
+}
+
+
 
 
 /* OVERLAY PATTERNS */
