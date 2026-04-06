@@ -3,8 +3,6 @@ require_once("conexao/supabase.php");
 
 $quadros = supabaseRequest("pinturas?select=*");
 
-error_reporting(E_ALL);
-ini_set('display_errors', 1);
 ?>
 
 <!DOCTYPE html>
@@ -166,13 +164,10 @@ https://templatemo.com/tm-562-space-dynamic
 
   <div id="portfolio" class="our-portfolio section">
     <div class="container">
-      <pre>
-<?php print_r($quadros); ?>
-</pre>
       <?php if ($quadros): ?>
         <?php foreach ($quadros as $row): ?>
           <a class="elem"
-            href="data:image/jpeg;base64,<?= $imgBase64 ?>"
+            href="<?= $row['quadro'] ?>"
             title="<?= $row['titulo'] ?>"
             data-lcl-txt="<?= $row['desc'] ?>"
             data-lcl-author="<?= $row['autor'] ?> (<?= $row['ano'] ?>)">
