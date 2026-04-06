@@ -3,7 +3,6 @@
 
 <head>
 
-
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta name="description" content="Pinturas GRIOT">
   <meta name="author" content="Lucas Ancacio e Maria Eduarda Gomes">
@@ -93,40 +92,42 @@ https://templatemo.com/tm-562-space-dynamic
 
 </head>
 <!-- ***** Header Area Start ***** -->
-  <header class="header-area header-sticky wow slideInDown" data-wow-duration="0.75s" data-wow-delay="0s">
-    <div class="container">
-      <div class="row">
-        <div class="col-12">
-          <nav class="main-nav">
-            <!-- ***** Logo Start ***** -->
-            <div class="logo">
+<header class="header-area header-sticky wow slideInDown" data-wow-duration="0.75s" data-wow-delay="0s">
+  <div class="container">
+    <div class="row">
+      <div class="col-12">
+        <nav class="main-nav">
+          <!-- ***** Logo Start ***** -->
+          <div class="logo">
+            <a href="index.php">
               <img src="galeria\assets\images\LogoEst_SF.png">
-            </div>
-            <!-- ***** Logo End ***** -->
-              <!-- ***** Logo End ***** -->
-            <!-- ***** Menu Start ***** -->
-            <ul class="nav">
-              <li class="scroll-to-section">
-                <a href="Index.php" class="main-red-button">Início</a>
-              </li>
-            </ul>
-
-            <a class='menu-trigger'>
-              <span>Menu</span>
             </a>
-            <!-- ***** Menu End ***** -->
-           
-          </nav>
-        </div>
+          </div>
+          <!-- ***** Logo End ***** -->
+          <!-- ***** Logo End ***** -->
+          <!-- ***** Menu Start ***** -->
+          <ul class="nav">
+            <li class="scroll-to-section">
+              <a href="Index.php" class="main-red-button">Início</a>
+            </li>
+          </ul>
+
+          <a class='menu-trigger'>
+            <span>Menu</span>
+          </a>
+          <!-- ***** Menu End ***** -->
+
+        </nav>
       </div>
     </div>
-  </header>
-  <!-- ***** Header Area End ***** -->
+  </div>
+</header>
+<!-- ***** Header Area End ***** -->
 
 
 
 <body>
-    <br><br>
+  <br><br>
   <div class="main-banner wow fadeIn" id="top" data-wow-duration="1s" data-wow-delay="0.5s">
     <div class="container">
       <div class="row">
@@ -135,14 +136,14 @@ https://templatemo.com/tm-562-space-dynamic
             <div class="col-lg-6 align-self-center">
               <div class="left-content header-text wow fadeInLeft" data-wow-duration="1s" data-wow-delay="1s">
                 <h2>xxxxxx <em>xxxxx</em> <span>GRIOT!</span></h2>
-                <p>A galeria de pinturas do Museu EKÓ apresenta um conjunto de obras que expressam,
-                     por meio da arte, a profundidade da cultura afro-brasileira e as múltiplas 
-                     dimensões da experiência negra. Cada pintura revela traços de história, 
-                     identidade e resistência, traduzidos em cores, 
-                    formas e simbolismos que dialogam com a ancestralidade e o presente.</p>
+                <p>A galeria de pinturas do GRIOT apresenta um conjunto de obras que expressam,
+                  por meio da arte, a profundidade da cultura afro-brasileira e as múltiplas
+                  dimensões da experiência negra. Cada pintura revela traços de história,
+                  identidade e resistência, traduzidos em cores,
+                  formas e simbolismos que dialogam com a ancestralidade e o presente.</p>
               </div>
             </div>
-             <div class="col-lg-6">
+            <div class="col-lg-6">
               <div class="right-image wow fadeInRight" data-wow-duration="1s" data-wow-delay="0.5s">
                 <img src="galeria/assets/images/Pintura.jpg" alt="Menino negro com uma câmera analógica em suas mãos.">
               </div>
@@ -161,12 +162,9 @@ https://templatemo.com/tm-562-space-dynamic
       $consulta = $mysqli->query("SELECT * FROM quadros ORDER BY ID_Quadros DESC");
       while ($row = $consulta->fetch_assoc()):
         $imgBase64 = base64_encode($row['imagem']);
-      ?>
-        <a class="elem"
-          href="data:image/jpeg;base64,<?= $imgBase64 ?>"
-          title="<?= $row['titulo'] ?>"
-          data-lcl-txt="<?= $row['descricao'] ?>"
-          data-lcl-author="<?= $row['autor'] ?> (<?= $row['ano_obra'] ?>)">
+        ?>
+        <a class="elem" href="data:image/jpeg;base64,<?= $imgBase64 ?>" title="<?= $row['titulo'] ?>"
+          data-lcl-txt="<?= $row['descricao'] ?>" data-lcl-author="<?= $row['autor'] ?> (<?= $row['ano_obra'] ?>)">
           <span style="background-image: url(data:image/jpeg;base64,<?= $imgBase64 ?>);"></span>
         </a>
       <?php endwhile; ?>
@@ -193,7 +191,7 @@ https://templatemo.com/tm-562-space-dynamic
 
   <!-- LIGHTBOX INITIALIZATION -->
   <script type="text/javascript">
-    $(document).ready(function(e) {
+    $(document).ready(function (e) {
 
       // live handler
       lc_lightbox('.elem', {

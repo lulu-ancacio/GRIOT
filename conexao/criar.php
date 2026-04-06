@@ -130,6 +130,13 @@
         
         <div class="form">
             <form method="post" action="verificador.php">
+
+                <!-- ***** Logo Start ***** -->
+               <div class="logo">
+                  <img src="../galeria\assets\images\LogoEst_SF.png">
+                </div>
+                <!-- ***** Logo End ***** -->
+                 
                 <label>Digite seu nome:</label>
                 <input type="text" name="nome_criar" required>
 
