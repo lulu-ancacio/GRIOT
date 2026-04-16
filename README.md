@@ -23,11 +23,11 @@
   <p>
      Identificada esta problemática, desenvolveu-se a aplicação web GRIOT, que funciona como um acervo para materiais culturais relacionados à cultura afro-brasileira. Para arquitetar esta plataforma estão sendo usados o HyperText Markup Language (HTML), JavaScript e Cascading Style Sheets (CSS) para estruturação, interação e estilização, o Hypertext Preprocessor (PHP) para processamento de comandos lógicos e o banco de dados Supabase para persistência de dados na nuvem. Para versionamento e hospedagem de código foram utilizados o Git e Github, sendo o software de edição de código o Visual Studio Code.
   </p> 
-  <img width=75px height=75px src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/html5/html5-original.svg"/>  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
-  <img width=75px height=75px src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/css3/css3-original.svg" />   &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
-  <img width=75px height=75px src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/javascript/javascript-original.svg" />  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
-  <img width=75px height=75px src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/php/php-original.svg" />   &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
-  <img width=75px height=75px src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/supabase/supabase-original.svg" />   &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+  <img width=75px height=75px src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/html5/html5-original.svg"/>  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+  <img width=75px height=75px src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/css3/css3-original.svg" />   &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+  <img width=75px height=75px src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/javascript/javascript-original.svg" />  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+  <img width=75px height=75px src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/php/php-original.svg" />   &nbsp; &nbsp;  &nbsp; &nbsp; &nbsp;
+  <img width=75px height=75px src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/supabase/supabase-original.svg" />    &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
   <img width=75px height=75px src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/git/git-original.svg" />  &nbsp; &nbsp; &nbsp; &nbsp;
   <img width=75px height=75px src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/github/github-original.svg" />
 </div>
