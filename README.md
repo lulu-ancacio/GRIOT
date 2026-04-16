@@ -42,12 +42,7 @@
 
 <div>
   <h2>🎨 Identidade visual</h2>
-  <h4>Logo</h4>
-  <img width=400px height=330px src='https://github.com/user-attachments/assets/20e42d81-9ce7-45bd-9f70-3ac37137066c'>
-  <h4>Fontes</h4>
-  <img width=600px height=430px src='https://github.com/user-attachments/assets/d000ea87-3746-4c40-af5c-7fb1b1e48eda'>
-  <h4>Cores</h4>
-  <img width=600px height=430px src='https://github.com/user-attachments/assets/bd2ede4b-d8fd-4bbf-83cf-ac210d6bce15'>
+  <img width=400px height=600px src="https://github.com/user-attachments/assets/124e6253-c8ba-4702-bb86-bdfc99883beb">
 </div>
 
 <div>
