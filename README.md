@@ -19,7 +19,7 @@
 </div>
 
 <div>
-  <h2>🧱 Contrução da ideia</h2>
+  <h2>🧱 Construção da ideia</h2>
   <p>
      Identificada esta problemática, desenvolveu-se a aplicação web GRIOT, que funciona como um acervo para materiais culturais relacionados à cultura afro-brasileira. Para arquitetar esta plataforma estão sendo usados o HyperText Markup Language (HTML), JavaScript e Cascading Style Sheets (CSS) para estruturação, interação e estilização, o Hypertext Preprocessor (PHP) para processamento de comandos lógicos e o banco de dados Supabase para persistência de dados na nuvem. Para versionamento e hospedagem de código foram utilizados o Git e Github, sendo o software de edição de código o Visual Studio Code.
   </p> 
