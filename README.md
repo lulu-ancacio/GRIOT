@@ -28,7 +28,7 @@
   <img width=75px height=75px src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/javascript/javascript-original.svg" />  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
   <img width=75px height=75px src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/php/php-original.svg" />   &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
   <img width=75px height=75px src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/supabase/supabase-original.svg" />   &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
-  <img width=75px height=75px src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/git/git-original.svg" />  &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+  <img width=75px height=75px src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/git/git-original.svg" />  &nbsp; &nbsp; &nbsp; &nbsp;
   <img width=75px height=75px src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/github/github-original.svg" />
 </div>
 
