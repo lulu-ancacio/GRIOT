@@ -13,7 +13,8 @@ verificar_sessao();
     <meta name="author" content="Lucas Ancacio e Maria Eduarda Gomes">
 
     <link rel="icon" href="assets/images/Icone_rmbd.png">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
 
     <title>GRIOT - Memória e História Afro-brasileira</title>
 
@@ -256,14 +257,12 @@ verificar_sessao();
             $consulta = $mysqli->query("SELECT * FROM quadros ORDER BY ID_Quadros DESC");
             while ($row = $consulta->fetch_assoc()):
                 $imgBase64 = base64_encode($row['imagem']);
-            ?>
-                <a class="elem"
-                    href="data:image/jpeg;base64,<?= $imgBase64 ?>"
-                    title="<?= $row['titulo'] ?>"
-                    data-lcl-txt="<?= $row['descricao'] ?>"
-                    data-lcl-author="<?= $row['autor'] ?> (<?= $row['ano_obra'] ?>)">
-                    <span style="background-image: url(data:image/jpeg;base64,<?= $imgBase64 ?>);"></span>
-                </a>
+                ?>
+                    <a class="elem" href="data:image/jpeg;base64,<?= $imgBase64 ?>" title="<?= $row['titulo'] ?>"
+                        data-lcl-txt="<?= $row['descricao'] ?>"
+                        data-lcl-author="<?= $row['autor'] ?> (<?= $row['ano_obra'] ?>)">
+                        <span style="background-image: url(data:image/jpeg;base64,<?= $imgBase64 ?>);"></span>
+                    </a>
             <?php endwhile; ?>
         </div>
 
@@ -301,7 +300,7 @@ verificar_sessao();
     <script src="galeria/vendor/jquery/jquery.min.js"></script>
     <script src="galeria/assets/js/lc_lightbox.lite.js"></script>
     <script>
-        $(document).ready(function() {
+        $(document).ready(function () {
             lc_lightbox('.elem', {
                 gallery: true,
                 skin: 'minimal',
