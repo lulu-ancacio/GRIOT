@@ -46,6 +46,13 @@
 </div>
 
 <div>
+  <h2>💻 Protótipo navegável</h2>
+  <a href="https://app.quant-ux.com/#/test.html?h=a2aa10a1vrbugA34f1JthEds3bdey3acwipKr1JZyEDSvmUZCytUySNSjlUS&ln=pt">
+    <img width="597" height="319" alt="Image" src="https://github.com/user-attachments/assets/1b2d6520-ef0a-4f2b-8aa0-b0e2d370bcec" />
+  </a>
+</div>
+
+<div>
   <h2>👥 Quem somos</h2>
     <h4>👩🏿 Maria Eduarda Gomes dos Santos</h3>
     <img width=200px height=200px src='https://github.com/user-attachments/assets/eb9a82b4-4622-4934-8a95-99a72159b675'>
