@@ -1,3 +1,10 @@
+<?php
+require_once("conexao/supabase.php");
+
+$quadros = supabaseRequest("pinturas?select=*");
+
+?>
+
 <!DOCTYPE html>
 <html lang="pt">
 
@@ -157,17 +164,17 @@ https://templatemo.com/tm-562-space-dynamic
 
   <div id="portfolio" class="our-portfolio section">
     <div class="container">
-      <?php
-      require_once("conexao/config.php");
-      $consulta = $mysqli->query("SELECT * FROM quadros ORDER BY ID_Quadros DESC");
-      while ($row = $consulta->fetch_assoc()):
-        $imgBase64 = base64_encode($row['imagem']);
-        ?>
-        <a class="elem" href="data:image/jpeg;base64,<?= $imgBase64 ?>" title="<?= $row['titulo'] ?>"
-          data-lcl-txt="<?= $row['descricao'] ?>" data-lcl-author="<?= $row['autor'] ?> (<?= $row['ano_obra'] ?>)">
-          <span style="background-image: url(data:image/jpeg;base64,<?= $imgBase64 ?>);"></span>
-        </a>
-      <?php endwhile; ?>
+      <?php if ($quadros): ?>
+        <?php foreach ($quadros as $row): ?>
+          <a class="elem"
+            href="<?= $row['url'] ?>"
+            title="<?= $row['titulo'] ?>"
+            data-lcl-txt="<?= $row['desc'] ?>"
+            data-lcl-author="<?= $row['autor'] ?> (<?= $row['ano'] ?>)">
+            <span style="background-image: url('<?= $row['url'] ?>');"></span>
+          </a>
+        <?php endforeach; ?>
+      <?php endif; ?>
     </div>
   </div>
 
@@ -191,7 +198,7 @@ https://templatemo.com/tm-562-space-dynamic
 
   <!-- LIGHTBOX INITIALIZATION -->
   <script type="text/javascript">
-    $(document).ready(function (e) {
+    $(document).ready(function(e) {
 
       // live handler
       lc_lightbox('.elem', {
