@@ -1,16 +1,12 @@
 <?php
-// // ========== Config ============
-$_DB['server'] = 'localhost'; // Servidor MySQL
-$_DB['user'] = 'root'; // Usuário MySQL
-$_DB['password'] = 'SPAMspam4545*'; // Senha MySQL
-$_DB['database'] = 'bd_eko'; // Banco de dados MySQL
-// ==============================
-mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT); // Desativa relatórios de erros
-try {
-$mysqli = new mysqli($_DB['server'], $_DB['user'], $_DB['password'], $_DB['database']);
-$mysqli->set_charset("utf8mb4");
-} catch (Exception $e) {
-error_log($e->getMessage());
-exit('Alguma coisa estranha aconteceu...');
+
+function baseUri($endpoint = '') {
+    return 'https://cdhjzkmlucahtllfpdlx.supabase.co/auth/v1/' . $endpoint;
 }
-?>
+
+function getHeader(){
+    return [
+        'apikey' => 'sb_publishable_UrRqF6xuKo4rHwfw_zWfHQ_dbhsn4hy',
+        'Content-Type' => 'application/json'
+    ];
+}

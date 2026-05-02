@@ -1,4 +1,6 @@
-
+<?php
+require 'verificador.php';
+?>
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
@@ -168,6 +170,7 @@ a:hover {
     </div>
 
     <form method="post" action="verificador.php" class="form">
+        <p><?php echo $msg ?></p>
 
     <!-- ***** Logo Start ***** -->
         <div class="logo">

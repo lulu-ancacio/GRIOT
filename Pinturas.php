@@ -167,11 +167,11 @@ https://templatemo.com/tm-562-space-dynamic
       <?php if ($quadros): ?>
         <?php foreach ($quadros as $row): ?>
           <a class="elem"
-            href="<?= $row['quadro'] ?>"
+            href="<?= $row['url'] ?>"
             title="<?= $row['titulo'] ?>"
             data-lcl-txt="<?= $row['desc'] ?>"
             data-lcl-author="<?= $row['autor'] ?> (<?= $row['ano'] ?>)">
-            <span style="background-image: url('<?= $row['quadro'] ?>');"></span>
+            <span style="background-image: url('<?= $row['url'] ?>');"></span>
           </a>
         <?php endforeach; ?>
       <?php endif; ?>
