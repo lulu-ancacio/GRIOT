@@ -56,7 +56,7 @@
     </div>
 
     <div class="intro-image">
-        <img src="galeria/assets/images/Pintura.jpg" alt="">
+        <img src="Filmes/img/FotoPrincipal.jpg" alt="">
     </div>
 </div>
 

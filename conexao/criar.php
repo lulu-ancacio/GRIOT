@@ -6,7 +6,7 @@
         <title>Criar Conta</title>
         <style>
             * { margin: 0; padding: 0; box-sizing: border-box; }
-
+                                  
             body {
                 background-color: #f4f6f9;
                 min-height: 100vh;
@@ -14,7 +14,7 @@
                 align-items: center;
                 justify-content: center;
                 padding: 20px;
-            }
+            } 
 
         
             .container {

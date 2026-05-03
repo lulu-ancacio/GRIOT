@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="pt">
+
+<head>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="Museu virtual com tematica racial">
+  <meta name="author" content=" ">
+  <meta charset="UTF-8">
+  <link rel="icon" href=" galeria\assets\images\FavIcon_SF.png">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap"
+    rel="stylesheet">
+
+  <title>GRIOT-Sugestões</title>
+
+  <!-- Scripts -->
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
+  <script src="galeria/vendor/jquery/jquery.min.js"></script>
+  <script src="galeria/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="galeria/assets/js/owl-carousel.js"></script>
+  <script src="galeria/assets/js/templatemo-custom.js"></script>
+
+
+  <!-- Bootstrap core CSS -->
+  <link href="galeria/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Additional CSS Files -->
+  <link rel="stylesheet" href="galeria/assets/css/fontawesome.css">
+  <link rel="stylesheet" href="galeria/assets/css/templatemo-space-dynamic.css">
+  <link rel="stylesheet" href="galeria/assets/css/animated.css">
+  <link rel="stylesheet" href="galeria/assets/css/owl.css">
+
+
+  <!-- LIGHTBOX FADING SHOW/HIDE EFFECT (as explained in documentation) -->
+  <style type="text/css">
+    .lcl_fade_oc.lcl_pre_show #lcl_overlay,
+    .lcl_fade_oc.lcl_pre_show #lcl_window,
+    .lcl_fade_oc.lcl_is_closing #lcl_overlay,
+    .lcl_fade_oc.lcl_is_closing #lcl_window {
+      opacity: 0 !important;
+      }
+
+    .lcl_fade_oc.lcl_is_closing #lcl_overlay {
+      -webkit-transition-delay: .15s !important;
+      transition-delay: .15s !important;
+    }
+
+  
+    .comments-section {
+      padding: 100px 0 60px;
+      background: linear-gradient(135deg, #f5f7fa 0%, #faff60 100%);
+      min-height: 100vh;
+    }
+
+    .comments-title {
+      text-align: center;
+      margin-bottom: 50px;
+      font-size: 2.5rem;
+      color: #4674d1;
+      font-weight: 700;
+      letter-spacing: -0.5px;
+    }
+
+    #lista {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+      gap: 24px;
+      padding: 0 20px;
+    }
+
+    .card {
+      background: white;
+      border-radius: 16px;
+      padding: 28px;
+      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+      transition: all 0.3s ease;
+      border: 1px solid rgba(0, 0, 0, 0.05);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background: linear-gradient(90deg, #667eea 0%, #764ba2 100%);
+    }
+
+    .card:nth-child(2n)::before {
+      background: linear-gradient(90deg, #f093fb 0%, #f5576c 100%);
+    }
+
+    .card:nth-child(3n)::before {
+      background: linear-gradient(90deg, #4facfe 0%, #00f2fe 100%);
+    }
+
+    .card:nth-child(4n)::before {
+      background: linear-gradient(90deg, #43e97b 0%, #38f9d7 100%);
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+    }
+
+    .card h3 {
+      font-size: 1.25rem;
+      margin-bottom: 12px;
+      color: #1a202c;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .card p {
+      margin-bottom: 10px;
+      line-height: 1.6;
+      color: #4a5568;
+      font-size: 0.95rem;
+    }
+
+    .card p strong {
+      color: #2d3748;
+      font-weight: 600;
+    }
+
+    .card p:last-child {
+      margin-top: 16px;
+      padding-top: 16px;
+      border-top: 1px solid #e2e8f0;
+      color: #2d3748;
+      font-style: italic;
+    }
+
+    @media (max-width: 768px) {
+      .comments-title {
+        font-size: 1.8rem;
+      }
+      
+      #lista {
+        grid-template-columns: 1fr;
+        padding: 0 10px;
+      }
+      
+      .card {
+        padding: 20px;
+      }
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .card {
+      animation: fadeIn 0.5s ease-out;
+    }
+
+    .card:nth-child(1) { animation-delay: 0.1s; }
+    .card:nth-child(2) { animation-delay: 0.2s; }
+    .card:nth-child(3) { animation-delay: 0.3s; }
+    .card:nth-child(4) { animation-delay: 0.4s; }
+    .card:nth-child(5) { animation-delay: 0.5s; }
+
+    ::-webkit-scrollbar {
+      width: 10px;
+    }
+
+    ::-webkit-scrollbar-track {
+      background: #f1f1f1;
+      border-radius: 10px;
+    }
+
+    ::-webkit-scrollbar-thumb {
+      background: #888;
+      border-radius: 10px;
+    }
+
+    ::-webkit-scrollbar-thumb:hover {
+      background: #555;
+    }
+  </style>
+
+  <!-- REQUIRED ELEMENTS -->
+
+  <script src="galeria/lib/jquery.js" type="text/javascript"></script>
+
+  <script src="galeria/js/lc_lightbox.lite.js" type="text/javascript"></script>
+  <link rel="stylesheet" href="galeria/css/lc_lightbox.css" />
+
+
+  <!-- SKINS -->
+  <link rel="stylesheet" href="galeria/skins/minimal.css" />
+
+
+  <!-- ASSETS -->
+  <script src="galeria/lib/AlloyFinger/alloy_finger.min.js" type="text/javascript"></script>
+
+  <!-- //////////////////////////////////////////////// -->
+  <!-- //////////////////////////////////////////////// -->
+
+</head>
+
+<body>
+
+  <!-- ***** Preloader Start ***** -->
+  <div id="js-preloader" class="js-preloader">
+    <div class="preloader-inner">
+      <span class="dot"></span>
+      <div class="dots">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </div>
+  </div>
+  <!-- ***** Preloader End ***** -->
+
+  <!-- ***** Header Area Start ***** -->
+  <header class="header-area header-sticky wow slideInDown" data-wow-duration="0.75s" data-wow-delay="0s">
+    <div class="container">
+      <div class="row">
+        <div class="col-12">
+          <nav class="main-nav">
+            <!-- ***** Logo Start ***** -->
+            <div class="logo">
+                 <a href="index.php">
+              <img src="galeria\assets\images\LogoEst_SF.png">
+            </a>
+          </div>
+          <!-- ***** Logo End ***** -->
+            <!-- ***** Menu Start ***** -->
+            <ul class="nav">
+              <li class="scroll-to-section">
+                <a href="index.php" class="main-red-button">Home</a>
+              </li>
+            </ul>
+
+            <a class='menu-trigger'>
+              <span>Menu</span>
+            </a>
+            <!-- ***** Menu End ***** -->
+          </nav>
+        </div>
+      </div>
+    </div>
+  </header>
+
+
+
+  <section class="comments-section">
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12">
+          <h1 class="comments-title"> Veja as sugestões que nossos usuarios enviaram</h1>
+          <div id="lista"></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <footer>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12 wow fadeIn" data-wow-duration="1s" data-wow-delay="0.25s">
+          <p>Trabalho de Conclusão de Curso apresentado ao IFPR – 2025</p>
+        </div>
+      </div>
+    </div>
+  </footer>
+  
+  <!-- LIGHTBOX INITIALIZATION -->
+  <script type="text/javascript">
+    $(document).ready(function (e) {
+
+      // live handler
+      lc_lightbox('.elem', {
+        wrap_class: 'lcl_fade_oc',
+        gallery: true,
+        thumb_attr: 'data-lcl-thumb',
+
+        skin: 'minimal',
+        radius: 0,
+        padding: 0,
+        border_w: 0,
+      });
+
+    });
+  </script>
+
+  <!-- Supabase Comments Script -->
+  <script>
+    const supabaseUrl = "https://cdhjzkmlucahtllfpdlx.supabase.co";
+    const supabaseKey = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImNkaGp6a21sdWNhaHRsbGZwZGx4Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzUyNDgxNzMsImV4cCI6MjA5MDgyNDE3M30.ZaP_y-A2t32z8FRT4vAA8xsMqjhsdA0QuQIGTP5f36g";
+
+    const supabaseClient = supabase.createClient(supabaseUrl, supabaseKey);
+
+    async function carregarComentarios() {
+
+        const { data, error } = await supabaseClient
+            .from("comentarios")
+            .select("*")
+            .order("id", { ascending: false });
+
+        if (error) {
+            console.log(error);
+            return;
+        }
+
+        const lista = document.getElementById("lista");
+        lista.innerHTML = "";
+
+        data.forEach(item => {
+            const div = document.createElement("div");
+            div.classList.add("card");
+
+            div.innerHTML = `
+                <h3>${item.nome} ${item.sobrenome}</h3>
+                <p><strong>Email:</strong> ${item.email}</p>
+                <p>${item.msg}</p>
+            `;
+
+            lista.appendChild(div);
+        });
+    }
+
+    carregarComentarios();
+  </script>
+</body>
+</html>
