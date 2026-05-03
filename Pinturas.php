@@ -7,7 +7,7 @@
   <meta name="description" content="Pinturas GRIOT">
   <meta name="author" content="Lucas Ancacio e Maria Eduarda Gomes">
   <meta charset="UTF-8">
-  <link rel="icon" href="assets\images\Icone_rmbd.png">
+  <link rel="icon" href=" galeria\assets\images\FavIcon_SF.png">
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap"
     rel="stylesheet">
 
@@ -104,7 +104,6 @@ https://templatemo.com/tm-562-space-dynamic
             </a>
           </div>
           <!-- ***** Logo End ***** -->
-          <!-- ***** Logo End ***** -->
           <!-- ***** Menu Start ***** -->
           <ul class="nav">
             <li class="scroll-to-section">
@@ -135,7 +134,7 @@ https://templatemo.com/tm-562-space-dynamic
           <div class="row">
             <div class="col-lg-6 align-self-center">
               <div class="left-content header-text wow fadeInLeft" data-wow-duration="1s" data-wow-delay="1s">
-                <h2>xxxxxx <em>xxxxx</em> <span>GRIOT!</span></h2>
+                <h2><em>Pinturas</em> <span>GRIOT!</span></h2>
                 <p>A galeria de pinturas do GRIOT apresenta um conjunto de obras que expressam,
                   por meio da arte, a profundidade da cultura afro-brasileira e as múltiplas
                   dimensões da experiência negra. Cada pintura revela traços de história,
@@ -176,7 +175,7 @@ https://templatemo.com/tm-562-space-dynamic
     <div class="container">
       <div class="row">
         <div class="col-lg-12 wow fadeIn" data-wow-duration="1s" data-wow-delay="0.25s">
-          <p> Trabalho desenvolvido para a disciplina de Desenvolvimento Web-2025</p>
+          <p>Trabalho de Conclusão de Curso apresentado ao IFPR – 2025</p>
         </div>
       </div>
     </div>

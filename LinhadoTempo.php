@@ -8,6 +8,7 @@
   <title>Linha do Tempo Griot</title>
   <link href="https://www.jqueryscript.net/css/jquerysctipttop.css" rel="stylesheet" type="text/css">
   <link href="LinhaDoTempo/dist/css/timeline.min.css" rel="stylesheet">
+  <link rel="icon" href=" galeria\assets\images\FavIcon_SF.png">
   <style>
   body { font-family: 'Roboto'; background-color: #ECF0F1; }
 </style>

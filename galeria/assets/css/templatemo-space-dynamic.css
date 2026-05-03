@@ -186,16 +186,17 @@ body {
 
 /* Botão Azul (Login) */
 .nav li a.main-blue-button {
-  display: inline-flex !important;
+   display: inline-flex !important;
   align-items: center;
   justify-content: center;
-  background-color: #03a4ed;
+  background-color: #fe3f40;
   color: #fff !important;
   font-size: 15px;
   font-weight: 600;
   text-transform: capitalize;
   
-  padding: 8px 24px 12px 24px !important; 
+  padding: 8px 24px 12px 24px !important;
+  
   border-radius: 30px;
   letter-spacing: 0.25px;
   margin: 0 8px;

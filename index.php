@@ -139,6 +139,7 @@
         </div>
       </div>
     </div>
+    
   </div>
 
 
@@ -232,7 +233,7 @@
             <h2>Se você tem uma sugestão não exite em nós avisar</h2>
             <p>É muito importante sua opinião para a evolução do nosso projeto, deixe elogios críticas e sugestões</p>
             <div class="phone-info">
-              <h4>Ligue para nosso telefone: <span><i class="fa fa-phone"></i> <a href="#">41 98474-8028s</a></span>
+              <h4>Ligue para nosso telefone: <span><i class="fa fa-phone"></i> <a href="#">41 98474-8028</a></span>
               </h4>
             </div>
           </div>
@@ -281,7 +282,7 @@
     <div class="container">
       <div class="row">
         <div class="col-lg-12 wow fadeIn" data-wow-duration="1s" data-wow-delay="0.25s">
-          <p> Trabalho desenvolvido para a disciplina de Desenvolvimento Web-2025</p>
+          <p>Trabalho de Conclusão de Curso apresentado ao IFPR – 2025</p>
         </div>
       </div>
     </div>

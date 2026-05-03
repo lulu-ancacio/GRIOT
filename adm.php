@@ -294,7 +294,7 @@ verificar_sessao();
     </div>
 
     <footer>
-        <p>Trabalho desenvolvido para a disciplina de Desenvolvimento Web – 2025</p>
+        <p>Trabalho de Conclusão de Curso apresentado ao IFPR – 2025</p>
     </footer>
 
     <script src="galeria/vendor/jquery/jquery.min.js"></script>

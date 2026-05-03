@@ -3,16 +3,23 @@
 
 <head>
 
-
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="description" content="fotografias GRIOT">
-  <meta name="author" content="Lucas Ancacio e Maria Eduarda Gomes">
+  <meta name="description" content="Museu virtual com tematica racial">
+  <meta name="author" content=" ">
   <meta charset="UTF-8">
-  <link rel="icon" href="assets\images\Icone_rmbd.png">
+  <link rel="icon" href=" galeria\assets\images\FavIcon_SF.png">
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap"
     rel="stylesheet">
 
-  <title>Fotografias GRIOT</title>
+  <title>GRIOT</title>
+
+
+  <!-- Scripts -->
+  <script src="galeria/vendor/jquery/jquery.min.js"></script>
+  <script src="galeria/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="galeria/assets/js/owl-carousel.js"></script>
+  <script src="galeria/assets/js/templatemo-custom.js"></script>
+
 
   <!-- Bootstrap core CSS -->
   <link href="galeria/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -22,40 +29,6 @@
   <link rel="stylesheet" href="galeria/assets/css/templatemo-space-dynamic.css">
   <link rel="stylesheet" href="galeria/assets/css/animated.css">
   <link rel="stylesheet" href="galeria/assets/css/owl.css">
-  <!--
-TemplateMo 562 Space Dynamic
-https://templatemo.com/tm-562-space-dynamic
--->
-
-  <!-- CSS da galeria -->
-  <style type="text/css">
-    .elem,
-    .elem * {
-      box-sizing: border-box;
-      margin: 0 !important;
-    }
-
-    .elem {
-      display: inline-block;
-      font-size: 0;
-      width: 33%;
-      border: 20px solid transparent;
-      border-bottom: none;
-      background: #fff;
-      padding: 10px;
-      height: auto;
-      background-clip: padding-box;
-    }
-
-    .elem>span {
-      display: block;
-      cursor: pointer;
-      height: 0;
-      padding-bottom: 70%;
-      background-size: cover;
-      background-position: center center;
-    }
-  </style>
 
 
   <!-- LIGHTBOX FADING SHOW/HIDE EFFECT (as explained in documentation) -->
@@ -92,23 +65,39 @@ https://templatemo.com/tm-562-space-dynamic
   <!-- //////////////////////////////////////////////// -->
 
 </head>
-<!-- ***** Header Area Start ***** -->
+
+<body>
+
+  <!-- ***** Preloader Start ***** -->
+  <div id="js-preloader" class="js-preloader">
+    <div class="preloader-inner">
+      <span class="dot"></span>
+      <div class="dots">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </div>
+  </div>
+  <!-- ***** Preloader End ***** -->
+
+  <!-- ***** Header Area Start ***** -->
   <header class="header-area header-sticky wow slideInDown" data-wow-duration="0.75s" data-wow-delay="0s">
     <div class="container">
       <div class="row">
         <div class="col-12">
           <nav class="main-nav">
             <!-- ***** Logo Start ***** -->
-            <div class="logo">
-              <a href="index.php">
+             <div class="logo">
+                 <a href="index.php">
               <img src="galeria\assets\images\LogoEst_SF.png">
-              <a/>
-            </div>
+            </a>
+          </div>
             <!-- ***** Logo End ***** -->
             <!-- ***** Menu Start ***** -->
             <ul class="nav">
               <li class="scroll-to-section">
-                <a href="Index.php" class="main-red-button">Início</a>
+                <a href="index.php" class="main-red-button">HOME</a>
               </li>
             </ul>
 
@@ -116,7 +105,6 @@ https://templatemo.com/tm-562-space-dynamic
               <span>Menu</span>
             </a>
             <!-- ***** Menu End ***** -->
-           
           </nav>
         </div>
       </div>
@@ -124,10 +112,6 @@ https://templatemo.com/tm-562-space-dynamic
   </header>
   <!-- ***** Header Area End ***** -->
 
-
-
-<body>
-    <br><br>
   <div class="main-banner wow fadeIn" id="top" data-wow-duration="1s" data-wow-delay="0.5s">
     <div class="container">
       <div class="row">
@@ -156,6 +140,7 @@ https://templatemo.com/tm-562-space-dynamic
   </div>
 
 
+
   <div id="portfolio" class="our-portfolio section">
     <div class="container">
       <?php
@@ -180,7 +165,7 @@ https://templatemo.com/tm-562-space-dynamic
     <div class="container">
       <div class="row">
         <div class="col-lg-12 wow fadeIn" data-wow-duration="1s" data-wow-delay="0.25s">
-          <p> Trabalho desenvolvido para a disciplina de Desenvolvimento Web-2025</p>
+          <p> Trabalho de Conclusão de Curso apresentado ao IFPR – 2025</p>
         </div>
       </div>
     </div>
