@@ -132,6 +132,15 @@ session_start();
               <li class="scroll-to-section">
                 <?php
                 if (!empty($_SESSION['email'])) {
+                  echo '<a href="./mensagemRecebida.html" class="main-red-button">Mensagens</a>';
+                } else {
+                  echo '';
+                }
+                ?>
+              </li>
+              <li class="scroll-to-section">
+                <?php
+                if (!empty($_SESSION['email'])) {
                   echo '<a href="./conexao/logout.php" class="main-red-button">Sair da conta</a>';
                 } else {
                   echo '';

@@ -253,16 +253,17 @@ https://templatemo.com/tm-562-space-dynamic
             <div class="col-lg-6 align-self-center">
               <div class="left-content header-text wow fadeInLeft" data-wow-duration="1s" data-wow-delay="1s">
                 <h2><em>Diga X!</em> <span>Diga GRIOT!</span></h2>
-                <p>A galeria de pinturas do GRIOT apresenta um conjunto de obras que expressam,
-                  por meio da arte, a profundidade da cultura afro-brasileira e as múltiplas
-                  dimensões da experiência negra. Cada pintura revela traços de história,
-                  identidade e resistência, traduzidos em cores,
-                  formas e simbolismos que dialogam com a ancestralidade e o presente.</p>
+                <p>A fotografia é muito mais do que um clique congelado no tempo; 
+                é uma forma de escrever a história com a luz. No contexto da cultura 
+                negra e da ancestralidade, a câmera torna-se uma ferramenta poderosa de
+                 reexistência. Durante muito tempo, outras pessoas contaram as nossas histórias,
+                  mas hoje, através das lentes, nós retomamos o protagonismo da nossa própria
+                   narrativa.</p>
               </div>
             </div>
             <div class="col-lg-6">
               <div class="right-image wow fadeInRight" data-wow-duration="1s" data-wow-delay="0.5s">
-                <img src="galeria/assets/images/Pintura.jpg" alt="Menino negro com uma câmera analógica em suas mãos.">
+                <img src="galeria/assets/images/Camera.jpg" alt="Menino negro com uma câmera analógica em suas mãos.">
               </div>
             </div>
           </div>
