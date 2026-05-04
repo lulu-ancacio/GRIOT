@@ -14,7 +14,6 @@ if (
     isset($_POST['senha_login'])
 ) {
 
-    //Para criação de usuários
     $email = $_POST['email_login'];
     $senha = $_POST['senha_login'];
 

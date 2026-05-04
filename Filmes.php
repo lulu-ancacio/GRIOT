@@ -1,5 +1,5 @@
 
-<html lang="pt">
+<html lang="pt-br">
 
 <head>
     <meta charset="UTF-8">
@@ -323,7 +323,7 @@
         </section>
 
             <footer>
-               <p>Trabalho de Conclusão de Curso apresentado ao IFPR – 2025</p>
+               <p>Trabalho de Conclusão de Curso apresentado ao IFPR - 2026</p>
             </footer>
         </div>
 </div>

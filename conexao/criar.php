@@ -3,24 +3,30 @@
 use GuzzleHttp\Exception\GuzzleException;
 
 require 'config.php';
-require 'C:/xampp/htdocs/GRIOT/composer/vendor/autoload.php';
+require'../composer/vendor/autoload.php';
 $msg = '';
 
 if (
     $_SERVER['REQUEST_METHOD'] == 'POST' and
+    isset($_POST['nome_criar']) and
     isset($_POST['email_criar']) and
-    isset($_POST['senha_criar'])
+    isset($_POST['senha_criar']) and
+    isset($_POST['genero_criar']) 
 ) {
 
-    //Para criação de usuários
+  
     $email = $_POST['email_criar'];
     $senha = $_POST['senha_criar'];
+    $genero = $_POST['genero_criar'];
+    $nome = $_POST['nome_criar'];
 
     $client = new GuzzleHttp\Client();
 
     $body = [
         'email' => $email,
-        'password' => $senha
+        'password' => $senha,
+        'gender' => $genero,
+        'name' => $nome
     ];
 
     try {
@@ -53,7 +59,7 @@ if (
 ?>
 
 <!DOCTYPE html>
-<html lang="pt">
+<html lang="pt-br">
 
 <head>
     <meta charset="UTF-8">
@@ -201,13 +207,26 @@ if (
                 </div>
                 <p><?php echo $msg ?></p>
                 <!-- ***** Logo End ***** -->
+
+                <label>Digite seu nome:</label>
+                <input type="text" name="nome_criar" required>
+
                 <label>Digite seu email:</label>
                 <input type="email" name="email_criar" required>
 
                 <label>Digite sua senha:</label>
                 <input type="password" name="senha_criar" required>
 
+                <label>Selecione seu gênero:</label>
+                <select name="genero_criar" required>
+                    <option value="">Selecione</option>
+                    <option value="masculino">Masculino</option>
+                    <option value="feminino">Feminino</option>
+                    <option value="outro">Outro</option>
+                </select>
+
                 <input type="submit" value="Criar conta">
+
             </form>
             <a href='../index.php'>◃ Voltar ao início..</a>
         </div>

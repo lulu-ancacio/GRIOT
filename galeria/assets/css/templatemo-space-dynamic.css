@@ -575,17 +575,11 @@ header
   background-color: #1e1e1e;
 }
 
-.header-area.header-sticky {
-  min-height: 80px;
-}
 
 .header-area .nav {
   margin-top: 30px;
 }
 
-.header-area.header-sticky .nav li a.active {
-  color: #fe3f40;
-}
 
 @media (max-width: 1200px) {
   .header-area .main-nav .nav li {
@@ -615,12 +609,7 @@ header
   .header-area .main-nav .logo {
     color: #1e1e1e;
   }
-  .header-area.header-sticky .nav li a:hover,
-  .header-area.header-sticky .nav li a.active {
-    color: #fe3f40!important;
-    opacity: 1;
-  }
- 
+
   .header-area {
     background-color: #f7f7f7;
     padding: 0px 15px;
@@ -640,39 +629,15 @@ header
   .header-area .main-nav {
     overflow: hidden;
   }
-  .header-area .main-nav .nav {
-    float: none;
-    width: 100%;
-    display: none;
-    -webkit-transition: all 0s ease 0s;
-    -moz-transition: all 0s ease 0s;
-    -o-transition: all 0s ease 0s;
-    transition: all 0s ease 0s;
-    margin-left: 0px;
-  }
-  .background-header .nav {
-    margin-top: 80px;
-  }
+
   .header-area .main-nav .nav li:first-child {
     border-top: 1px solid #eee;
   }
-  .header-area.header-sticky .nav {
-    margin-top: 100px;
-  }
-  .header-area .main-nav .nav li {
-    width: 100%;
-    background: #fff;
-    border-bottom: 1px solid #e7e7e7;
-    padding-left: 0px !important;
-    padding-right: 0px !important;
-  }
+
   .header-area .main-nav .nav li a {
-    height: 50px !important;
-    line-height: 50px !important;
-    padding: 0px !important;
-    border: none !important;
-    background: #f7f7f7 !important;
-    color: #191a20 !important;
+     padding: 10px 20px !important;
+    height: auto !important;
+     line-height: normal !important;
   }
   .header-area .main-nav .nav li a:hover {
     background: #eee !important;

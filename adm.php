@@ -5,7 +5,7 @@ echo $_SESSION['email'];
 ?>
 
 <!DOCTYPE html>
-<html lang="pt">
+<html lang="pt-br">
 
 <head>
     <meta charset="UTF-8">
@@ -295,7 +295,7 @@ echo $_SESSION['email'];
     </div>
 
     <footer>
-        <p>Trabalho de Conclusão de Curso apresentado ao IFPR – 2025</p>
+        <p>Trabalho de Conclusão de Curso apresentado ao IFPR - 2026</p>
     </footer>
 
     <script src="galeria/vendor/jquery/jquery.min.js"></script>

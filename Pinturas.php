@@ -69,7 +69,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 ?>
 
 <!DOCTYPE html>
-<html lang="pt">
+<html lang="pt-br">
 
 <head>
 
@@ -309,7 +309,7 @@ https://templatemo.com/tm-562-space-dynamic
     <div class="container">
       <div class="row">
         <div class="col-lg-12 wow fadeIn" data-wow-duration="1s" data-wow-delay="0.25s">
-          <p>Trabalho de Conclusão de Curso apresentado ao IFPR – 2025</p>
+          <p>Trabalho de Conclusão de Curso apresentado ao IFPR - 2026</p>
         </div>
       </div>
     </div>
