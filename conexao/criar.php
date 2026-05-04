@@ -3,7 +3,7 @@
 use GuzzleHttp\Exception\GuzzleException;
 
 require 'config.php';
-require 'E:/xampp/htdocs/GRIOT/composer/vendor/autoload.php';
+require 'C:/xampp/htdocs/GRIOT/composer/vendor/autoload.php';
 $msg = '';
 
 if (

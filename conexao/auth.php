@@ -1,5 +1,5 @@
 <?php
-require 'E:/xampp/htdocs/GRIOT/composer/vendor/autoload.php';
+require 'C:/xampp/htdocs/GRIOT/composer/vendor/autoload.php';
 
 function getUserAdm($user_id, $token) {
     $client = new GuzzleHttp\Client();

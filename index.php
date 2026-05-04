@@ -98,56 +98,27 @@ session_start();
             </div>
             <!-- ***** Logo End ***** -->
             <!-- ***** Menu Start ***** -->
-            <ul class="nav">
-              <li class="scroll-to-section">
-                <?php
-                if (!empty($_SESSION['email'])) {
-                  echo '';
-                } else {
-                  echo '<a href="./conexao/login.php" class="main-blue-button">Login</a>';
-                }
-                ?>
-              </li>
-              <li class="scroll-to-section">
-                <?php
-                if (!empty($_SESSION['email'])) {
-                  echo '';
-                } else {
-                  echo '<a href="./conexao/criar.php" class="main-red-button">Criar Conta</a>';
-                }
-                ?>
-              </li>
-              <li>
-                <?php
-                if (!empty($_SESSION['email'])) {
-                  echo '<p>Bem vindo(a) ' . $_SESSION['email'] . '!</p>';
-                  if(!empty($_SESSION['adm'])){
-                    echo '<p>Você está logado como administrador(a)</p>';
-                  }
-                } else {
-                  echo '';
-                }
-                ?>
-              </li>
-              <li class="scroll-to-section">
-                <?php
-                if (!empty($_SESSION['email'])) {
-                  echo '<a href="./mensagemRecebida.html" class="main-red-button">Mensagens</a>';
-                } else {
-                  echo '';
-                }
-                ?>
-              </li>
-              <li class="scroll-to-section">
-                <?php
-                if (!empty($_SESSION['email'])) {
-                  echo '<a href="./conexao/logout.php" class="main-red-button">Sair da conta</a>';
-                } else {
-                  echo '';
-                }
-                ?>
-              </li>
-            </ul>
+           <ul class="nav">
+  <?php if (empty($_SESSION['email'])): ?>
+    <li class="scroll-to-section">
+      <a href="./conexao/login.php" class="main-blue-button">Login</a>
+    </li>
+
+    <li class="scroll-to-section">
+      <a href="./conexao/criar.php" class="main-red-button">Criar Conta</a>
+    </li>
+  <?php else: ?>
+
+    <li class="scroll-to-section">
+      <a href="./mensagemRecebida.html" class="main-red-button">Mensagens</a>
+    </li>
+
+    <li class="scroll-to-section">
+      <a href="./conexao/logout.php" class="main-red-button">Sair</a>
+    </li>
+
+  <?php endif; ?>
+</ul>
 
             <a class='menu-trigger'>
               <span>Menu</span>
@@ -167,10 +138,18 @@ session_start();
           <div class="row">
             <div class="col-lg-6 align-self-center">
               <div class="left-content header-text wow fadeInLeft" data-wow-duration="1s" data-wow-delay="1s">
+                <?php if (!empty($_SESSION['email'])): ?>
+                  <div class="welcome-box">
+                    <br> <br> <br>
+                    <h5>Bem-vindo(a), <?= $_SESSION['email'] ?> 👋</h5>
+
+                    <?php if (!empty($_SESSION['adm'])): ?>
+                      <p>Você está logado como administrador(a)</p>
+                    <?php endif; ?>
+                  </div>
+                <?php endif; ?>
               <div style="font-family: 'Poppins', sans-serif;">
                 <br>
-                 <br>
-                 <br>
                 <h6>Bem Vindo ao GRIOT</h6>
                 <h2>Seu repositório <em>com temática</em> <span> racial</span></h2>
 

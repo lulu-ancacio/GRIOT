@@ -68,55 +68,51 @@
                 <div class="movie-list-wrapper">
                     <div class="movie-list">
                         <div class="movie-list-item">
-                            <img class="movie-list-item-img" src="Filmes/img/1.jpeg" alt="">
-                            <span class="movie-list-item-title">Her</span>
-                            <p class="movie-list-item-desc">Lorem ipsum dolor sit amet consectetur adipisicing elit. At
-                                hic fugit similique accusantium.</p>
-                            <button class="movie-list-item-button">Watch</button>
-                        </div>
+                            <img class="movie-list-item-img" src="Filmes/img/MedidaProvispo.jpeg" alt="">
+                            <span class="movie-list-item-title">Medida Provisória</span>
+                            <p class="movie-list-item-desc">A.</p>
+                            <button class="movie-list-item-button" onclick="window.open('https://www.primevideo.com/-/pt/detail/0NTBXR8TA4FFBYQ9ADB4CN159I', '_blank')">
+  Assistir
+</button> </div>
 
                         <div class="movie-list-item">
-                            <img class="movie-list-item-img" src="Filmes/img/2.jpeg" alt="">
-                            <span class="movie-list-item-title">Star Wars</span>
-                            <p class="movie-list-item-desc">Lorem ipsum dolor sit amet consectetur adipisicing elit. At
-                                hic fugit similique accusantium.</p>
-                            <button class="movie-list-item-button">Watch</button>
-                        </div>
-
-
-                        <div class="movie-list-item">
-                            <img class="movie-list-item-img" src="Filmes/img/3.jpg" alt="">
-                            <span class="movie-list-item-title">Storm</span>
-                            <p class="movie-list-item-desc">Lorem ipsum dolor sit amet consectetur adipisicing elit. At
-                                hic fugit similique accusantium.</p>
-                            <button class="movie-list-item-button">Watch</button>
+                            <img class="movie-list-item-img" src="Filmes/img/Corra.jpeg" alt="">
+                            <span class="movie-list-item-title">Corra</span>
+                           
+                            <button class="movie-list-item-button">Assitir</button>
                         </div>
 
 
                         <div class="movie-list-item">
-                            <img class="movie-list-item-img" src="Filmes/img/4.jpg" alt="">
-                            <span class="movie-list-item-title">1917</span>
-                            <p class="movie-list-item-desc">Lorem ipsum dolor sit amet consectetur adipisicing elit. At
-                                hic fugit similique accusantium.</p>
-                            <button class="movie-list-item-button">Watch</button>
+                            <img class="movie-list-item-img" src="Filmes/img/WakandaGrande.jpg" alt="">
+                            <span class="movie-list-item-title">Wakanda Forever</span>
+                            <
+                            <button class="movie-list-item-button">Assitir</button>
                         </div>
 
 
                         <div class="movie-list-item">
-                            <img class="movie-list-item-img" src="Filmes/img/5.jpg" alt="">
-                            <span class="movie-list-item-title">Avengers</span>
-                            <p class="movie-list-item-desc">Lorem ipsum dolor sit amet consectetur adipisicing elit. At
-                                hic fugit similique accusantium.</p>
-                            <button class="movie-list-item-button">Watch</button>
+                            <img class="movie-list-item-img" src="Filmes/img/moonL.jpeg" alt="">
+                            <span class="movie-list-item-title">Moonlight</span>
+                          
+                            <button class="movie-list-item-button">Assitir</button>
+                        </div>
+
+
+                        <div class="movie-list-item">
+                            <img class="movie-list-item-img" src="Filmes/img/amulherRei.jpeg" alt="">
+                            <span class="movie-list-item-title">A Mulher Rei</span>
+                            
+                            <button class="movie-list-item-button">Assitir</button>
                         </div>
 
                         
                         <div class="movie-list-item">
-                            <img class="movie-list-item-img" src="Filmes/img/6.jpg" alt="">
-                            <span class="movie-list-item-title">Her</span>
+                            <img class="movie-list-item-img" src="Filmes/img/" alt="">
+                            <span class="movie-list-item-title"></span>
                             <p class="movie-list-item-desc">Lorem ipsum dolor sit amet consectetur adipisicing elit. At
                                 hic fugit similique accusantium.</p>
-                            <button class="movie-list-item-button">Watch</button>
+                            <button class="movie-list-item-button">Assitir</button>
                         </div>
 
 
@@ -125,7 +121,7 @@
                             <span class="movie-list-item-title">Her</span>
                             <p class="movie-list-item-desc">Lorem ipsum dolor sit amet consectetur adipisicing elit. At
                                 hic fugit similique accusantium.</p>
-                            <button class="movie-list-item-button">Watch</button>
+                            <button class="movie-list-item-button">Assitir</button>
                         </div>
                     </div>
                     <i class="fas fa-chevron-right arrow"></i>
@@ -137,47 +133,42 @@
                 <div class="movie-list-wrapper">
                     <div class="movie-list">
                         <div class="movie-list-item">
-                            <img class="movie-list-item-img" src="Filmes/img/8.jpg" alt="">
-                            <span class="movie-list-item-title">Her</span>
-                            <p class="movie-list-item-desc">Lorem ipsum dolor sit amet consectetur adipisicing elit. At
-                                hic fugit similique accusantium.</p>
-                            <button class="movie-list-item-button">Watch</button>
+                            <img class="movie-list-item-img" src="Filmes/img/emenda13.jpeg" alt="">
+                            <span class="movie-list-item-title">13° Emenda</span>
+                            
+                            <button class="movie-list-item-button">Assitir</button>
                         </div>
 
 
                         <div class="movie-list-item">
-                            <img class="movie-list-item-img" src="Filmes/img/9.jpg" alt="">
-                            <span class="movie-list-item-title">Her</span>
-                            <p class="movie-list-item-desc">Lorem ipsum dolor sit amet consectetur adipisicing elit. At
-                                hic fugit similique accusantium.</p>
-                            <button class="movie-list-item-button">Watch</button>
+                            <img class="movie-list-item-img" src="Filmes/img/Eunaosou.jpeg" alt="">
+                            <span class="movie-list-item-title">Eu não sou negro</span>
+                            <
+                            <button class="movie-list-item-button">Assitir</button>
                         </div>
 
 
                         <div class="movie-list-item">
-                            <img class="movie-list-item-img" src="Filmes/img/10.jpg" alt="">
-                            <span class="movie-list-item-title">Her</span>
-                            <p class="movie-list-item-desc">Lorem ipsum dolor sit amet consectetur adipisicing elit. At
-                                hic fugit similique accusantium.</p>
-                            <button class="movie-list-item-button">Watch</button>
+                            <img class="movie-list-item-img" src="Filmes/img/Menino23.jpg" alt="">
+                            <span class="movie-list-item-title">O menino 23</span>
+                            
+                            <button class="movie-list-item-button">Assitir</button>
                         </div>
 
 
                         <div class="movie-list-item">
-                            <img class="movie-list-item-img" src="Filmes/img/11.jpg" alt="">
-                            <span class="movie-list-item-title">Her</span>
-                            <p class="movie-list-item-desc">Lorem ipsum dolor sit amet consectetur adipisicing elit. At
-                                hic fugit similique accusantium.</p>
-                            <button class="movie-list-item-button">Watch</button>
+                            <img class="movie-list-item-img" src="Filmes/img/Abolicao.jpeg" alt="">
+                            <span class="movie-list-item-title">A última Abolição</span>
+                           
+                            <button class="movie-list-item-button">Assitir</button>
                         </div>
 
 
                         <div class="movie-list-item">
                             <img class="movie-list-item-img" src="Filmes/img/12.jpg" alt="">
                             <span class="movie-list-item-title">Her</span>
-                            <p class="movie-list-item-desc">Lorem ipsum dolor sit amet consectetur adipisicing elit. At
-                                hic fugit similique accusantium.</p>
-                            <button class="movie-list-item-button">Watch</button>
+                            
+                            <button class="movie-list-item-button">Assitir</button>
                         </div>
 
 
@@ -186,7 +177,7 @@
                             <span class="movie-list-item-title">Her</span>
                             <p class="movie-list-item-desc">Lorem ipsum dolor sit amet consectetur adipisicing elit. At
                                 hic fugit similique accusantium.</p>
-                            <button class="movie-list-item-button">Watch</button>
+                            <button class="movie-list-item-button">Assitir</button>
                         </div>
 
 
@@ -195,7 +186,7 @@
                             <span class="movie-list-item-title">Her</span>
                             <p class="movie-list-item-desc">Lorem ipsum dolor sit amet consectetur adipisicing elit. At
                                 hic fugit similique accusantium.</p>
-                            <button class="movie-list-item-button">Watch</button>
+                            <button class="movie-list-item-button">Assitir</button>
                         </div>
                     </div>
                     <i class="fas fa-chevron-right arrow"></i>
@@ -206,38 +197,34 @@
                 <div class="movie-list-wrapper">
                     <div class="movie-list">
                         <div class="movie-list-item">
-                            <img class="movie-list-item-img" src="Filmes/img/1.jpeg" alt="">
-                            <span class="movie-list-item-title">Her</span>
-                            <p class="movie-list-item-desc">Lorem ipsum dolor sit amet consectetur adipisicing elit. At
-                                hic fugit similique accusantium.</p>
-                            <button class="movie-list-item-button">Watch</button>
+                            <img class="movie-list-item-img" src="Filmes/img/Madamcj.jpeg" alt="">
+                            <span class="movie-list-item-title">Madam C.J</span>
+                         
+                            <button class="movie-list-item-button">Assitir</button>
                         </div>
 
 
                         <div class="movie-list-item">
-                            <img class="movie-list-item-img" src="Filmes/img/2.jpeg" alt="">
-                            <span class="movie-list-item-title">Her</span>
-                            <p class="movie-list-item-desc">Lorem ipsum dolor sit amet consectetur adipisicing elit. At
-                                hic fugit similique accusantium.</p>
-                            <button class="movie-list-item-button">Watch</button>
+                            <img class="movie-list-item-img" src="Filmes/img/Atlanta.jpeg" alt="">
+                            <span class="movie-list-item-title">Atlanta</span>
+                            
+                            <button class="movie-list-item-button">Assitir</button>
                         </div>
 
 
                         <div class="movie-list-item">
-                            <img class="movie-list-item-img" src="Filmes/img/15.jpg" alt="">
-                            <span class="movie-list-item-title">Her</span>
-                            <p class="movie-list-item-desc">Lorem ipsum dolor sit amet consectetur adipisicing elit. At
-                                hic fugit similique accusantium.</p>
-                            <button class="movie-list-item-button">Watch</button>
+                            <img class="movie-list-item-img" src="Filmes/img/ImayDes.jpeg" alt="">
+                            <span class="movie-list-item-title">I may destroy you</span>
+                            
+                            <button class="movie-list-item-button">Assitir</button>
                         </div>
 
 
                         <div class="movie-list-item">
-                            <img class="movie-list-item-img" src="Filmes/img/3.jpg" alt="">
-                            <span class="movie-list-item-title">Her</span>
-                            <p class="movie-list-item-desc">Lorem ipsum dolor sit amet consectetur adipisicing elit. At
-                                hic fugit similique accusantium.</p>
-                            <button class="movie-list-item-button">Watch</button>
+                            <img class="movie-list-item-img" src="Filmes/img/Insecure.jpeg" alt="">
+                            <span class="movie-list-item-title">Insecure</span>
+                            
+                            <button class="movie-list-item-button">Assitir</button>
                         </div>
 
 
@@ -246,7 +233,7 @@
                             <span class="movie-list-item-title">Her</span>
                             <p class="movie-list-item-desc">Lorem ipsum dolor sit amet consectetur adipisicing elit. At
                                 hic fugit similique accusantium.</p>
-                            <button class="movie-list-item-button">Watch</button>
+                            <button class="movie-list-item-button">Assitir</button>
                         </div>
 
 
@@ -255,7 +242,7 @@
                             <span class="movie-list-item-title">Her</span>
                             <p class="movie-list-item-desc">Lorem ipsum dolor sit amet consectetur adipisicing elit. At
                                 hic fugit similique accusantium.</p>
-                            <button class="movie-list-item-button">Watch</button>
+                            <button class="movie-list-item-button">Assitir</button>
                         </div>
 
 
@@ -264,7 +251,7 @@
                             <span class="movie-list-item-title">Her</span>
                             <p class="movie-list-item-desc">Lorem ipsum dolor sit amet consectetur adipisicing elit. At
                                 hic fugit similique accusantium.</p>
-                            <button class="movie-list-item-button">Watch</button>
+                            <button class="movie-list-item-button">Assitir</button>
                         </div>
                     </div>
                     <i class="fas fa-chevron-right arrow"></i>
@@ -276,37 +263,33 @@
                 <div class="movie-list-wrapper">
                     <div class="movie-list">
                         <div class="movie-list-item">
-                            <img class="movie-list-item-img" src="Filmes/img/17.jpg" alt="">
-                            <span class="movie-list-item-title">Her</span>
-                            <p class="movie-list-item-desc">Lorem ipsum dolor sit amet consectetur adipisicing elit. At
-                                hic fugit similique accusantium.</p>
-                            <button class="movie-list-item-button">Watch</button>
+                            <img class="movie-list-item-img" src="Filmes/img/Malcon.jpeg" alt="">
+                            <span class="movie-list-item-title">Malcolm X</span>
+                           
+                            <button class="movie-list-item-button">Assitir</button>
                         </div>
 
                         <div class="movie-list-item">
-                            <img class="movie-list-item-img" src="Filmes/img/18.jpg" alt="">
-                            <span class="movie-list-item-title">Her</span>
-                            <p class="movie-list-item-desc">Lorem ipsum dolor sit amet consectetur adipisicing elit. At
-                                hic fugit similique accusantium.</p>
-                            <button class="movie-list-item-button">Watch</button>
-                        </div>
-
-
-                        <div class="movie-list-item">
-                            <img class="movie-list-item-img" src="Filmes/img/19.jpg" alt="">
-                            <span class="movie-list-item-title">Her</span>
-                            <p class="movie-list-item-desc">Lorem ipsum dolor sit amet consectetur adipisicing elit. At
-                                hic fugit similique accusantium.</p>
-                            <button class="movie-list-item-button">Watch</button>
+                            <img class="movie-list-item-img" src="Filmes/img/EstrelasAlem.jpeg" alt="">
+                            <span class="movie-list-item-title">Estrelas Além do Tempo</span>
+                       
+                            <button class="movie-list-item-button">Assitir</button>
                         </div>
 
 
                         <div class="movie-list-item">
-                            <img class="movie-list-item-img" src="Filmes/img/7.jpg" alt="">
-                            <span class="movie-list-item-title">Her</span>
-                            <p class="movie-list-item-desc">Lorem ipsum dolor sit amet consectetur adipisicing elit. At
-                                hic fugit similique accusantium.</p>
-                            <button class="movie-list-item-button">Watch</button>
+                            <img class="movie-list-item-img" src="Filmes/img/oMeninoQue.jpeg" alt="">
+                            <span class="movie-list-item-title">O Menino que Descobriu o Vento</span>
+                   
+                            <button class="movie-list-item-button">Assitir</button>
+                        </div>
+
+
+                        <div class="movie-list-item">
+                            <img class="movie-list-item-img" src="Filmes/img/Mussum.jpeg" alt="">
+                            <span class="movie-list-item-title">Mussum, O Filmis</span>
+                           
+                            <button class="movie-list-item-button">Assitir</button>
                         </div>
 
 
@@ -315,7 +298,7 @@
                             <span class="movie-list-item-title">Her</span>
                             <p class="movie-list-item-desc">Lorem ipsum dolor sit amet consectetur adipisicing elit. At
                                 hic fugit similique accusantium.</p>
-                            <button class="movie-list-item-button">Watch</button>
+                            <button class="movie-list-item-button">Assitir</button>
                         </div>
 
 
@@ -324,7 +307,7 @@
                             <span class="movie-list-item-title">Her</span>
                             <p class="movie-list-item-desc">Lorem ipsum dolor sit amet consectetur adipisicing elit. At
                                 hic fugit similique accusantium.</p>
-                            <button class="movie-list-item-button">Watch</button>
+                            <button class="movie-list-item-button">Assitir</button>
                         </div>
 
 
@@ -333,7 +316,7 @@
                             <span class="movie-list-item-title">Her</span>
                             <p class="movie-list-item-desc">Lorem ipsum dolor sit amet consectetur adipisicing elit. At
                                 hic fugit similique accusantium.</p>
-                            <button class="movie-list-item-button">Watch</button>
+                            <button class="movie-list-item-button">Assitir</button>
                         </div>
                     <i class="fas fa-chevron-right arrow"></i>
              </div>

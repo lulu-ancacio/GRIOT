@@ -418,7 +418,7 @@ legend + * {
   -webkit-appearance: none;
 }
 
-::-webkit-color-swatch-wrapper {
+::-webkit-color-sAssitir-wrapper {
   padding: 0;
 }
 
@@ -2321,11 +2321,11 @@ textarea.form-control-lg {
 .form-control-color:not(:disabled):not([readonly]) {
   cursor: pointer;
 }
-.form-control-color::-moz-color-swatch {
+.form-control-color::-moz-color-sAssitir {
   height: 1.5em;
   border-radius: 0.25rem;
 }
-.form-control-color::-webkit-color-swatch {
+.form-control-color::-webkit-color-sAssitir {
   height: 1.5em;
   border-radius: 0.25rem;
 }

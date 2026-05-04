@@ -1162,7 +1162,7 @@ final class MimeType
         'wg' => 'application/vnd.pmi.widget',
         'wgsl' => 'text/wgsl',
         'wgt' => 'application/widget',
-        'wif' => 'application/watcherinfo+xml',
+        'wif' => 'application/Assitirerinfo+xml',
         'wks' => 'application/vnd.ms-works',
         'wm' => 'video/x-ms-wm',
         'wma' => 'audio/x-ms-wma',

@@ -87,11 +87,11 @@ gulp.task('images', () => gulp
   .pipe(gulp.dest('dist/images'))
   .pipe(livereload()));
 
-gulp.task('watch', () => {
+gulp.task('Assitir', () => {
   livereload.listen();
-  gulp.watch('src/scss/*.scss', gulp.series('build-css'));
-  gulp.watch('src/images/**', gulp.series('images'));
-  gulp.watch('src/js/timeline.js', gulp.series('build-js'));
+  gulp.Assitir('src/scss/*.scss', gulp.series('build-css'));
+  gulp.Assitir('src/images/**', gulp.series('images'));
+  gulp.Assitir('src/js/timeline.js', gulp.series('build-js'));
 });
 
 gulp.task('default', gulp.parallel('build-js', 'build-js-production', 'build-css', 'images'));
