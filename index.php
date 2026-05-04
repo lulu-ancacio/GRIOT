@@ -12,10 +12,12 @@ session_start();
   <meta name="author" content=" ">
   <meta charset="UTF-8">
   <link rel="icon" href=" galeria\assets\images\FavIcon_SF.png">
+
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap"
     rel="stylesheet">
 
-  <title>GRIOT</title>
+
+  <title>GRIOT-Início</title>
 
 
   <!-- Scripts -->
@@ -67,7 +69,6 @@ session_start();
 
   <!-- //////////////////////////////////////////////// -->
   <!-- //////////////////////////////////////////////// -->
-
 </head>
 
 <body>
@@ -157,6 +158,10 @@ session_start();
           <div class="row">
             <div class="col-lg-6 align-self-center">
               <div class="left-content header-text wow fadeInLeft" data-wow-duration="1s" data-wow-delay="1s">
+              <div style="font-family: 'Poppins', sans-serif;">
+                <br>
+                 <br>
+                 <br>
                 <h6>Bem Vindo ao GRIOT</h6>
                 <h2>Seu repositório <em>com temática</em> <span> racial</span></h2>
 
@@ -167,6 +172,7 @@ session_start();
                   Ideal para educação, pesquisa e reflexão comunitária, o GRIOT transforma memória em diálogo.</p>
               </div>
             </div>
+          </div>
             <div class="col-lg-6">
               <div class="right-image wow fadeInRight" data-wow-duration="1s" data-wow-delay="0.5s">
                 <img src="galeria/assets/images/FotoPrincipal.jpg" alt="Jovem negro com 3 pentes garfos em seu cabelo.">
@@ -243,7 +249,7 @@ session_start();
             <div class="icon-box">
               <i class="fa fa-clock-o"></i>
             </div>
-            <h4> Linha do Tempo</h4>
+            <h4>Linha do Tempo <br><span>(Em breve)</span></h4>
           </a>
         </div>
 
@@ -252,7 +258,7 @@ session_start();
             <div class="icon-box">
               <i class="fa fa-gavel"></i>
             </div>
-            <h4> Legislação</h4>
+            <h4>Legislação <br><span>(Em breve)</span></h4>
           </a>
         </div>
 
@@ -262,7 +268,7 @@ session_start();
 
 
 
-  <div id="contact" class="contact-us section">
+  <div class="contact-us section">
     <div class="container">
       <div class="row">
         <div class="col-lg-6 align-self-center wow fadeInLeft" data-wow-duration="0.5s" data-wow-delay="0.25s">
@@ -275,8 +281,9 @@ session_start();
             </div>
           </div>
         </div>
+
         <div class="col-lg-6 wow fadeInRight" data-wow-duration="0.5s" data-wow-delay="0.25s">
-          <form id="contact" action="" method="post">
+          <form id="contact"> 
             <div class="row">
               <div class="col-lg-6">
                 <fieldset>
@@ -342,6 +349,42 @@ session_start();
 
     });
   </script>
+
+   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
+ <script>
+const supabaseUrl = "https://cdhjzkmlucahtllfpdlx.supabase.co";
+const supabaseKey = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImNkaGp6a21sdWNhaHRsbGZwZGx4Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzUyNDgxNzMsImV4cCI6MjA5MDgyNDE3M30.ZaP_y-A2t32z8FRT4vAA8xsMqjhsdA0QuQIGTP5f36g";
+
+const supabaseClient = supabase.createClient(supabaseUrl, supabaseKey);
+
+document.getElementById("contact").addEventListener("submit", async function(e) {
+    e.preventDefault();
+
+    const nome = document.getElementById("name").value;
+    const sobrenome = document.getElementById("surname").value;
+    const email = document.getElementById("email").value;
+    const msg = document.getElementById("message").value;
+
+    const { error } = await supabaseClient
+        .from("comentarios")
+        .insert([
+            {
+                nome: nome,
+                sobrenome: sobrenome,
+                email: email,
+                msg: msg
+            }
+        ]); 
+
+    if (error) {
+        alert("Erro ao enviar ");
+        console.log(error);
+    } else {
+        alert("Mensagem enviada com sucesso! 🚀");
+        document.getElementById("contact").reset();
+    }
+});
+</script>
 
 </body>
 

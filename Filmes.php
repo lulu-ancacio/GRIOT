@@ -7,9 +7,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" href="galeria/assets/images/FavIcon_SF.png">
     <link rel="stylesheet" href="Filmes/style.css">
-    <link
-        href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&family=Sen:wght@400;700;800&display=swap"
-        rel="stylesheet">
+      <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap"
+    rel="stylesheet">
+
+
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css">
     <title>GRIOT- Filmes</title>
 
@@ -38,6 +39,8 @@
             </div>
         </div>
     </div>
+<div style="font-family: 'Poppins', sans-serif;">
+<div id = "Fundo">
  <div class= "main-banner">
     <div class="intro-section">
     <div class="intro-text">
@@ -54,8 +57,9 @@
     </div>
 
     <div class="intro-image">
-        <img src="galeria/assets/images/Pintura.jpg" alt="">
+        <img src="Filmes/img/FotoPrincipal.jpg" alt="">
     </div>
+</div>
 </div>
 
 <section id="filmes" class="movie-list-container">
@@ -335,11 +339,11 @@
              </div>
         </section>
 
-
             <footer>
                <p>Trabalho de Conclusão de Curso apresentado ao IFPR – 2025</p>
             </footer>
         </div>
+</div>
 </div>
 
     <script src="Filmes/app.js"></script>
