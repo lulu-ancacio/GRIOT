@@ -40,6 +40,7 @@
         </div>
     </div>
 <div style="font-family: 'Poppins', sans-serif;">
+<div id = "Fundo">
  <div class= "main-banner">
     <div class="intro-section">
     <div class="intro-text">
@@ -340,11 +341,11 @@
              </div>
         </section>
 
-
             <footer>
                <p>Trabalho de Conclusão de Curso apresentado ao IFPR – 2025</p>
             </footer>
         </div>
+</div>
 </div>
 
     <script src="Filmes/app.js"></script>

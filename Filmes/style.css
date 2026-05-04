@@ -7,41 +7,23 @@ body {
   font-family: "Roboto", sans-serif;
 }
 
-.main-banner {
-  position: relative; /* ESSENCIAL */
-  overflow: hidden;   /* evita vazar */
-}
 
-.main-banner {
+#Fundo {
   position: relative;
   overflow: hidden;
-}
+  min-height: 200vh;
+  padding: 0 0 60px;
 
+  background-image: 
+    url(../galeria/assets/images/baner-dec-left.png),
+    url(../galeria/assets/images/baner-dec-right.png);
 
-.main-banner::after {
-  content: '';
-  background-image: url("galeria/assets/images/baner-dec-left.png");
+  background-position: left center, right center;
   background-repeat: no-repeat;
-  position: absolute;
-  left: 0;
-  top: 100px;
-  width: 193px;
-  height: 467px;
-  z-index: 0;
+  background-size: 30% 100%;
 }
 
 
-.main-banner::before {
-  content: '';
-  background-image: url("galeria/assets/images/baner-dec-right.png");
-  background-repeat: no-repeat;
-  position: absolute;
-  right: 0;
-  top: 100px;
-  width: 98px;
-  height: 290px;
-  z-index: 0;
-}
 
 .intro-section {
   position: relative;
