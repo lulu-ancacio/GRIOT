@@ -1,3 +1,7 @@
+<?php
+session_start();
+?>
+
 <!DOCTYPE html>
 <html lang="pt">
 
@@ -95,10 +99,43 @@
             <!-- ***** Menu Start ***** -->
             <ul class="nav">
               <li class="scroll-to-section">
-                <a href="./conexao/login.php" class="main-blue-button">Login</a>
+                <?php
+                if (!empty($_SESSION['email'])) {
+                  echo '';
+                } else {
+                  echo '<a href="./conexao/login.php" class="main-blue-button">Login</a>';
+                }
+                ?>
               </li>
               <li class="scroll-to-section">
-                <a href="./conexao/criar.php" class="main-red-button">Criar Conta</a>
+                <?php
+                if (!empty($_SESSION['email'])) {
+                  echo '';
+                } else {
+                  echo '<a href="./conexao/criar.php" class="main-red-button">Criar Conta</a>';
+                }
+                ?>
+              </li>
+              <li>
+                <?php
+                if (!empty($_SESSION['email'])) {
+                  echo '<p>Bem vindo(a) ' . $_SESSION['email'] . '!</p>';
+                  if(!empty($_SESSION['adm'])){
+                    echo '<p>Você está logado como administrador(a)</p>';
+                  }
+                } else {
+                  echo '';
+                }
+                ?>
+              </li>
+              <li class="scroll-to-section">
+                <?php
+                if (!empty($_SESSION['email'])) {
+                  echo '<a href="./conexao/logout.php" class="main-red-button">Sair da conta</a>';
+                } else {
+                  echo '';
+                }
+                ?>
               </li>
             </ul>
 
@@ -139,7 +176,7 @@
         </div>
       </div>
     </div>
-    
+
   </div>
 
 
@@ -289,7 +326,7 @@
   </footer>
   <!-- LIGHTBOX INITIALIZATION -->
   <script type="text/javascript">
-    $(document).ready(function (e) {
+    $(document).ready(function(e) {
 
       // live handler
       lc_lightbox('.elem', {

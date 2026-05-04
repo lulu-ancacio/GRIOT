@@ -42,9 +42,7 @@
     <div class="intro-section">
     <div class="intro-text">
         <h1>
-            Seu repositório <br>
-            <span class="blue">com temática</span> <br>
-            <span class="red">racial</span>
+            Luz! <span class="blue">Câmera! </span><span class="red">GRIOT!</span>
         </h1>
 
         <p>

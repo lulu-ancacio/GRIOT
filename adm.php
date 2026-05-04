@@ -1,8 +1,9 @@
 <?php
 session_start();
-require_once("conexao/seguranca.php");
-verificar_sessao();
+echo $_SESSION['email'];
+
 ?>
+
 <!DOCTYPE html>
 <html lang="pt">
 

@@ -1,7 +1,70 @@
 <?php
-require_once("conexao/supabase.php");
-
+session_start();
+require 'conexao/supabase.php';
 $quadros = supabaseRequest("pinturas?select=*");
+
+use GuzzleHttp\Exception\GuzzleException;
+
+require 'conexao/config.php';
+require 'E:/xampp/htdocs/GRIOT/composer/vendor/autoload.php';
+
+$SUPABASE_URL = 'https://cdhjzkmlucahtllfpdlx.supabase.co';
+$API_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImNkaGp6a21sdWNhaHRsbGZwZGx4Iiwicm9sZSI6InNlcnZpY2Vfcm9sZSIsImlhdCI6MTc3NTI0ODE3MywiZXhwIjoyMDkwODI0MTczfQ.adPVCz1kuiC0M6Du7axunnXaySAfYV2hy7lpoplCY64'; // ⚠️ use service_role aqui (backend)
+$BUCKET = 'Pinturas';
+
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+
+  $file = $_FILES['imagem'];
+  $titulo = $_POST['titulo'];
+  $autor = $_POST['autor'];
+  $ano = $_POST['ano'];
+
+  if ($file['error'] === 0) {
+
+    $client = new GuzzleHttp\Client();
+
+    // nome único do arquivo
+    $fileName = uniqid() . '-' . basename($file['name']);
+
+    // 📦 1. upload para o storage
+    $response = $client->post(
+      "$SUPABASE_URL/storage/v1/object/$BUCKET/$fileName",
+      [
+        'headers' => [
+          'apikey' => $API_KEY,
+          'Authorization' => "Bearer $API_KEY",
+          'Content-Type' => $file['type']
+        ],
+        'body' => fopen($file['tmp_name'], 'r')
+      ]
+    );
+
+    // 🔗 2. URL pública
+    $publicUrl = "$SUPABASE_URL/storage/v1/object/public/$BUCKET/$fileName";
+
+    // 🗄️ 3. inserir no banco
+    $dbResponse = $client->post(
+      "$SUPABASE_URL/rest/v1/pinturas",
+      [
+        'headers' => [
+          'apikey' => $API_KEY,
+          'Authorization' => "Bearer $API_KEY",
+          'Content-Type' => 'application/json',
+          'Prefer' => 'return=minimal'
+        ],
+        'json' => [
+          'titulo' => $titulo,
+          'autor' => $autor,
+          'ano' => $ano,
+          'url' => $publicUrl
+        ]
+      ]
+    );
+
+    header("Location: Pinturas.php");
+    exit;
+  }
+}
 
 ?>
 
@@ -39,6 +102,54 @@ https://templatemo.com/tm-562-space-dynamic
     .elem * {
       box-sizing: border-box;
       margin: 0 !important;
+    }
+
+    /* ===== FORMULÁRIO ===== */
+    .form-container {
+      background: #fff;
+      padding: 40px;
+      height: 480px;
+      width: 650px;
+      border-radius: 16px;
+      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+      flex: 1;
+      align-items: center;
+    }
+
+    .form-container h2 {
+      text-align: center;
+      color: #e74c3c;
+      margin-bottom: 30px;
+    }
+
+    .form-container label {
+      margin-top: 20px;
+      display: block;
+      font-weight: 600;
+    }
+
+    .form-container input,
+    .form-container button {
+      width: 100%;
+      margin-top: 8px;
+      padding: 14px;
+      border-radius: 8px;
+      border: 1px solid #ddd;
+      font-size: 15px;
+    }
+
+    .form-container button {
+      margin-top: 30px;
+      background: linear-gradient(135deg, #e74c3c, #d93b54);
+      color: #fff;
+      border: none;
+      font-weight: 600;
+      cursor: pointer;
+    }
+
+    .form-container button:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 10px 25px rgba(231, 76, 60, 0.4);
     }
 
     .elem {
@@ -141,7 +252,7 @@ https://templatemo.com/tm-562-space-dynamic
           <div class="row">
             <div class="col-lg-6 align-self-center">
               <div class="left-content header-text wow fadeInLeft" data-wow-duration="1s" data-wow-delay="1s">
-                <h2><em>Pinturas</em> <span>GRIOT!</span></h2>
+                <h2><em>Voilà!</em> <span>GRIOT!</span></h2>
                 <p>A galeria de pinturas do GRIOT apresenta um conjunto de obras que expressam,
                   por meio da arte, a profundidade da cultura afro-brasileira e as múltiplas
                   dimensões da experiência negra. Cada pintura revela traços de história,
@@ -160,6 +271,22 @@ https://templatemo.com/tm-562-space-dynamic
     </div>
   </div>
 
+  <?php if (!empty($_SESSION['adm'])): ?>
+  <div class="form-container">
+    <form method="post" enctype="multipart/form-data">
+      <labe>Título</label>
+      <input type="text" name="titulo" required>
+      <labe>Autor(a)</label>
+      <input type="text" name="autor" required>
+      <labe>Ano</label>
+      <input type="number" name="ano">
+
+      <input type="file" name="imagem" accept="image/*" required>
+
+      <button type="submit">Enviar</button>
+    </form>
+  </div>
+  <?php endif; ?>
 
   <div id="portfolio" class="our-portfolio section">
     <div class="container">
