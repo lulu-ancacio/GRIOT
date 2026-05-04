@@ -70,8 +70,8 @@ body {
 }
 
 .logo img {
-  height: 50px;
-  margin-left: 50px;
+    width: 40%;
+  overflow: hidden;
 }
 
 .menu-container {

@@ -8,8 +8,10 @@
   <meta name="author" content=" ">
   <meta charset="UTF-8">
   <link rel="icon" href=" galeria\assets\images\FavIcon_SF.png">
+
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap"
     rel="stylesheet">
+
 
   <title>GRIOT-Início</title>
 
@@ -119,6 +121,10 @@
           <div class="row">
             <div class="col-lg-6 align-self-center">
               <div class="left-content header-text wow fadeInLeft" data-wow-duration="1s" data-wow-delay="1s">
+              <div style="font-family: 'Poppins', sans-serif;">
+                <br>
+                 <br>
+                 <br>
                 <h6>Bem Vindo ao GRIOT</h6>
                 <h2>Seu repositório <em>com temática</em> <span> racial</span></h2>
 
@@ -129,6 +135,7 @@
                   Ideal para educação, pesquisa e reflexão comunitária, o GRIOT transforma memória em diálogo.</p>
               </div>
             </div>
+          </div>
             <div class="col-lg-6">
               <div class="right-image wow fadeInRight" data-wow-duration="1s" data-wow-delay="0.5s">
                 <img src="galeria/assets/images/FotoPrincipal.jpg" alt="Jovem negro com 3 pentes garfos em seu cabelo.">
@@ -239,7 +246,7 @@
         </div>
 
         <div class="col-lg-6 wow fadeInRight" data-wow-duration="0.5s" data-wow-delay="0.25s">
-          <<form id="contact"> 
+          <form id="contact"> 
             <div class="row">
               <div class="col-lg-6">
                 <fieldset>
