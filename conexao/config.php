@@ -10,3 +10,5 @@ function getHeader(){
         'Content-Type' => 'application/json'
     ];
 }
+
+?>

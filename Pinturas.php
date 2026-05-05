@@ -6,7 +6,7 @@ $quadros = supabaseRequest("pinturas?select=*");
 use GuzzleHttp\Exception\GuzzleException;
 
 require 'conexao/config.php';
-require 'C:/xampp/htdocs/GRIOT/composer/vendor/autoload.php';
+require './composer/vendor/autoload.php';
 
 $SUPABASE_URL = 'https://cdhjzkmlucahtllfpdlx.supabase.co';
 $API_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImNkaGp6a21sdWNhaHRsbGZwZGx4Iiwicm9sZSI6InNlcnZpY2Vfcm9sZSIsImlhdCI6MTc3NTI0ODE3MywiZXhwIjoyMDkwODI0MTczfQ.adPVCz1kuiC0M6Du7axunnXaySAfYV2hy7lpoplCY64'; // ⚠️ use service_role aqui (backend)
@@ -244,6 +244,28 @@ https://templatemo.com/tm-562-space-dynamic
 
 
 <body>
+
+<div vw class="enabled">
+    <div vw-access-button class="active"></div>
+    <div vw-plugin-wrapper>
+      <div class="vw-plugin-top-wrapper"></div>
+    </div>
+  </div>
+  <script src="https://vlibras.gov.br/app/vlibras-plugin.js"></script>
+  <script>
+    new window.VLibras.Widget('https://vlibras.gov.br/app');
+  </script>
+  <style>
+    width: 50px;
+    height: 50px;
+    z-index: 1;
+    position: fixed;
+    border: 2px solid;
+    color: #EECC3F;
+    border-radius:  100%;
+
+
+  </style>
   <br><br>
   <div class="main-banner wow fadeIn" id="top" data-wow-duration="1s" data-wow-delay="0.5s">
     <div class="container">

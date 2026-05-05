@@ -5,7 +5,7 @@ use GuzzleHttp\Exception\GuzzleException;
 session_start();
 require 'config.php';
 require 'auth.php';
-require 'C:/xampp/htdocs/GRIOT/composer/vendor/autoload.php';
+require '../composer/vendor/autoload.php';
 $msg = '';
 
 if (

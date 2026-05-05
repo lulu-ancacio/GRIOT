@@ -3,7 +3,7 @@
 use GuzzleHttp\Exception\GuzzleException;
 
 require 'config.php';
-require'../composer/vendor/autoload.php';
+require '../composer/vendor/autoload.php';
 $msg = '';
 
 if (
@@ -11,22 +11,22 @@ if (
     isset($_POST['nome_criar']) and
     isset($_POST['email_criar']) and
     isset($_POST['senha_criar']) and
-    isset($_POST['genero_criar']) 
+    isset($_POST['nome_criar']) and
+    isset($_POST['pronome_criar'])
 ) {
 
   
     $email = $_POST['email_criar'];
     $senha = $_POST['senha_criar'];
-    $genero = $_POST['genero_criar'];
     $nome = $_POST['nome_criar'];
+    $pronome = $_POST['pronome_criar'];
 
     $client = new GuzzleHttp\Client();
 
     $body = [
         'email' => $email,
         'password' => $senha,
-        'gender' => $genero,
-        'name' => $nome
+        'display_name'=> $nome,
     ];
 
     try {
@@ -208,11 +208,18 @@ if (
                 <p><?php echo $msg ?></p>
                 <!-- ***** Logo End ***** -->
 
-                <label>Digite seu nome:</label>
+                <label>Como devemos te chamar?</label>
                 <input type="text" name="nome_criar" required>
 
                 <label>Digite seu email:</label>
                 <input type="email" name="email_criar" required>
+
+                <label>Com que pronome você prefere ser tratado?</label>
+                <select name="pronome_criar" required="required">
+                    <option value="fem">Feminino</option>
+                    <option value="masc">Masculio</option>
+                    <option value="nd">Nenhum</option>
+                </select>
 
                 <label>Digite sua senha:</label>
                 <input type="password" name="senha_criar" required>
