@@ -242,6 +242,27 @@ echo $_SESSION['email'];
 </head>
 
 <body>
+    <div vw class="enabled">
+    <div vw-access-button class="active"></div>
+    <div vw-plugin-wrapper>
+      <div class="vw-plugin-top-wrapper"></div>
+    </div>
+  </div>
+  <script src="https://vlibras.gov.br/app/vlibras-plugin.js"></script>
+  <script>
+    new window.VLibras.Widget('https://vlibras.gov.br/app');
+  </script>
+  <style>
+    width: 50px;
+    height: 50px;
+    z-index: 1;
+    position: fixed;
+    border: 2px solid;
+    color: #EECC3F;
+    border-radius:  100%;
+
+
+  </style>
 
     <header class="top-header">
         <div class="header-center">
