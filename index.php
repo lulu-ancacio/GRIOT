@@ -1,5 +1,8 @@
 <?php
 session_start();
+if (!empty($_SESSION['adm'])){
+    header('Location: adm.php');
+}
 ?>
 
 <!DOCTYPE html>
@@ -73,7 +76,7 @@ session_start();
 
 <body>
 
-... <!-- Conteúdo do Plug-in V-Libras -->
+  ... <!-- Conteúdo do Plug-in V-Libras -->
 
   <div vw class="enabled">
     <div vw-access-button class="active"></div>
@@ -92,7 +95,7 @@ session_start();
     position: fixed;
     border: 2px solid;
     color: #EECC3F;
-    border-radius:  100%;
+    border-radius: 100%;
   </style>
 
 
@@ -122,27 +125,22 @@ session_start();
             </div>
             <!-- ***** Logo End ***** -->
             <!-- ***** Menu Start ***** -->
-           <ul class="nav">
-  <?php if (empty($_SESSION['email'])): ?>
-    <li class="scroll-to-section">
-      <a href="./conexao/login.php" class="main-blue-button">Login</a>
-    </li>
+            <ul class="nav">
+              <?php if (empty($_SESSION['email'])): ?>
+                <li class="scroll-to-section">
+                  <a href="./conexao/login.php" class="main-blue-button">Login</a>
+                </li>
 
-    <li class="scroll-to-section">
-      <a href="./conexao/criar.php" class="main-red-button">Criar Conta</a>
-    </li>
-  <?php else: ?>
+                <li class="scroll-to-section">
+                  <a href="./conexao/criar.php" class="main-red-button">Criar Conta</a>
+                </li>
+              <?php else: ?>
+                <li class="scroll-to-section">
+                  <a href="./conexao/logout.php" class="main-red-button">Sair</a>
+                </li>
 
-    <li class="scroll-to-section">
-      <a href="./mensagemRecebida.html" class="main-red-button">Mensagens</a>
-    </li>
-
-    <li class="scroll-to-section">
-      <a href="./conexao/logout.php" class="main-red-button">Sair</a>
-    </li>
-
-  <?php endif; ?>
-</ul>
+              <?php endif; ?>
+            </ul>
 
             <a class='menu-trigger'>
               <span>Menu</span>
@@ -172,19 +170,19 @@ session_start();
                     <?php endif; ?>
                   </div>
                 <?php endif; ?>
-              <div style="font-family: 'Poppins', sans-serif;">
-                <br>
-                <h6>Bem Vindo ao GRIOT</h6>
-                <h2>Seu repositório <em>com temática</em> <span> racial</span></h2>
+                <div style="font-family: 'Poppins', sans-serif;">
+                  <br>
+                  <h6>Bem Vindo ao GRIOT</h6>
+                  <h2>Seu repositório <em>com temática</em> <span> racial</span></h2>
 
-                <p>O GRIOT é um site web interativo que reúne pinturas sobre cultura negra. Projetado como uma
-                  experiência imersiva, o site convida
-                  visitantes a percorrer linhas do tempo, e refletir sobre as marcas da ancestralidade na sociedade
-                  contemporânea.
-                  Ideal para educação, pesquisa e reflexão comunitária, o GRIOT transforma memória em diálogo.</p>
+                  <p>O GRIOT é um site web interativo que reúne pinturas sobre cultura negra. Projetado como uma
+                    experiência imersiva, o site convida
+                    visitantes a percorrer linhas do tempo, e refletir sobre as marcas da ancestralidade na sociedade
+                    contemporânea.
+                    Ideal para educação, pesquisa e reflexão comunitária, o GRIOT transforma memória em diálogo.</p>
+                </div>
               </div>
             </div>
-          </div>
             <div class="col-lg-6">
               <div class="right-image wow fadeInRight" data-wow-duration="1s" data-wow-delay="0.5s">
                 <img src="galeria/assets/images/FotoPrincipal.jpg" alt="Jovem negro com 3 pentes garfos em seu cabelo.">
@@ -295,7 +293,7 @@ session_start();
         </div>
 
         <div class="col-lg-6 wow fadeInRight" data-wow-duration="0.5s" data-wow-delay="0.25s">
-          <form id="contact"> 
+          <form id="contact">
             <div class="row">
               <div class="col-lg-6">
                 <fieldset>
@@ -345,7 +343,7 @@ session_start();
   </footer>
   <!-- LIGHTBOX INITIALIZATION -->
   <script type="text/javascript">
-    $(document).ready(function(e) {
+    $(document).ready(function (e) {
 
       // live handler
       lc_lightbox('.elem', {
@@ -362,41 +360,41 @@ session_start();
     });
   </script>
 
-   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
- <script>
-const supabaseUrl = "https://cdhjzkmlucahtllfpdlx.supabase.co";
-const supabaseKey = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImNkaGp6a21sdWNhaHRsbGZwZGx4Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzUyNDgxNzMsImV4cCI6MjA5MDgyNDE3M30.ZaP_y-A2t32z8FRT4vAA8xsMqjhsdA0QuQIGTP5f36g";
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
+  <script>
+    const supabaseUrl = "https://cdhjzkmlucahtllfpdlx.supabase.co";
+    const supabaseKey = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImNkaGp6a21sdWNhaHRsbGZwZGx4Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzUyNDgxNzMsImV4cCI6MjA5MDgyNDE3M30.ZaP_y-A2t32z8FRT4vAA8xsMqjhsdA0QuQIGTP5f36g";
 
-const supabaseClient = supabase.createClient(supabaseUrl, supabaseKey);
+    const supabaseClient = supabase.createClient(supabaseUrl, supabaseKey);
 
-document.getElementById("contact").addEventListener("submit", async function(e) {
-    e.preventDefault();
+    document.getElementById("contact").addEventListener("submit", async function (e) {
+      e.preventDefault();
 
-    const nome = document.getElementById("name").value;
-    const sobrenome = document.getElementById("surname").value;
-    const email = document.getElementById("email").value;
-    const msg = document.getElementById("message").value;
+      const nome = document.getElementById("name").value;
+      const sobrenome = document.getElementById("surname").value;
+      const email = document.getElementById("email").value;
+      const msg = document.getElementById("message").value;
 
-    const { error } = await supabaseClient
+      const { error } = await supabaseClient
         .from("comentarios")
         .insert([
-            {
-                nome: nome,
-                sobrenome: sobrenome,
-                email: email,
-                msg: msg
-            }
-        ]); 
+          {
+            nome: nome,
+            sobrenome: sobrenome,
+            email: email,
+            msg: msg
+          }
+        ]);
 
-    if (error) {
+      if (error) {
         alert("Erro ao enviar ");
         console.log(error);
-    } else {
+      } else {
         alert("Mensagem enviada com sucesso! 🚀");
         document.getElementById("contact").reset();
-    }
-});
-</script>
+      }
+    });
+  </script>
 
 </body>
 
