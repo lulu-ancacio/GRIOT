@@ -3,7 +3,7 @@ name: Deploy to InfinityFree
 on:
   push:
     branches:
-      - main
+      - master
 
 jobs:
   ftp-deploy:
