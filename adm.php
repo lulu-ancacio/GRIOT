@@ -1,6 +1,6 @@
 <?php
 session_start();
-if (empty($_SESSION['adm'])){
+if (empty($_SESSION['adm'])) {
     header('Location: index.php');
 }
 
@@ -43,6 +43,54 @@ if (empty($_SESSION['adm'])){
 
     <!-- LIGHTBOX FADING SHOW/HIDE EFFECT (as explained in documentation) -->
     <style type="text/css">
+
+.form-container {
+      background: #fff;
+      padding: 40px;
+      height: 480px;
+      width: 650px;
+      border-radius: 16px;
+      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+      flex: 1;
+      align-items: center;
+    }
+
+    .form-container h2 {
+      text-align: center;
+      color: #e74c3c;
+      margin-bottom: 30px;
+    }
+
+    .form-container label {
+      margin-top: 20px;
+      display: block;
+      font-weight: 600;
+    }
+
+    .form-container input,
+    .form-container button {
+      width: 100%;
+      margin-top: 8px;
+      padding: 14px;
+      border-radius: 8px;
+      border: 1px solid #ddd;
+      font-size: 15px;
+    }
+
+    .form-container button {
+      margin-top: 30px;
+      background: linear-gradient(135deg, #e74c3c, #d93b54);
+      color: #fff;
+      border: none;
+      font-weight: 600;
+      cursor: pointer;
+    }
+
+    .form-container button:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 10px 25px rgba(231, 76, 60, 0.4);
+    }
+
         .lcl_fade_oc.lcl_pre_show #lcl_overlay,
         .lcl_fade_oc.lcl_pre_show #lcl_window,
         .lcl_fade_oc.lcl_is_closing #lcl_overlay,
@@ -127,20 +175,13 @@ if (empty($_SESSION['adm'])){
                         <!-- ***** Logo End ***** -->
                         <!-- ***** Menu Start ***** -->
                         <ul class="nav">
-                            <?php if (empty($_SESSION['email'])): ?>
-                                <li class="scroll-to-section">
-                                    <a href="./conexao/login.php" class="main-blue-button">Login</a>
-                                </li>
+                            <li class="scroll-to-section">
+                                <a href="./mensagemRecebida.html" class="main-red-button">Mensagens</a>
+                            </li>
 
-                                <li class="scroll-to-section">
-                                    <a href="./conexao/criar.php" class="main-red-button">Criar Conta</a>
-                                </li>
-                            <?php else: ?>
-                                <li class="scroll-to-section">
-                                    <a href="./conexao/logout.php" class="main-red-button">Sair</a>
-                                </li>
-
-                            <?php endif; ?>
+                            <li class="scroll-to-section">
+                                <a href="./conexao/logout.php" class="main-red-button">Sair</a>
+                            </li>
                         </ul>
 
                         <a class='menu-trigger'>
@@ -174,6 +215,26 @@ if (empty($_SESSION['adm'])){
             </div>
         </div>
     </div>
+
+    <div>
+          <?php if (!empty($_SESSION['adm'])): ?>
+  <div class="form-container">
+    <form method="post" enctype="multipart/form-data">
+      <labe>Título</label>
+      <input type="text" name="titulo" required>
+      <labe>Autor(a)</label>
+      <input type="text" name="autor" required>
+      <labe>Ano</label>
+      <input type="number" name="ano">
+
+      <input type="file" name="imagem" accept="image/*" required>
+
+      <button type="submit">Enviar</button>
+    </form>
+  </div>
+  <?php endif; ?>
+    </div>
+
     <br>
     <footer>
         <div class="container">

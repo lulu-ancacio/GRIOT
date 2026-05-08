@@ -1,70 +1,11 @@
 <?php
 session_start();
-require 'conexao/supabase.php';
-$fotos = supabaseRequest("fotografias?select=*");
-
-use GuzzleHttp\Exception\GuzzleException;
 
 require 'conexao/config.php';
 require './composer/vendor/autoload.php';
 
-$SUPABASE_URL = 'https://cdhjzkmlucahtllfpdlx.supabase.co';
-$API_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImNkaGp6a21sdWNhaHRsbGZwZGx4Iiwicm9sZSI6InNlcnZpY2Vfcm9sZSIsImlhdCI6MTc3NTI0ODE3MywiZXhwIjoyMDkwODI0MTczfQ.adPVCz1kuiC0M6Du7axunnXaySAfYV2hy7lpoplCY64'; // ⚠️ use service_role aqui (backend)
-$BUCKET = 'Fotografias';
-
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-
-  $file = $_FILES['imagem'];
-  $titulo = $_POST['titulo'];
-  $autor = $_POST['autor'];
-  $ano = $_POST['ano'];
-
-  if ($file['error'] === 0) {
-
-    $client = new GuzzleHttp\Client();
-
-    // nome único do arquivo
-    $fileName = uniqid() . '-' . basename($file['name']);
-
-    // 📦 1. upload para o storage
-    $response = $client->post(
-      "$SUPABASE_URL/storage/v1/object/$BUCKET/$fileName",
-      [
-        'headers' => [
-          'apikey' => $API_KEY,
-          'Authorization' => "Bearer $API_KEY",
-          'Content-Type' => $file['type']
-        ],
-        'body' => fopen($file['tmp_name'], 'r')
-      ]
-    );
-
-    // 🔗 2. URL pública
-    $publicUrl = "$SUPABASE_URL/storage/v1/object/public/$BUCKET/$fileName";
-
-    // 🗄️ 3. inserir no banco
-    $dbResponse = $client->post(
-      "$SUPABASE_URL/rest/v1/fotografias",
-      [
-        'headers' => [
-          'apikey' => $API_KEY,
-          'Authorization' => "Bearer $API_KEY",
-          'Content-Type' => 'application/json',
-          'Prefer' => 'return=minimal'
-        ],
-        'json' => [
-          'titulo' => $titulo,
-          'autor' => $autor,
-          'ano' => $ano,
-          'url' => $publicUrl
-        ]
-      ]
-    );
-
-    header("Location: Fotografias.php");
-    exit;
-  }
-}
+$fotos = supabaseRequest("fotografias?select=*");
+supabaseCreatePhoto('Fotografias', 'fotografias', 'Fotografias');
 
 ?>
 
@@ -293,22 +234,7 @@ https://templatemo.com/tm-562-space-dynamic
     </div>
   </div>
 
-  <?php if (!empty($_SESSION['adm'])): ?>
-  <div class="form-container">
-    <form method="post" enctype="multipart/form-data">
-      <labe>Título</label>
-      <input type="text" name="titulo" required>
-      <labe>Autor(a)</label>
-      <input type="text" name="autor" required>
-      <labe>Ano</label>
-      <input type="number" name="ano">
 
-      <input type="file" name="imagem" accept="image/*" required>
-
-      <button type="submit">Enviar</button>
-    </form>
-  </div>
-  <?php endif; ?>
 
   <div id="portfolio" class="our-portfolio section">
     <div class="container">
