@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta name="description" content="Museu virtual com tematica racial">
   <meta name="author" content=" ">
-  <title>GRIOT-Música</title>
+  <title>GRIOT-Linha do Tempo</title>
 
   <link rel="icon" href="galeria/assets/images/FavIcon_SF.png">
 
@@ -84,7 +84,7 @@
 
             <ul class="nav">
               <li>
-                <a href="index.php" class="main-red-button">Home</a>
+                <a href="index.php" class="main-red-button">Início</a>
               </li>
             </ul>
 

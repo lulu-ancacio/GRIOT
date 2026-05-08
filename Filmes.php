@@ -54,7 +54,7 @@
                     <li class="menu-list-item"><a href="#series">Séries</a></li>
                     <li class="menu-list-item"><a href="#biografias">Biográfias</a></li>
                     <li class="menu-list-item">
-                      <a href="index.php" class="main-red-button">HOME</a>
+                      <a href="index.php" class="main-red-button">Início</a>
                     </li>
                 </ul>
             </div>
