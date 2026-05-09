@@ -162,7 +162,7 @@ https://templatemo.com/tm-562-space-dynamic
                   formas e simbolismos que dialogam com a ancestralidade e o presente.</p>
               </div>
             </div>
-            <div class="col-lg-6">
+            <div class="col-md-6">
               <div class="right-image wow fadeInRight" data-wow-duration="1s" data-wow-delay="0.5s">
                 <img src="galeria/assets/images/Pintura.jpg" alt="Menino negro com uma câmera analógica em suas mãos.">
               </div>

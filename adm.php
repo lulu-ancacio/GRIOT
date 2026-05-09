@@ -23,27 +23,8 @@ if (empty($_SESSION['adm'])) {
 
     <title>GRIOT-Início</title>
 
-
-    <!-- Scripts -->
-    <script src="galeria/vendor/jquery/jquery.min.js"></script>
-    <script src="galeria/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-    <script src="galeria/assets/js/owl-carousel.js"></script>
-    <script src="galeria/assets/js/templatemo-custom.js"></script>
-
-
-    <!-- Bootstrap core CSS -->
-    <link href="galeria/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-
-    <!-- Additional CSS Files -->
-    <link rel="stylesheet" href="galeria/assets/css/fontawesome.css">
     <link rel="stylesheet" href="galeria/assets/css/templatemo-space-dynamic.css">
-    <link rel="stylesheet" href="galeria/assets/css/animated.css">
-    <link rel="stylesheet" href="galeria/assets/css/owl.css">
-
-
-    <!-- LIGHTBOX FADING SHOW/HIDE EFFECT (as explained in documentation) -->
-    <style type="text/css">
-
+        <style>
 .form-container {
       background: #fff;
       padding: 40px;

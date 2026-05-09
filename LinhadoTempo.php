@@ -116,7 +116,7 @@
               </div>
             </div>
 
-            <div class="col-lg-6">
+            <div class="col-md-6">
               <div class="right-image">
                 <img src="galeria/assets/images/Pintura.jpg">
               </div>

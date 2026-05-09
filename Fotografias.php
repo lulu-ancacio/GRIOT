@@ -24,9 +24,7 @@ supabaseCreatePhoto('Fotografias', 'fotografias', 'Fotografias');
 
   <title>Fotografias GRIOT</title>
 
-  <!-- Bootstrap core CSS -->
-  <link href="galeria/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-
+ 
   <!-- Additional CSS Files -->
   <link rel="stylesheet" href="galeria/assets/css/fontawesome.css">
   <link rel="stylesheet" href="galeria/assets/css/templatemo-space-dynamic.css">
@@ -205,7 +203,7 @@ https://templatemo.com/tm-562-space-dynamic
                    narrativa.</p>
               </div>
             </div>
-            <div class="col-lg-6">
+            <div class="col-md-6">
               <div class="right-image wow fadeInRight" data-wow-duration="1s" data-wow-delay="0.5s">
                 <img src="galeria/assets/images/Camera.jpg" alt="Menino negro com uma câmera analógica em suas mãos.">
               </div>

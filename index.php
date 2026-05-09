@@ -1,7 +1,9 @@
 <?php
 session_start();
+
 if (!empty($_SESSION['adm'])) {
   header('Location: adm.php');
+  exit;
 }
 ?>
 
@@ -10,386 +12,465 @@ if (!empty($_SESSION['adm'])) {
 
 <head>
 
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="description" content="Museu virtual com tematica racial">
-  <meta name="author" content=" ">
+  <!-- META -->
   <meta charset="UTF-8">
-  <link rel="icon" href=" galeria\assets\images\FavIcon_SF.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+  <!-- SEO -->
+  <meta name="description" content="Museu virtual com temática racial">
+
+  <!-- TÍTULO -->
+  <title>GRIOT - Início</title>
+
+  <!-- FAVICON -->
+  <link rel="icon" href="galeria/assets/images/FavIcon_SF.png">
+
+  <!-- FONTES -->
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap"
     rel="stylesheet">
 
+  <!-- ÍCONES -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
-  <title>GRIOT-Início</title>
-
-
-  <!-- Scripts -->
-  <script src="galeria/vendor/jquery/jquery.min.js"></script>
-  <script src="galeria/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-  <script src="galeria/assets/js/owl-carousel.js"></script>
-  <script src="galeria/assets/js/templatemo-custom.js"></script>
-
-
-  <!-- Bootstrap core CSS -->
-  <link href="galeria/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-
-  <!-- Additional CSS Files -->
-  <link rel="stylesheet" href="galeria/assets/css/fontawesome.css">
+  <!-- CSS -->
   <link rel="stylesheet" href="galeria/assets/css/templatemo-space-dynamic.css">
-  <link rel="stylesheet" href="galeria/assets/css/animated.css">
-  <link rel="stylesheet" href="galeria/assets/css/owl.css">
 
 
-  <!-- LIGHTBOX FADING SHOW/HIDE EFFECT (as explained in documentation) -->
-  <style type="text/css">
-    .lcl_fade_oc.lcl_pre_show #lcl_overlay,
-    .lcl_fade_oc.lcl_pre_show #lcl_window,
-    .lcl_fade_oc.lcl_is_closing #lcl_overlay,
-    .lcl_fade_oc.lcl_is_closing #lcl_window {
-      opacity: 0 !important;
-    }
-
-    .lcl_fade_oc.lcl_is_closing #lcl_overlay {
-      -webkit-transition-delay: .15s !important;
-      transition-delay: .15s !important;
-    }
-  </style>
-
-  <!-- REQUIRED ELEMENTS -->
-
-  <script src="galeria/lib/jquery.js" type="text/javascript"></script>
-
-  <script src="galeria/js/lc_lightbox.lite.js" type="text/javascript"></script>
-  <link rel="stylesheet" href="galeria/css/lc_lightbox.css" />
-
-
-  <!-- SKINS -->
-  <link rel="stylesheet" href="galeria/skins/minimal.css" />
-
-
-  <!-- ASSETS -->
-  <script src="galeria/lib/AlloyFinger/alloy_finger.min.js" type="text/javascript"></script>
-
-  <!-- //////////////////////////////////////////////// -->
-  <!-- //////////////////////////////////////////////// -->
 </head>
 
 <body>
 
+  <!-- VLibras -->
+  <div vw class="enabled">
+    <div vw-access-button class="active"></div>
 
-
-  <!-- ***** Preloader Start ***** -->
-  <div id="js-preloader" class="js-preloader">
-    <div class="preloader-inner">
-      <span class="dot"></span>
-      <div class="dots">
-        <span></span>
-        <span></span>
-        <span></span>
-      </div>
+    <div vw-plugin-wrapper>
+      <div class="vw-plugin-top-wrapper"></div>
     </div>
   </div>
-  <!-- ***** Preloader End ***** -->
 
-  <!-- ***** Header Area Start ***** -->
-  <header class="header-area header-sticky wow slideInDown">
+  <script src="https://vlibras.gov.br/app/vlibras-plugin.js"></script>
+
+  <script>
+    new window.VLibras.Widget('https://vlibras.gov.br/app');
+  </script>
+
+  <!-- =========================
+     HEADER
+========================= -->
+  <header class="header-area">
+
     <div class="container">
-      <div class="row">
-        <div class="col-12">
-          <nav class="main-nav">
-            <!-- ***** Logo Start ***** -->
-            <div class="logo">
-              <img src="galeria\assets\images\LogoEst_SF.png">
-            </div>
-            <!-- ***** Logo End ***** -->
-            <!-- ***** Menu Start ***** -->
-            <ul class="nav">
-              <?php if (empty($_SESSION['email'])): ?>
-                <li class="scroll-to-section">
-                  <a href="./conexao/login.php" class="main-blue-button">Login</a>
-                </li>
 
-                <li class="scroll-to-section">
-                  <a href="./conexao/criar.php" class="main-red-button">Criar Conta</a>
-                </li>
-              <?php else: ?>
-                <li class="scroll-to-section">
-                  <a href="./conexao/logout.php" class="main-red-button">Sair</a>
-                </li>
+      <nav class="main-nav">
 
-              <?php endif; ?>
-            </ul>
+        <!-- LOGO -->
+        <a href="index.php" class="logo">
+          <img src="galeria/assets/images/LogoEst_SF.png" alt="Logo GRIOT">
+        </a>
 
-            <a class='menu-trigger'>
-              <span>Menu</span>
-            </a>
-            <!-- ***** Menu End ***** -->
-          </nav>
-        </div>
-      </div>
+        <!-- MENU -->
+        <ul class="nav">
+
+          <?php if (empty($_SESSION['email'])): ?>
+
+            <li>
+              <a href="./conexao/login.php" class="main-blue-button">
+                Login
+              </a>
+            </li>
+
+            <li>
+              <a href="./conexao/criar.php" class="main-red-button">
+                Criar Conta
+              </a>
+            </li>
+
+          <?php else: ?>
+
+            <li>
+              <a href="./conexao/logout.php" class="main-red-button">
+                Sair
+              </a>
+            </li>
+
+          <?php endif; ?>
+
+        </ul>
+
+        <!-- BOTÃO MOBILE -->
+        <button class="menu-trigger" aria-label="Abrir Menu">
+
+          <span></span>
+
+        </button>
+
+      </nav>
+
     </div>
+
   </header>
-  <!-- ***** Header Area End ***** -->
 
-  <div class="main-banner wow fadeIn" id="top" data-wow-duration="1s" data-wow-delay="0.5s">
-    <div class="container">
-      <div class="row">
-        <div class="col-lg-12">
-          <div class="row">
-            <div class="col-lg-6 align-self-center">
-              <div class="left-content header-text wow fadeInLeft" data-wow-duration="1s" data-wow-delay="1s">
-                <?php if (!empty($_SESSION['email'])): ?>
-                  <div class="welcome-box">
-                    <br> <br> <br>
-                    <h5>Bem-vindo(a), <?= $_SESSION['nome'] ?> 👋</h5>
+  <!-- =========================
+     MAIN BANNER
+========================= -->
+  <div class="ImagemFundo">
+    <section class="main-banner" id="top">
 
-                    <?php if (!empty($_SESSION['adm'])): ?>
-                      <p>Você está logado como administrador(a)</p>
-                    <?php endif; ?>
-                  </div>
+      <div class="container">
+
+        <div class="banner-content">
+
+          <!-- TEXTO -->
+          <div class="left-content">
+
+            <?php if (!empty($_SESSION['email'])): ?>
+
+              <div class="welcome-box">
+
+                <h5>
+                  Bem-vindo(a),
+                  <?= $_SESSION['nome'] ?> 👋
+                </h5>
+
+                <?php if (!empty($_SESSION['adm'])): ?>
+
+                  <p>
+                    Você está logado como administrador(a)
+                  </p>
+
                 <?php endif; ?>
-                <div style="font-family: 'Poppins', sans-serif;">
-                  <br>
-                  <h6>Bem Vindo ao GRIOT</h6>
-                  <h2>Seu repositório <em>com temática</em> <span> racial</span></h2>
 
-                  <p>O GRIOT é um site web interativo que reúne pinturas sobre cultura negra. Projetado como uma
-                    experiência imersiva, o site convida
-                    visitantes a percorrer linhas do tempo, e refletir sobre as marcas da ancestralidade na sociedade
-                    contemporânea.
-                    Ideal para educação, pesquisa e reflexão comunitária, o GRIOT transforma memória em diálogo.</p>
-                </div>
               </div>
-            </div>
-            <div class="col-lg-6">
-              <div class="right-image wow fadeInRight" data-wow-duration="1s" data-wow-delay="0.5s">
-                <img src="galeria/assets/images/FotoPrincipal.jpg" alt="Jovem negro com 3 pentes garfos em seu cabelo.">
-              </div>
-            </div>
+
+            <?php endif; ?>
+
+            <h6>
+              Bem Vindo ao GRIOT
+            </h6>
+
+            <h2>
+              Seu repositório
+              <em>com temática</em>
+              <span>racial</span>
+            </h2>
+
+            <p>
+              O GRIOT é um site web interativo que reúne pinturas
+              sobre cultura negra.
+
+              Projetado como uma experiência imersiva,
+              o site convida visitantes a percorrer linhas do tempo
+              e refletir sobre as marcas da ancestralidade
+              na sociedade contemporânea.
+
+              Ideal para educação, pesquisa e reflexão comunitária,
+              o GRIOT transforma memória em diálogo.
+            </p>
+
           </div>
+
+          <!-- IMAGEM -->
+          <div class="right-image">
+
+            <img src="galeria/assets/images/FotoPrincipal.jpg" alt="Jovem negro com 3 pentes garfos em seu cabelo">
+
+          </div>
+
         </div>
+
       </div>
-    </div>
 
-  </div>
+    </section>
 
 
-  <br>
-  <div id="redirection" class="section">
-    <div class="container">
-      <div class="row">
-        <div class="col-lg-12">
-          <div class="section-heading text-center">
-            <h2>Conteúdos que valorizam a <em>Cultura Negra</em></h2>
-            <p>Fotografias, Pinturas, Recomendações de Filmes e Músicas. <br>Selecione o seu desejado e acesse um mundo
-              novo.</p>
-          </div>
+    <!-- =========================
+     CONTEÚDOS
+========================= -->
+    <section class="content-section" id="redirection">
+
+      <div class="container">
+
+        <!-- TÍTULO -->
+        <div class="section-heading">
+
+          <h2>
+            Conteúdos que valorizam a
+            <em>Cultura Negra</em>
+          </h2>
+
+          <p>
+            Fotografias, Pinturas, Recomendações de Filmes e Músicas.
+            <br>
+            Selecione o seu desejado e acesse um mundo novo.
+          </p>
+
         </div>
 
-        <div class="col-lg-4 col-md-6">
+        <!-- CARDS -->
+        <div class="content-grid">
+
+          <!-- FOTOGRAFIAS -->
           <a href="Fotografias.php" class="content-card card-roxo">
+
             <div class="icon-box">
               <i class="fa fa-camera"></i>
             </div>
-            <h4>Fotografias</h4>
-          </a>
-        </div>
 
-        <div class="col-lg-4 col-md-6">
+            <h4>Fotografias</h4>
+
+          </a>
+
+          <!-- PINTURAS -->
           <a href="Pinturas.php" class="content-card card-amarela">
+
             <div class="icon-box">
               <i class="fa fa-paint-brush"></i>
             </div>
+
             <h4>Pinturas</h4>
+
           </a>
-        </div>
 
-
-        <div class="col-lg-4 col-md-6">
+          <!-- TEXTOS -->
           <a href="Livros.php" class="content-card card-vermelho">
+
             <div class="icon-box">
               <i class="fa fa-book"></i>
             </div>
-            <h4>Textos<br><span>(Em breve)</span></h4>
-          </a>
-        </div>
 
-        <div class="col-lg-4 col-md-6">
+            <h4>
+              Textos
+              <br>
+              <span>(Em breve)</span>
+            </h4>
+
+          </a>
+
+          <!-- FILMES -->
           <a href="Filmes.php" class="content-card card-marrom">
+
             <div class="icon-box">
               <i class="fa fa-film"></i>
             </div>
-            <h4>Filmes</h4>
-          </a>
-        </div>
 
-        <div class="col-lg-4 col-md-6">
+            <h4>Filmes</h4>
+
+          </a>
+
+          <!-- MÚSICAS -->
           <a href="Musicas.php" class="content-card card-azul">
+
             <div class="icon-box">
               <i class="fa fa-music"></i>
             </div>
-            <h4>Músicas <br><span>(Em breve)</span></h4>
-          </a>
-        </div>
 
-        <div class="col-lg-4 col-md-6">
+            <h4>
+              Músicas
+              <br>
+              <span>(Em breve)</span>
+            </h4>
+
+          </a>
+
+          <!-- LINHA DO TEMPO -->
           <a href="LinhaDoTempo.php" class="content-card card-rosa">
-            <div class="icon-box">
-              <i class="fa fa-clock-o"></i>
-            </div>
-            <h4>Linha do Tempo <br><span>(Em breve)</span></h4>
-          </a>
-        </div>
 
-        <div class="col-lg-4 col-md-6">
+            <div class="icon-box">
+              <i class="fa fa-clock"></i>
+            </div>
+
+            <h4>
+              Linha do Tempo
+              <br>
+              <span>(Em breve)</span>
+            </h4>
+
+          </a>
+
+          <!-- LEGISLAÇÃO -->
           <a href="Legislacao.php" class="content-card card-laranja">
+
             <div class="icon-box">
               <i class="fa fa-gavel"></i>
             </div>
-            <h4>Legislação <br><span>(Em breve)</span></h4>
+
+            <h4>
+              Legislação
+              <br>
+              <span>(Em breve)</span>
+            </h4>
+
           </a>
+
         </div>
 
-
       </div>
-    </div>
-  </div>
 
+    </section>
+    <!-- =========================
+     CONTATO - TEXTO
+========================= -->
+    <section class="contact-section">
 
+      <div class="container">
 
-  <div class="contact-us section">
-    <div class="container">
-      <div class="row">
-        <div class="col-lg-6 align-self-center wow fadeInLeft" data-wow-duration="0.5s" data-wow-delay="0.25s">
-          <div class="section-heading">
-            <h2>Se você tem uma sugestão não exite em nós avisar</h2>
-            <p>É muito importante sua opinião para a evolução do nosso projeto, deixe elogios críticas e sugestões</p>
+        <div class="contact-content">
+
+          <!-- INFORMAÇÕES -->
+          <div class="contact-info">
+
+            <div class="section-heading">
+
+              <h2>
+                Se você tem uma sugestão,
+                não hesite em nos avisar
+              </h2>
+
+              <p>
+                É muito importante sua opinião para
+                a evolução do nosso projeto.
+
+                Deixe elogios, críticas e sugestões.
+              </p>
+
+            </div>
+
+            <!-- TELEFONE -->
             <div class="phone-info">
-              <h4>Ligue para nosso telefone: <span><i class="fa fa-phone"></i> <a href="#">41 98474-8028</a></span>
+
+              <h4>
+
+                <i class="fa fa-phone"></i>
+
+                Ligue para nosso telefone:
+
+                <a href="tel:+5541984748028">
+                  41 98474-8028
+                </a>
+
               </h4>
+
             </div>
+
           </div>
+          <!-- FORMULÁRIO -->
+          <div class="contact-form">
+
+            <form id="contact">
+
+              <div class="input-group">
+
+                <input type="text" name="name" id="name" placeholder="Nome" autocomplete="on" required>
+
+                <input type="text" name="surname" id="surname" placeholder="Sobrenome" autocomplete="on" required>
+
+              </div>
+
+              <input type="email" name="email" id="email" placeholder="Seu Email" required>
+
+              <textarea name="message" id="message" placeholder="Digite aqui sua mensagem" required></textarea>
+
+              <button type="submit" id="form-submit" class="main-blue-button">
+
+                Enviar Mensagem
+
+              </button>
+
+            </form>
+
+          </div>
+
         </div>
 
-        <div class="col-lg-6 wow fadeInRight" data-wow-duration="0.5s" data-wow-delay="0.25s">
-          <form id="contact">
-            <div class="row">
-              <div class="col-lg-6">
-                <fieldset>
-                  <input type="name" name="name" id="name" placeholder="Nome" autocomplete="on" required>
-                </fieldset>
-              </div>
-              <div class="col-lg-6">
-                <fieldset>
-                  <input type="surname" name="surname" id="surname" placeholder="Sobrenome" autocomplete="on" required>
-                </fieldset>
-              </div>
-              <div class="col-lg-12">
-                <fieldset>
-                  <input type="text" name="email" id="email" pattern="[^ @]*@[^ @]*" placeholder="Seu Email"
-                    required="">
-                </fieldset>
-              </div>
-              <div class="col-lg-12">
-                <fieldset>
-                  <textarea name="message" type="text" class="form-control" id="message"
-                    placeholder="Digite aqui sua mensagem" required=""></textarea>
-                </fieldset>
-              </div>
-              <div class="col-lg-12">
-                <fieldset>
-                  <button type="submit" id="form-submit" class="main-button ">Enviar Mensagem</button>
-                </fieldset>
-              </div>
-            </div>
-            <div class="contact-dec">
-              <img src="galeria/assets/images/contact-decoration.png" alt="">
-            </div>
-          </form>
-        </div>
       </div>
-    </div>
+
+    </section>
   </div>
 
-  <footer>
+  <!-- =========================
+     FOOTER
+========================= -->
+  <footer class="footer">
+
     <div class="container">
-      <div class="row">
-        <div class="col-lg-12 wow fadeIn" data-wow-duration="1s" data-wow-delay="0.25s">
-          <p>Trabalho de Conclusão de Curso apresentado ao IFPR - 2026</p>
-        </div>
-      </div>
+
+      <p>
+        Trabalho de Conclusão de Curso
+        apresentado ao IFPR - 2026
+      </p>
+
     </div>
+
   </footer>
-  <!-- LIGHTBOX INITIALIZATION -->
-  <script type="text/javascript">
-    $(document).ready(function (e) {
 
-      // live handler
-      lc_lightbox('.elem', {
-        wrap_class: 'lcl_fade_oc',
-        gallery: true,
-        thumb_attr: 'data-lcl-thumb',
+  <!-- SUPABASE -->
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
 
-        skin: 'minimal',
-        radius: 0,
-        padding: 0,
-        border_w: 0,
+  <!-- FORMULÁRIO -->
+  <script>
+
+    const supabaseUrl =
+      "https://cdhjzkmlucahtllfpdlx.supabase.co";
+
+    const supabaseKey =
+      "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImNkaGp6a21sdWNhaHRsbGZwZGx4Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzUyNDgxNzMsImV4cCI6MjA5MDgyNDE3M30.ZaP_y-A2t32z8FRT4vAA8xsMqjhsdA0QuQIGTP5f36g";
+
+    const supabaseClient =
+      supabase.createClient(
+        supabaseUrl,
+        supabaseKey
+      );
+
+    document
+      .getElementById("contact")
+      .addEventListener("submit", async function (e) {
+
+        e.preventDefault();
+
+        const nome =
+          document.getElementById("name").value;
+
+        const sobrenome =
+          document.getElementById("surname").value;
+
+        const email =
+          document.getElementById("email").value;
+
+        const msg =
+          document.getElementById("message").value;
+
+        const { error } =
+          await supabaseClient
+            .from("comentarios")
+            .insert([
+              {
+                nome: nome,
+                sobrenome: sobrenome,
+                email: email,
+                msg: msg
+              }
+            ]);
+
+        if (error) {
+
+          alert("Erro ao enviar");
+          console.log(error);
+
+        } else {
+
+          alert("Mensagem enviada com sucesso! 🚀");
+
+          document
+            .getElementById("contact")
+            .reset();
+        }
+
       });
 
-    });
   </script>
-
-  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
-  <script>
-    const supabaseUrl = "https://cdhjzkmlucahtllfpdlx.supabase.co";
-    const supabaseKey = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImNkaGp6a21sdWNhaHRsbGZwZGx4Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzUyNDgxNzMsImV4cCI6MjA5MDgyNDE3M30.ZaP_y-A2t32z8FRT4vAA8xsMqjhsdA0QuQIGTP5f36g";
-
-    const supabaseClient = supabase.createClient(supabaseUrl, supabaseKey);
-
-    document.getElementById("contact").addEventListener("submit", async function (e) {
-      e.preventDefault();
-
-      const nome = document.getElementById("name").value;
-      const sobrenome = document.getElementById("surname").value;
-      const email = document.getElementById("email").value;
-      const msg = document.getElementById("message").value;
-
-      const { error } = await supabaseClient
-        .from("comentarios")
-        .insert([
-          {
-            nome: nome,
-            sobrenome: sobrenome,
-            email: email,
-            msg: msg
-          }
-        ]);
-
-      if (error) {
-        alert("Erro ao enviar ");
-        console.log(error);
-      } else {
-        alert("Mensagem enviada com sucesso! 🚀");
-        document.getElementById("contact").reset();
-      }
-    });
-  </script>
-   ... <!-- Conteúdo do Plug-in V-Libras -->
-
-<!-- VLibras -->
-<div vw class="enabled">
-  <div vw-access-button class="active"></div>
-  <div vw-plugin-wrapper>
-    <div class="vw-plugin-top-wrapper"></div>
-  </div>
-</div>
-
-<script src="https://vlibras.gov.br/app/vlibras-plugin.js"></script>
-
-<script>
-  new window.VLibras.Widget('https://vlibras.gov.br/app');
-</script>
-
+  <!-- JS -->
+  <script src="script.js" defer></script>
 </body>
 
 </html>
