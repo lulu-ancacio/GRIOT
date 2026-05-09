@@ -1,7 +1,7 @@
 <?php
 session_start();
-if (!empty($_SESSION['adm'])){
-    header('Location: adm.php');
+if (!empty($_SESSION['adm'])) {
+  header('Location: adm.php');
 }
 ?>
 
@@ -78,25 +78,26 @@ if (!empty($_SESSION['adm'])){
 
   ... <!-- Conteúdo do Plug-in V-Libras -->
 
+  <!-- VLibras -->
   <div vw class="enabled">
     <div vw-access-button class="active"></div>
     <div vw-plugin-wrapper>
       <div class="vw-plugin-top-wrapper"></div>
     </div>
   </div>
+
   <script src="https://vlibras.gov.br/app/vlibras-plugin.js"></script>
+
   <script>
-    new window.VLibras.Widget('https://vlibras.gov.br/app');
+    window.onload = function () {
+      new window.VLibras.Widget({
+        rootPath: 'https://vlibras.gov.br/app',
+        opacity: 0.5,
+        position: 'R',
+        avatar: 'random'
+      });
+    };
   </script>
-  <style>
-    width: 50px;
-    height: 50px;
-    z-index: 1;
-    position: fixed;
-    border: 2px solid;
-    color: #EECC3F;
-    border-radius: 100%;
-  </style>
 
 
 
@@ -271,7 +272,7 @@ if (!empty($_SESSION['adm'])){
             <h4>Legislação <br><span>(Em breve)</span></h4>
           </a>
         </div>
-        
+
 
       </div>
     </div>

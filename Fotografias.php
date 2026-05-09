@@ -185,24 +185,27 @@ https://templatemo.com/tm-562-space-dynamic
 
 
 <body>
-  <div vw class="enabled">
-    <div vw-access-button class="active"></div>
-    <div vw-plugin-wrapper>
-      <div class="vw-plugin-top-wrapper"></div>
-    </div>
+  <!-- VLibras -->
+<!-- VLibras -->
+<div vw class="enabled">
+  <div vw-access-button class="active"></div>
+  <div vw-plugin-wrapper>
+    <div class="vw-plugin-top-wrapper"></div>
   </div>
-  <script src="https://vlibras.gov.br/app/vlibras-plugin.js"></script>
-  <script>
-    new window.VLibras.Widget('https://vlibras.gov.br/app');
-  </script>
-  <style>
-    width: 50px;
-    height: 50px;
-    z-index: 1;
-    position: fixed;
-    border: 2px solid;
-    color: #EECC3F;
-    border-radius:  100%;
+</div>
+
+<script src="https://vlibras.gov.br/app/vlibras-plugin.js"></script>
+
+<script>
+window.onload = function () {
+  new window.VLibras.Widget({
+    rootPath: 'https://vlibras.gov.br/app',
+    opacity: 0.5,
+    position: 'R',
+    avatar: 'random'
+  });
+};
+</script>
 
 
   </style>
