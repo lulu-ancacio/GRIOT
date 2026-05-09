@@ -185,7 +185,7 @@ https://templatemo.com/tm-562-space-dynamic
 
 
 <body>
-  <!-- VLibras -->
+
 <!-- VLibras -->
 <div vw class="enabled">
   <div vw-access-button class="active"></div>
@@ -197,14 +197,7 @@ https://templatemo.com/tm-562-space-dynamic
 <script src="https://vlibras.gov.br/app/vlibras-plugin.js"></script>
 
 <script>
-window.onload = function () {
-  new window.VLibras.Widget({
-    rootPath: 'https://vlibras.gov.br/app',
-    opacity: 0.5,
-    position: 'R',
-    avatar: 'random'
-  });
-};
+  new window.VLibras.Widget('https://vlibras.gov.br/app');
 </script>
 
 

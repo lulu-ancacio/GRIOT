@@ -155,16 +155,8 @@ https://templatemo.com/tm-562-space-dynamic
 <script src="https://vlibras.gov.br/app/vlibras-plugin.js"></script>
 
 <script>
-window.onload = function () {
-  new window.VLibras.Widget({
-    rootPath: 'https://vlibras.gov.br/app',
-    opacity: 0.5,
-    position: 'R',
-    avatar: 'random'
-  });
-};
+  new window.VLibras.Widget('https://vlibras.gov.br/app');
 </script>
-
   </style>
   <br><br>
   <div class="main-banner wow fadeIn" id="top" data-wow-duration="1s" data-wow-delay="0.5s">

@@ -127,7 +127,7 @@ if (empty($_SESSION['adm'])) {
 
     ... <!-- Conteúdo do Plug-in V-Libras -->
 
-    <!-- VLibras -->
+<!-- VLibras -->
 <div vw class="enabled">
   <div vw-access-button class="active"></div>
   <div vw-plugin-wrapper>
@@ -138,16 +138,8 @@ if (empty($_SESSION['adm'])) {
 <script src="https://vlibras.gov.br/app/vlibras-plugin.js"></script>
 
 <script>
-window.onload = function () {
-  new window.VLibras.Widget({
-    rootPath: 'https://vlibras.gov.br/app',
-    opacity: 0.5,
-    position: 'R',
-    avatar: 'random'
-  });
-};
+  new window.VLibras.Widget('https://vlibras.gov.br/app');
 </script>
-
 
 
     <!-- ***** Preloader Start ***** -->

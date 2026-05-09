@@ -79,14 +79,7 @@
 <script src="https://vlibras.gov.br/app/vlibras-plugin.js"></script>
 
 <script>
-window.onload = function () {
-  new window.VLibras.Widget({
-    rootPath: 'https://vlibras.gov.br/app',
-    opacity: 0.5,
-    position: 'R',
-    avatar: 'random'
-  });
-};
+  new window.VLibras.Widget('https://vlibras.gov.br/app');
 </script>
 
 
