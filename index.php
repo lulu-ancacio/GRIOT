@@ -33,7 +33,7 @@ if (!empty($_SESSION['adm'])) {
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
   <!-- CSS -->
-  <link rel="stylesheet" href="galeria/assets/css/templatemo-space-dynamic.css">
+  <link rel="stylesheet" href="meanStyle/assets/css/templatemo-space-dynamic.css">
 
 
 </head>

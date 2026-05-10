@@ -14,55 +14,7 @@
   <title>GRIOT-Livros</title>
 
 
-  <!-- Scripts -->
-  <script src="galeria/vendor/jquery/jquery.min.js"></script>
-  <script src="galeria/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-  <script src="galeria/assets/js/owl-carousel.js"></script>
-  <script src="galeria/assets/js/templatemo-custom.js"></script>
 
-
-  <!-- Bootstrap core CSS -->
-  <link href="galeria/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-
-  <!-- Additional CSS Files -->
-  <link rel="stylesheet" href="galeria/assets/css/fontawesome.css">
-  <link rel="stylesheet" href="galeria/assets/css/templatemo-space-dynamic.css">
-  <link rel="stylesheet" href="galeria/assets/css/animated.css">
-  <link rel="stylesheet" href="galeria/assets/css/owl.css">
-
-
-  <!-- LIGHTBOX FADING SHOW/HIDE EFFECT (as explained in documentation) -->
-  <style type="text/css">
-    .lcl_fade_oc.lcl_pre_show #lcl_overlay,
-    .lcl_fade_oc.lcl_pre_show #lcl_window,
-    .lcl_fade_oc.lcl_is_closing #lcl_overlay,
-    .lcl_fade_oc.lcl_is_closing #lcl_window {
-      opacity: 0 !important;
-      }
-
-    .lcl_fade_oc.lcl_is_closing #lcl_overlay {
-      -webkit-transition-delay: .15s !important;
-      transition-delay: .15s !important;
-    }
-  </style>
-
-  <!-- REQUIRED ELEMENTS -->
-
-  <script src="galeria/lib/jquery.js" type="text/javascript"></script>
-
-  <script src="galeria/js/lc_lightbox.lite.js" type="text/javascript"></script>
-  <link rel="stylesheet" href="galeria/css/lc_lightbox.css" />
-
-
-  <!-- SKINS -->
-  <link rel="stylesheet" href="galeria/skins/minimal.css" />
-
-
-  <!-- ASSETS -->
-  <script src="galeria/lib/AlloyFinger/alloy_finger.min.js" type="text/javascript"></script>
-
-  <!-- //////////////////////////////////////////////// -->
-  <!-- //////////////////////////////////////////////// -->
 
 </head>
 

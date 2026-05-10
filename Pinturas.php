@@ -27,85 +27,42 @@ supabaseCreatePhoto('Pinturas', 'pinturas', 'Pinturas');
 
   <title>GRIOT-Pinturas</title>
 
-  <!-- Bootstrap core CSS -->
-  <link href="galeria/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Css principal -->
+  <link rel="stylesheet" href="meanStyle/assets/css/templatemo-space-dynamic.css">
+  <link rel="stylesheet" href="meanStyle/assets/css/fontawesome.css">
 
-  <!-- Additional CSS Files -->
-  <link rel="stylesheet" href="galeria/assets/css/fontawesome.css">
-  <link rel="stylesheet" href="galeria/assets/css/templatemo-space-dynamic.css">
-  <link rel="stylesheet" href="galeria/assets/css/animated.css">
-  <link rel="stylesheet" href="galeria/assets/css/owl.css">
-  <!--
-TemplateMo 562 Space Dynamic
-https://templatemo.com/tm-562-space-dynamic
--->
-
-  <!-- CSS da galeria -->
-  <style type="text/css">
-    .elem,
-    .elem * {
-      box-sizing: border-box;
-      margin: 0 !important;
-    }
-
-    /* ===== FORMULÁRIO ===== */
-    
-
-    .elem {
-      display: inline-block;
-      font-size: 0;
-      width: 33%;
-      border: 20px solid transparent;
-      border-bottom: none;
-      background: #fff;
-      padding: 10px;
-      height: auto;
-      background-clip: padding-box;
-    }
-
-    .elem>span {
-      display: block;
-      cursor: pointer;
-      height: 0;
-      padding-bottom: 70%;
-      background-size: cover;
-      background-position: center center;
-    }
-  </style>
+  <!-- Pinturas e Fotografias -->
+   <!-- LIGHTBOX FADING SHOW/HIDE EFFECT (as explained in documentation) -->
+<style type="text/css">
+.lcl_fade_oc.lcl_pre_show #lcl_overlay,
+.lcl_fade_oc.lcl_pre_show #lcl_window,
+.lcl_fade_oc.lcl_is_closing #lcl_overlay,
+.lcl_fade_oc.lcl_is_closing #lcl_window {
+	opacity: 0 !important;
+}
+.lcl_fade_oc.lcl_is_closing #lcl_overlay {
+	-webkit-transition-delay: .15s !important; 
+	transition-delay: .15s !important;
+}
+</style>
 
 
-  <!-- LIGHTBOX FADING SHOW/HIDE EFFECT (as explained in documentation) -->
-  <style type="text/css">
-    .lcl_fade_oc.lcl_pre_show #lcl_overlay,
-    .lcl_fade_oc.lcl_pre_show #lcl_window,
-    .lcl_fade_oc.lcl_is_closing #lcl_overlay,
-    .lcl_fade_oc.lcl_is_closing #lcl_window {
-      opacity: 0 !important;
-    }
 
-    .lcl_fade_oc.lcl_is_closing #lcl_overlay {
-      -webkit-transition-delay: .15s !important;
-      transition-delay: .15s !important;
-    }
-  </style>
+<!-- //////////////////////////////////////////////// -->
+<!-- REQUIRED ELEMENTS -->
 
-  <!-- REQUIRED ELEMENTS -->
+<script src="PinturasFotografias/lib/jquery.js" type="text/javascript"></script>
 
-  <script src="galeria/lib/jquery.js" type="text/javascript"></script>
-
-  <script src="galeria/js/lc_lightbox.lite.js" type="text/javascript"></script>
-  <link rel="stylesheet" href="galeria/css/lc_lightbox.css" />
+<script src="PinturasFotografias/js/lc_lightbox.lite.js" type="text/javascript"></script>
+<link rel="stylesheet" href="PinturasFotografias/css/lc_lightbox.css" />
 
 
-  <!-- SKINS -->
-  <link rel="stylesheet" href="galeria/skins/minimal.css" />
+<!-- SKINS -->
+<link rel="stylesheet" href="PinturasFotografias/skins/minimal.css" />
 
 
-  <!-- ASSETS -->
-  <script src="galeria/lib/AlloyFinger/alloy_finger.min.js" type="text/javascript"></script>
+<!-- //////////////////////////////////////////////// -->
 
-  <!-- //////////////////////////////////////////////// -->
-  <!-- //////////////////////////////////////////////// -->
 
 </head>
 <!-- ***** Header Area Start ***** -->
@@ -193,7 +150,7 @@ https://templatemo.com/tm-562-space-dynamic
   <div id="portfolio" class="our-portfolio section">
     <div class="container">
       <?php if ($quadros): ?>
-        <?php foreach ($quadros as $row): ?>
+        <?php foreach ($quadros as $row): ?>        
           <a class="elem"
             href="<?= $row['url'] ?>"
             title="<?= $row['titulo'] ?>"
@@ -216,13 +173,7 @@ https://templatemo.com/tm-562-space-dynamic
       </div>
     </div>
   </footer>
-  <!-- Scripts -->
-  <script src="galeria/vendor/jquery/jquery.min.js"></script>
-  <script src="galeria/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-  <script src="galeria/assets/js/owl-carousel.js"></script>
-  <script src="galeria/assets/js/animation.js"></script>
-  <script src="galeria/assets/js/imagesloaded.js"></script>
-  <script src="galeria/assets/js/templatemo-custom.js"></script>
+
 
   <!-- LIGHTBOX INITIALIZATION -->
   <script type="text/javascript">
@@ -254,6 +205,25 @@ https://templatemo.com/tm-562-space-dynamic
 
 <script>
   new window.VLibras.Widget('https://vlibras.gov.br/app');
+</script>
+
+<!-- LIGHTBOX INITIALIZATION -->
+<script type="text/javascript">
+$(document).ready(function(e) {
+   
+	// live handler
+	lc_lightbox('.elem', {
+		wrap_class: 'lcl_fade_oc',
+		gallery : true,	
+		thumb_attr: 'data-lcl-thumb', 
+		
+		skin: 'minimal',
+		radius: 0,
+		padding	: 0,
+		border_w: 0,
+	});	
+
+});
 </script>
 
 </body>

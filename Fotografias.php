@@ -15,137 +15,40 @@ supabaseCreatePhoto('Fotografias', 'fotografias', 'Fotografias');
 <head>
 
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="description" content="Pinturas GRIOT">
+  <meta name="description" content="Fotografias GRIOT">
   <meta name="author" content="Lucas Ancacio e Maria Eduarda Gomes">
   <meta charset="UTF-8">
   <link rel="icon" href=" galeria\assets\images\FavIcon_SF.png">
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap"
     rel="stylesheet">
 
-  <title>Fotografias GRIOT</title>
+  <title>GRIOT-Fotografias</title>
 
- 
-  <!-- Additional CSS Files -->
-  <link rel="stylesheet" href="galeria/assets/css/fontawesome.css">
-  <link rel="stylesheet" href="galeria/assets/css/templatemo-space-dynamic.css">
-  <link rel="stylesheet" href="galeria/assets/css/animated.css">
-  <link rel="stylesheet" href="galeria/assets/css/owl.css">
-  <!--
-TemplateMo 562 Space Dynamic
-https://templatemo.com/tm-562-space-dynamic
--->
+  <!-- Css principal -->
+  <link rel="stylesheet" href="meanStyle/assets/css/templatemo-space-dynamic.css">
+  <link rel="stylesheet" href="meanStyle/assets/css/fontawesome.css">
 
-  <!-- CSS da galeria -->
-  <style type="text/css">
-    .elem,
-    .elem * {
-      box-sizing: border-box;
-      margin: 0 !important;
-    }
-
-    /* ===== FORMULÁRIO ===== */
-    .form-container {
-      background: #fff;
-      padding: 40px;
-      height: 480px;
-      width: 650px;
-      border-radius: 16px;
-      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
-      flex: 1;
-      align-items: center;
-    }
-
-    .form-container h2 {
-      text-align: center;
-      color: #e74c3c;
-      margin-bottom: 30px;
-    }
-
-    .form-container label {
-      margin-top: 20px;
-      display: block;
-      font-weight: 600;
-    }
-
-    .form-container input,
-    .form-container button {
-      width: 100%;
-      margin-top: 8px;
-      padding: 14px;
-      border-radius: 8px;
-      border: 1px solid #ddd;
-      font-size: 15px;
-    }
-
-    .form-container button {
-      margin-top: 30px;
-      background: linear-gradient(135deg, #e74c3c, #d93b54);
-      color: #fff;
-      border: none;
-      font-weight: 600;
-      cursor: pointer;
-    }
-
-    .form-container button:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 10px 25px rgba(231, 76, 60, 0.4);
-    }
-
-    .elem {
-      display: inline-block;
-      font-size: 0;
-      width: 33%;
-      border: 20px solid transparent;
-      border-bottom: none;
-      background: #fff;
-      padding: 10px;
-      height: auto;
-      background-clip: padding-box;
-    }
-
-    .elem>span {
-      display: block;
-      cursor: pointer;
-      height: 0;
-      padding-bottom: 70%;
-      background-size: cover;
-      background-position: center center;
-    }
-  </style>
+  <!-- Pinturas e Fotografias -->
+<style type="text/css">
+.lcl_fade_oc.lcl_pre_show #lcl_overlay,
+.lcl_fade_oc.lcl_pre_show #lcl_window,
+.lcl_fade_oc.lcl_is_closing #lcl_overlay,
+.lcl_fade_oc.lcl_is_closing #lcl_window {
+	opacity: 0 !important;
+}
+.lcl_fade_oc.lcl_is_closing #lcl_overlay {
+	-webkit-transition-delay: .15s !important; 
+	transition-delay: .15s !important;
+}
+</style>
 
 
-  <!-- LIGHTBOX FADING SHOW/HIDE EFFECT (as explained in documentation) -->
-  <style type="text/css">
-    .lcl_fade_oc.lcl_pre_show #lcl_overlay,
-    .lcl_fade_oc.lcl_pre_show #lcl_window,
-    .lcl_fade_oc.lcl_is_closing #lcl_overlay,
-    .lcl_fade_oc.lcl_is_closing #lcl_window {
-      opacity: 0 !important;
-    }
+<script src="galeria/lib/jquery.js" type="text/javascript"></script>
 
-    .lcl_fade_oc.lcl_is_closing #lcl_overlay {
-      -webkit-transition-delay: .15s !important;
-      transition-delay: .15s !important;
-    }
-  </style>
+<script src="galeria/js/lc_lightbox.lite.js" type="text/javascript"></script>
+<link rel="stylesheet" href="galeria/css/lc_lightbox.css" />
 
-  <!-- REQUIRED ELEMENTS -->
-
-  <script src="galeria/lib/jquery.js" type="text/javascript"></script>
-
-  <script src="galeria/js/lc_lightbox.lite.js" type="text/javascript"></script>
-  <link rel="stylesheet" href="galeria/css/lc_lightbox.css" />
-
-
-  <!-- SKINS -->
-  <link rel="stylesheet" href="galeria/skins/minimal.css" />
-
-
-  <!-- ASSETS -->
-  <script src="galeria/lib/AlloyFinger/alloy_finger.min.js" type="text/javascript"></script>
-
-  <!-- //////////////////////////////////////////////// -->
-  <!-- //////////////////////////////////////////////// -->
+<link rel="stylesheet" href="galeria/skins/minimal.css" />
 
 </head>
 <!-- ***** Header Area Start ***** -->
@@ -245,10 +148,10 @@ https://templatemo.com/tm-562-space-dynamic
   <!-- Scripts -->
   <script src="galeria/vendor/jquery/jquery.min.js"></script>
   <script src="galeria/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-  <script src="galeria/assets/js/owl-carousel.js"></script>
-  <script src="galeria/assets/js/animation.js"></script>
-  <script src="galeria/assets/js/imagesloaded.js"></script>
-  <script src="galeria/assets/js/templatemo-custom.js"></script>
+  <script src="galeria/js/owl-carousel.js"></script>
+  <script src="galeria/js/animation.js"></script>
+  <script src="galeria/js/imagesloaded.js"></script>
+  <script src="galeria/js/templatemo-custom.js"></script>
 
   <!-- LIGHTBOX INITIALIZATION -->
   <script type="text/javascript">
