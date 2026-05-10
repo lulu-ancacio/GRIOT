@@ -46,7 +46,7 @@ body {
   background-repeat: no-repeat;
   background-size: 30% auto;
 
-  z-index: 0;
+  z-index: -1;
 }
 
 
@@ -187,6 +187,8 @@ HEADER
   font-weight: 600;
 
   transition: 0.3s;
+
+  border: none;
 }
 
 .main-blue-button {
@@ -418,10 +420,6 @@ SECTION REDIRECTION
   text-decoration: none !important;
   box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
   transition: all 0.3s ease
-}
-
-.card:hover {
-  transform: translateY(-5px);
 }
 
 /* HOVER */
@@ -786,7 +784,6 @@ FOOTER
 ======================================== */
 
 footer {
-  background: #fe3f40;
 
   padding: 35px 0;
 
@@ -794,7 +791,7 @@ footer {
 }
 
 footer p {
-  color: #d1d5db;
+  color: #000000;
 
   font-size: 15px;
 
