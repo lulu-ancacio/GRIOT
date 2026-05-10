@@ -470,7 +470,7 @@ if (!empty($_SESSION['adm'])) {
 
   </script>
   <!-- JS -->
-  <script src="script.js" defer></script>
+  <script src="galeria\script.js" defer></script>
 </body>
 
 </html>
