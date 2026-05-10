@@ -4,29 +4,43 @@
 
 * {
   margin: 0;
+
   padding: 0;
+
   box-sizing: border-box;
-}
 
-body {
   font-family: 'Poppins', sans-serif;
-
 }
 
 .ImagemFundo {
   position: relative;
+
   min-height: 200vh;
-  overflow: hidden;
+
+  overflow-x: hidden;
 }
+
+html,
+body {
+  overflow-x: hidden;
+
+  width: 100%;
+}
+
+[vw] {
+  z-index: 999999 !important;
+}
+
 
 .ImagemFundo::before {
   content: "";
   position: absolute;
   inset: 0;
 
-  background-image: 
-    url("../galeria/assets/images/baner-dec-left.png"),
-    url("../galeria/assets/images/baner-dec-right.png");
+  background-image:
+    url("../images/baner-dec-left.png"),
+    url("../images/baner-dec-right.png");
+
 
   background-position: left center, right center;
   background-repeat: no-repeat;
@@ -46,15 +60,6 @@ body {
   margin: auto;
 }
 
-/* =========================
-   ROW PADRÃO
-========================= */
-
-.main-banner .row,
-.contact-us .row {
-  display: flex;
-  flex-wrap: wrap;
-}
 
 /* =========================
    BANNER DESKTOP
@@ -254,21 +259,7 @@ BANNER
   padding-bottom: 100px;
 }
 
-/* AQUI ESTÁ O SEGREDO */
 
-.main-banner .container>.row {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 50px;
-}
-
-/* COLUNAS */
-
-.col-lg-6,
-.col-md-6 {
-  width: 50%;
-}
 
 /* TEXTO */
 
@@ -361,7 +352,7 @@ RESPONSIVO
     display: flex;
   }
 
-  .main-banner .container>.row {
+  .banner-content {
     flex-direction: column;
   }
 
@@ -414,18 +405,6 @@ SECTION REDIRECTION
 
 /* GRID DOS CARDS */
 
-#redirection .row {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 30px;
-}
-
-/* COLUNAS */
-
-#redirection .col-lg-4 {
-  width: calc(33.333% - 20px);
-}
 
 /* CARD */
 
@@ -860,4 +839,23 @@ button {
 
 ::-webkit-scrollbar-thumb:hover {
   background: #e63233;
+}
+
+/* =========================
+   VLIBRAS
+========================= */
+
+[vw-access-button] {
+  display: flex !important;
+
+  position: fixed !important;
+
+  right: 20px !important;
+  bottom: 20px !important;
+
+  z-index: 999999 !important;
+}
+
+[vw-plugin-wrapper] {
+  z-index: 999999 !important;
 }
