@@ -32,7 +32,7 @@ supabaseCreatePhoto('Fotografias', 'fotografias', 'Fotografias');
 
   <!-- FAVICON -->
   <link rel="icon"
-        href="galeria/assets/images/FavIcon_SF.png">
+        href="meanStyle/assets/images/FavIcon_SF.png">
 
   <!-- FONTES -->
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap"
@@ -151,7 +151,7 @@ supabaseCreatePhoto('Fotografias', 'fotografias', 'Fotografias');
       <!-- LOGO -->
       <a href="index.php" class="logo">
 
-        <img src="galeria/assets/images/LogoEst_SF.png"
+        <img src="meanStyle/assets/images/LogoEst_SF.png"
              alt="Logo GRIOT">
 
       </a>
@@ -227,7 +227,7 @@ supabaseCreatePhoto('Fotografias', 'fotografias', 'Fotografias');
       <!-- IMAGEM -->
       <div class="right-image">
 
-        <img src="galeria/assets/images/Pintura.jpg"
+        <img src="meanStyle/assets/images/Pintura.jpg"
              alt="Fotografia GRIOT">
 
       </div>

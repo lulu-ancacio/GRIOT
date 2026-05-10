@@ -225,13 +225,13 @@ if (
 
     <div class="container">
         <div class="imagem">
-            <img src="../galeria/assets/images/FotoPrincipal2.jpg" alt="Dureg">
+            <img src="../meanStyle/assets/images/FotoPrincipal2.jpg" alt="Dureg">
         </div>
 
         <form method="post" class="form">
             <!-- ***** Logo Start ***** -->
             <div class="logo">
-                <img src="../galeria\assets\images\LogoEst_SF.png">
+                <img src="../meanStyle\assets\images\LogoEst_SF.png">
             </div>
             <!-- ***** Logo End ***** -->
             <p><?php echo $msg ?></p>

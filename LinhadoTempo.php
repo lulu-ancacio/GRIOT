@@ -8,7 +8,7 @@
   <meta name="author" content=" ">
   <title>GRIOT-Linha do Tempo</title>
 
-  <link rel="icon" href="galeria/assets/images/FavIcon_SF.png">
+  <link rel="icon" href="meanStyle/assets/images/FavIcon_SF.png">
 
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
@@ -17,41 +17,14 @@
   <link href="galeria/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
   <!-- CSS -->
-  <link rel="stylesheet" href="galeria/assets/css/fontawesome.css">
-  <link rel="stylesheet" href="galeria/assets/css/templatemo-space-dynamic.css">
-  <link rel="stylesheet" href="galeria/assets/css/animated.css">
-  <link rel="stylesheet" href="galeria/assets/css/owl.css">
-  <link rel="stylesheet" href="LinhadoTempo.css">
+  <link rel="stylesheet" href="meanStyle/assets/css/fontawesome.css">
+  <link rel="stylesheet" href="meanStyle/assets/css/templatemo-space-dynamic.css">
+
 
   <!-- Font Awesome -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
-  <!-- Lightbox -->
-  <link rel="stylesheet" href="galeria/css/lc_lightbox.css">
-  <link rel="stylesheet" href="galeria/skins/minimal.css">
 
-  <!-- Scripts -->
-  <script src="galeria/vendor/jquery/jquery.min.js"></script>
-  <script src="galeria/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-  <script src="galeria/assets/js/owl-carousel.js"></script>
-  <script src="galeria/assets/js/templatemo-custom.js"></script>
-  <script src="galeria/lib/jquery.js"></script>
-  <script src="galeria/js/lc_lightbox.lite.js"></script>
-  <script src="galeria/lib/AlloyFinger/alloy_finger.min.js"></script>
-
-  <!-- Lightbox style -->
-  <style>
-    .lcl_fade_oc.lcl_pre_show #lcl_overlay,
-    .lcl_fade_oc.lcl_pre_show #lcl_window,
-    .lcl_fade_oc.lcl_is_closing #lcl_overlay,
-    .lcl_fade_oc.lcl_is_closing #lcl_window {
-      opacity: 0 !important;
-    }
-
-    .lcl_fade_oc.lcl_is_closing #lcl_overlay {
-      transition-delay: .15s !important;
-    }
-  </style>
 
 </head>
 
@@ -79,7 +52,7 @@
 
             <div class="logo">
               <a href="index.php">
-                <img src="galeria/assets/images/LogoEst_SF.png">
+                <img src="meanStyle/assets/images/LogoEst_SF.png">
               </a>
             </div>
 
@@ -118,7 +91,7 @@
 
             <div class="col-md-6">
               <div class="right-image">
-                <img src="galeria/assets/images/Pintura.jpg">
+                <img src="meanStyle/assets/images/Pintura.jpg">
               </div>
             </div>
 

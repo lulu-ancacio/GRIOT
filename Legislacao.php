@@ -7,28 +7,21 @@
   <meta name="description" content="Museu virtual com tematica racial">
   <meta name="author" content=" ">
   <meta charset="UTF-8">
-  <link rel="icon" href=" galeria\assets\images\FavIcon_SF.png">
+  <link rel="icon" href=" meanStyle\assets\images\FavIcon_SF.png">
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap"
     rel="stylesheet">
 
   <title>GRIOT-Legislação</title>
 
 
-  <!-- Scripts -->
-  <script src="galeria/vendor/jquery/jquery.min.js"></script>
-  <script src="galeria/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-  <script src="galeria/assets/js/owl-carousel.js"></script>
-  <script src="galeria/assets/js/templatemo-custom.js"></script>
 
 
-  <!-- Bootstrap core CSS -->
-  <link href="galeria/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
+ 
   <!-- Additional CSS Files -->
-  <link rel="stylesheet" href="galeria/assets/css/fontawesome.css">
-  <link rel="stylesheet" href="galeria/assets/css/templatemo-space-dynamic.css">
-  <link rel="stylesheet" href="galeria/assets/css/animated.css">
-  <link rel="stylesheet" href="galeria/assets/css/owl.css">
+  <link rel="stylesheet" href="meanStyle/assets/css/fontawesome.css">
+  <link rel="stylesheet" href="meanStyle/assets/css/templatemo-space-dynamic.css">
+ 
 
 
   <!-- LIGHTBOX FADING SHOW/HIDE EFFECT (as explained in documentation) -->

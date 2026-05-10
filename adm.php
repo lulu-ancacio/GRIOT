@@ -23,7 +23,7 @@ if (empty($_SESSION['adm'])) {
 
     <title>GRIOT-Início</title>
 
-    <link rel="stylesheet" href="galeria/assets/css/templatemo-space-dynamic.css">
+    <link rel="stylesheet" href="meanStyle/assets/css/templatemo-space-dynamic.css">
         <style>
 .form-container {
       background: #fff;

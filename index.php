@@ -23,7 +23,7 @@ if (!empty($_SESSION['adm'])) {
   <title>GRIOT - Início</title>
 
   <!-- FAVICON -->
-  <link rel="icon" href="galeria/assets/images/FavIcon_SF.png">
+  <link rel="icon" href="meanStyle/assets/images/FavIcon_SF.png">
 
   <!-- FONTES -->
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap"
@@ -51,7 +51,7 @@ if (!empty($_SESSION['adm'])) {
 
         <!-- LOGO -->
         <a href="index.php" class="logo">
-          <img src="galeria/assets/images/LogoEst_SF.png" alt="Logo GRIOT">
+          <img src="meanStyle/assets/images/LogoEst_SF.png" alt="Logo GRIOT">
         </a>
 
         <!-- MENU -->
@@ -158,7 +158,7 @@ if (!empty($_SESSION['adm'])) {
           <!-- IMAGEM -->
           <div class="right-image">
 
-            <img src="galeria/assets/images/FotoPrincipal.jpg" alt="Jovem negro com 3 pentes garfos em seu cabelo">
+            <img src="meanStyle/assets/images/FotoPrincipal.jpg" alt="Jovem negro com 3 pentes garfos em seu cabelo">
 
           </div>
 

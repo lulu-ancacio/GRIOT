@@ -15,8 +15,8 @@ body {
   padding: 0 0 60px;
 
   background-image: 
-    url(../galeria/assets/images/baner-dec-left.png),
-    url(../galeria/assets/images/baner-dec-right.png);
+    url(../meanStyle/assets/images/baner-dec-left.png),
+    url(../meanStyle/assets/images/baner-dec-right.png);
 
   background-position: left center, right center;
   background-repeat: no-repeat;

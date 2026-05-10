@@ -194,7 +194,7 @@ if (
     <div class="container">
 
         <div class="imagem">
-            <img src="../galeria/assets/images/FotoPrincipal.jpg" alt="Dureg">
+            <img src="../meanStyle/assets/images/FotoPrincipal.jpg" alt="Dureg">
         </div>
 
 
