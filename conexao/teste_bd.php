@@ -13,9 +13,8 @@ $itens = supabaseRequest("pinturas?select=*");
 <?php foreach ($itens as $item): ?>
     <div>
         <h2><?php echo $item['titulo']; ?></h2>
-        <p><?php echo $item['desc']; ?></p>
-        <p><?php echo $item['quadro']; ?></p>
-        <img src="<?php echo $item['quadro'];?>">
+        <p><?php echo $item['autor']; ?></p>
+        <img src="<?php echo $item['url'];?>">
     </div>
 <?php endforeach; ?>
 
