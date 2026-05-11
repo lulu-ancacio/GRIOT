@@ -317,11 +317,9 @@ supabaseCreatePhoto('Fotografias', 'fotografias', 'Fotografias');
 
       <div id="portfolio" class="our-portfolio section">
     <div class="container">
-      <?php
-      require_once("conexao/config.php");
+
       <?php foreach ($fotos as $row): ?>
         $imgBase64 = base64_encode($row['imagem']);
-      ?>
         <a class="elem"
           href="data:image/jpeg;base64,<?= $imgBase64 ?>"
           title="<?= $row['titulo'] ?>"
