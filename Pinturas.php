@@ -8,8 +8,6 @@ require './composer/vendor/autoload.php';
 
 $quadros = supabaseRequest("pinturas?select=*");
 
-supabaseCreatePhoto('Pinturas', 'pinturas', 'Pinturas');
-
 ?>
 
 <!DOCTYPE html>
@@ -165,23 +163,6 @@ supabaseCreatePhoto('Pinturas', 'pinturas', 'Pinturas');
       </div>
     </div>
   </div>
-
-  <?php if (!empty($_SESSION['adm'])): ?>
-    <div class="form-container">
-      <form method="post" enctype="multipart/form-data">
-        <labe>Título</label>
-          <input type="text" name="titulo" required>
-          <labe>Autor(a)</label>
-            <input type="text" name="autor" required>
-            <labe>Ano</label>
-              <input type="number" name="ano">
-
-              <input type="file" name="imagem" accept="image/*" required>
-
-              <button type="submit">Enviar</button>
-      </form>
-    </div>
-  <?php endif; ?>
 
   <div id="portfolio" class="our-portfolio section">
     <div class="container">

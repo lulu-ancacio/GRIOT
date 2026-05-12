@@ -1,10 +1,6 @@
 <?php
 session_start();
 
-if (!empty($_SESSION['adm'])) {
-  header('Location: adm.php');
-  exit;
-}
 ?>
 
 <!DOCTYPE html>
@@ -79,6 +75,19 @@ if (!empty($_SESSION['adm'])) {
               </a>
             </li>
 
+            <?php if (($_SESSION['adm'])): ?>
+              <li>
+                <a href="./adm.php" class="main-red-button">
+                  Painel de Administrador
+                </a>
+              </li>
+              <li class="scroll-to-section">
+                <a href="./mensagemRecebida.html" class="main-red-button">
+                  Mensagens
+                </a>
+              </li>
+            <?php endif; ?>
+
           <?php endif; ?>
 
         </ul>
@@ -115,7 +124,7 @@ if (!empty($_SESSION['adm'])) {
 
                 <h5>
                   Bem-vindo(a),
-                  <?= $_SESSION['nome'] ?> 👋
+                  <?= $_SESSION['email'] ?> 👋
                 </h5>
 
                 <?php if (!empty($_SESSION['adm'])): ?>

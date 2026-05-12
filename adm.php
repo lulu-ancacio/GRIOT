@@ -4,6 +4,19 @@ if (empty($_SESSION['adm'])) {
     header('Location: index.php');
 }
 
+require 'conexao/config.php';
+
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+
+    if ($_POST['tipo'] === 'fotografias') {
+        supabaseCreatePhotoPainting('Fotografias', 'fotografias');
+    }
+
+    if ($_POST['tipo'] === 'pinturas') {
+        supabaseCreatePhotoPainting('Pinturas', 'pinturas');
+    }
+}
+
 ?>
 
 <!DOCTYPE html>
@@ -24,53 +37,54 @@ if (empty($_SESSION['adm'])) {
     <title>GRIOT-Início</title>
 
     <link rel="stylesheet" href="meanStyle/assets/css/templatemo-space-dynamic.css">
-        <style>
-.form-container {
-      background: #fff;
-      padding: 40px;
-      height: 480px;
-      width: 650px;
-      border-radius: 16px;
-      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
-      flex: 1;
-      align-items: center;
-    }
+    <style>
+        .form-container {
+            background: #fff;
+            padding: 40px;
+            height: 540px;
+            width: 650px;
+            border-radius: 16px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+            flex: 1;
+            align-items: center;
+            margin: 50px;
+        }
 
-    .form-container h2 {
-      text-align: center;
-      color: #e74c3c;
-      margin-bottom: 30px;
-    }
+        .form-container h2 {
+            text-align: center;
+            color: #e74c3c;
+            margin-bottom: 30px;
+        }
 
-    .form-container label {
-      margin-top: 20px;
-      display: block;
-      font-weight: 600;
-    }
+        .form-container label {
+            margin-top: 20px;
+            display: block;
+            font-weight: 600;
+        }
 
-    .form-container input,
-    .form-container button {
-      width: 100%;
-      margin-top: 8px;
-      padding: 14px;
-      border-radius: 8px;
-      border: 1px solid #ddd;
-      font-size: 15px;
-    }
+        .form-container input,
+        .form-container button {
+            width: 100%;
+            margin-top: 8px;
+            padding: 14px;
+            border-radius: 8px;
+            border: 1px solid #ddd;
+            font-size: 15px;
+        }
 
-    .form-container button {
-      margin-top: 30px;
-      background: linear-gradient(135deg, #e74c3c, #d93b54);
-      color: #fff;
-      border: none;
-      font-weight: 600;
-      cursor: pointer;
-    }
+        .form-container button {
+            margin-top: 30px;
+            background: linear-gradient(135deg, #e74c3c, #d93b54);
+            color: #fff;
+            border: none;
+            font-weight: 600;
+            cursor: pointer;
+        }
 
-    .form-container button:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 10px 25px rgba(231, 76, 60, 0.4);
-    }
+        .form-container button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(231, 76, 60, 0.4);
+        }
 
         .lcl_fade_oc.lcl_pre_show #lcl_overlay,
         .lcl_fade_oc.lcl_pre_show #lcl_window,
@@ -137,7 +151,11 @@ if (empty($_SESSION['adm'])) {
                             <li class="scroll-to-section">
                                 <a href="./mensagemRecebida.html" class="main-red-button">Mensagens</a>
                             </li>
-
+                            <li>
+                                <a href="./index.php" class="main-red-button">
+                                Tela inicial
+                                </a>
+                            </li>
                             <li class="scroll-to-section">
                                 <a href="./conexao/logout.php" class="main-red-button">Sair</a>
                             </li>
@@ -176,22 +194,41 @@ if (empty($_SESSION['adm'])) {
     </div>
 
     <div>
-          <?php if (!empty($_SESSION['adm'])): ?>
-  <div class="form-container">
-    <form method="post" enctype="multipart/form-data">
-      <labe>Título</label>
-      <input type="text" name="titulo" required>
-      <labe>Autor(a)</label>
-      <input type="text" name="autor" required>
-      <labe>Ano</label>
-      <input type="number" name="ano">
+        <div class="form-container">
+            <h2>Submissão de Fotografias</h2>
+            <form method="post" enctype="multipart/form-data">
+                <input type="hidden" name="tipo" value="fotografias">
+                <labe>Título</label>
+                <input type="text" name="titulo" required>
+                <labe>Autor(a)</label>
+                <input type="text" name="autor" required>
+                <labe>Ano</label>
+                <input type="number" name="ano">
 
-      <input type="file" name="imagem" accept="image/*" required>
+                <input type="file" name="imagem" accept="image/*" required>
 
-      <button type="submit">Enviar</button>
-    </form>
-  </div>
-  <?php endif; ?>
+                <button type="submit">Enviar</button>
+            </form>
+        </div>
+
+        <div class="form-container">
+            <h2>Submissão de Pinturas</h2>
+            <form method="post" enctype="multipart/form-data">
+                <input type="hidden" name="tipo" value="pinturas">
+                <labe>Título</label>
+                <input type="text" name="titulo" required>
+                <labe>Autor(a)</label>
+                <input type="text" name="autor" required>
+                <labe>Ano</label>
+                <input type="number" name="ano">
+
+                <input type="file" name="imagem" accept="image/*" required>
+
+                <button type="submit">Enviar</button>
+            </form>
+        </div>
+
+
     </div>
 
     <br>
@@ -206,7 +243,7 @@ if (empty($_SESSION['adm'])) {
     </footer>
     <!-- LIGHTBOX INITIALIZATION -->
     <script type="text/javascript">
-        $(document).ready(function (e) {
+        $(document).ready(function(e) {
 
             // live handler
             lc_lightbox('.elem', {
@@ -230,7 +267,7 @@ if (empty($_SESSION['adm'])) {
 
         const supabaseClient = supabase.createClient(supabaseUrl, supabaseKey);
 
-        document.getElementById("contact").addEventListener("submit", async function (e) {
+        document.getElementById("contact").addEventListener("submit", async function(e) {
             e.preventDefault();
 
             const nome = document.getElementById("name").value;
@@ -238,16 +275,16 @@ if (empty($_SESSION['adm'])) {
             const email = document.getElementById("email").value;
             const msg = document.getElementById("message").value;
 
-            const { error } = await supabaseClient
+            const {
+                error
+            } = await supabaseClient
                 .from("comentarios")
-                .insert([
-                    {
-                        nome: nome,
-                        sobrenome: sobrenome,
-                        email: email,
-                        msg: msg
-                    }
-                ]);
+                .insert([{
+                    nome: nome,
+                    sobrenome: sobrenome,
+                    email: email,
+                    msg: msg
+                }]);
 
             if (error) {
                 alert("Erro ao enviar ");
@@ -261,19 +298,19 @@ if (empty($_SESSION['adm'])) {
 
     ... <!-- Conteúdo do Plug-in V-Libras -->
 
-<!-- VLibras -->
-<div vw class="enabled">
-  <div vw-access-button class="active"></div>
-  <div vw-plugin-wrapper>
-    <div class="vw-plugin-top-wrapper"></div>
-  </div>
-</div>
+    <!-- VLibras -->
+    <div vw class="enabled">
+        <div vw-access-button class="active"></div>
+        <div vw-plugin-wrapper>
+            <div class="vw-plugin-top-wrapper"></div>
+        </div>
+    </div>
 
-<script src="https://vlibras.gov.br/app/vlibras-plugin.js"></script>
+    <script src="https://vlibras.gov.br/app/vlibras-plugin.js"></script>
 
-<script>
-  new window.VLibras.Widget('https://vlibras.gov.br/app');
-</script>
+    <script>
+        new window.VLibras.Widget('https://vlibras.gov.br/app');
+    </script>
 
 </body>
 

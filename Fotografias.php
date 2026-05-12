@@ -5,7 +5,6 @@ require 'conexao/config.php';
 require './composer/vendor/autoload.php';
 
 $fotos = supabaseRequest("fotografias?select=*");
-supabaseCreatePhoto('Fotografias', 'fotografias', 'Fotografias');
 
 ?>
 
@@ -156,7 +155,7 @@ supabaseCreatePhoto('Fotografias', 'fotografias', 'Fotografias');
             </div>
             <div class="col-md-6">
               <div class="right-image wow fadeInRight" data-wow-duration="1s" data-wow-delay="0.5s">
-                <img src="meanStyle/assets/images/Pintura.jpg" alt="Menino negro com uma câmera analógica em suas mãos.">
+                <img src="meanStyle/assets/images/Camera.jpg" alt="Menino negro com uma câmera analógica em suas mãos.">
               </div>
             </div>
           </div>
@@ -164,23 +163,6 @@ supabaseCreatePhoto('Fotografias', 'fotografias', 'Fotografias');
       </div>
     </div>
   </div>
-
-  <?php if (!empty($_SESSION['adm'])): ?>
-    <div class="form-container">
-      <form method="post" enctype="multipart/form-data">
-        <labe>Título</label>
-          <input type="text" name="titulo" required>
-          <labe>Autor(a)</label>
-            <input type="text" name="autor" required>
-            <labe>Ano</label>
-              <input type="number" name="ano">
-
-              <input type="file" name="imagem" accept="image/*" required>
-
-              <button type="submit">Enviar</button>
-      </form>
-    </div>
-  <?php endif; ?>
 
   <div id="portfolio" class="our-portfolio section">
     <div class="container">
