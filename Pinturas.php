@@ -17,19 +17,28 @@ supabaseCreatePhoto('Pinturas', 'pinturas', 'Pinturas');
 
 <head>
 
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="description" content="Pinturas GRIOT">
-  <meta name="author" content="Lucas Ancacio e Maria Eduarda Gomes">
+  <!-- META -->
   <meta charset="UTF-8">
-  <link rel="icon" href=" galeria\assets\images\FavIcon_SF.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- SEO -->
+  <meta name="description" content="Museu virtual com temática racial">
+
+  <!-- TÍTULO -->
+  <title>GRIOT - Pinturas</title>
+
+  <!-- FAVICON -->
+  <link rel="icon" href="meanStyle/assets/images/FavIcon_SF.png">
+
+  <!-- FONTES -->
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap"
     rel="stylesheet">
 
-  <title>GRIOT-Pinturas</title>
+  <!-- ÍCONES -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
-  <!-- Css principal -->
+  <!-- CSS PRINCIPAL -->
   <link rel="stylesheet" href="meanStyle/assets/css/templatemo-space-dynamic.css">
-  <link rel="stylesheet" href="meanStyle/assets/css/fontawesome.css">
 
   <!-- Pinturas e Fotografias -->
   <!-- LIGHTBOX FADING SHOW/HIDE EFFECT (as explained in documentation) -->
@@ -76,6 +85,17 @@ supabaseCreatePhoto('Pinturas', 'pinturas', 'Pinturas');
       background-size: cover;
       background-position: center center;
     }
+
+    .grid-galeria {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    padding: 20px;
+    }
+
+    .elem {
+   width: 100% !important; /* Reseta a largura fixa antiga */
+    }
   </style>
 
 
@@ -98,73 +118,81 @@ supabaseCreatePhoto('Pinturas', 'pinturas', 'Pinturas');
 
 
   <!-- ASSETS -->
-85	  <script src="galeria/lib/AlloyFinger/alloy_finger.min.js" type="text/javascript"></script>
+   	  <script src="galeria/lib/AlloyFinger/alloy_finger.min.js" type="text/javascript"></script>
 
 </head>
+<body>
 <!-- ***** Header Area Start ***** -->
-<header class="header-area header-sticky wow slideInDown" data-wow-duration="0.75s" data-wow-delay="0s">
+ 
+<header class="header-area">
+
   <div class="container">
-    <div class="row">
-      <div class="col-12">
+
+  
+
         <nav class="main-nav">
-          <!-- ***** Logo Start ***** -->
-          <div class="logo">
-            <a href="index.php">
+
+          <!-- LOGO -->
+           <a href = "index.php" class = "logo">
               <img src="meanStyle/assets/images/LogoEst_SF.png">
             </a>
-          </div>
-          <!-- ***** Logo End ***** -->
-          <!-- ***** Menu Start ***** -->
+
+          <!--  MENU  -->
           <ul class="nav">
-            <li class="scroll-to-section">
+
+            <li>
               <a href="Index.php" class="main-red-button">Início</a>
             </li>
           </ul>
 
-          <a class='menu-trigger'>
-            <span>Menu</span>
-          </a>
-          <!-- ***** Menu End ***** -->
+          <!-- BOTÃO MOBILE -->
+          <button class = "menu-trigger" aria-label = "Abrir Menu">
+            <span></span>
+          </button>
 
         </nav>
+
       </div>
-    </div>
-  </div>
+
 </header>
-<!-- ***** Header Area End ***** -->
 
 
+  <div class="ImagemFundo">
+    <section class = "main-banner" id = "top">
 
-<body>
-
-
-  </style>
-  <br><br>
-  <div class="main-banner wow fadeIn" id="top" data-wow-duration="1s" data-wow-delay="0.5s">
     <div class="container">
-      <div class="row">
-        <div class="col-lg-12">
-          <div class="row">
-            <div class="col-lg-6 align-self-center">
-              <div class="left-content header-text wow fadeInLeft" data-wow-duration="1s" data-wow-delay="1s">
-                <h2><em>Voilà!</em> <span>GRIOT!</span></h2>
-                <p>A galeria de pinturas do GRIOT apresenta um conjunto de obras que expressam,
-                  por meio da arte, a profundidade da cultura afro-brasileira e as múltiplas
-                  dimensões da experiência negra. Cada pintura revela traços de história,
-                  identidade e resistência, traduzidos em cores,
-                  formas e simbolismos que dialogam com a ancestralidade e o presente.</p>
-              </div>
-            </div>
-            <div class="col-md-6">
-              <div class="right-image wow fadeInRight" data-wow-duration="1s" data-wow-delay="0.5s">
-                <img src="meanStyle/assets/images/Pintura.jpg" alt="Mãos com pincéis">
-              </div>
-            </div>
-          </div>
+
+      <div class="banner-content">
+
+      <div class = "left-content">
+        <h6> Bem Vindo ao aba de Pintuas </h6>
+
+        <h2> 
+         <em>Voilà</em>
+          <span>GRIOT</span>
+        </h2>
+
+         <p>A galeria de pinturas do GRIOT apresenta um conjunto de obras que expressam,
+            por meio da arte, a profundidade da cultura afro-brasileira e as múltiplas
+            dimensões da experiência negra. Cada pintura revela traços de história,
+            identidade e resistência, traduzidos em cores,
+            formas e simbolismos que dialogam com a ancestralidade e o presente.
+         </p>
         </div>
-      </div>
-    </div>
-  </div>
+
+        <!--IMAGEM-->
+      
+              <div class="right-image">
+
+                <img src="meanStyle/assets/images/Pintura.jpg" alt="Mãos com pincéis">
+              
+              </div>
+
+            </div>
+
+          </div>
+</section>
+   
 
   <?php if (!empty($_SESSION['adm'])): ?>
     <div class="form-container">
@@ -183,15 +211,19 @@ supabaseCreatePhoto('Pinturas', 'pinturas', 'Pinturas');
     </div>
   <?php endif; ?>
 
+
+
   <div id="portfolio" class="our-portfolio section">
     <div class="container">
       <?php if ($quadros): ?>
+      <div class = "grid-galeria">
         <?php foreach ($quadros as $row): ?>
           <a class="elem" href="<?= $row['url'] ?>" title="<?= $row['titulo'] ?>" data-lcl-txt="<?= $row['desc'] ?>"
             data-lcl-author="<?= $row['autor'] ?> (<?= $row['ano'] ?>)">
             <span style="background-image: url('<?= $row['url'] ?>');"></span>
           </a>
         <?php endforeach; ?>
+        </div>
       <?php endif; ?>
     </div>
   </div>
@@ -208,25 +240,8 @@ supabaseCreatePhoto('Pinturas', 'pinturas', 'Pinturas');
   </footer>
 
 
-  <!-- LIGHTBOX INITIALIZATION -->
-  <script type="text/javascript">
-    $(document).ready(function (e) {
-
-      // live handler
-      lc_lightbox('.elem', {
-        wrap_class: 'lcl_fade_oc',
-        gallery: true,
-        thumb_attr: 'data-lcl-thumb',
-
-        skin: 'minimal',
-        radius: 0,
-        padding: 0,
-        border_w: 0,
-      });
-
-    });
   </script>
-  !-- VLibras -->
+  <!-- VLibras -->
   <div vw class="enabled">
     <div vw-access-button class="active"></div>
     <div vw-plugin-wrapper>

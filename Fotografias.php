@@ -73,6 +73,16 @@ supabaseCreatePhoto('Fotografias', 'fotografias', 'Fotografias');
       background-size: cover;
       background-position: center center;
     }
+      .grid-galeria {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    padding: 20px;
+    }
+
+    .elem {
+   width: 100% !important; /* Reseta a largura fixa antiga */
+    }
   </style>
 
 
@@ -207,25 +217,8 @@ supabaseCreatePhoto('Fotografias', 'fotografias', 'Fotografias');
   </footer>
 
 
-  <!-- LIGHTBOX INITIALIZATION -->
-  <script type="text/javascript">
-    $(document).ready(function (e) {
-
-      // live handler
-      lc_lightbox('.elem', {
-        wrap_class: 'lcl_fade_oc',
-        gallery: true,
-        thumb_attr: 'data-lcl-thumb',
-
-        skin: 'minimal',
-        radius: 0,
-        padding: 0,
-        border_w: 0,
-      });
-
-    });
-  </script>
-  !-- VLibras -->
+ 
+  <!-- VLibras -->
   <div vw class="enabled">
     <div vw-access-button class="active"></div>
     <div vw-plugin-wrapper>
