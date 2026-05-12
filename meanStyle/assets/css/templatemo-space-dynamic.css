@@ -856,3 +856,166 @@ button {
 [vw-plugin-wrapper] {
   z-index: 999999 !important;
 }
+/* ========================================
+RESPONSIVIDADE FINAL
+======================================== */
+
+/* TABLETS */
+
+@media screen and (max-width: 992px) {
+
+  .banner-content,
+  .contact-content,
+  .contact-us .row {
+    flex-direction: column;
+    gap: 40px;
+  }
+
+  .left-content,
+  .right-image,
+  .contact-info,
+  .contact-form,
+  .contact-us .col-lg-6 {
+    width: 100%;
+  }
+
+  .content-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+}
+
+/* CELULARES */
+
+@media screen and (max-width: 768px) {
+
+  body {
+    overflow-x: hidden;
+  }
+
+  .main-banner {
+    padding-top: 140px;
+    padding-bottom: 60px;
+  }
+
+  .banner-content {
+    flex-direction: column-reverse;
+    text-align: center;
+  }
+
+  .left-content h2 {
+    font-size: 34px;
+    line-height: 1.3;
+  }
+
+  .left-content p {
+    line-height: 28px;
+    font-size: 15px;
+  }
+
+  .section-heading h2,
+  .contact-us .section-heading h2 {
+    font-size: 30px;
+    line-height: 1.3;
+  }
+
+  .section-heading p {
+    font-size: 15px;
+    line-height: 28px;
+  }
+
+  .content-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .content-card {
+    flex-direction: column;
+    text-align: center;
+    padding: 25px 20px;
+  }
+
+  .icon-box {
+    margin-right: 0;
+    margin-bottom: 15px;
+  }
+
+  .content-card h4 {
+    font-size: 18px;
+  }
+
+  .contact-content {
+    flex-direction: column;
+  }
+
+  .input-group {
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  #contact {
+    padding: 25px 18px;
+  }
+
+  #contact .row {
+    flex-direction: column;
+  }
+
+  #contact .col-md-6,
+  #contact .col-lg-12 {
+    width: 100%;
+  }
+
+  .phone-info {
+    width: 100%;
+    text-align: center;
+  }
+
+  .phone-info h4 {
+    font-size: 15px;
+    line-height: 1.6;
+  }
+
+  .nav {
+    padding: 20px;
+  }
+
+  .main-blue-button,
+  .main-red-button {
+    width: 100%;
+    text-align: center;
+  }
+
+}
+
+/* CELULARES PEQUENOS */
+
+@media screen and (max-width: 480px) {
+
+  .left-content h2 {
+    font-size: 28px;
+  }
+
+  .section-heading h2 {
+    font-size: 24px;
+  }
+
+  .content-card {
+    border-radius: 16px;
+  }
+
+  .icon-box {
+    width: 55px;
+    height: 55px;
+    font-size: 20px;
+  }
+
+  .content-card h4 {
+    font-size: 16px;
+  }
+
+  footer p {
+    font-size: 13px;
+  }
+
+}
