@@ -177,12 +177,14 @@ $fotos = supabaseRequest("fotografias?select=*");
   <div id="portfolio" class="our-portfolio section">
     <div class="container">
       <?php if ($fotos): ?>
+        <div class = "grid-galeria">
         <?php foreach ($fotos as $row): ?>
           <a class="elem" href="<?= $row['url'] ?>" title="<?= $row['titulo'] ?>" data-lcl-txt="<?= $row['desc'] ?>"
             data-lcl-author="<?= $row['autor'] ?> (<?= $row['ano'] ?>)">
             <span style="background-image: url('<?= $row['url'] ?>');"></span>
           </a>
         <?php endforeach; ?>
+        </div>
       <?php endif; ?>
     </div>
   </div>
