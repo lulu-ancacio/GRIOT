@@ -8,6 +8,8 @@ on:
 jobs:
   ftp-deploy:
     runs-on: ubuntu-latest
+    env:
+      FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true 
 
     steps:
       - name: Checkout
@@ -20,4 +22,4 @@ jobs:
           username: ${{ secrets.FTP_USERNAME }}
           password: ${{ secrets.FTP_PASSWORD }}
           local-dir: ./
-          server-dir: /htdocs/
+          server-dir: htdocs/
