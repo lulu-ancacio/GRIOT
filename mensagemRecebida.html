@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt">
 
 <head>
 
@@ -7,18 +7,28 @@
   <meta name="description" content="Museu virtual com tematica racial">
   <meta name="author" content=" ">
   <meta charset="UTF-8">
-  <link rel="icon" href=" meanStyle\assets\images\FavIcon_SF.png">
+  <link rel="icon" href=" galeria\assets\images\FavIcon_SF.png">
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap"
     rel="stylesheet">
 
   <title>GRIOT-Sugestões</title>
 
+  <!-- Scripts -->
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
+  <script src="galeria/vendor/jquery/jquery.min.js"></script>
+  <script src="galeria/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="galeria/assets/js/owl-carousel.js"></script>
+  <script src="galeria/assets/js/templatemo-custom.js"></script>
 
+
+  <!-- Bootstrap core CSS -->
+  <link href="galeria/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
   <!-- Additional CSS Files -->
-
-  <link rel="stylesheet" href="meanStyle/assets/css/templatemo-space-dynamic.css">
-
+  <link rel="stylesheet" href="galeria/assets/css/fontawesome.css">
+  <link rel="stylesheet" href="galeria/assets/css/templatemo-space-dynamic.css">
+  <link rel="stylesheet" href="galeria/assets/css/animated.css">
+  <link rel="stylesheet" href="galeria/assets/css/owl.css">
 
 
   <!-- LIGHTBOX FADING SHOW/HIDE EFFECT (as explained in documentation) -->
@@ -38,37 +48,37 @@
   
     .comments-section {
       padding: 100px 0 60px;
-      background-image: url(meanStyle/assets/images/baner-dec-left.png)
-    ,url(meanStyle/assets/images/baner-dec-right.png);
-       background-position: left center, right center;
-       background-repeat: no-repeat;
-      
-
+      background: linear-gradient(135deg, #f5f7fa 0%, #faff60 100%);
+      min-height: 100vh;
     }
 
     .comments-title {
-        text-align: left;
-        font-size: 32px;
-        font-weight: 700;
-        color: #1a202c;
-        margin-bottom: 40px;
-        padding-left: 20px;
+      text-align: center;
+      margin-bottom: 50px;
+      font-size: 2.5rem;
+      color: #4674d1;
+      font-weight: 700;
+      letter-spacing: -0.5px;
     }
 
     #lista {
-       display: grid;
-        grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-        gap: 20px;
-        padding: 0 20px;
+      max-width: 1200px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+      gap: 24px;
+      padding: 0 20px;
     }
 
     .card {
+      background: white;
+      border-radius: 16px;
+      padding: 28px;
+      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+      transition: all 0.3s ease;
+      border: 1px solid rgba(0, 0, 0, 0.05);
       position: relative;
-      background: #ffffff;
-      border-radius: 20px;
-      padding: 20px;
-      box-shadow: 0 4px 10px rgba(183, 71, 71, 0.1);
-      transition: 0.3s;
+      overflow: hidden;
     }
 
     .card::before {
@@ -77,34 +87,43 @@
       top: 0;
       left: 0;
       right: 0;
-      height: 10px;
+      height: 4px;
+      background: linear-gradient(90deg, #667eea 0%, #764ba2 100%);
     }
 
-    .card:nth-child(4n+1) { background: #fff3b0; }
-    .card:nth-child(4n+2) { background: #ffd6e0; }
-    .card:nth-child(4n+3) { background: #d0ebff; }
-    .card:nth-child(4n+4) { background: #e6fcf5; }
+    .card:nth-child(2n)::before {
+      background: linear-gradient(90deg, #f093fb 0%, #f5576c 100%);
+    }
 
-    
+    .card:nth-child(3n)::before {
+      background: linear-gradient(90deg, #4facfe 0%, #00f2fe 100%);
+    }
 
-      .card h3 {
-      font-size: 18px;
+    .card:nth-child(4n)::before {
+      background: linear-gradient(90deg, #43e97b 0%, #38f9d7 100%);
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+    }
+
+    .card h3 {
+      font-size: 1.25rem;
+      margin-bottom: 12px;
+      color: #1a202c;
       font-weight: 600;
-      color: #2d3748;
-      margin-bottom: 10px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
     }
 
     .card p {
-      font-size: 14px;
+      margin-bottom: 10px;
+      line-height: 1.6;
       color: #4a5568;
+      font-size: 0.95rem;
     }
-
-    .card .enderecoOnline a {
-    color: #4f46e5;
-    font-weight: 12px;
-    text-decoration: none;
-   }
-
 
     .card p strong {
       color: #2d3748;
@@ -155,15 +174,46 @@
     .card:nth-child(4) { animation-delay: 0.4s; }
     .card:nth-child(5) { animation-delay: 0.5s; }
 
+    ::-webkit-scrollbar {
+      width: 10px;
+    }
+
+    ::-webkit-scrollbar-track {
+      background: #f1f1f1;
+      border-radius: 10px;
+    }
+
+    ::-webkit-scrollbar-thumb {
+      background: #888;
+      border-radius: 10px;
+    }
+
+    ::-webkit-scrollbar-thumb:hover {
+      background: #555;
+    }
   </style>
 
+  <!-- REQUIRED ELEMENTS -->
 
+  <script src="galeria/lib/jquery.js" type="text/javascript"></script>
+
+  <script src="galeria/js/lc_lightbox.lite.js" type="text/javascript"></script>
+  <link rel="stylesheet" href="galeria/css/lc_lightbox.css" />
+
+
+  <!-- SKINS -->
+  <link rel="stylesheet" href="galeria/skins/minimal.css" />
+
+
+  <!-- ASSETS -->
+  <script src="galeria/lib/AlloyFinger/alloy_finger.min.js" type="text/javascript"></script>
+
+  <!-- //////////////////////////////////////////////// -->
+  <!-- //////////////////////////////////////////////// -->
 
 </head>
 
 <body>
-
-<
 
   <!-- ***** Preloader Start ***** -->
   <div id="js-preloader" class="js-preloader">
@@ -179,7 +229,7 @@
   <!-- ***** Preloader End ***** -->
 
   <!-- ***** Header Area Start ***** -->
-  <header class="header-area header-sticky wow slideInDown">
+  <header class="header-area header-sticky wow slideInDown" data-wow-duration="0.75s" data-wow-delay="0s">
     <div class="container">
       <div class="row">
         <div class="col-12">
@@ -194,7 +244,7 @@
             <!-- ***** Menu Start ***** -->
             <ul class="nav">
               <li class="scroll-to-section">
-                <a href="index.php" class="main-red-button">Início</a>
+                <a href="index.php" class="main-red-button">Home</a>
               </li>
             </ul>
 
@@ -214,7 +264,6 @@
     <div class="container">
       <div class="row">
         <div class="col-lg-12">
-          <br> <br>
           <h1 class="comments-title"> Veja as sugestões que nossos usuarios enviaram</h1>
           <div id="lista"></div>
         </div>
@@ -227,7 +276,7 @@
     <div class="container">
       <div class="row">
         <div class="col-lg-12 wow fadeIn" data-wow-duration="1s" data-wow-delay="0.25s">
-          <p>Trabalho de Conclusão de Curso apresentado ao IFPR - 2026</p>
+          <p>Trabalho de Conclusão de Curso apresentado ao IFPR – 2025</p>
         </div>
       </div>
     </div>
@@ -274,52 +323,21 @@
         const lista = document.getElementById("lista");
         lista.innerHTML = "";
 
-       data.forEach(item => {
-    const div = document.createElement("div");
-    div.classList.add("card");
+        data.forEach(item => {
+            const div = document.createElement("div");
+            div.classList.add("card");
 
-    const assunto = encodeURIComponent("Resposta ao seu comentário - Equipe GRIOT");
-    const mensagem = encodeURIComponent(`Olá ${item.nome},
+            div.innerHTML = `
+                <h3>${item.nome} ${item.sobrenome}</h3>
+                <p><strong>Email:</strong> ${item.email}</p>
+                <p>${item.msg}</p>
+            `;
 
-Você escreveu:
-${item.msg}
-
-Resposta:
-`);
-
-    const linkEmail = `mailto:${item.email}?subject=${assunto}&body=${mensagem}`;
-
-    div.innerHTML = `
-        <h3><strong>Nome:</strong> ${item.nome} ${item.sobrenome}</h3>
-
-        <p><strong>Mensagem:</strong> ${item.msg}</p>
-
-        <p class="enderecoOnline">
-            <strong>Email:</strong> 
-            <a href="${linkEmail}">
-                ${item.email}
-            </a>
-        </p>
-    `;
-
-    lista.appendChild(div);
-});
+            lista.appendChild(div);
+        });
     }
 
     carregarComentarios();
   </script>
-  !-- VLibras -->
-<div vw class="enabled">
-  <div vw-access-button class="active"></div>
-  <div vw-plugin-wrapper>
-    <div class="vw-plugin-top-wrapper"></div>
-  </div>
-</div>
-
-<script src="https://vlibras.gov.br/app/vlibras-plugin.js"></script>
-
-<script>
-  new window.VLibras.Widget('https://vlibras.gov.br/app');
-</script>
 </body>
 </html>
