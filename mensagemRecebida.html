@@ -237,14 +237,14 @@
 
             const assunto = encodeURIComponent("Resposta ao seu comentário - Equipe GRIOT");
 
-const mensagem = encodeURIComponent(`Olá ${item.nome},
+            const mensagem = encodeURIComponent(`Olá ${item.nome},
 
-Recebemos sua sugestão:
+            Recebemos sua sugestão:
 
-"${item.msg}"
+            "${item.msg}"
 
-Resposta:
-`);
+            Resposta:
+            `);
 
 div.innerHTML = `
     <h3>
@@ -252,9 +252,7 @@ div.innerHTML = `
         ${item.nome} ${item.sobrenome}
       </a>
     </h3>
-
     <p><strong>Email:</strong> ${item.email}</p>
-
     <p>${item.msg}</p>
 `;
 
