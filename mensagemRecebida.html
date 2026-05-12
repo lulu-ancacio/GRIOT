@@ -15,70 +15,39 @@
 
   <!-- Scripts -->
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
-  <script src="galeria/vendor/jquery/jquery.min.js"></script>
-  <script src="galeria/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-  <script src="galeria/assets/js/owl-carousel.js"></script>
-  <script src="galeria/assets/js/templatemo-custom.js"></script>
-
-
-  <!-- Bootstrap core CSS -->
-  <link href="galeria/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 
   <!-- Additional CSS Files -->
-  <link rel="stylesheet" href="galeria/assets/css/fontawesome.css">
-  <link rel="stylesheet" href="galeria/assets/css/templatemo-space-dynamic.css">
-  <link rel="stylesheet" href="galeria/assets/css/animated.css">
-  <link rel="stylesheet" href="galeria/assets/css/owl.css">
+  <link rel="stylesheet" href="meanStyle/assets/css/fontawesome.css">
+  <link rel="stylesheet" href="meanStyle/assets/css/templatemo-space-dynamic.css">
 
 
-  <!-- LIGHTBOX FADING SHOW/HIDE EFFECT (as explained in documentation) -->
-  <style type="text/css">
-    .lcl_fade_oc.lcl_pre_show #lcl_overlay,
-    .lcl_fade_oc.lcl_pre_show #lcl_window,
-    .lcl_fade_oc.lcl_is_closing #lcl_overlay,
-    .lcl_fade_oc.lcl_is_closing #lcl_window {
-      opacity: 0 !important;
-      }
-
-    .lcl_fade_oc.lcl_is_closing #lcl_overlay {
-      -webkit-transition-delay: .15s !important;
-      transition-delay: .15s !important;
-    }
-
-  
+  <style>
     .comments-section {
-      padding: 100px 0 60px;
-      background: linear-gradient(135deg, #f5f7fa 0%, #faff60 100%);
-      min-height: 100vh;
-    }
-
-    .comments-title {
-      text-align: center;
-      margin-bottom: 50px;
-      font-size: 2.5rem;
-      color: #4674d1;
-      font-weight: 700;
-      letter-spacing: -0.5px;
+      padding-top: 120px;
+     }
+    comments-title {
+        text-align: left;
+        font-size: 32px;
+        font-weight: 700;
+        color: #1a202c;
+        margin-bottom: 100px;
+        padding-left: 20px;
     }
 
     #lista {
-      max-width: 1200px;
-      margin: 0 auto;
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
-      gap: 24px;
-      padding: 0 20px;
+       display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+        gap: 20px;
+        padding: 0 20px;
     }
 
     .card {
-      background: white;
-      border-radius: 16px;
-      padding: 28px;
-      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
-      transition: all 0.3s ease;
-      border: 1px solid rgba(0, 0, 0, 0.05);
       position: relative;
-      overflow: hidden;
+      background: #ffffff;
+      border-radius: 20px;
+      padding: 20px;
+      box-shadow: 0 4px 10px rgba(183, 71, 71, 0.1);
+      transition: 0.3s;
     }
 
     .card::before {
@@ -87,43 +56,34 @@
       top: 0;
       left: 0;
       right: 0;
-      height: 4px;
-      background: linear-gradient(90deg, #667eea 0%, #764ba2 100%);
+      height: 10px;
     }
 
-    .card:nth-child(2n)::before {
-      background: linear-gradient(90deg, #f093fb 0%, #f5576c 100%);
-    }
+    .card:nth-child(4n+1) { background: #fff3b0; }
+    .card:nth-child(4n+2) { background: #ffd6e0; }
+    .card:nth-child(4n+3) { background: #d0ebff; }
+    .card:nth-child(4n+4) { background: #e6fcf5; }
 
-    .card:nth-child(3n)::before {
-      background: linear-gradient(90deg, #4facfe 0%, #00f2fe 100%);
-    }
 
-    .card:nth-child(4n)::before {
-      background: linear-gradient(90deg, #43e97b 0%, #38f9d7 100%);
-    }
 
-    .card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
-    }
-
-    .card h3 {
-      font-size: 1.25rem;
-      margin-bottom: 12px;
-      color: #1a202c;
+      .card h3 {
+      font-size: 18px;
       font-weight: 600;
-      display: flex;
-      align-items: center;
-      gap: 8px;
+      color: #2d3748;
+      margin-bottom: 10px;
     }
 
     .card p {
-      margin-bottom: 10px;
-      line-height: 1.6;
+      font-size: 14px;
       color: #4a5568;
-      font-size: 0.95rem;
     }
+
+    .card .enderecoOnline a {
+    color: #4f46e5;
+    font-weight: 12px;
+    text-decoration: none;
+   }
+
 
     .card p strong {
       color: #2d3748;
@@ -142,12 +102,12 @@
       .comments-title {
         font-size: 1.8rem;
       }
-      
+
       #lista {
         grid-template-columns: 1fr;
         padding: 0 10px;
       }
-      
+
       .card {
         padding: 20px;
       }
@@ -174,42 +134,8 @@
     .card:nth-child(4) { animation-delay: 0.4s; }
     .card:nth-child(5) { animation-delay: 0.5s; }
 
-    ::-webkit-scrollbar {
-      width: 10px;
-    }
-
-    ::-webkit-scrollbar-track {
-      background: #f1f1f1;
-      border-radius: 10px;
-    }
-
-    ::-webkit-scrollbar-thumb {
-      background: #888;
-      border-radius: 10px;
-    }
-
-    ::-webkit-scrollbar-thumb:hover {
-      background: #555;
-    }
   </style>
 
-  <!-- REQUIRED ELEMENTS -->
-
-  <script src="galeria/lib/jquery.js" type="text/javascript"></script>
-
-  <script src="galeria/js/lc_lightbox.lite.js" type="text/javascript"></script>
-  <link rel="stylesheet" href="galeria/css/lc_lightbox.css" />
-
-
-  <!-- SKINS -->
-  <link rel="stylesheet" href="galeria/skins/minimal.css" />
-
-
-  <!-- ASSETS -->
-  <script src="galeria/lib/AlloyFinger/alloy_finger.min.js" type="text/javascript"></script>
-
-  <!-- //////////////////////////////////////////////// -->
-  <!-- //////////////////////////////////////////////// -->
 
 </head>
 
@@ -237,7 +163,7 @@
             <!-- ***** Logo Start ***** -->
             <div class="logo">
                  <a href="index.php">
-              <img src="galeria\assets\images\LogoEst_SF.png">
+              <img src="meanStyle\assets\images\LogoEst_SF.png">
             </a>
           </div>
           <!-- ***** Logo End ***** -->
@@ -282,24 +208,6 @@
     </div>
   </footer>
   
-  <!-- LIGHTBOX INITIALIZATION -->
-  <script type="text/javascript">
-    $(document).ready(function (e) {
-
-      // live handler
-      lc_lightbox('.elem', {
-        wrap_class: 'lcl_fade_oc',
-        gallery: true,
-        thumb_attr: 'data-lcl-thumb',
-
-        skin: 'minimal',
-        radius: 0,
-        padding: 0,
-        border_w: 0,
-      });
-
-    });
-  </script>
 
   <!-- Supabase Comments Script -->
   <script>
