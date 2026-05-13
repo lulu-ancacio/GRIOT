@@ -29,7 +29,7 @@ function supabaseRequest($endpoint) {
     return json_decode($response, true);
 }
 
-function supabaseCreatePhoto($bucket, $table, $page)
+function supabaseCreatePhotoPainting($bucket, $table)
 {
     require './composer/vendor/autoload.php';
 
@@ -85,8 +85,7 @@ function supabaseCreatePhoto($bucket, $table, $page)
                     ]
                 ]
             );
-
-            header("Location: $page.php");
+            header("Location: index.php");
             exit;
         }
     }

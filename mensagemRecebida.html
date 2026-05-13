@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt">
 
 <head>
 
@@ -7,51 +7,30 @@
   <meta name="description" content="Museu virtual com tematica racial">
   <meta name="author" content=" ">
   <meta charset="UTF-8">
-  <link rel="icon" href=" meanStyle\assets\images\FavIcon_SF.png">
+  <link rel="icon" href=" galeria\assets\images\FavIcon_SF.png">
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap"
     rel="stylesheet">
 
   <title>GRIOT-Sugestões</title>
 
-
+  <!-- Scripts -->
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
 
   <!-- Additional CSS Files -->
-
+  <link rel="stylesheet" href="meanStyle/assets/css/fontawesome.css">
   <link rel="stylesheet" href="meanStyle/assets/css/templatemo-space-dynamic.css">
 
 
-
-  <!-- LIGHTBOX FADING SHOW/HIDE EFFECT (as explained in documentation) -->
-  <style type="text/css">
-    .lcl_fade_oc.lcl_pre_show #lcl_overlay,
-    .lcl_fade_oc.lcl_pre_show #lcl_window,
-    .lcl_fade_oc.lcl_is_closing #lcl_overlay,
-    .lcl_fade_oc.lcl_is_closing #lcl_window {
-      opacity: 0 !important;
-      }
-
-    .lcl_fade_oc.lcl_is_closing #lcl_overlay {
-      -webkit-transition-delay: .15s !important;
-      transition-delay: .15s !important;
-    }
-
-  
+  <style>
     .comments-section {
-      padding: 100px 0 60px;
-      background-image: url(meanStyle/assets/images/baner-dec-left.png)
-    ,url(meanStyle/assets/images/baner-dec-right.png);
-       background-position: left center, right center;
-       background-repeat: no-repeat;
-      
-
-    }
-
-    .comments-title {
+      padding-top: 120px;
+     }
+    comments-title {
         text-align: left;
         font-size: 32px;
         font-weight: 700;
         color: #1a202c;
-        margin-bottom: 40px;
+        margin-bottom: 100px;
         padding-left: 20px;
     }
 
@@ -85,7 +64,7 @@
     .card:nth-child(4n+3) { background: #d0ebff; }
     .card:nth-child(4n+4) { background: #e6fcf5; }
 
-    
+
 
       .card h3 {
       font-size: 18px;
@@ -123,12 +102,12 @@
       .comments-title {
         font-size: 1.8rem;
       }
-      
+
       #lista {
         grid-template-columns: 1fr;
         padding: 0 10px;
       }
-      
+
       .card {
         padding: 20px;
       }
@@ -158,12 +137,9 @@
   </style>
 
 
-
 </head>
 
 <body>
-
-<
 
   <!-- ***** Preloader Start ***** -->
   <div id="js-preloader" class="js-preloader">
@@ -179,7 +155,7 @@
   <!-- ***** Preloader End ***** -->
 
   <!-- ***** Header Area Start ***** -->
-  <header class="header-area header-sticky wow slideInDown">
+  <header class="header-area header-sticky wow slideInDown" data-wow-duration="0.75s" data-wow-delay="0s">
     <div class="container">
       <div class="row">
         <div class="col-12">
@@ -187,14 +163,14 @@
             <!-- ***** Logo Start ***** -->
             <div class="logo">
                  <a href="index.php">
-              <img src="galeria\assets\images\LogoEst_SF.png">
+              <img src="meanStyle\assets\images\LogoEst_SF.png">
             </a>
           </div>
           <!-- ***** Logo End ***** -->
             <!-- ***** Menu Start ***** -->
             <ul class="nav">
               <li class="scroll-to-section">
-                <a href="index.php" class="main-red-button">Início</a>
+                <a href="index.php" class="main-red-button">Home</a>
               </li>
             </ul>
 
@@ -214,7 +190,6 @@
     <div class="container">
       <div class="row">
         <div class="col-lg-12">
-          <br> <br>
           <h1 class="comments-title"> Veja as sugestões que nossos usuarios enviaram</h1>
           <div id="lista"></div>
         </div>
@@ -227,30 +202,12 @@
     <div class="container">
       <div class="row">
         <div class="col-lg-12 wow fadeIn" data-wow-duration="1s" data-wow-delay="0.25s">
-          <p>Trabalho de Conclusão de Curso apresentado ao IFPR - 2026</p>
+          <p>Trabalho de Conclusão de Curso apresentado ao IFPR – 2025</p>
         </div>
       </div>
     </div>
   </footer>
   
-  <!-- LIGHTBOX INITIALIZATION -->
-  <script type="text/javascript">
-    $(document).ready(function (e) {
-
-      // live handler
-      lc_lightbox('.elem', {
-        wrap_class: 'lcl_fade_oc',
-        gallery: true,
-        thumb_attr: 'data-lcl-thumb',
-
-        skin: 'minimal',
-        radius: 0,
-        padding: 0,
-        border_w: 0,
-      });
-
-    });
-  </script>
 
   <!-- Supabase Comments Script -->
   <script>
@@ -274,52 +231,36 @@
         const lista = document.getElementById("lista");
         lista.innerHTML = "";
 
-       data.forEach(item => {
-    const div = document.createElement("div");
-    div.classList.add("card");
+        data.forEach(item => {
+            const div = document.createElement("div");
+            div.classList.add("card");
 
-    const assunto = encodeURIComponent("Resposta ao seu comentário - Equipe GRIOT");
-    const mensagem = encodeURIComponent(`Olá ${item.nome},
+            const assunto = encodeURIComponent("Resposta ao seu comentário - Equipe GRIOT");
 
-Você escreveu:
-${item.msg}
+            const mensagem = encodeURIComponent(`Olá ${item.nome},
 
-Resposta:
-`);
+            Recebemos sua sugestão:
 
-    const linkEmail = `mailto:${item.email}?subject=${assunto}&body=${mensagem}`;
+            "${item.msg}"
 
-    div.innerHTML = `
-        <h3><strong>Nome:</strong> ${item.nome} ${item.sobrenome}</h3>
+            Resposta:
+            `);
 
-        <p><strong>Mensagem:</strong> ${item.msg}</p>
+div.innerHTML = `
+    <h3>
+      <a href="mailto:${item.email}?subject=${assunto}&body=${mensagem}">
+        ${item.nome} ${item.sobrenome}
+      </a>
+    </h3>
+    <p><strong>Email:</strong> ${item.email}</p>
+    <p>${item.msg}</p>
+`;
 
-        <p class="enderecoOnline">
-            <strong>Email:</strong> 
-            <a href="${linkEmail}">
-                ${item.email}
-            </a>
-        </p>
-    `;
-
-    lista.appendChild(div);
-});
+            lista.appendChild(div);
+        });
     }
 
     carregarComentarios();
   </script>
-  !-- VLibras -->
-<div vw class="enabled">
-  <div vw-access-button class="active"></div>
-  <div vw-plugin-wrapper>
-    <div class="vw-plugin-top-wrapper"></div>
-  </div>
-</div>
-
-<script src="https://vlibras.gov.br/app/vlibras-plugin.js"></script>
-
-<script>
-  new window.VLibras.Widget('https://vlibras.gov.br/app');
-</script>
 </body>
 </html>
