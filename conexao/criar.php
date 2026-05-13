@@ -91,6 +91,7 @@ if (
             overflow: hidden;
             max-width: 900px;
             width: 100%;
+            font-family 
         }
 
 
@@ -187,6 +188,12 @@ if (
             }
         }
     </style>
+
+    <!-- FAVICON -->
+  <link rel="icon" href="meanStyle/assets/images/FavIcon_SF.png">
+    <!-- FONTES -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap"
+  rel="stylesheet">
 </head>
 
 <body>
@@ -203,7 +210,7 @@ if (
 
                 <!-- ***** Logo Start ***** -->
                 <div class="logo">
-                    <img src="../galeria\assets\images\LogoEst_SF.png">
+                    <img src="../meanStyle\assets\images\LogoEst_SF.png">
                 </div>
                 <p><?php echo $msg ?></p>
                 <!-- ***** Logo End ***** -->

@@ -19,6 +19,7 @@
   <!-- CSS -->
   <link rel="stylesheet" href="meanStyle/assets/css/fontawesome.css">
   <link rel="stylesheet" href="meanStyle/assets/css/templatemo-space-dynamic.css">
+  <link rel = "stylesheet" href = LinhadoTempo.css>
 
 
   <!-- Font Awesome -->
