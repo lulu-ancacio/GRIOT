@@ -1,9 +1,32 @@
-alt shift + f
+<div id="portfolio" class="our-portfolio section">
+    <div class="container">
+      <?php if ($quadros): ?>
+      <div class = "grid-galeria">
+        <?php foreach ($quadros as $row): ?>
+          <a class="elem" href="<?= $row['url'] ?>" title="<?= $row['titulo'] ?>" data-lcl-txt="<?= $row['desc'] ?>"
+            data-lcl-author="<?= $row['autor'] ?> (<?= $row['ano'] ?>)">
+            <span style="background-image: url('<?= $row['url'] ?>');"></span>
+          </a>
+        <?php endforeach; ?>
+        </div>
+      <?php endif; ?>
+    </div>
+
+<div class="movie-list">
+    <?php if ($prods): ?>
+    <div class="movie-list-item">
+        <?php foreach ($prods as $row): ?>
+        <img class="movie-list-item-img" src="<?= $row['url'] ?>" alt="">
+        <span class="movie-list-item-title"><?= $row['titulo'] ?></span>
+        <p class="movie-list-item-desc"><?= $row['desc'] ?></p>
+        <button class="movie-list-item-button"
+            onclick="window.open('<?= $row['link'] ?>', '_blank')">
+            Assistir
+        </button>
+    </div>
+    <?php endforeach; ?>
+</div>
+<?php endif; ?>
 
 
- A fotografia é muito mais do que um clique congelado no tempo; 
-                é uma forma de escrever a história com a luz. No contexto da cultura 
-                negra e da ancestralidade, a câmera torna-se uma ferramenta poderosa de
-                 reexistência. Durante muito tempo, outras pessoas contaram as nossas histórias,
-                  mas hoje, através das lentes, nós retomamos o protagonismo da nossa própria
-                   narrativa.
+    alt shift f

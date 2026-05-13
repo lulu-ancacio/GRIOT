@@ -19,7 +19,7 @@
 <body>
 
 
-  </style>
+  
     <div class="navbar">
         <div class="navbar-container">
             <div class="logo-container">
