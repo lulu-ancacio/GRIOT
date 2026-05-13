@@ -268,7 +268,7 @@ session_start();
           </a>
 
           <!-- LINHA DO TEMPO -->
-          <a href="LinhaDoTempo.php" class="content-card card-rosa">
+          <a href="LinhadoTempo.php" class="content-card card-rosa">
 
             <div class="icon-box">
               <i class="fa fa-clock"></i>
