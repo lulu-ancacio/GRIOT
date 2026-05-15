@@ -15,6 +15,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if ($_POST['tipo'] === 'pinturas') {
         supabaseCreatePhotoPainting('Pinturas', 'pinturas');
     }
+
+        if ($_POST['tipo'] === 'filmes') {
+        supabaseCreateFilm('Filmes', 'filmes');
+    }
 }
 
 ?>
@@ -221,6 +225,32 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 <input type="text" name="autor" required>
                 <labe>Ano</label>
                 <input type="number" name="ano">
+
+                <input type="file" name="imagem" accept="image/*" required>
+
+                <button type="submit">Enviar</button>
+            </form>
+        </div>
+
+        <div class="form-container">
+            <h2>Submissão de Filmes</h2>
+            <form method="post" enctype="multipart/form-data">
+                <input type="hidden" name="tipo" value="filmes">
+                <labe>Título</label>
+                <input type="text" name="titulo" required>
+                <labe>Descrição</label>
+                <input type="text" name="desc" required>
+                <labe>Link</label>
+                <input type="text" name="link" required>
+
+                <select name="tipomidia" required="required">
+                    <option value="F">Filmes</option>
+                    <option value="DE">Desenhos</option>
+                    <option value="DO">Documentários</option>
+                    <option value="S">Séries</option>
+                    <option value="B">Biografias</option>
+                    <option value="C">Clipes</option>
+                </select>
 
                 <input type="file" name="imagem" accept="image/*" required>
 
