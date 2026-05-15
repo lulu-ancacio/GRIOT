@@ -83,7 +83,7 @@ $prods = supabaseRequest("filmes?select=*");
                                     <div class="movie-list-item">
                                         <img class="movie-list-item-img" src="<?= $row['url'] ?>" alt="">
                                         <span class="movie-list-item-title"><?= $row['titulo'] ?></span>
-                                        <p class="movie-list-item-desc"> <?= $row['desc'] ?>/ </p>  
+                                        <p class="movie-list-item-desc"> <?= $row['desc'] ?> </p>  
                                         <button class="movie-list-item-button"
                                             onclick="window.open('<?= $row['link'] ?>', '_blank')">
                                             Assistir
@@ -110,7 +110,7 @@ $prods = supabaseRequest("filmes?select=*");
                                     <div class="movie-list-item">
                                         <img class="movie-list-item-img" src="<?= $row['url'] ?>" alt="">
                                         <span class="movie-list-item-title"><?= $row['titulo'] ?></span>
-                                        <!-- <p class="movie-list-item-desc"> <?= $row['desc'] ?>/ </p>  -->
+                                        <p class="movie-list-item-desc"> <?= $row['desc'] ?> </p>
                                         <button class="movie-list-item-button"
                                             onclick="window.open('<?= $row['link'] ?>', '_blank')">
                                             Assistir
@@ -137,7 +137,7 @@ $prods = supabaseRequest("filmes?select=*");
                                     <div class="movie-list-item">
                                         <img class="movie-list-item-img" src="<?= $row['url'] ?>" alt="">
                                         <span class="movie-list-item-title"><?= $row['titulo'] ?></span>
-                                        <!-- <p class="movie-list-item-desc"> <?= $row['desc'] ?>/ </p>  -->
+                                        <p class="movie-list-item-desc"> <?= $row['desc'] ?> </p>
                                         <button class="movie-list-item-button"
                                             onclick="window.open('<?= $row['link'] ?>', '_blank')">
                                             Assistir
@@ -163,7 +163,7 @@ $prods = supabaseRequest("filmes?select=*");
                                     <div class="movie-list-item">
                                         <img class="movie-list-item-img" src="<?= $row['url'] ?>" alt="">
                                         <span class="movie-list-item-title"><?= $row['titulo'] ?></span>
-                                        <!-- <p class="movie-list-item-desc"> <?= $row['desc'] ?>/ </p>  -->
+                                        <p class="movie-list-item-desc"> <?= $row['desc'] ?> </p>
                                         <button class="movie-list-item-button"
                                             onclick="window.open('<?= $row['link'] ?>', '_blank')">
                                             Assistir
@@ -189,7 +189,7 @@ $prods = supabaseRequest("filmes?select=*");
                                     <div class="movie-list-item">
                                         <img class="movie-list-item-img" src="<?= $row['url'] ?>" alt="">
                                         <span class="movie-list-item-title"><?= $row['titulo'] ?></span>
-                                        <!-- <p class="movie-list-item-desc"> <?= $row['desc'] ?>/ </p>  -->
+                                        <p class="movie-list-item-desc"> <?= $row['desc'] ?> </p>
                                         <button class="movie-list-item-button"
                                             onclick="window.open('<?= $row['link'] ?>', '_blank')">
                                             Assistir
@@ -216,7 +216,7 @@ $prods = supabaseRequest("filmes?select=*");
                                     <div class="movie-list-item">
                                         <img class="movie-list-item-img" src="<?= $row['url'] ?>" alt="">
                                         <span class="movie-list-item-title"><?= $row['titulo'] ?></span>
-                                        <!-- <p class="movie-list-item-desc"> <?= $row['desc'] ?>/ </p>  -->
+                                        <p class="movie-list-item-desc"> <?= $row['desc'] ?> </p>
                                         <button class="movie-list-item-button"
                                             onclick="window.open('<?= $row['link'] ?>', '_blank')">
                                             Assistir
