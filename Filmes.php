@@ -36,16 +36,12 @@ $prods = supabaseRequest("filmes?select=*");
             <div class="logo-container">
                 <div class="logo">
                     <a href="index.php">
-                        <img src="galeria\assets\images\LogoEst_SF.png">
+                        <img src="meanStyle\assets\images\LogoEst_SF.png">
                     </a>
                 </div>
             </div>
             <div class="menu-container">
                 <ul class="menu-list">
-                    <li class="menu-list-item"><a href="#filmes">Filmes</a></li>
-                    <li class="menu-list-item"><a href="#documentarios">Documentários</a></li>
-                    <li class="menu-list-item"><a href="#series">Séries</a></li>
-                    <li class="menu-list-item"><a href="#biografias">Biográfias</a></li>
                     <li class="menu-list-item">
                         <a href="index.php" class="main-red-button">Início</a>
                     </li>
@@ -87,7 +83,7 @@ $prods = supabaseRequest("filmes?select=*");
                                     <div class="movie-list-item">
                                         <img class="movie-list-item-img" src="<?= $row['url'] ?>" alt="">
                                         <span class="movie-list-item-title"><?= $row['titulo'] ?></span>
-                                        <!-- <p class="movie-list-item-desc"> <?= $row['desc'] ?>/ </p>  -->
+                                        <p class="movie-list-item-desc"> <?= $row['desc'] ?>/ </p>  
                                         <button class="movie-list-item-button"
                                             onclick="window.open('<?= $row['link'] ?>', '_blank')">
                                             Assistir
@@ -97,7 +93,9 @@ $prods = supabaseRequest("filmes?select=*");
                             <?php endforeach; ?>
                         <?php endif; ?>
                     </div>
-                    <i class="fas fa-chevron-right arrow"></i>
+                    <div class = "arrow">
+                    <i class="fas fa-angle-right"></i>
+                    </div>
                 </div>
             </section>
 
@@ -122,7 +120,9 @@ $prods = supabaseRequest("filmes?select=*");
                             <?php endforeach; ?>
                         <?php endif; ?>
                     </div>
-                    <i class="fas fa-chevron-right arrow"></i>
+                    <div class = "arrow">
+                    <i class="fas fa-angle-right"></i>
+                    </div>
                 </div>
             </section>
 
@@ -147,7 +147,9 @@ $prods = supabaseRequest("filmes?select=*");
                             <?php endforeach; ?>
                         <?php endif; ?>
                     </div>
-                    <i class="fas fa-chevron-right arrow"></i>
+                    <div class="arrow">
+                    <i class="fas fa-angle-right"></i>
+                    </div>
                 </div>
             </section>
 
@@ -171,7 +173,9 @@ $prods = supabaseRequest("filmes?select=*");
                             <?php endforeach; ?>
                         <?php endif; ?>
                     </div>
-                    <i class="fas fa-chevron-right arrow"></i>
+                    <div class ="arrow">
+                    <i class="fas fa-angle-right"></i>
+                    </div>
                 </div>
             </section>
 
@@ -195,7 +199,10 @@ $prods = supabaseRequest("filmes?select=*");
                             <?php endforeach; ?>
                         <?php endif; ?>
                     </div>
-                    <i class="fas fa-chevron-right arrow"></i>
+                    <div class="arrow">
+                        <i class="fas fa-angle-right"></i>
+                    </div>
+                    
                 </div>
             </section>
 
@@ -219,7 +226,9 @@ $prods = supabaseRequest("filmes?select=*");
                             <?php endforeach; ?>
                         <?php endif; ?>
                     </div>
-                    <i class="fas fa-chevron-right arrow"></i>
+                       <div class="arrow">
+                        <i class="fas fa-angle-right"></i>
+                    </div>
                 </div>
             </section>
 
