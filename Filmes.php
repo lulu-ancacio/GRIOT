@@ -61,30 +61,39 @@ $prods = supabaseRequest("filmes?select=*");
             </nav>
     </div>
     </header>
-    <!-- ***** Header Area End ***** -->
-    <div style="font-family: 'Poppins', sans-serif;">
-        <div id="Fundo">
-            <div class="main-banner">
-                <div class="intro-section">
-                    <div class="intro-text">
-                        <h1>
-                            Luz! <span class="blue">Câmera! </span><span class="red">GRIOT!</span>
-                        </h1>
+   <div class="ImagemFundo">
 
-                        <p>
-                            O GRIOT é um site web interativo que reúne pinturas sobre cultura negra.
-                            Projetado como uma experiência imersiva, o site convida visitantes a percorrer
-                            linhas do tempo e refletir sobre as marcas da ancestralidade na sociedade contemporânea.
-                            Ideal para educação, pesquisa e reflexão comunitária.
-                        </p>
-                    </div>
+    <section class="main-banner">
 
-                    <div class="intro-image">
-                        <img src="meanStyle/assets/images/Filme.jpg" alt="">
-                    </div>
+        <div class="container">
+
+            <div class="banner-content">
+
+                <div class="left-content">
+
+                    <h6>
+                        Bem-vindo ao GRIOT- Filmes
+                    </h6>
+
+                    <h2>
+                        Luz! <em>Câmera!</em> <span>GRIOT!</span>
+                    </h2>
+                    <p>
+                        O GRIOT é um site web interativo que reúne filmes,
+                        documentários, séries e conteúdos voltados à cultura negra.
+                        Projetado como uma experiência imersiva,
+                        o site convida visitantes a refletir sobre ancestralidade,
+                        representatividade e memória na sociedade contemporânea.
+                        Ideal para educação, pesquisa e reflexão comunitária.
+                    </p>
+                </div>
+                <div class="right-image">
+                    <img src="meanStyle/assets/images/Filme.jpg"
+                        alt="Câmera de cinema">
                 </div>
             </div>
-
+        </div>
+    </section>
             <section id="filmes" class="movie-list-container">
 
                 <h1 class="movie-list-title">Filmes</h1>
