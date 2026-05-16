@@ -28,8 +28,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <meta name="description" content="Painel Administrativo - Museu Virtual GRIOT">
     <title>GRIOT • Painel Admin</title>
     
-    <!-- Google Fonts -->
+
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     
     <style>
         /* ===== RESET & BASE ===== */
@@ -105,7 +106,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
         .nav-btn {
             padding: 0.5rem 1rem;
-            background: var(--primary);
+            background: #e74c3c;
             color: var(--white) !important;
             text-decoration: none;
             border-radius: 50px;
@@ -117,33 +118,22 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         }
 
         .nav-btn:hover {
-            background: var(--primary-dark);
+            background: #03a4ed;
             transform: translateY(-2px);
         }
 
         .nav-btn.secondary {
-            background: var(--secondary);
+            background:#e74c3c;
         }
 
         .nav-btn.secondary:hover {
-            background: #1a252f;
+            background: #03a4ed;
         }
 
-        .nav-btn.outline {
-            background: transparent;
-            border: 2px solid var(--primary);
-            color: var(--primary) !important;
-        }
-
-        .nav-btn.outline:hover {
-            background: var(--primary);
-            color: var(--white) !important;
-        }
 
         /* ===== BANNER ===== */
         .banner {
-            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
-            color: var(--white);
+            background: #e74c3c;
             padding: 2.5rem 1.5rem;
             text-align: center;
         }
@@ -151,6 +141,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         .banner h1 {
             font-size: 1.8rem;
             margin-bottom: 0.5rem;
+            color:white;
         }
 
         .banner p {
@@ -256,7 +247,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         .btn-submit {
             width: 100%;
             padding: 0.85rem;
-            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            background:#e74c3c;
             color: var(--white);
             border: none;
             border-radius: 8px;
@@ -269,7 +260,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
         .btn-submit:hover {
             transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(231, 76, 60, 0.35);
+            background: #03a4ed;
         }
 
         .btn-submit:active {
@@ -278,21 +269,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
         /* ===== FOOTER ===== */
         .footer {
-            background: var(--secondary);
-            color: var(--white);
+          
             text-align: center;
             padding: 1.5rem;
             margin-top: 3rem;
             font-size: 0.9rem;
-        }
-
-        .footer a {
-            color: var(--accent);
-            text-decoration: none;
-        }
-
-        .footer a:hover {
-            text-decoration: underline;
         }
 
         /* ===== RESPONSIVE ===== */
@@ -339,7 +320,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             </a>
             
             <nav class="nav-links">
-                <a href="index.php" class="nav-btn outline">Início</a>
                 <a href="mensagemRecebida.html" class="nav-btn">Mensagens</a>
                 <a href="conexao/logout.php" class="nav-btn secondary">Sair</a>
             </nav>
@@ -357,7 +337,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     <!-- ===== MAIN CONTENT ===== -->
     <main class="container">
-        <h2 class="section-title">📤 Submissão de Conteúdo</h2>
+        <h2 class="section-title">Submissão de Conteúdo</h2>
         
         <div class="forms-grid">
             
@@ -470,15 +450,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <!-- ===== FOOTER ===== -->
     <footer class="footer">
         <p>
-            Trabalho de Conclusão de Curso • Curso Técnico em Informática
-IFPR Campus Pinhais • Museu Virtual GRIOT
-
-© 2026 Todos os direitos reservados Conclusão de Curso • Curso Técnico em Informática<br>
-            <strong>IFPR Campus Pinhais</strong> • Museu Virtual GRIOT
-        </p>
-        <p class="mt-1">
-            <small>© <?= date('Y') ?> Todos os direitos reservados</small>
-        </p>
+            Trabalho de Conclusão de Curso apresentado ao curso técnico em Informática IFPR Pinhais
     </footer>
 
     <!-- ===== VLibras (Acessibilidade) ===== -->

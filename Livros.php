@@ -92,10 +92,9 @@
     <div class="container">
       <div class="row">
         <div class="col-lg-12 wow fadeIn" data-wow-duration="1s" data-wow-delay="0.25s">
-          <p>Trabalho de Conclusão de Curso • Curso Técnico em Informática
-IFPR Campus Pinhais • Museu Virtual GRIOT
-
-© 2026 Todos os direitos reservados Conclusão de Curso apresentado ao curso técnico em Informática IFPR Pinhais</p>
+          <p>
+            Trabalho de Conclusão de Curso apresentado ao curso técnico em Informática IFPR Pinhais
+          </p>  
         </div>
       </div>
     </div>

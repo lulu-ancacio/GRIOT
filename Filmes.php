@@ -17,6 +17,7 @@ $prods = supabaseRequest("filmes?select=*");
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" href="meanStyle/assets/images/FavIcon_SF.png">
+     <link rel="stylesheet" href="meanStyle/assets/css/templatemo-space-dynamic.css">
     <link rel="stylesheet" href="Filmes/style.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap"
         rel="stylesheet">
@@ -79,7 +80,7 @@ $prods = supabaseRequest("filmes?select=*");
                     </div>
 
                     <div class="intro-image">
-                        <img src="Filmes/img/FotoPrincipal.jpg" alt="">
+                        <img src="meanStyle/assets/images/Filme.jpg" alt="">
                     </div>
                 </div>
             </div>
@@ -245,10 +246,9 @@ $prods = supabaseRequest("filmes?select=*");
             </section>
 
             <footer>
-                <p>Trabalho de Conclusão de Curso • Curso Técnico em Informática
-IFPR Campus Pinhais • Museu Virtual GRIOT
-
-© 2026 Todos os direitos reservados Conclusão de Curso apresentado ao curso técnico em Informática IFPR Pinhais</p>
+            <p>
+                Trabalho de Conclusão de Curso apresentado ao curso técnico em Informática IFPR Pinhais 
+            </p>
             </footer>
         </div>
     </div>

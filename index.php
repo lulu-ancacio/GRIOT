@@ -44,6 +44,7 @@ session_start();
       <a href="index.php" class="logo">
         <img src="meanStyle/assets/images/LogoEst_SF.png" alt="Logo GRIOT">
       </a>
+
       <div class="right-menu">
         <?php if (empty($_SESSION['email'])): ?>
           <a href="./conexao/login.php" class="main-blue-button">
@@ -236,13 +237,9 @@ session_start();
   <footer class="footer">
 
     <div class="container">
-      <p>
-        Trabalho de Conclusão de Curso • Curso Técnico em Informática
-IFPR Campus Pinhais • Museu Virtual GRIOT
-
-© 2026 Todos os direitos reservados Conclusão de Curso
-        apresentado ao IFPR - 2026
-      </p>
+       <p>
+            Trabalho de Conclusão de Curso apresentado ao curso técnico em Informática IFPR Pinhais
+         </p>
     </div>
   </footer>
 
