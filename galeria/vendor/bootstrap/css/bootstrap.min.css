@@ -130,9 +130,9 @@ p {
 
 abbr[title],
 abbr[data-bs-original-title] {
-  text-decoration: underline;
-  -webkit-text-decoration: underline dotted;
-  text-decoration: underline dotted;
+  text-decoration: nome;
+  -webkit-text-decoration: none dotted;
+  text-decoration: none dotted;
   cursor: help;
   -webkit-text-decoration-skip-ink: none;
   text-decoration-skip-ink: none;
@@ -208,7 +208,7 @@ sup {
 
 a {
   color: #0d6efd;
-  text-decoration: underline;
+  text-decoration: nonenone !important;
 }
 a:hover {
   color: #0a58ca;
@@ -3351,7 +3351,7 @@ textarea.form-control-lg {
 .btn-link {
   font-weight: 400;
   color: #0d6efd;
-  text-decoration: underline;
+  text-decoration: none;
 }
 .btn-link:hover {
   color: #0a58ca;
@@ -7306,8 +7306,8 @@ textarea.form-control-lg {
   text-decoration: none !important;
 }
 
-.text-decoration-underline {
-  text-decoration: underline !important;
+.text-decoration-none {
+  text-decoration: none !important;
 }
 
 .text-decoration-line-through {

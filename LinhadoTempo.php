@@ -212,7 +212,10 @@
   <!-- Footer -->
   <footer>
     <div class="container text-center">
-      <p>Trabalho de Conclusão de Curso apresentado ao IFPR - 2026</p>
+      <p>Trabalho de Conclusão de Curso • Curso Técnico em Informática
+IFPR Campus Pinhais • Museu Virtual GRIOT
+
+© 2026 Todos os direitos reservados Conclusão de Curso apresentado ao curso técnico em Informática IFPR Pinhais</p>
     </div>
   </footer>
 

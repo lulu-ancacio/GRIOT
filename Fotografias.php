@@ -104,49 +104,44 @@ $fotos = supabaseRequest("fotografias?select=*");
 
 
   <!-- ASSETS -->
-85	  <script src="galeria/lib/AlloyFinger/alloy_finger.min.js" type="text/javascript"></script>
-
+ <script src="galeria/lib/AlloyFinger/alloy_finger.min.js" type="text/javascript"></script>
 </head>
+
+<body>
 <!-- ***** Header Area Start ***** -->
-<header class="header-area header-sticky wow slideInDown" data-wow-duration="0.75s" data-wow-delay="0s">
+<header class="header-area">
   <div class="container">
-    <div class="row">
-      <div class="col-12">
         <nav class="main-nav">
+          <div class="left-menu">
+            <button class="menu-trigger" aria-label="Abrir menu">
+              <span></span>
+            </button>
+            <ul class="menu-dropdown">
+              <li><a href="Pinturas.php">Pinturas</a></li>
+              <li><a href="Fotografias.php">Fotografias</a></li>
+              <li><a href="Textos.php">Textos</a></li>
+              <li><a href="Filmes.php">Filmes</a></li>
+              <li><a href="Musicas.php">Músicas</a></li>
+              <li><a href="LinhadoTempo.php">Rascunho</a></li>
+              <li><a href="Legislação.php">Legislação</a></li>
+            </ul> 
+          </div>
           <!-- ***** Logo Start ***** -->
           <div class="logo">
             <a href="index.php">
               <img src="meanStyle/assets/images/LogoEst_SF.png">
             </a>
           </div>
-          <!-- ***** Logo End ***** -->
-          <!-- ***** Menu Start ***** -->
-          <ul class="nav">
-            <li class="scroll-to-section">
-              <a href="Index.php" class="main-red-button">Início</a>
-            </li>
-          </ul>
-
-          <a class='menu-trigger'>
-            <span>Menu</span>
-          </a>
-          <!-- ***** Menu End ***** -->
-
+          
+        
+          <div class="right-menu">
+            <a href="index.php" class="main-red-button">Início</a>
+          </div>
         </nav>
-      </div>
-    </div>
   </div>
 </header>
 <!-- ***** Header Area End ***** -->
-
-
-
-<body>
-
-
-  </style>
-  <br><br>
-  <div class="main-banner wow fadeIn" id="top" data-wow-duration="1s" data-wow-delay="0.5s">
+  <div class="main-banner ">
     <div class="container">
       <div class="row">
         <div class="col-lg-12">
@@ -194,7 +189,10 @@ $fotos = supabaseRequest("fotografias?select=*");
     <div class="container">
       <div class="row">
         <div class="col-lg-12 wow fadeIn" data-wow-duration="1s" data-wow-delay="0.25s">
-          <p>Trabalho de Conclusão de Curso apresentado ao IFPR - 2026</p>
+          <p>Trabalho de Conclusão de Curso • Curso Técnico em Informática
+IFPR Campus Pinhais • Museu Virtual GRIOT
+
+© 2026 Todos os direitos reservados Conclusão de Curso apresentado ao curso técnico em Informática IFPR Pinhais</p>
         </div>
       </div>
     </div>
@@ -234,6 +232,7 @@ $fotos = supabaseRequest("fotografias?select=*");
 
     });
   </script>
+  <script src="meanStyle/script.js"></script>
 
 </body>
 

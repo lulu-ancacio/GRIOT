@@ -60,12 +60,16 @@ if (
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Acessar sua conta</title>
+    <link rel="icon" href="meanStyle/assets/images/FavIcon_SF.png">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap"
+    rel="stylesheet">
 
     <style>
         .body {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
+            
         }
 
         .container {
@@ -77,6 +81,7 @@ if (
             overflow: hidden;
             max-width: 1000px;
             width: 100%;
+            font-family: 'Poppins', sans-serif;
         }
 
         body {
@@ -133,33 +138,27 @@ if (
             transition: border-color 0.3s;
         }
 
-        input[type="email"]:focus,
-        input[type="password"]:focus {
-            outline: none;
-            border-color: #fe3f40;
-            box-shadow: 0 0 0 3px rgba(254, 63, 64, 0.2);
-        }
-
         input[type="submit"] {
             width: 100%;
-            padding: 14px;
-            background-color: #fe3f40;
-            color: white;
+            display: inline-block;
             border: none;
-            border-radius: 6px;
+            background: #03a4ed;
+            color: #fff;
+            padding: 16px 35px;
+            border-radius: 999px;
             font-size: 16px;
-            font-weight: bold;
+            font-weight: 600;
             cursor: pointer;
-            margin-top: 24px;
-            transition: all 0.3s;
+            transition: all 0.3s ease;
+             margin-top: 25px;
         }
 
         input[type="submit"]:hover {
-            background-color: #e6393b;
-            transform: translateY(-2px);
-            box-shadow: 0 8px 20px rgba(254, 63, 64, 0.3);
+             background: #fe3f40;
+               transform: translateY(-3px);
         }
 
+              
         /* Link de cadastro */
         .cadastro-link {
             display: block;
@@ -172,7 +171,7 @@ if (
         }
 
         .cadastro-link:hover {
-            text-decoration: underline;
+            text-decoration: none;
         }
 
         a {
@@ -185,7 +184,7 @@ if (
         }
 
         a:hover {
-            text-decoration: underline;
+            text-decoration: none;
         }
 
 
@@ -231,7 +230,9 @@ if (
         <form method="post" class="form">
             <!-- ***** Logo Start ***** -->
             <div class="logo">
-                <img src="../meanStyle\assets\images\LogoEst_SF.png">
+                 <a href="../index.php" class="logo">
+                      <img src="../meanStyle/assets/images/LogoEst_SF.png" alt="Logo GRIOT">
+                 </a>
             </div>
             <!-- ***** Logo End ***** -->
             <p><?php echo $msg ?></p>

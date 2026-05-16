@@ -29,48 +29,141 @@ body {
   position: relative;
   z-index: 2;
 }
-.navbar {
+
+/* HEADER */
+
+.header-area {
   width: 100%;
-  height: 100px;
-  background-color: rgb(255, 255, 255);
-  /*position: sticky;
-  top: 0;*/
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: #fff;
+  z-index: 9999;
+  padding: 18px 0;
+  box-shadow: 0 2px 20px rgba(0,0,0,0.05);
 }
 
-.navbar-container {
+/* NAV */
+
+.main-nav {
   display: flex;
-  padding: 0 30px;
   align-items: center;
-  height: 100%;
-  color: rgb(191, 37, 37);
-  font-family: "Sen", sans-serif;
+  justify-content: space-between;
 }
 
-.logo-container {
-  flex: 25;
-  align-items: center;
-}
-
+/* LOGO */
 .logo img {
-   width: 170px;
+  width: 170px;
 }
 
-.menu-container {
-  flex: 6;
+/* MENU ESQUERDO */
+
+.left-menu {
+  position: relative;
 }
 
-.menu-list {
+/* BOTÃO */
+
+.menu-trigger {
+
+  width: 42px;
+  height: 42px;
+  border: none;
+  background: transparent;
+  cursor: pointer;
   display: flex;
-  list-style: none;
+  align-items: center;
+  justify-content: center;
 }
 
-.menu-list-item {
-  margin-right: 30px;
+/* LINHAS */
+
+.menu-trigger span,
+.menu-trigger span::before,
+.menu-trigger span::after {
+
+  display: block;
+  width: 28px;
+  height: 3px;
+  background: #2a2a2a;
+  border-radius: 999px;
+  position: relative;
+  transition: 0.3s;
 }
 
-.menu-list-item.active {
-  font-weight: bold;
+.menu-trigger span::before,
+.menu-trigger span::after {
+  content: '';
+  position: absolute;
+  left: 0;
 }
+
+.menu-trigger span::before {
+  top: -8px;
+}
+
+.menu-trigger span::after {
+  top: 8px;
+}
+
+/* DROPDOWN */
+
+.menu-dropdown {
+  position: absolute;
+  top: 60px;
+  left: 0;
+  width: 220px;
+  background: #fff;
+  border-radius: 14px;
+  padding: 18px;
+  display: none;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.12);
+  z-index: 99999;
+}
+
+.menu-dropdown.active {
+  display: block;
+}
+
+.menu-dropdown li {
+  margin: 12px 0;
+}
+
+.menu-dropdown a {
+
+  color: #2a2a2a;
+
+  font-size: 15px;
+
+  font-weight: 500;
+
+  text-decoration: none;
+
+  transition: 0.3s;
+}
+
+.menu-dropdown a:hover {
+  color: #fe3f40;
+}
+
+/* BOTÃO */
+
+.main-red-button {
+  background: #fe3f40;
+  color: #fff;
+  padding: 10px 22px;
+  border-radius: 999px;
+  text-decoration: none;
+  font-weight: 500;
+  transition: 0.3s;
+}
+
+.main-red-button:hover {
+  background: #03a4ed;
+  transform: translateY(-2px);
+}
+
+
 .menu-list-item a.main-red-button {
   display: inline-flex;
   align-items: center;
@@ -91,9 +184,9 @@ body {
   background-color: #3204ff;
 }
 .container {
-  background-color: #fbf6ff;
-  min-height: calc(100vh - 50px);
-  color: white;
+  width: 90%;
+  max-width: 1200px;
+  margin: auto;
 }
 
 
@@ -354,7 +447,7 @@ body {
 }
 
 footer {
-  background-color: #3260B9;
+
   color: white;
   text-align: center;
   padding: 20px;
@@ -382,11 +475,10 @@ footer {
         width: 180px;
     }
 
-    /* INTRO */
+ 
     .intro-section{
         flex-direction: column;
         text-align: center;
-
         padding: 30px 20px;
     }
 
@@ -426,15 +518,10 @@ footer {
     .movie-list{
 
         overflow-x: auto;
-
         overflow-y: visible;
-
         scroll-behavior: smooth;
-
         gap: 15px;
-
         height: 450px;
-
         padding: 20px 10px;
     }
 
@@ -442,73 +529,53 @@ footer {
         display: none;
     }
 
-    /* CARDS */
     .movie-list-item{
-
         width: 220px;
-
         min-width: 220px;
-
         height: 180px;
     }
 
     .movie-list-item:hover{
-
         transform: scale(1.03);
-
         height: 360px;
-
         margin-top: -20px;
     }
 
     .movie-list-item-img{
-
         height: 180px;
     }
 
     .movie-list-item-title{
-
         top: 190px;
-
         font-size: 20px;
     }
 
     .movie-list-item-desc{
-
         top: 225px;
-
         font-size: 13px;
-
         width: 85%;
-
         line-height: 1.4;
     }
 
     .movie-list-item-button{
-
         bottom: 20px;
-
         padding: 8px 16px;
-
         font-size: 14px;
     }
 
-    /* SETAS */
+ 
     .arrow{
         display: none;
     }
 
-    /* FUNDO */
+   
     #Fundo{
-
         background-size: cover;
     }
 
-    /* FOOTER */
+  
     footer{
-
         font-size: 14px;
-
         padding: 15px;
     }
 }

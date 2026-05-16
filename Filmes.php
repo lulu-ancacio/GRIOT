@@ -28,27 +28,39 @@ $prods = supabaseRequest("filmes?select=*");
 </head>
 
 <body>
-
-
-
-    <div class="navbar">
-        <div class="navbar-container">
-            <div class="logo-container">
-                <div class="logo">
-                    <a href="index.php">
-                        <img src="meanStyle\assets\images\LogoEst_SF.png">
-                    </a>
-                </div>
+        <!-- ***** Header Area Start ***** -->
+    <header class="header-area">
+    <div class="container">
+            <nav class="main-nav">
+            <div class="left-menu">
+                <button class="menu-trigger" aria-label="Abrir menu">
+                <span></span>
+                </button>
+                <ul class="menu-dropdown">
+                <li><a href="Pinturas.php">Pinturas</a></li>
+                <li><a href="Fotografias.php">Fotografias</a></li>
+                <li><a href="Textos.php">Textos</a></li>
+                <li><a href="Filmes.php">Filmes</a></li>
+                <li><a href="Musicas.php">Músicas</a></li>
+                <li><a href="LinhadoTempo.php">Rascunho</a></li>
+                <li><a href="Legislação.php">Legislação</a></li>
+                </ul> 
             </div>
-            <div class="menu-container">
-                <ul class="menu-list">
-                    <li class="menu-list-item">
-                        <a href="index.php" class="main-red-button">Início</a>
-                    </li>
-                </ul>
+            <!-- ***** Logo Start ***** -->
+            <div class="logo">
+                <a href="index.php">
+                <img src="meanStyle/assets/images/LogoEst_SF.png">
+                </a>
             </div>
-        </div>
+            
+            
+            <div class="right-menu">
+                <a href="index.php" class="main-red-button">Início</a>
+            </div>
+            </nav>
     </div>
+    </header>
+    <!-- ***** Header Area End ***** -->
     <div style="font-family: 'Poppins', sans-serif;">
         <div id="Fundo">
             <div class="main-banner">
@@ -233,7 +245,10 @@ $prods = supabaseRequest("filmes?select=*");
             </section>
 
             <footer>
-                <p>Trabalho de Conclusão de Curso apresentado ao IFPR - 2026</p>
+                <p>Trabalho de Conclusão de Curso • Curso Técnico em Informática
+IFPR Campus Pinhais • Museu Virtual GRIOT
+
+© 2026 Todos os direitos reservados Conclusão de Curso apresentado ao curso técnico em Informática IFPR Pinhais</p>
             </footer>
         </div>
     </div>
@@ -253,6 +268,7 @@ $prods = supabaseRequest("filmes?select=*");
     <script>
         new window.VLibras.Widget('https://vlibras.gov.br/app');
     </script>
+    <script src="meanStyle/script.js"></script>
 
 </body>
 

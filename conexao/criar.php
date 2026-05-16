@@ -91,7 +91,7 @@ if (
             overflow: hidden;
             max-width: 900px;
             width: 100%;
-            font-family 
+            font-family: 'Poppins', sans-serif;
         }
 
 
@@ -139,29 +139,25 @@ if (
             font-size: 16px;
         }
 
-        input[type="text"]:focus,
-        input[type="email"]:focus,
-        input[type="password"]:focus {
-            outline: none;
-            border-color: #fe3f40;
-            box-shadow: 0 0 0 3px rgba(254, 63, 64, 0.1);
-        }
 
-        input[type="submit"] {
+         input[type="submit"] {
             width: 100%;
-            padding: 14px;
-            background-color: #fe3f40;
-            color: white;
+            display: inline-block;
             border: none;
-            border-radius: 6px;
+            background: #03a4ed;
+            color: #fff;
+            padding: 16px 35px;
+            border-radius: 999px;
             font-size: 16px;
-            font-weight: bold;
+            font-weight: 600;
             cursor: pointer;
-            margin-top: 24px;
+            transition: all 0.3s ease;
+             margin-top: 25px;
         }
 
         input[type="submit"]:hover {
-            background-color: #e6393b;
+             background: #fe3f40;
+               transform: translateY(-3px);
         }
 
         a {
@@ -210,7 +206,9 @@ if (
 
                 <!-- ***** Logo Start ***** -->
                 <div class="logo">
-                    <img src="../meanStyle\assets\images\LogoEst_SF.png">
+                    <a href="../index.php" class="logo">
+                      <img src="../meanStyle/assets/images/LogoEst_SF.png" alt="Logo GRIOT">
+                 </a>
                 </div>
                 <p><?php echo $msg ?></p>
                 <!-- ***** Logo End ***** -->
@@ -223,8 +221,8 @@ if (
 
                 <label>Com que pronome você prefere ser tratado?</label>
                 <select name="pronome_criar" required="required">
-                    <option value="fem">Feminino</option>
-                    <option value="masc">Masculio</option>
+                    <option value="fem">Ela/Dela</option>
+                    <option value="masc">Ele/Dele</option>
                     <option value="nd">Nenhum</option>
                 </select>
 

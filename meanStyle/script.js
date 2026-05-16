@@ -1,6 +1,6 @@
 const trigger = document.querySelector(".menu-trigger");
-const nav = document.querySelector(".nav");
+const menu = document.querySelector(".menu-dropdown");
 
 trigger.addEventListener("click", () => {
-  nav.classList.toggle("active");
+    menu.classList.toggle("active");
 });

@@ -1,29 +1,21 @@
-/* =========================
-   RESET
-========================= */
+
 
 * {
   margin: 0;
-
   padding: 0;
-
   box-sizing: border-box;
-
   font-family: 'Poppins', sans-serif;
 }
 
 .ImagemFundo {
   position: relative;
-
   min-height: 200vh;
-
   overflow-x: hidden;
 }
 
 html,
 body {
   overflow-x: hidden;
-
   width: 100%;
 }
 
@@ -36,12 +28,9 @@ body {
   content: "";
   position: absolute;
   inset: 0;
-
   background-image:
     url("../images/baner-dec-left.png"),
     url("../images/baner-dec-right.png");
-
-
   background-position: left center, right center;
   background-repeat: no-repeat;
   background-size: 30% auto;
@@ -49,21 +38,11 @@ body {
   z-index: -1;
 }
 
-
-/* =========================
-   CONTAINER
-========================= */
-
 .container {
   width: 90%;
   max-width: 1200px;
   margin: auto;
 }
-
-
-/* =========================
-   BANNER DESKTOP
-========================= */
 
 .banner-content {
   display: flex;
@@ -80,19 +59,12 @@ body {
   flex: 1;
 }
 
-/* =========================
-   CARDS DESKTOP
-========================= */
-
 .content-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 30px;
 }
 
-/* =========================
-   CONTATO DESKTOP
-========================= */
 
 .contact-content {
   display: flex;
@@ -105,9 +77,6 @@ body {
   flex: 1;
 }
 
-/* ========================================
-RESET
-======================================== */
 
 * {
   margin: 0;
@@ -129,66 +98,181 @@ ul {
   list-style: none;
 }
 
-/* ========================================
-CONTAINER
-======================================== */
-
 .container {
   width: 90%;
   max-width: 1200px;
   margin: auto;
 }
 
-/* ========================================
-HEADER
-======================================== */
+/* HEADER */
 
-.header-area {
-  width: 100%;
-  position: fixed;
-  top: 0;
-  left: 0;
-  background: #fff;
-  z-index: 999;
+.header-area{
 
-  padding: 20px 0;
+    width: 100%;
 
-  box-shadow: 0 2px 15px rgba(0, 0, 0, 0.05);
+    position: fixed;
+
+    top: 0;
+    left: 0;
+
+    background: #ffffff;
+
+    z-index: 99999;
+
+    padding: 18px 0;
+
+    box-shadow: 0 2px 20px rgba(0,0,0,0.05);
 }
 
-.main-nav {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
+/* NAVBAR */
+
+.main-nav{
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
 }
 
 /* LOGO */
 
-.logo img {
-  width: 170px;
+.logo img{
+    width: 170px;
 }
 
-/* MENU */
+/* MENU ESQUERDO */
 
-.nav {
-  display: flex;
-  align-items: center;
-  gap: 15px;
+.left-menu{
+    position: relative;
 }
 
-/* BOTÕES */
+/* BOTÃO HAMBURGUER */
+
+.menu-trigger{
+
+    width: 42px;
+    height: 42px;
+    border: flex;
+    background: transparent;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* LINHAS */
+
+.menu-trigger span,
+.menu-trigger span::before,
+.menu-trigger span::after{
+
+    display: block;
+
+    width: 28px;
+    height: 3px;
+
+    background: #2a2a2a;
+
+    border-radius: 999px;
+
+    position: relative;
+
+    transition: 0.3s;
+}
+
+/* LINHAS SUPERIOR E INFERIOR */
+
+.menu-trigger span::before,
+.menu-trigger span::after{
+
+    content: '';
+
+    position: absolute;
+
+    left: 0;
+}
+
+.menu-trigger span::before{
+    top: -8px;
+}
+
+.menu-trigger span::after{
+    top: 8px;
+}
+
+/* MENU DROPDOWN */
+
+.menu-dropdown{
+
+    position: absolute;
+    top: 60px;
+    left: 0;
+    width: 220px;
+    background: #ffffff;
+    border-radius: 14px;
+    padding: 18px;
+    display: none;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.12);
+    z-index: 99999;
+}
+
+/* MENU ABERTO */
+
+.menu-dropdown.active{
+    display: block;
+}
+
+/* ITENS */
+
+.menu-dropdown li{
+    margin: 12px 0;
+}
+
+/* LINKS */
+
+.menu-dropdown a{
+
+    color: #2a2a2a;
+
+    font-size: 15px;
+
+    font-weight: 500;
+
+    transition: 0.3s;
+}
+
+.menu-dropdown a:hover{
+    color: #fe3f40;
+}
+
+/* BOTÃO INICIO */
+
+.home-button{
+
+    background: #fe3f40;
+    color: #ffffff;
+    padding: 10px 22px;
+    border-radius: 999px;
+    font-weight: 500;
+    transition: 0.3s;
+    text-decoration: none;
+}
+
+.home-button:hover{
+    background: #03a4ed;
+    transform: translateY(-2px);
+}
+
 
 .main-blue-button,
 .main-red-button {
+  display: inline-block;
   padding: 12px 24px;
   border-radius: 999px;
-
-  color: #fff;
-  font-weight: 600;
-
-  transition: 0.3s;
-
+  transition: all 0.3s ease;
   border: none;
+  color: #fff;
 }
 
 .main-blue-button {
@@ -197,43 +281,30 @@ HEADER
 
 .main-red-button {
   background: #fe3f40;
+  text-decoration: none;
 }
 
-.main-blue-button:hover,
-.main-red-button:hover {
+.main-blue-button:hover {
+  background: #fe3f40;
   transform: translateY(-3px);
 }
 
-/* ========================================
-MENU MOBILE
-======================================== */
-
-.menu-trigger {
-  display: none;
-
-  width: 40px;
-  height: 40px;
-
-  border: none;
-  background: none;
-
-  cursor: pointer;
+.main-red-button:hover {
+  background: #03a4ed;
+  transform: translateY(-3px);
 }
+
+
 
 .menu-trigger span,
 .menu-trigger span::before,
 .menu-trigger span::after {
   display: block;
-
   width: 28px;
   height: 3px;
-
   background: #2a2a2a;
-
   border-radius: 5px;
-
   position: relative;
-
   transition: 0.3s;
 }
 
@@ -251,19 +322,10 @@ MENU MOBILE
 .menu-trigger span::after {
   top: 8px;
 }
-
-/* ========================================
-BANNER
-======================================== */
-
 .main-banner {
   padding-top: 180px;
   padding-bottom: 100px;
 }
-
-
-
-/* TEXTO */
 
 .left-content h6 {
   color: #fe3f40;
@@ -291,7 +353,6 @@ BANNER
   color: #555;
 }
 
-/* IMAGEM */
 
 .right-image {
   display: flex;
@@ -301,57 +362,27 @@ BANNER
 .right-image img {
   width: 100%;
   max-width: 500px;
-
   border-radius: 25px;
-
   box-shadow: 0 15px 40px rgba(0, 0, 0, 0.12);
 }
 
-/* WELCOME BOX */
+
 
 .welcome-box {
   background: #fff5f5;
-
   padding: 20px;
-
   border-left: 5px solid #fe3f40;
-
   border-radius: 15px;
-
   margin-bottom: 30px;
 }
 
-/* ========================================
-RESPONSIVO
-======================================== */
+
 
 @media(max-width:768px) {
-
   .menu-trigger {
     display: flex;
     align-items: center;
     justify-content: center;
-  }
-
-  .nav {
-    position: absolute;
-
-    top: 100%;
-    left: 0;
-
-    width: 100%;
-
-    background: #fff;
-
-    flex-direction: column;
-
-    padding: 30px;
-
-    display: none;
-  }
-
-  .nav.active {
-    display: flex;
   }
 
   .banner-content {
@@ -372,16 +403,10 @@ RESPONSIVO
   }
 }
 
-/* ========================================
-SECTION REDIRECTION
-======================================== */
-
 #redirection {
   padding: 100px 0;
   background: #f9fafc;
 }
-
-/* TÍTULO */
 
 .section-heading {
   text-align: center;
@@ -404,12 +429,6 @@ SECTION REDIRECTION
   line-height: 30px;
   font-size: 16px;
 }
-
-/* GRID DOS CARDS */
-
-
-/* CARD */
-
 .content-card {
   background: #fff;
   padding: 30px;
@@ -422,13 +441,11 @@ SECTION REDIRECTION
   transition: all 0.3s ease
 }
 
-/* HOVER */
-
 .content-card:hover {
   transform: translateY(-10px);
 }
 
-/* ÍCONE */
+
 
 .icon-box {
   width: 60px;
@@ -441,7 +458,6 @@ SECTION REDIRECTION
   font-size: 24px;
 }
 
-/* TÍTULO */
 
 .content-card h4 {
   font-size: 14px;
@@ -449,16 +465,11 @@ SECTION REDIRECTION
   line-height: 1.4;
 }
 
-/* EM BREVE */
 
 .content-card h4 span {
   font-size: 15px;
   color: #777;
 }
-
-/* ========================================
-CORES DOS CARDS
-======================================== */
 
 .card-roxo .icon-box {
   background: #ebd3ff;
@@ -488,10 +499,6 @@ CORES DOS CARDS
   background: #ffe4c5;
 }
 
-/* ========================================
-RESPONSIVO
-======================================== */
-
 @media(max-width:992px) {
 
   #redirection .col-lg-4 {
@@ -518,17 +525,10 @@ RESPONSIVO
   }
 }
 
-/* ========================================
-CONTACT SECTION
-======================================== */
-
 .contact-us {
   padding: 100px 0;
-
   background: #ffffff;
 }
-
-/* LAYOUT */
 
 .contact-us .row {
   display: flex;
@@ -537,221 +537,152 @@ CONTACT SECTION
   gap: 50px;
 }
 
-/* COLUNAS */
-
 .contact-us .col-lg-6 {
   width: 50%;
 }
-
-/* TÍTULO */
-
 .contact-us .section-heading h2 {
   font-size: 42px;
   line-height: 1.3;
-
   margin-bottom: 20px;
-
   color: #2a2a2a;
 }
 
 .contact-us .section-heading p {
   font-size: 16px;
   line-height: 30px;
-
   color: #666;
-
   margin-bottom: 30px;
 }
 
-/* TELEFONE */
-
 .phone-info {
   background: #fff5f5;
-
   padding: 20px 25px;
-
   border-radius: 18px;
-
   border-left: 5px solid #3f72fe;
-
   display: inline-block;
 }
-
 .phone-info h4 {
   font-size: 18px;
   color: #2a2a2a;
 }
-
 .phone-info i {
   color: #fe3f40;
   margin-right: 8px;
 }
-
 .phone-info a {
   color: #03a4ed;
   font-weight: 600;
 }
 
-/* ========================================
-FORMULÁRIO
-======================================== */
-
 #contact {
   background: #f9ffac;
-
   padding: 40px;
-
   border-radius: 25px;
-
   box-shadow: 0 15px 40px rgba(171, 9, 9, 0.08);
-
   position: relative;
-
   display: flex;
-
   flex-direction: column;
-
   gap: 20px;
 }
-
-
 #contact .input-group {
-
   display: flex;
-
   gap: 20px;
 }
-
-
-
-/* GRID */
 
 #contact .row {
-
   display: flex;
-
   flex-wrap: wrap;
-
   gap: 20px;
 }
-
-/* INPUTS METADE */
 
 #contact .col-md-6 {
   width: calc(50% - 10px);
 }
 
-/* INPUTS GRANDES */
-
 #contact .col-lg-12 {
   width: 100%;
 }
-
-/* FIELDSET */
 
 #contact fieldset {
   border: none;
 }
 
-/* INPUTS */
-
 #contact input,
 #contact textarea {
   width: 100%;
-
   border: none;
-
   background: #f7f7f7;
-
   padding: 18px 20px;
-
   border-radius: 14px;
-
   font-size: 15px;
-
   font-family: 'Poppins', sans-serif;
-
   outline: none;
-
   transition: 0.3s;
 }
-
-/* FOCUS */
-
 #contact input:focus,
 #contact textarea:focus {
   background: #ffffff;
-
   box-shadow: 0 0 0 3px rgba(3, 164, 237, 0.15);
 }
 
-/* TEXTAREA */
-
 #contact textarea {
   min-height: 170px;
-
   resize: none;
 }
-
-/* BOTÃO */
-
 .main-button {
   border: none;
-
   background: #fe3f40;
-
   color: #fff;
-
   padding: 16px 35px;
-
   border-radius: 999px;
-
   font-size: 16px;
   font-weight: 600;
-
   cursor: pointer;
-
   transition: 0.3s;
 }
 
 .main-button:hover {
   background: #e63233;
-
   transform: translateY(-3px);
 }
+        
+        .footer {
+            background: var(--secondary);
+            color: var(--white);
+            text-align: center;
+            padding: 1.5rem;
+            margin-top: 3rem;
+            font-size: 0.9rem;
+        }
 
-/* DECORAÇÃO */
+        .footer a {
+            color: var(--accent);
+            text-decoration: none;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
 
 .contact-dec {
   position: absolute;
-
   right: -40px;
   bottom: -40px;
-
   opacity: 0.12;
-
   pointer-events: none;
 }
 
 .contact-dec img {
   width: 140px;
 }
-
-/* ========================================
-RESPONSIVO
-======================================== */
-
 @media(max-width:992px) {
-
   .contact-us .row {
     flex-direction: column;
   }
-
   .contact-us .col-lg-6 {
     width: 100%;
   }
 }
-
 @media(max-width:768px) {
 
   .contact-us {
@@ -779,28 +710,9 @@ RESPONSIVO
   }
 }
 
-/* ========================================
-FOOTER
-======================================== */
 
-footer {
 
-  padding: 35px 0;
 
-  text-align: center;
-}
-
-footer p {
-  color: #000000;
-
-  font-size: 15px;
-
-  letter-spacing: 0.5px;
-}
-
-/* ========================================
-ANIMAÇÕES SUAVES
-======================================== */
 
 html {
   scroll-behavior: smooth;
@@ -811,15 +723,12 @@ img {
   display: block;
 }
 
-/* REMOVE ESTILOS FEIOS */
-
 input,
 textarea,
 button {
   outline: none;
 }
 
-/* SCROLLBAR */
 
 ::-webkit-scrollbar {
   width: 10px;
@@ -838,29 +747,17 @@ button {
   background: #e63233;
 }
 
-/* =========================
-   VLIBRAS
-========================= */
-
 [vw-access-button] {
   display: flex !important;
-
   position: fixed !important;
-
   right: 20px !important;
   bottom: 20px !important;
-
   z-index: 999999 !important;
 }
 
 [vw-plugin-wrapper] {
   z-index: 999999 !important;
 }
-/* ========================================
-RESPONSIVIDADE FINAL
-======================================== */
-
-/* TABLETS */
 
 @media screen and (max-width: 992px) {
 
@@ -885,7 +782,6 @@ RESPONSIVIDADE FINAL
 
 }
 
-/* CELULARES */
 
 @media screen and (max-width: 768px) {
 
@@ -976,10 +872,6 @@ RESPONSIVIDADE FINAL
     line-height: 1.6;
   }
 
-  .nav {
-    padding: 20px;
-  }
-
   .main-blue-button,
   .main-red-button {
     width: 100%;
@@ -987,8 +879,6 @@ RESPONSIVIDADE FINAL
   }
 
 }
-
-/* CELULARES PEQUENOS */
 
 @media screen and (max-width: 480px) {
 
@@ -1014,8 +904,6 @@ RESPONSIVIDADE FINAL
     font-size: 16px;
   }
 
-  footer p {
-    font-size: 13px;
-  }
+ 
 
 }

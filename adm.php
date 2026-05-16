@@ -2,346 +2,509 @@
 session_start();
 if (empty($_SESSION['adm'])) {
     header('Location: index.php');
+    exit;
 }
 
 require 'conexao/config.php';
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-
     if ($_POST['tipo'] === 'fotografias') {
         supabaseCreatePhotoPainting('Fotografias', 'fotografias');
     }
-
     if ($_POST['tipo'] === 'pinturas') {
         supabaseCreatePhotoPainting('Pinturas', 'pinturas');
     }
-
-        if ($_POST['tipo'] === 'filmes') {
+    if ($_POST['tipo'] === 'filmes') {
         supabaseCreateFilm('Filmes', 'filmes');
     }
 }
-
 ?>
 
 <!DOCTYPE html>
-<html lang="pt-br">
-
+<html lang="pt-BR">
 <head>
-
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="Museu virtual com tematica racial">
-    <meta name="author" content=" ">
     <meta charset="UTF-8">
-    <link rel="icon" href=" galeria\assets\images\FavIcon_SF.png">
-
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap"
-        rel="stylesheet">
-
-
-    <title>GRIOT-Início</title>
-
-    <link rel="stylesheet" href="meanStyle/assets/css/templatemo-space-dynamic.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Painel Administrativo - Museu Virtual GRIOT">
+    <title>GRIOT • Painel Admin</title>
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
     <style>
-        .form-container {
-            background: #fff;
-            padding: 40px;
-            height: 540px;
-            width: 650px;
-            border-radius: 16px;
-            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
-            flex: 1;
+        /* ===== RESET & BASE ===== */
+        *, *::before, *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #e74c3c;
+            --primary-dark: #c0392b;
+            --secondary: #2c3e50;
+            --accent: #03a4ed;
+            --bg-light: #f8f9fa;
+            --white: #ffffff;
+            --gray: #6c757d;
+            --border: #dee2e6;
+            --shadow: 0 4px 20px rgba(0,0,0,0.08);
+            --shadow-hover: 0 8px 30px rgba(0,0,0,0.12);
+            --radius: 12px;
+            --transition: all 0.3s ease;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: var(--bg-light);
+            color: var(--secondary);
+            line-height: 1.6;
+            min-height: 100vh;
+        }
+
+        /* ===== HEADER ===== */
+        .header {
+            background: var(--white);
+            box-shadow: var(--shadow);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .header-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1rem 1.5rem;
+            display: flex;
             align-items: center;
-            margin: 50px;
+            justify-content: space-between;
+            gap: 1rem;
         }
 
-        .form-container h2 {
-            text-align: center;
-            color: #e74c3c;
-            margin-bottom: 30px;
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            text-decoration: none;
+            color: var(--primary);
+            font-weight: 700;
+            font-size: 1.25rem;
         }
 
-        .form-container label {
-            margin-top: 20px;
-            display: block;
-            font-weight: 600;
+        .logo img {
+            height: 40px;
+            width: auto;
         }
 
-        .form-container input,
-        .form-container button {
-            width: 100%;
-            margin-top: 8px;
-            padding: 14px;
-            border-radius: 8px;
-            border: 1px solid #ddd;
-            font-size: 15px;
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            flex-wrap: wrap;
         }
 
-        .form-container button {
-            margin-top: 30px;
-            background: linear-gradient(135deg, #e74c3c, #d93b54);
-            color: #fff;
+        .nav-btn {
+            padding: 0.5rem 1rem;
+            background: var(--primary);
+            color: var(--white) !important;
+            text-decoration: none;
+            border-radius: 50px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: var(--transition);
             border: none;
-            font-weight: 600;
             cursor: pointer;
         }
 
-        .form-container button:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 10px 25px rgba(231, 76, 60, 0.4);
+        .nav-btn:hover {
+            background: var(--primary-dark);
+            transform: translateY(-2px);
         }
 
-        .lcl_fade_oc.lcl_pre_show #lcl_overlay,
-        .lcl_fade_oc.lcl_pre_show #lcl_window,
-        .lcl_fade_oc.lcl_is_closing #lcl_overlay,
-        .lcl_fade_oc.lcl_is_closing #lcl_window {
-            opacity: 0 !important;
+        .nav-btn.secondary {
+            background: var(--secondary);
         }
 
-        .lcl_fade_oc.lcl_is_closing #lcl_overlay {
-            -webkit-transition-delay: .15s !important;
-            transition-delay: .15s !important;
+        .nav-btn.secondary:hover {
+            background: #1a252f;
         }
+
+        .nav-btn.outline {
+            background: transparent;
+            border: 2px solid var(--primary);
+            color: var(--primary) !important;
+        }
+
+        .nav-btn.outline:hover {
+            background: var(--primary);
+            color: var(--white) !important;
+        }
+
+        /* ===== BANNER ===== */
+        .banner {
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            color: var(--white);
+            padding: 2.5rem 1.5rem;
+            text-align: center;
+        }
+
+        .banner h1 {
+            font-size: 1.8rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .banner p {
+            opacity: 0.95;
+            font-size: 1rem;
+        }
+
+        .user-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: rgba(255,255,255,0.15);
+            padding: 0.4rem 1rem;
+            border-radius: 50px;
+            margin-top: 1rem;
+            font-size: 0.95rem;
+        }
+
+        /* ===== MAIN CONTENT ===== */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem 1.5rem;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 2rem;
+            color: var(--secondary);
+            font-size: 1.5rem;
+            font-weight: 600;
+        }
+
+        /* ===== FORMS GRID ===== */
+        .forms-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .form-card {
+            background: var(--white);
+            border-radius: var(--radius);
+            padding: 1.75rem;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+        }
+
+        .form-card:hover {
+            box-shadow: var(--shadow-hover);
+            transform: translateY(-4px);
+        }
+
+        .form-card h3 {
+            color: var(--primary);
+            margin-bottom: 1.25rem;
+            padding-bottom: 0.75rem;
+            border-bottom: 2px solid var(--border);
+            font-size: 1.25rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .form-group {
+            margin-bottom: 1rem;
+        }
+
+        .form-group label {
+            display: block;
+            font-weight: 500;
+            margin-bottom: 0.4rem;
+            color: var(--secondary);
+            font-size: 0.95rem;
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 0.75rem 1rem;
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            font-size: 0.95rem;
+            font-family: inherit;
+            transition: var(--transition);
+            background: var(--white);
+        }
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(231, 76, 60, 0.15);
+        }
+
+        .form-group input[type="file"] {
+            padding: 0.5rem;
+            background: var(--bg-light);
+        }
+
+        .btn-submit {
+            width: 100%;
+            padding: 0.85rem;
+            background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+            color: var(--white);
+            border: none;
+            border-radius: 8px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+            margin-top: 0.5rem;
+        }
+
+        .btn-submit:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(231, 76, 60, 0.35);
+        }
+
+        .btn-submit:active {
+            transform: translateY(0);
+        }
+
+        /* ===== FOOTER ===== */
+        .footer {
+            background: var(--secondary);
+            color: var(--white);
+            text-align: center;
+            padding: 1.5rem;
+            margin-top: 3rem;
+            font-size: 0.9rem;
+        }
+
+        .footer a {
+            color: var(--accent);
+            text-decoration: none;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 768px) {
+            .header-inner {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .nav-links {
+                justify-content: center;
+                width: 100%;
+            }
+
+            .banner h1 {
+                font-size: 1.5rem;
+            }
+
+            .forms-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .form-card {
+                padding: 1.5rem;
+            }
+        }
+
+        /* ===== UTILS ===== */
+        .hidden { display: none; }
+        .text-center { text-align: center; }
+        .mt-1 { margin-top: 0.5rem; }
+        .mt-2 { margin-top: 1rem; }
+        .mb-1 { margin-bottom: 0.5rem; }
+        .mb-2 { margin-bottom: 1rem; }
     </style>
-
-    <!-- REQUIRED ELEMENTS -->
-
-    <script src="galeria/lib/jquery.js" type="text/javascript"></script>
-
-    <script src="galeria/js/lc_lightbox.lite.js" type="text/javascript"></script>
-    <link rel="stylesheet" href="galeria/css/lc_lightbox.css" />
-
-
-    <!-- SKINS -->
-    <link rel="stylesheet" href="galeria/skins/minimal.css" />
-
-
-    <!-- ASSETS -->
-    <script src="galeria/lib/AlloyFinger/alloy_finger.min.js" type="text/javascript"></script>
-
-    <!-- //////////////////////////////////////////////// -->
-    <!-- //////////////////////////////////////////////// -->
 </head>
-
 <body>
 
-
-
-    <!-- ***** Preloader Start ***** -->
-    <div id="js-preloader" class="js-preloader">
-        <div class="preloader-inner">
-            <span class="dot"></span>
-            <div class="dots">
-                <span></span>
-                <span></span>
-                <span></span>
-            </div>
-        </div>
-    </div>
-    <!-- ***** Preloader End ***** -->
-
-    <!-- ***** Header Area Start ***** -->
-    <header class="header-area header-sticky wow slideInDown" data-wow-duration="0.75s" data-wow-delay="0s">
-        <div class="container">
-            <div class="row">
-                <div class="col-12">
-                    <nav class="main-nav">
-                        <!-- ***** Logo Start ***** -->
-                        <div class="logo">
-                            <img src="galeria\assets\images\LogoEst_SF.png">
-                        </div>
-                        <!-- ***** Logo End ***** -->
-                        <!-- ***** Menu Start ***** -->
-                        <ul class="nav">
-                            <li class="scroll-to-section">
-                                <a href="./mensagemRecebida.html" class="main-red-button">Mensagens</a>
-                            </li>
-                            <li>
-                                <a href="./index.php" class="main-red-button">
-                                Tela inicial
-                                </a>
-                            </li>
-                            <li class="scroll-to-section">
-                                <a href="./conexao/logout.php" class="main-red-button">Sair</a>
-                            </li>
-                        </ul>
-
-                        <a class='menu-trigger'>
-                            <span>Menu</span>
-                        </a>
-                        <!-- ***** Menu End ***** -->
-                    </nav>
-                </div>
-            </div>
+    <!-- ===== HEADER ===== -->
+    <header class="header">
+        <div class="header-inner">
+            <a href="index.php">
+              <img src="meanStyle/assets/images/LogoEst_SF.png">
+            </a>
+            
+            <nav class="nav-links">
+                <a href="index.php" class="nav-btn outline">Início</a>
+                <a href="mensagemRecebida.html" class="nav-btn">Mensagens</a>
+                <a href="conexao/logout.php" class="nav-btn secondary">Sair</a>
+            </nav>
         </div>
     </header>
-    <!-- ***** Header Area End ***** -->
 
-    <div class="main-banner wow fadeIn" id="top" data-wow-duration="1s" data-wow-delay="0.5s">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12">
-                    <div class="row">
-                        <div class="col-lg-6 align-self-center">
-                            <div class="left-content header-text wow fadeInLeft" data-wow-duration="1s"
-                                data-wow-delay="1s">
-                                <div class="welcome-box">
-                                    <br> <br> <br>
-                                    <h5>Bem-vindo(a), <?= $_SESSION['email'] ?> 👋</h5>
-                                    <p>Você está logado como administrador(a)</p>
-                                </div>
-                            </div>
-                        </div>
+    <!-- ===== BANNER ===== -->
+    <section class="banner">
+        <h1>Painel Administrativo</h1>
+        <p>Gerencie o conteúdo do Museu Virtual GRIOT</p>
+        <div class="user-badge">
+            👤 <?= htmlspecialchars($_SESSION['email'] ?? 'Administrador') ?>
+        </div>
+    </section>
+
+    <!-- ===== MAIN CONTENT ===== -->
+    <main class="container">
+        <h2 class="section-title">📤 Submissão de Conteúdo</h2>
+        
+        <div class="forms-grid">
+            
+            <!-- 📷 FORM: FOTOGRAFIAS -->
+            <article class="form-card">
+                <h3>📷 Fotografias</h3>
+                <form method="POST" enctype="multipart/form-data">
+                    <input type="hidden" name="tipo" value="fotografias">
+                    
+                    <div class="form-group">
+                        <label for="foto_titulo">Título *</label>
+                        <input type="text" id="foto_titulo" name="titulo" required placeholder="Ex: Retrato da Liberdade">
                     </div>
-                </div>
-            </div>
+                    
+                    <div class="form-group">
+                        <label for="foto_autor">Autor(a) *</label>
+                        <input type="text" id="foto_autor" name="autor" required placeholder="Nome do artista">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="foto_ano">Ano</label>
+                        <input type="number" id="foto_ano" name="ano" min="1800" max="2100" placeholder="Ex: 2024">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="foto_imagem">Imagem *</label>
+                        <input type="file" id="foto_imagem" name="imagem" accept="image/*" required>
+                    </div>
+                    
+                    <button type="submit" class="btn-submit">Enviar Fotografia</button>
+                </form>
+            </article>
+
+            <!-- 🎨 FORM: PINTURAS -->
+            <article class="form-card">
+                <h3>🎨 Pinturas</h3>
+                <form method="POST" enctype="multipart/form-data">
+                    <input type="hidden" name="tipo" value="pinturas">
+                    
+                    <div class="form-group">
+                        <label for="pint_titulo">Título *</label>
+                        <input type="text" id="pint_titulo" name="titulo" required placeholder="Ex: Raízes Ancestrais">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="pint_autor">Autor(a) *</label>
+                        <input type="text" id="pint_autor" name="autor" required placeholder="Nome do artista">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="pint_ano">Ano</label>
+                        <input type="number" id="pint_ano" name="ano" min="1800" max="2100" placeholder="Ex: 2023">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="pint_imagem">Imagem *</label>
+                        <input type="file" id="pint_imagem" name="imagem" accept="image/*" required>
+                    </div>
+                    
+                    <button type="submit" class="btn-submit">Enviar Pintura</button>
+                </form>
+            </article>
+
+            <!-- 🎬 FORM: FILMES -->
+            <article class="form-card">
+                <h3>🎬 Filmes & Mídias</h3>
+                <form method="POST" enctype="multipart/form-data">
+                    <input type="hidden" name="tipo" value="filmes">
+                    
+                    <div class="form-group">
+                        <label for="filme_titulo">Título *</label>
+                        <input type="text" id="filme_titulo" name="titulo" required placeholder="Ex: Quilombo dos Palmares">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="filme_desc">Descrição *</label>
+                        <input type="text" id="filme_desc" name="desc" required placeholder="Breve descrição da obra">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="filme_link">Link *</label>
+                        <input type="url" id="filme_link" name="link" required placeholder="https://...">
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="filme_tipo">Tipo de Mídia *</label>
+                        <select id="filme_tipo" name="tipomidia" required>
+                            <option value="">Selecione...</option>
+                            <option value="F">🎬 Filmes</option>
+                            <option value="DE">✏️ Desenhos Animados</option>
+                            <option value="DO">🎥 Documentários</option>
+                            <option value="S">📺 Séries</option>
+                            <option value="B">👤 Biografias</option>
+                            <option value="C">🎵 Clipes Musicais</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="filme_capa">Imagem de Capa *</label>
+                        <input type="file" id="filme_capa" name="imagem" accept="image/*" required>
+                    </div>
+                    
+                    <button type="submit" class="btn-submit">Enviar Mídia</button>
+                </form>
+            </article>
+
         </div>
-    </div>
+    </main>
 
-    <div>
-        <div class="form-container">
-            <h2>Submissão de Fotografias</h2>
-            <form method="post" enctype="multipart/form-data">
-                <input type="hidden" name="tipo" value="fotografias">
-                <labe>Título</label>
-                <input type="text" name="titulo" required>
-                <labe>Autor(a)</label>
-                <input type="text" name="autor" required>
-                <labe>Ano</label>
-                <input type="number" name="ano">
+    <!-- ===== FOOTER ===== -->
+    <footer class="footer">
+        <p>
+            Trabalho de Conclusão de Curso • Curso Técnico em Informática
+IFPR Campus Pinhais • Museu Virtual GRIOT
 
-                <input type="file" name="imagem" accept="image/*" required>
-
-                <button type="submit">Enviar</button>
-            </form>
-        </div>
-
-        <div class="form-container">
-            <h2>Submissão de Pinturas</h2>
-            <form method="post" enctype="multipart/form-data">
-                <input type="hidden" name="tipo" value="pinturas">
-                <labe>Título</label>
-                <input type="text" name="titulo" required>
-                <labe>Autor(a)</label>
-                <input type="text" name="autor" required>
-                <labe>Ano</label>
-                <input type="number" name="ano">
-
-                <input type="file" name="imagem" accept="image/*" required>
-
-                <button type="submit">Enviar</button>
-            </form>
-        </div>
-
-        <div class="form-container">
-            <h2>Submissão de Filmes</h2>
-            <form method="post" enctype="multipart/form-data">
-                <input type="hidden" name="tipo" value="filmes">
-                <labe>Título</label>
-                <input type="text" name="titulo" required>
-                <labe>Descrição</label>
-                <input type="text" name="desc" required>
-                <labe>Link</label>
-                <input type="text" name="link" required>
-
-                <select name="tipomidia" required="required">
-                    <option value="F">Filmes</option>
-                    <option value="DE">Desenhos</option>
-                    <option value="DO">Documentários</option>
-                    <option value="S">Séries</option>
-                    <option value="B">Biografias</option>
-                    <option value="C">Clipes</option>
-                </select>
-
-                <input type="file" name="imagem" accept="image/*" required>
-
-                <button type="submit">Enviar</button>
-            </form>
-        </div>
-
-
-    </div>
-
-    <br>
-    <footer>
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12 wow fadeIn" data-wow-duration="1s" data-wow-delay="0.25s">
-                    <p>Trabalho de Conclusão de Curso apresentado ao IFPR – 2025</p>
-                </div>
-            </div>
-        </div>
+© 2026 Todos os direitos reservados Conclusão de Curso • Curso Técnico em Informática<br>
+            <strong>IFPR Campus Pinhais</strong> • Museu Virtual GRIOT
+        </p>
+        <p class="mt-1">
+            <small>© <?= date('Y') ?> Todos os direitos reservados</small>
+        </p>
     </footer>
-    <!-- LIGHTBOX INITIALIZATION -->
-    <script type="text/javascript">
-        $(document).ready(function(e) {
 
-            // live handler
-            lc_lightbox('.elem', {
-                wrap_class: 'lcl_fade_oc',
-                gallery: true,
-                thumb_attr: 'data-lcl-thumb',
-
-                skin: 'minimal',
-                radius: 0,
-                padding: 0,
-                border_w: 0,
-            });
-
-        });
-    </script>
-
-    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
-    <script>
-        const supabaseUrl = "https://cdhjzkmlucahtllfpdlx.supabase.co";
-        const supabaseKey = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImNkaGp6a21sdWNhaHRsbGZwZGx4Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzUyNDgxNzMsImV4cCI6MjA5MDgyNDE3M30.ZaP_y-A2t32z8FRT4vAA8xsMqjhsdA0QuQIGTP5f36g";
-
-        const supabaseClient = supabase.createClient(supabaseUrl, supabaseKey);
-
-        document.getElementById("contact").addEventListener("submit", async function(e) {
-            e.preventDefault();
-
-            const nome = document.getElementById("name").value;
-            const sobrenome = document.getElementById("surname").value;
-            const email = document.getElementById("email").value;
-            const msg = document.getElementById("message").value;
-
-            const {
-                error
-            } = await supabaseClient
-                .from("comentarios")
-                .insert([{
-                    nome: nome,
-                    sobrenome: sobrenome,
-                    email: email,
-                    msg: msg
-                }]);
-
-            if (error) {
-                alert("Erro ao enviar ");
-                console.log(error);
-            } else {
-                alert("Mensagem enviada com sucesso! 🚀");
-                document.getElementById("contact").reset();
-            }
-        });
-    </script>
-
-    ... <!-- Conteúdo do Plug-in V-Libras -->
-
-    <!-- VLibras -->
+    <!-- ===== VLibras (Acessibilidade) ===== -->
     <div vw class="enabled">
         <div vw-access-button class="active"></div>
         <div vw-plugin-wrapper>
             <div class="vw-plugin-top-wrapper"></div>
         </div>
     </div>
-
     <script src="https://vlibras.gov.br/app/vlibras-plugin.js"></script>
-
     <script>
         new window.VLibras.Widget('https://vlibras.gov.br/app');
     </script>
 
-</body>
+   
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script>
+     
+        if (typeof window.SUPABASE_URL !== 'undefined') {
+            const supabase = window.supabase.createClient(
+                window.SUPABASE_URL,
+                window.SUPABASE_KEY
+            );
+         
+        }
+    </script>
 
+</body>
 </html>

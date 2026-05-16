@@ -120,39 +120,39 @@ $quadros = supabaseRequest("pinturas?select=*");
 
 </head>
 <body>
-<!-- ***** Header Area Start ***** -->
- 
+  <!-- ***** Header Area Start ***** -->
 <header class="header-area">
-
   <div class="container">
-
-  
-
         <nav class="main-nav">
-
-          <!-- LOGO -->
-           <a href = "index.php" class = "logo">
+          <div class="left-menu">
+            <button class="menu-trigger" aria-label="Abrir menu">
+              <span></span>
+            </button>
+            <ul class="menu-dropdown">
+              <li><a href="Fotografias.php">Fotografias</a></li>
+              <li><a href="Textos.php">Textos</a></li>
+              <li><a href="Filmes.php">Filmes</a></li>
+              <li><a href="Musicas.php">Músicas</a></li>
+              <li><a href="LinhadoTempo.php">Rascunho</a></li>
+              <li><a href="Legislação.php">Legislação</a></li>
+            </ul> 
+          </div>
+          <!-- ***** Logo Start ***** -->
+          <div class="logo">
+            <a href="index.php">
               <img src="meanStyle/assets/images/LogoEst_SF.png">
             </a>
-
-          <!--  MENU  -->
-          <ul class="nav">
-
-            <li>
-              <a href="Index.php" class="main-red-button">Início</a>
-            </li>
-          </ul>
-
-          <!-- BOTÃO MOBILE -->
-          <button class = "menu-trigger" aria-label = "Abrir Menu">
-            <span></span>
-          </button>
-
+          </div>
+          
+        
+          <div class="right-menu">
+            <a href="index.php" class="main-red-button">Início</a>
+          </div>
         </nav>
-
-      </div>
-
+  </div>
 </header>
+<!-- ***** Header Area End ***** -->
+
 
 
   <div class="ImagemFundo">
@@ -214,7 +214,10 @@ $quadros = supabaseRequest("pinturas?select=*");
     <div class="container">
       <div class="row">
         <div class="col-lg-12 wow fadeIn" data-wow-duration="1s" data-wow-delay="0.25s">
-          <p>Trabalho de Conclusão de Curso apresentado ao IFPR - 2026</p>
+          <p>Trabalho de Conclusão de Curso • Curso Técnico em Informática
+IFPR Campus Pinhais • Museu Virtual GRIOT
+
+© 2026 Todos os direitos reservados Conclusão de Curso apresentado ao curso técnico em Informática IFPR Pinhais</p>
         </div>
       </div>
     </div>
@@ -254,6 +257,8 @@ $quadros = supabaseRequest("pinturas?select=*");
 
     });
   </script>
+  <script src="meanStyle/script.js"></script>
+
 
 </body>
 

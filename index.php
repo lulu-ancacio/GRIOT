@@ -7,28 +7,14 @@ session_start();
 <html lang="pt-br">
 
 <head>
-
-  <!-- META -->
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  <!-- SEO -->
   <meta name="description" content="Museu virtual com temática racial">
-
-  <!-- TÍTULO -->
   <title>GRIOT - Início</title>
-
-  <!-- FAVICON -->
   <link rel="icon" href="meanStyle/assets/images/FavIcon_SF.png">
-
-  <!-- FONTES -->
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap"
     rel="stylesheet">
-
-  <!-- ÍCONES -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-
-  <!-- CSS -->
   <link rel="stylesheet" href="meanStyle/assets/css/templatemo-space-dynamic.css">
 
 
@@ -36,163 +22,95 @@ session_start();
 
 <body>
 
-  <!-- =========================
-     HEADER
-========================= -->
+  
   <header class="header-area">
-
-    <div class="container">
-
-      <nav class="main-nav">
-
-        <!-- LOGO -->
-        <a href="index.php" class="logo">
-          <img src="meanStyle/assets/images/LogoEst_SF.png" alt="Logo GRIOT">
-        </a>
-
-        <!-- MENU -->
-        <ul class="nav">
-
-          <?php if (empty($_SESSION['email'])): ?>
-
-            <li>
-              <a href="./conexao/login.php" class="main-blue-button">
-                Login
-              </a>
-            </li>
-
-            <li>
-              <a href="./conexao/criar.php" class="main-red-button">
-                Criar Conta
-              </a>
-            </li>
-
-          <?php else: ?>
-
-            <li>
-              <a href="./conexao/logout.php" class="main-red-button">
-                Sair
-              </a>
-            </li>
-
-            <?php if (($_SESSION['adm'])): ?>
-              <li>
-                <a href="./adm.php" class="main-red-button">
-                  Painel de Administrador
-                </a>
-              </li>
-              <li class="scroll-to-section">
-                <a href="./mensagemRecebida.html" class="main-red-button">
-                  Mensagens
-                </a>
-              </li>
-            <?php endif; ?>
-
-          <?php endif; ?>
-
-        </ul>
-
-        <!-- BOTÃO MOBILE -->
-        <button class="menu-trigger" aria-label="Abrir Menu">
-
+  <div class="container">
+    <nav class="main-nav">
+      <!-- MENU ESQUERDO -->
+      <div class="left-menu">
+        <button class="menu-trigger" aria-label="Abrir menu">
           <span></span>
-
         </button>
+        <ul class="menu-dropdown">
+          <li><a href="Pinturas.php">Pinturas</a></li>
+          <li><a href="Fotografias.php">Fotografias</a></li>
+          <li><a href="Textos.php">Textos</a></li>
+          <li><a href="Filmes.php">Filmes</a></li>
+          <li><a href="Musicas.php">Músicas</a></li>
+          <li><a href="LinhadoTempo.php">Rascunho</a></li>
+          <li><a href="Legislação.php">Legislação</a></li>
+        </ul>
+      </div>
+      <a href="index.php" class="logo">
+        <img src="meanStyle/assets/images/LogoEst_SF.png" alt="Logo GRIOT">
+      </a>
+      <div class="right-menu">
+        <?php if (empty($_SESSION['email'])): ?>
+          <a href="./conexao/login.php" class="main-blue-button">
+            Login
+          </a>
+        <?php else: ?>
+          <a href="./conexao/logout.php" class="main-red-button">
+            Sair
+          </a>
+          <?php if ($_SESSION['adm']): ?>
+            <a href="./adm.php" class="main-red-button">
+              Painel de Administrador
+            </a>
+            <a href="./mensagemRecebida.html" class="main-red-button">
+              Mensagens
+            </a>
+          <?php endif; ?>
+        <?php endif; ?>
+      </div>
+    </nav>
+  </div>
+</header>
 
-      </nav>
-
-    </div>
-
-  </header>
-
-  <!-- =========================
-     MAIN BANNER
-========================= -->
   <div class="ImagemFundo">
     <section class="main-banner" id="top">
-
       <div class="container">
-
         <div class="banner-content">
-
-          <!-- TEXTO -->
+  
           <div class="left-content">
-
             <?php if (!empty($_SESSION['email'])): ?>
-
               <div class="welcome-box">
-
                 <h5>
                   Bem-vindo(a),
                   <?= $_SESSION['email'] ?> 👋
                 </h5>
-
                 <?php if (!empty($_SESSION['adm'])): ?>
-
                   <p>
                     Você está logado como administrador(a)
                   </p>
-
                 <?php endif; ?>
-
               </div>
-
             <?php endif; ?>
-
             <h6>
               Bem Vindo ao GRIOT
             </h6>
-
-            <h2>
-              Seu repositório
-              <em>com temática</em>
-              <span>racial</span>
-            </h2>
-
+            <h2>Seu repositório <em>com temática</em><span>racial</span></h2>
             <p>
               O GRIOT é um site web interativo que reúne pinturas
               sobre cultura negra.
-
               Projetado como uma experiência imersiva,
               o site convida visitantes a percorrer linhas do tempo
               e refletir sobre as marcas da ancestralidade
               na sociedade contemporânea.
-
               Ideal para educação, pesquisa e reflexão comunitária,
               o GRIOT transforma memória em diálogo.
             </p>
-
           </div>
-
-          <!-- IMAGEM -->
           <div class="right-image">
-
             <img src="meanStyle/assets/images/FotoPrincipal.jpg" alt="Jovem negro com 3 pentes garfos em seu cabelo">
-
           </div>
-
         </div>
-
       </div>
-
     </section>
-
-
-    <!-- =========================
-     CONTEÚDOS
-========================= -->
     <section class="content-section" id="redirection">
-
       <div class="container">
-
-        <!-- TÍTULO -->
         <div class="section-heading">
-
-          <h2>
-            Conteúdos que valorizam a
-            <em>Cultura Negra</em>
-          </h2>
-
+          <h2>Conteúdos que valorizam a <em>Cultura Negra</em></h2>
           <p>
             Fotografias, Pinturas, Recomendações de Filmes e Músicas.
             <br>
@@ -201,75 +119,46 @@ session_start();
 
         </div>
 
-        <!-- CARDS -->
         <div class="content-grid">
-
-          <!-- FOTOGRAFIAS -->
           <a href="Fotografias.php" class="content-card card-roxo">
-
             <div class="icon-box">
               <i class="fa fa-camera"></i>
             </div>
-
             <h4>Fotografias</h4>
-
           </a>
 
-          <!-- PINTURAS -->
           <a href="Pinturas.php" class="content-card card-amarela">
-
             <div class="icon-box">
               <i class="fa fa-paint-brush"></i>
             </div>
-
             <h4>Pinturas</h4>
-
           </a>
 
-          <!-- TEXTOS -->
+        
           <a href="Livros.php" class="content-card card-vermelho">
-
             <div class="icon-box">
               <i class="fa fa-book"></i>
             </div>
-
-            <h4>
-              Textos
-              <br>
-              <span>(Em breve)</span>
-            </h4>
-
+            <h4>Textos<br><span>(Em breve)</span></h4>
           </a>
 
-          <!-- FILMES -->
+         
           <a href="Filmes.php" class="content-card card-marrom">
-
             <div class="icon-box">
               <i class="fa fa-film"></i>
             </div>
-
             <h4>Filmes</h4>
-
           </a>
 
-          <!-- MÚSICAS -->
+         
           <a href="Musicas.php" class="content-card card-azul">
-
             <div class="icon-box">
               <i class="fa fa-music"></i>
-            </div>
-
-            <h4>
-              Músicas
-              <br>
-              <span>(Em breve)</span>
-            </h4>
-
+            </div><h4>Músicas<br><span>(Em breve)</span></h4>
           </a>
 
-          <!-- LINHA DO TEMPO -->
+      
           <a href="LinhadoTempo.php" class="content-card card-rosa">
-
             <div class="icon-box">
               <i class="fa fa-clock"></i>
             </div>
@@ -282,9 +171,7 @@ session_start();
 
           </a>
 
-          <!-- LEGISLAÇÃO -->
           <a href="Legislacao.php" class="content-card card-laranja">
-
             <div class="icon-box">
               <i class="fa fa-gavel"></i>
             </div>
@@ -294,114 +181,75 @@ session_start();
               <br>
               <span>(Em breve)</span>
             </h4>
-
           </a>
-
         </div>
-
       </div>
-
     </section>
-    <!-- =========================
-     CONTATO - TEXTO
-========================= -->
+
+
     <section class="contact-section">
-
       <div class="container">
-
         <div class="contact-content">
-
-          <!-- INFORMAÇÕES -->
           <div class="contact-info">
-
             <div class="section-heading">
-
               <h2>
                 Se você tem uma sugestão,
                 não hesite em nos avisar
               </h2>
-
               <p>
                 É muito importante sua opinião para
                 a evolução do nosso projeto.
-
                 Deixe elogios, críticas e sugestões.
               </p>
-
             </div>
 
-            <!-- TELEFONE -->
+      
             <div class="phone-info">
-
               <h4>
-
                 <i class="fa fa-phone"></i>
-
                 Ligue para nosso telefone:
-
                 <a href="tel:+5541984748028">
                   41 98474-8028
                 </a>
-
               </h4>
-
             </div>
-
           </div>
-          <!-- FORMULÁRIO -->
+         
           <div class="contact-form">
-
             <form id="contact">
-
               <div class="input-group">
-
                 <input type="text" name="name" id="name" placeholder="Nome" autocomplete="on" required>
-
                 <input type="text" name="surname" id="surname" placeholder="Sobrenome" autocomplete="on" required>
-
               </div>
 
               <input type="email" name="email" id="email" placeholder="Seu Email" required>
-
               <textarea name="message" id="message" placeholder="Digite aqui sua mensagem" required></textarea>
-
-              <button type="submit" id="form-submit" class="main-blue-button">
-
-                Enviar Mensagem
-
-              </button>
-
+              <button type="submit" id="form-submit" class="main-blue-button"> Enviar Mensagem </button>
             </form>
-
           </div>
-
         </div>
-
       </div>
-
     </section>
   </div>
 
-  <!-- =========================
-     FOOTER
-========================= -->
+
   <footer class="footer">
 
     <div class="container">
-
       <p>
-        Trabalho de Conclusão de Curso
+        Trabalho de Conclusão de Curso • Curso Técnico em Informática
+IFPR Campus Pinhais • Museu Virtual GRIOT
+
+© 2026 Todos os direitos reservados Conclusão de Curso
         apresentado ao IFPR - 2026
       </p>
-
     </div>
-
   </footer>
 
-  <!-- SUPABASE -->
+  
   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
 
-  <!-- FORMULÁRIO -->
+ 
   <script>
 
     const supabaseUrl =
@@ -464,7 +312,7 @@ session_start();
 
   </script>
   <!-- JS -->
-  <script src="galeria\script.js" defer></script>
+  <script src="meanStyle/script.js" defer></script>
   <!-- VLibras -->
   <div vw class="enabled">
     <div vw-access-button class="active"></div>
@@ -479,6 +327,7 @@ session_start();
   <script>
     new window.VLibras.Widget('https://vlibras.gov.br/app');
   </script>
+
 
 </body>
 
