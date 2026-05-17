@@ -167,7 +167,6 @@ session_start();
             <h4>
               Linha do Tempo
               <br>
-              <span>(Em breve)</span>
             </h4>
 
           </a>
