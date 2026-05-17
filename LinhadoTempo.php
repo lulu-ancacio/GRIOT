@@ -162,16 +162,6 @@
          </p>
   </footer>
 
-  <!-- Lightbox Init -->
-  <script>
-    $(document).ready(function () {
-      lc_lightbox('.elem', {
-        wrap_class: 'lcl_fade_oc',
-        gallery: true,
-        thumb_attr: 'data-lcl-thumb',
-        skin: 'minimal'
-      });
-    });
   </script>
    ... <!-- Conteúdo do Plug-in V-Libras -->
 
