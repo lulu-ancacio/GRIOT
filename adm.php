@@ -5,7 +5,7 @@ if (empty($_SESSION['adm'])) {
     exit;
 }
 
-require 'conexao/config.php';
+require_once 'conexao/config.php';
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if ($_POST['tipo'] === 'fotografias') {
