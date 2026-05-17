@@ -164,7 +164,7 @@ $fotos = supabaseRequest("fotografias?select=*");
       
               <div class="right-image">
 
-                <img src="meanStyle/assets/images/Pintura.jpg" alt="Mãos com pincéis">
+                <img src="meanStyle/assets/images/Camera.jpg" alt="Mãos com pincéis">
               
               </div>
 

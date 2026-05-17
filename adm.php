@@ -319,12 +319,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             <a href="index.php">
               <img src="meanStyle/assets/images/LogoEst_SF.png">
             </a>
-            
-            <nav class="nav-links">
-                <a href="mensagemRecebida.html" class="nav-btn">Mensagens</a>
-                <a href="conexao/logout.php" class="nav-btn secondary">Sair</a>
-            </nav>
-        </div>
     </header>
 
     <!-- ===== BANNER ===== -->
