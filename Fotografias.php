@@ -27,10 +27,6 @@ $fotos = supabaseRequest("fotografias?select=*");
   <link rel="stylesheet" href="meanStyle/assets/css/templatemo-space-dynamic.css">
   <link rel="stylesheet" href="meanStyle/assets/css/fontawesome.css">
 
-  <!-- Pinturas e Fotografias -->
-  <!-- LIGHTBOX FADING SHOW/HIDE EFFECT (as explained in documentation) -->
-  <link href="galeria/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-
   <style type="text/css">
     .lcl_fade_oc.lcl_pre_show #lcl_overlay,
     .lcl_fade_oc.lcl_pre_show #lcl_window,
@@ -122,7 +118,7 @@ $fotos = supabaseRequest("fotografias?select=*");
               <li><a href="Textos.php">Textos</a></li>
               <li><a href="Filmes.php">Filmes</a></li>
               <li><a href="Musicas.php">Músicas</a></li>
-              <li><a href="LinhadoTempo.php">Rascunho</a></li>
+              <li><a href="LinhadoTempo.php">Linha do Tempo</a></li>
               <li><a href="Legislação.php">Legislação</a></li>
             </ul> 
           </div>

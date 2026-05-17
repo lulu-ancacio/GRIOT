@@ -13,13 +13,11 @@
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 
-  <!-- Bootstrap -->
-  <link href="galeria/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-
   <!-- CSS -->
+   <link rel="stylesheet" href="meanStyle/assets/css/templatemo-space-dynamic.css">
+<link rel="stylesheet" href="LinhadoTempo.css"> <!-- Depois do principal -->
   <link rel="stylesheet" href="meanStyle/assets/css/fontawesome.css">
-  <link rel="stylesheet" href="meanStyle/assets/css/templatemo-space-dynamic.css">
-  <link rel = "stylesheet" href = LinhadoTempo.css>
+
 
 
   <!-- Font Awesome -->
@@ -45,167 +43,114 @@
   </div>
 
   <!-- Header -->
-  <header class="header-area header-sticky wow slideInDown">
+  <!-- ***** Header Area Start ***** -->
+    <header class="header-area">
     <div class="container">
-      <div class="row">
-        <div class="col-12">
-          <nav class="main-nav">
-
+            <nav class="main-nav">
+            <div class="left-menu">
+                <button class="menu-trigger" aria-label="Abrir menu">
+                <span></span>
+                </button>
+                <ul class="menu-dropdown">
+                <li><a href="Pinturas.php">Pinturas</a></li>
+                <li><a href="Fotografias.php">Fotografias</a></li>
+                <li><a href="Textos.php">Textos</a></li>
+                <li><a href="Filmes.php">Filmes</a></li>
+                <li><a href="Musicas.php">Músicas</a></li>
+                <li><a href="Legislação.php">Legislação</a></li>
+                </ul> 
+            </div>
+            <!-- ***** Logo Start ***** -->
             <div class="logo">
-              <a href="index.php">
+                <a href="index.php">
                 <img src="meanStyle/assets/images/LogoEst_SF.png">
-              </a>
+                </a>
             </div>
-
-            <ul class="nav">
-              <li>
+            
+            
+            <div class="right-menu">
                 <a href="index.php" class="main-red-button">Início</a>
-              </li>
-            </ul>
-
-            <a class="menu-trigger">
-              <span>Menu</span>
-            </a>
-
-          </nav>
-        </div>
-      </div>
+            </div>
+            </nav>
     </div>
-  </header>
-
-  <!-- Banner -->
-  <div class="main-banner wow fadeIn" id="top">
-    <div class="container">
-      <div class="row">
-        <div class="col-lg-12">
-          <div class="row">
-
-            <div class="col-lg-6 align-self-center">
-              <div class="left-content header-text">
-                <h2><em>Voilà!</em> <span>GRIOT!</span></h2>
-                <p>
-                  A galeria de pinturas do GRIOT apresenta um conjunto de obras que expressam,
-                  por meio da arte, a profundidade da cultura afro-brasileira...
-                </p>
-              </div>
+    </header>
+   <div class="ImagemFundo">
+    <section class="main-banner">
+        <div class="container">
+            <div class="banner-content">
+                <div class="left-content">
+                    <h6>
+                        Bem-vindo ao GRIOT- Linha do Tempo
+                    </h6>
+                    <h2>
+                        Luz! <em>Câmera!</em> <span>GRIOT!</span>
+                    </h2>
+                    <p>
+                        Explore a linha do tempo do GRIOT, onde 
+                        cada marco é uma história, cada evento é um capítulo 
+                        e cada conquista é um passo em direção a um futuro mais
+                        inclusivo e igualitário. Navegue por momentos históricos, 
+                        conquistas culturais e avanços sociais que moldaram a
+                        narrativa da luta contra o racismo. Descubra como o passado
+                        se conecta com o presente e inspire-se para construir um
+                        futuro onde a diversidade seja celebrada e a igualdade
+                        seja uma realidade para todos.
+                    </p>
+                </div>
+                <div class="right-image">
+                    <img src="meanStyle/assets/images/Filme.jpg"
+                        alt="Câmera de cinema">
+                </div>
             </div>
-
-            <div class="col-md-6">
-              <div class="right-image">
-                <img src="meanStyle/assets/images/Pintura.jpg">
-              </div>
-            </div>
-
-          </div>
         </div>
-      </div>
+    </section>
+
+  <!-- Timeline -->
+  <!-- Linha do Tempo -->
+<div class="timeline-container">
+  
+  <div class="timeline-item left">
+    <div class="timeline-content">
+      <span class="timeline-year">2018</span>
+      <h3>Lançamento do Projeto</h3>
+      <p>Início das atividades do GRIOT com foco na preservação da memória e história afro-brasileira.</p>
     </div>
   </div>
 
-  <!-- Timeline -->
-  <div class="container">
-    <div class="main-timeline">
+  <div class="timeline-item right">
+    <div class="timeline-content">
+      <span class="timeline-year">2017</span>
 
-      <div class="timeline">
-        <a href="#" class="timeline-content">
-          <span class="timeline-year">2018</span>
-          <div class="timeline-icon">
-            <i class="fas fa-rocket"></i>
-          </div>
-          <div class="content">
-            <h3 class="title">Web Development</h3>
-            <p class="description">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.
-              </p></p>
-          </div>
-        </a>
-      </div>
-
-      <div class="timeline">
-        <a href="#" class="timeline-content">
-          <span class="timeline-year">2017</span>
-          <div class="timeline-icon">
-            <i class="fas fa-users"></i>
-          </div>
-          <div class="content">
-            <h3 class="title">JavaScript</h3>
-            <p class="description">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.
-              </p></p>
-          </div>
-        </a>
-      </div>
-
-       <div class="timeline">
-          <a href="#" class="timeline-content">
-            <span class="timeline-year">2017</span>
-            <div class="timeline-icon">
-              <i class="fa fa-cog" aria-hidden="true"></i>
-            </div>
-            <div class="content">
-              <h3 class="title">Mongo DB</h3>
-              <p class="description">
-                Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.
-              </p>
-            </div>
-          </a>
-        </div>
-        <div class="timeline">
-          <a href="#" class="timeline-content">
-            <span class="timeline-year">2017</span>
-            <div class="timeline-icon">
-              <i class="fa fa-heart" aria-hidden="true"></i>
-            </div>
-            <div class="content">
-              <h3 class="title">BlackPearl</h3>
-              <p class="description">
-                Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.
-              </p>
-            </div>
-          </a>
-        </div>
-        <div class="timeline">
-          <a href="#" class="timeline-content">
-            <span class="timeline-year">2017</span>
-            <div class="timeline-icon">
-              <i class="fa fa-globe" aria-hidden="true"></i>
-            </div>
-            <div class="content">
-              <h3 class="title">Angular</h3>
-              <p class="description">
-                Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.
-              </p>
-            </div>
-          </a>
-        </div>
-        <div class="timeline">
-          <a href="#" class="timeline-content">
-            <span class="timeline-year">2017</span>
-            <div class="timeline-icon">
-              <i class="fa fa-apple" aria-hidden="true"></i>
-            </div>
-            <div class="content">
-              <h3 class="title">Laravel</h3>
-              <p class="description">
-                Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.
-              </p>
-            </div>
-          </a>
-        </div>
-        <div class="timeline">
-          <a href="#" class="timeline-content">
-            <span class="timeline-year">2017</span>
-            <div class="timeline-icon">
-              <i class="fa fa-edit" aria-hidden="true"></i>
-            </div>
-            <div class="content">
-              <h3 class="title">Creapure</h3>
-              <p class="description">
-                Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s.
-              </p>
-            </div>
-          </a>
-        </div>
-      </div>
+      <h3>Expansão da Equipe</h3>
+      <p>Crescimento do time de colaboradores e ampliação das atividades culturais e educacionais.</p>
     </div>
+  </div>
+
+  <div class="timeline-item left">
+    <div class="timeline-content">
+      <span class="timeline-year">2017</span>
+      <h3>Modernização Tecnológica</h3>
+      <p>Implementação de novas tecnologias para melhor acesso ao acervo digital e interatividade.</p>
+    </div>
+  </div>
+
+  <div class="timeline-item right">
+    <div class="timeline-content">
+      <span class="timeline-year">2017</span>
+      <h3>BlackPearl</h3>
+      <p>Projeto especial dedicado à valorização da cultura e história negra brasileira.</p>
+    </div>
+  </div>
+
+  <div class="timeline-item left">
+    <div class="timeline-content">
+      <span class="timeline-year">2017</span>
+      <h3>Plataforma Angular</h3>
+      <p>Desenvolvimento de nova plataforma web com tecnologia Angular para melhor experiência.</p>
+    </div>
+  </div>
+
+</div>
   </div>
 </div>
 
@@ -243,6 +188,9 @@
 <script>
   new window.VLibras.Widget('https://vlibras.gov.br/app');
 </script>
+
+    <script src="meanStyle/script.js"></script>
+
 
 </body>
 </html>

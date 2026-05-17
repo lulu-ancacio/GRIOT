@@ -29,7 +29,7 @@ $prods = supabaseRequest("filmes?select=*");
 </head>
 
 <body>
-        <!-- ***** Header Area Start ***** -->
+    <!-- ***** Header Area Start ***** -->
     <header class="header-area">
     <div class="container">
             <nav class="main-nav">
@@ -43,7 +43,7 @@ $prods = supabaseRequest("filmes?select=*");
                 <li><a href="Textos.php">Textos</a></li>
                 <li><a href="Filmes.php">Filmes</a></li>
                 <li><a href="Musicas.php">Músicas</a></li>
-                <li><a href="LinhadoTempo.php">Rascunho</a></li>
+                <li><a href="LinhadoTempo.php">Linha do Tempo</a></li>
                 <li><a href="Legislação.php">Legislação</a></li>
                 </ul> 
             </div>
@@ -62,19 +62,13 @@ $prods = supabaseRequest("filmes?select=*");
     </div>
     </header>
    <div class="ImagemFundo">
-
     <section class="main-banner">
-
         <div class="container">
-
             <div class="banner-content">
-
                 <div class="left-content">
-
                     <h6>
                         Bem-vindo ao GRIOT- Filmes
                     </h6>
-
                     <h2>
                         Luz! <em>Câmera!</em> <span>GRIOT!</span>
                     </h2>
@@ -94,6 +88,7 @@ $prods = supabaseRequest("filmes?select=*");
             </div>
         </div>
     </section>
+    
             <section id="filmes" class="movie-list-container">
 
                 <h1 class="movie-list-title">Filmes</h1>
