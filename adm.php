@@ -431,7 +431,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                             <option value="">Selecione...</option>
                             <option value="F">🎬 Filmes</option>
                             <option value="CU">🎞️ Curtas</option>
-                            <option value="DE">✏️ Animação</option>
+                            <option value="DE">✏️ Animações</option>
                             <option value="DO">🎥 Documentários</option>
                             <option value="S">📺 Séries</option>
                             <option value="B">👤 Biografias</option>

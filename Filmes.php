@@ -96,7 +96,7 @@ $prods = supabaseRequest("filmes?select=*");
                     <div class="movie-list">
                         <?php if ($prods): ?>
                             <?php foreach ($prods as $row): ?>
-                                <?php if ($row['tipo'] == 'F'): ?>
+                                <?php if ($row['tipo'] == 'Filmes'): ?>
                                     <div class="movie-list-item">
                                         <img class="movie-list-item-img" src="<?= $row['url'] ?>" alt="">
                                         <span class="movie-list-item-title"><?= $row['titulo'] ?></span>
@@ -123,7 +123,7 @@ $prods = supabaseRequest("filmes?select=*");
                     <div class="movie-list">
                         <?php if ($prods): ?>
                             <?php foreach ($prods as $row): ?>
-                                <?php if ($row['tipo'] == 'CU'): ?>
+                                <?php if ($row['tipo'] == 'Curtas'): ?>
                                     <div class="movie-list-item">
                                         <img class="movie-list-item-img" src="<?= $row['url'] ?>" alt="">
                                         <span class="movie-list-item-title"><?= $row['titulo'] ?></span>
@@ -151,7 +151,7 @@ $prods = supabaseRequest("filmes?select=*");
                     <div class="movie-list">
                         <?php if ($prods): ?>
                             <?php foreach ($prods as $row): ?>
-                                <?php if ($row['tipo'] == 'DE'): ?>
+                                <?php if ($row['tipo'] == 'Desenhos'): ?>
                                     <div class="movie-list-item">
                                         <img class="movie-list-item-img" src="<?= $row['url'] ?>" alt="">
                                         <span class="movie-list-item-title"><?= $row['titulo'] ?></span>
@@ -178,7 +178,7 @@ $prods = supabaseRequest("filmes?select=*");
                     <div class="movie-list">
                         <?php if ($prods): ?>
                             <?php foreach ($prods as $row): ?>
-                                <?php if ($row['tipo'] == 'DO'): ?>
+                                <?php if ($row['tipo'] == 'Documentarios'): ?>
                                     <div class="movie-list-item">
                                         <img class="movie-list-item-img" src="<?= $row['url'] ?>" alt="">
                                         <span class="movie-list-item-title"><?= $row['titulo'] ?></span>
@@ -204,7 +204,7 @@ $prods = supabaseRequest("filmes?select=*");
                     <div class="movie-list">
                         <?php if ($prods): ?>
                             <?php foreach ($prods as $row): ?>
-                                <?php if ($row['tipo'] == 'S'): ?>
+                                <?php if ($row['tipo'] == 'Series'): ?>
                                     <div class="movie-list-item">
                                         <img class="movie-list-item-img" src="<?= $row['url'] ?>" alt="">
                                         <span class="movie-list-item-title"><?= $row['titulo'] ?></span>
@@ -230,7 +230,7 @@ $prods = supabaseRequest("filmes?select=*");
                     <div class="movie-list">
                         <?php if ($prods): ?>
                             <?php foreach ($prods as $row): ?>
-                                <?php if ($row['tipo'] == 'B'): ?>
+                                <?php if ($row['tipo'] == 'Biografias'): ?>
                                     <div class="movie-list-item">
                                         <img class="movie-list-item-img" src="<?= $row['url'] ?>" alt="">
                                         <span class="movie-list-item-title"><?= $row['titulo'] ?></span>
@@ -257,7 +257,7 @@ $prods = supabaseRequest("filmes?select=*");
                     <div class="movie-list">
                         <?php if ($prods): ?>
                             <?php foreach ($prods as $row): ?>
-                                <?php if ($row['tipo'] == 'CL'): ?>
+                                <?php if ($row['tipo'] == 'Clipes'): ?>
                                     <div class="movie-list-item">
                                         <img class="movie-list-item-img" src="<?= $row['url'] ?>" alt="">
                                         <span class="movie-list-item-title"><?= $row['titulo'] ?></span>
