@@ -14,8 +14,8 @@
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 
   <!-- CSS -->
+   <link rel="stylesheet" href="LinhadoTempo.css"> 
    <link rel="stylesheet" href="meanStyle/assets/css/templatemo-space-dynamic.css">
-<link rel="stylesheet" href="LinhadoTempo.css"> <!-- Depois do principal -->
   <link rel="stylesheet" href="meanStyle/assets/css/fontawesome.css">
 
 
