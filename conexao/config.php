@@ -105,7 +105,7 @@ function supabaseCreateFilm($bucket, $table)
         $link = $_POST['link'];
         $titulo = $_POST['titulo'];
         $desc = $_POST['desc'];
-        $tipomidia = $_POST['tipo'];
+        $tipomidia = $_POST['tipomidia'];
 
         if ($file['error'] === 0) {
 
@@ -149,7 +149,7 @@ function supabaseCreateFilm($bucket, $table)
                     ]
                 ]
             );
-            header("Location: index.php");
+            header("Location: adm.php");
             exit;
         }
     }

@@ -427,11 +427,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                         <select id="filme_tipo" name="tipomidia" required>
                             <option value="">Selecione...</option>
                             <option value="F">🎬 Filmes</option>
+                            <option value="CU">🎞️ Curtas</option>
                             <option value="DE">✏️ Desenhos Animados</option>
                             <option value="DO">🎥 Documentários</option>
                             <option value="S">📺 Séries</option>
                             <option value="B">👤 Biografias</option>
-                            <option value="C">🎵 Clipes Musicais</option>
+                            <option value="CL">🎵 Clipes Musicais</option>
                         </select>
                     </div>
                     
