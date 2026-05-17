@@ -91,7 +91,7 @@ $prods = supabaseRequest("filmes?select=*");
     
             <section id="filmes" class="movie-list-container">
 
-                <h1 class="movie-list-title">Filmes</h1>
+                <h1 class="movie-list-title">Longas de Ficção</h1>
                 <div class="movie-list-wrapper">
                     <div class="movie-list">
                         <?php if ($prods): ?>
@@ -146,7 +146,7 @@ $prods = supabaseRequest("filmes?select=*");
 
             <section id="filmes" class="movie-list-container">
 
-                <h1 class="movie-list-title">Desenhos</h1>
+                <h1 class="movie-list-title">Animações</h1>
                 <div class="movie-list-wrapper">
                     <div class="movie-list">
                         <?php if ($prods): ?>
@@ -252,7 +252,7 @@ $prods = supabaseRequest("filmes?select=*");
             </section>
 
             <section id="biografias" class="movie-list-container">
-                <h1 class="movie-list-title">Clipes</h1>
+                <h1 class="movie-list-title">Musicais</h1>
                 <div class="movie-list-wrapper">
                     <div class="movie-list">
                         <?php if ($prods): ?>

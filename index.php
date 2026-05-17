@@ -92,10 +92,10 @@ session_start();
             </h6>
             <h2>Seu repositório <em>com temática </em><span>racial</span></h2>
             <p>
-              O GRIOT é um site web interativo que reúne pinturas
+              O GRIOT é um site web interativo que reúne conteúdos
               sobre cultura negra.
               Projetado como uma experiência imersiva,
-              o site convida visitantes a percorrer linhas do tempo
+              o site convida visitantes a percorrer diversos cenários
               e refletir sobre as marcas da ancestralidade
               na sociedade contemporânea.
               Ideal para educação, pesquisa e reflexão comunitária,
@@ -167,7 +167,6 @@ session_start();
             <h4>
               Linha do Tempo
               <br>
-              <span>(Em breve)</span>
             </h4>
 
           </a>

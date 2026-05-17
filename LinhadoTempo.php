@@ -58,7 +58,7 @@
                         Bem-vindo ao GRIOT- Filmes
                     </h6>
                     <h2>
-                        Luz! <em>Câmera!</em> <span>GRIOT!</span>
+                        Passado <em>Presente...</em> <span>GRIOT!</span>
                     </h2>
                     <p>
                         O GRIOT é um site web interativo que reúne filmes,
@@ -70,7 +70,12 @@
                     </p>
                 </div>
                 <div class="right-image">
+<<<<<<< HEAD
                     <img src="meanStyle/assets/images/Filme.jpg" alt="Câmera de cinema">
+=======
+                    <img src="meanStyle/assets/images/LinhadoTempo.jpg"
+                        alt="Imagem ilustrativa da linha do tempo do projeto GRIOT">
+>>>>>>> 5026025e366fca5f5de97a1eae27ccdbc73898e4
                 </div>
             </div>
         </div>
@@ -78,6 +83,7 @@
     
             <section id="filmes" class="movie-list-container">
 
+<<<<<<< HEAD
                 <h1 class="movie-list-title">Longas de Ficção</h1>
                 <div class="movie-list-wrapper">
                     <div class="movie-list">
@@ -216,6 +222,59 @@
                     </div>
                 </div>
             </section>
+=======
+  <!-- Timeline -->
+  <!-- Linha do Tempo -->
+<div class="timeline-container">
+  
+  <div class="timeline-item left">
+    <div class="timeline-content">
+      <span class="timeline-year">Início do sec. XV</span>
+      <h3>Início da Escravidão Transatlântica</h3>
+      <p>milhares de indivíduos habitantes da costa oeste africana foram escravizados e trazidos para a América em navios negreiros que atravessavam o oceano Atlântico. 
+</p>
+    </div>
+  </div>
+
+  <div class="timeline-item right">
+    <div class="timeline-content">
+      <span class="timeline-year">1597 á 1695</span>
+
+      <h3>Fugas dos engenhos e fazenda para os quilombos
+</h3>
+      <p>Sendo o quilombo de Palmares, liderado por Zumbi dos Palmares, o mais importante deles, que abrigou cerca de 20 mil pessoas.
+</p>
+    </div>
+  </div>
+
+  <div class="timeline-item left">
+    <div class="timeline-content">
+      <span class="timeline-year">1835</span>
+      <h3>Revolta Populares</h3>
+      <p> Uma delas é a Revolta dos Malês, ocorrida na cidade de Salvador (BA), orquestrada por africanos mulçumanos nagôs, conhecidos como iorubas e haussás.</p>
+    </div>
+  </div>
+
+  <div class="timeline-item right">
+    <div class="timeline-content">
+      <span class="timeline-year">1870 á 1880 
+</span>
+      <h3>Movimento Abolicionistas</h3>
+      <p>capitaneados por intelectuais, políticos e grupos de ex-escravizados.
+</p>
+    </div>
+  </div>
+
+  <div class="timeline-item left">
+    <div class="timeline-content">
+      <span class="timeline-year">13 de maio de 1888</span>
+      <h3>Abolição da escravatura</h3>
+      <p> Assinatura da Lei Áurea, pela então princesa Isabel
+filha do imperador Dom Pedro II,libertando mais de 700 mil escravizados das suas condições de trabalho forçado e sem remuneração.
+</p>
+    </div>
+  </div>
+>>>>>>> 5026025e366fca5f5de97a1eae27ccdbc73898e4
 
 
             <section id="documentarios" class="movie-list-container">

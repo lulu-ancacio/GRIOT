@@ -14,14 +14,14 @@ $fotos = supabaseRequest("fotografias?select=*");
 <head>
 
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="description" content="Pinturas GRIOT">
+  <meta name="description" content="Fotografia GRIOT">
   <meta name="author" content="Lucas Ancacio e Maria Eduarda Gomes">
   <meta charset="UTF-8">
   <link rel="icon" href=" galeria\assets\images\FavIcon_SF.png">
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap"
     rel="stylesheet">
 
-  <title>GRIOT-Pinturas</title>
+  <title>GRIOT-Fotografias</title>
 
   <!-- Css principal -->
   <link rel="stylesheet" href="meanStyle/assets/css/templatemo-space-dynamic.css">
@@ -114,7 +114,6 @@ $fotos = supabaseRequest("fotografias?select=*");
             </button>
             <ul class="menu-dropdown">
               <li><a href="Pinturas.php">Pinturas</a></li>
-              <li><a href="Fotografias.php">Fotografias</a></li>
               <li><a href="Textos.php">Textos</a></li>
               <li><a href="Filmes.php">Filmes</a></li>
               <li><a href="Musicas.php">Músicas</a></li>
@@ -137,33 +136,46 @@ $fotos = supabaseRequest("fotografias?select=*");
   </div>
 </header>
 <!-- ***** Header Area End ***** -->
-  <div class="main-banner ">
+
+  <div class="ImagemFundo">
+    <section class = "main-banner" id = "top">
+
     <div class="container">
-      <div class="row">
-        <div class="col-lg-12">
-          <div class="row">
-            <div class="col-lg-6 align-self-center">
-              <div class="left-content header-text wow fadeInLeft" data-wow-duration="1s" data-wow-delay="1s">
-                <h2><em>Diga X!</em> <span>Diga GRIOT!</span></h2>
-                <p>
- A fotografia é muito mais do que um clique congelado no tempo; 
-                é uma forma de escrever a história com a luz. No contexto da cultura 
-                negra e da ancestralidade, a câmera torna-se uma ferramenta poderosa de
-                 reexistência. Durante muito tempo, outras pessoas contaram as nossas histórias,
-                  mas hoje, através das lentes, nós retomamos o protagonismo da nossa própria
-                   narrativa.</p>
+
+      <div class="banner-content">
+
+      <div class = "left-content">
+        <h6> Bem-Vindo ao GRIOT- Fotografias </h6>
+
+        <h2> 
+         <em>Diga X</em>
+          <span>Diga GRIOT</span>
+        </h2>
+
+         <p>A fotografia é muito mais do que um clique congelado no tempo;
+           é uma forma de escrever a história com a luz. No contexto da cultura
+            negra e da ancestralidade, a câmera torna-se uma ferramenta poderosa de
+             reexistência. Durante muito tempo, outras pessoas contaram as nossas histórias,
+              mas hoje, através das lentes,nós retomamos o protagonismo da nossa própria narrativa.
+         </p>
+        </div>
+
+        <!--IMAGEM-->
+      
+              <div class="right-image">
+
+                <img src="meanStyle/assets/images/Camera.jpg" alt="Mãos com pincéis">
+              
               </div>
+
             </div>
-            <div class="col-md-6">
-              <div class="right-image wow fadeInRight" data-wow-duration="1s" data-wow-delay="0.5s">
-                <img src="meanStyle/assets/images/Camera.jpg" alt="Menino negro com uma câmera analógica em suas mãos.">
-              </div>
-            </div>
+
           </div>
         </div>
       </div>
     </div>
   </div>
+
 
   <div id="portfolio" class="our-portfolio section">
     <div class="container">

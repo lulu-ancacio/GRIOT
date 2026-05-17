@@ -25,7 +25,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Painel Administrativo - Museu Virtual GRIOT">
+     <link rel="icon" href="meanStyle/assets/images/FavIcon_SF.png">
+    <meta name="description" content="Painel Administrativo ">
     <title>GRIOT • Painel Admin</title>
     
 
@@ -318,12 +319,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             <a href="index.php">
               <img src="meanStyle/assets/images/LogoEst_SF.png">
             </a>
-            
-            <nav class="nav-links">
-                <a href="mensagemRecebida.html" class="nav-btn">Mensagens</a>
-                <a href="conexao/logout.php" class="nav-btn secondary">Sair</a>
-            </nav>
-        </div>
     </header>
 
     <!-- ===== BANNER ===== -->
@@ -368,6 +363,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     </div>
                     
                     <button type="submit" class="btn-submit">Enviar Fotografia</button>
+                    <p>Adicione uma fotografia por vez.</p>
                 </form>
             </article>
 
@@ -398,6 +394,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     </div>
                     
                     <button type="submit" class="btn-submit">Enviar Pintura</button>
+                    <p>Adicione uma pintura por vez.</p>
                 </form>
             </article>
 
@@ -426,13 +423,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                         <label for="filme_tipo">Tipo de Mídia *</label>
                         <select id="filme_tipo" name="tipomidia" required>
                             <option value="">Selecione...</option>
-                            <option value="Filmes">🎬 Filmes</option>
-                            <option value="Curtas">🎞️ Curtas</option>
-                            <option value="Desenhos">✏️ Desenhos Animados</option>
-                            <option value="Documentarios">🎥 Documentários</option>
-                            <option value="Series">📺 Séries</option>
-                            <option value="Biografias">👤 Biografias</option>
-                            <option value="Clipes">🎵 Clipes Musicais</option>
+                            <option value="F">🎬 Longas de Ficção</option>
+                            <option value="CU">🎞️ Curtas</option>
+                            <option value="DE">✏️ Animações</option>
+                            <option value="DO">🎥 Documentários</option>
+                            <option value="S">📺 Séries</option>
+                            <option value="B">👤 Biografias</option>
+                            <option value="CL">🎵 Musicais</option>
                         </select>
                     </div>
                     
@@ -442,6 +439,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     </div>
                     
                     <button type="submit" class="btn-submit">Enviar Mídia</button>
+                    <p>Adicione uma mídia por vez.</p>
                 </form>
             </article>
 

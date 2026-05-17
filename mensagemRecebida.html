@@ -134,6 +134,108 @@
     .card:nth-child(4) { animation-delay: 0.4s; }
     .card:nth-child(5) { animation-delay: 0.5s; }
 
+.card {
+  cursor: pointer;
+  border-left: 5px solid transparent;
+  transition: all 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 25px rgba(183, 71, 71, 0.2);
+}
+
+.card.nao-visto {
+  border-left-color: #e53e3e;
+  background: linear-gradient(135deg, #fff5f5 0%, #ffffff 100%);
+}
+
+.card.nao-visto::after {
+  content: '●';
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  color: #e53e3e;
+  font-size: 12px;
+  animation: pulse 2s infinite;
+}
+
+.card.visto {
+  border-left-color: #48bb78;
+  opacity: 0.85;
+}
+
+.card.visto::after {
+  content: '✓';
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  color: #48bb78;
+  font-size: 14px;
+  font-weight: bold;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.5; }
+}
+
+
+.card .data-mensagem {
+  margin-top: 12px;
+  padding-top: 12px;
+  border-top: 1px solid rgba(0,0,0,0.1);
+  font-size: 12px;
+  color: #718096;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.card .data-mensagem::before {
+  content: '📅';
+  font-size: 14px;
+}
+
+
+.status-badge {
+  display: inline-block;
+  padding: 3px 10px;
+  border-radius: 12px;
+  font-size: 11px;
+  font-weight: 600;
+  margin-left: 10px;
+}
+
+.status-novo {
+  background: #fed7d7;
+  color: #c53030;
+}
+
+.status-lido {
+  background: #c6f6d5;
+  color: #276749;
+}
+
+
+.card h3 {
+  padding-right: 30px;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.card h3 a {
+  color: #2d3748;
+  text-decoration: none;
+  transition: color 0.3s;
+}
+
+.card h3 a:hover {
+  color: #4f46e5;
+}
+
 
 
   </style>
@@ -157,34 +259,12 @@
   <!-- ***** Preloader End ***** -->
 
   <!-- ***** Header Area Start ***** -->
-  <header class="header-area header-sticky wow slideInDown" data-wow-duration="0.75s" data-wow-delay="0s">
-    <div class="container">
-      <div class="row">
-        <div class="col-12">
-          <nav class="main-nav">
-            <!-- ***** Logo Start ***** -->
-            <div class="logo">
-                 <a href="index.php">
-              <img src="meanStyle\assets\images\LogoEst_SF.png">
+<header class="header">
+        <div class="header-inner">
+            <a href="index.php">
+              <img src="meanStyle/assets/images/LogoEst_SF.png">
             </a>
-          </div>
-          <!-- ***** Logo End ***** -->
-            <!-- ***** Menu Start ***** -->
-            <ul class="nav">
-              <li class="scroll-to-section">
-                <a href="index.php" class="main-red-button">Início</a>
-              </li>
-            </ul>
-
-            <a class='menu-trigger'>
-              <span>Menu</span>
-            </a>
-            <!-- ***** Menu End ***** -->
-          </nav>
-        </div>
-      </div>
-    </div>
-  </header>
+    </header>
 
 
 
