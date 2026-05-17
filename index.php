@@ -90,7 +90,7 @@ session_start();
             <h6>
               Bem Vindo ao GRIOT
             </h6>
-            <h2>Seu repositório <em>com temática</em><span>racial</span></h2>
+            <h2>Seu repositório <em>com temática </em><span>racial</span></h2>
             <p>
               O GRIOT é um site web interativo que reúne pinturas
               sobre cultura negra.

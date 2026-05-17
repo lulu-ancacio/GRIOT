@@ -118,6 +118,34 @@ $prods = supabaseRequest("filmes?select=*");
 
             <section id="filmes" class="movie-list-container">
 
+                <h1 class="movie-list-title">Curtas</h1>
+                <div class="movie-list-wrapper">
+                    <div class="movie-list">
+                        <?php if ($prods): ?>
+                            <?php foreach ($prods as $row): ?>
+                                <?php if ($row['tipo'] == 'CU'): ?>
+                                    <div class="movie-list-item">
+                                        <img class="movie-list-item-img" src="<?= $row['url'] ?>" alt="">
+                                        <span class="movie-list-item-title"><?= $row['titulo'] ?></span>
+                                        <p class="movie-list-item-desc"> <?= $row['desc'] ?> </p>  
+                                        <button class="movie-list-item-button"
+                                            onclick="window.open('<?= $row['link'] ?>', '_blank')">
+                                            Assistir
+                                        </button>
+                                    </div>
+                                <?php endif; ?>
+                            <?php endforeach; ?>
+                        <?php endif; ?>
+                    </div>
+                    <div class = "arrow">
+                    <i class="fas fa-angle-right"></i>
+                    </div>
+                </div>
+            </section>
+
+
+            <section id="filmes" class="movie-list-container">
+
                 <h1 class="movie-list-title">Desenhos</h1>
                 <div class="movie-list-wrapper">
                     <div class="movie-list">
@@ -229,7 +257,7 @@ $prods = supabaseRequest("filmes?select=*");
                     <div class="movie-list">
                         <?php if ($prods): ?>
                             <?php foreach ($prods as $row): ?>
-                                <?php if ($row['tipo'] == 'C'): ?>
+                                <?php if ($row['tipo'] == 'CL'): ?>
                                     <div class="movie-list-item">
                                         <img class="movie-list-item-img" src="<?= $row['url'] ?>" alt="">
                                         <span class="movie-list-item-title"><?= $row['titulo'] ?></span>
