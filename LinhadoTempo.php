@@ -13,10 +13,10 @@
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 
-  <!-- CSS -->
-   <link rel="stylesheet" href="LinhadoTempo.css"> 
+  <!-- CSS --> 
    <link rel="stylesheet" href="meanStyle/assets/css/templatemo-space-dynamic.css">
   <link rel="stylesheet" href="meanStyle/assets/css/fontawesome.css">
+    <link rel="stylesheet" href="LinhadoTempo.css">
 
 
 
@@ -40,7 +40,8 @@
         <span></span>
       </div>
     </div>
-  </div>
+  
+
 
   <!-- Header -->
   <!-- ***** Header Area Start ***** -->
@@ -152,7 +153,7 @@
 
 </div>
   </div>
-</div>
+
 
   <!-- Footer -->
   <footer>
@@ -162,7 +163,6 @@
          </p>
   </footer>
 
-  </script>
    ... <!-- Conteúdo do Plug-in V-Libras -->
 
 <!-- VLibras -->
