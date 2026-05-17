@@ -1,8 +1,6 @@
 <?php
 session_start();
 
-use GuzzleHttp\Exception\GuzzleException;
-
 require 'conexao/config.php';
 require './composer/vendor/autoload.php';
 
@@ -15,32 +13,19 @@ $quadros = supabaseRequest("pinturas?select=*");
 
 <head>
 
-  <!-- META -->
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="Pinturas GRIOT">
+  <meta name="author" content="Lucas Ancacio e Maria Eduarda Gomes">
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  <!-- SEO -->
-  <meta name="description" content="Museu virtual com temática racial">
-
-  <!-- TÍTULO -->
-  <title>GRIOT - Pinturas</title>
-
-  <!-- FAVICON -->
-  <link rel="icon" href="meanStyle/assets/images/FavIcon_SF.png">
-
-  <!-- FONTES -->
+  <link rel="icon" href=" galeria\assets\images\FavIcon_SF.png">
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap"
     rel="stylesheet">
 
-  <!-- ÍCONES -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <title>GRIOT-Pinturas</title>
 
-  <!-- CSS PRINCIPAL -->
+  <!-- Css principal -->
   <link rel="stylesheet" href="meanStyle/assets/css/templatemo-space-dynamic.css">
-
-  <!-- Pinturas e Fotografias -->
-  <!-- LIGHTBOX FADING SHOW/HIDE EFFECT (as explained in documentation) -->
-  <link href="galeria/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="meanStyle/assets/css/fontawesome.css">
 
   <style type="text/css">
     .lcl_fade_oc.lcl_pre_show #lcl_overlay,
@@ -83,8 +68,7 @@ $quadros = supabaseRequest("pinturas?select=*");
       background-size: cover;
       background-position: center center;
     }
-
-    .grid-galeria {
+      .grid-galeria {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: 20px;
@@ -116,8 +100,7 @@ $quadros = supabaseRequest("pinturas?select=*");
 
 
   <!-- ASSETS -->
-   	  <script src="galeria/lib/AlloyFinger/alloy_finger.min.js" type="text/javascript"></script>
-
+ <script src="galeria/lib/AlloyFinger/alloy_finger.min.js" type="text/javascript"></script>
 </head>
 <body>
   <!-- ***** Header Area Start ***** -->
@@ -163,7 +146,7 @@ $quadros = supabaseRequest("pinturas?select=*");
       <div class="banner-content">
 
       <div class = "left-content">
-        <h6> Bem Vindo ao aba de Pintuas </h6>
+        <h6> Bem-Vindo ao GRIOT- Pinturas </h6>
 
         <h2> 
          <em>Voilà</em>

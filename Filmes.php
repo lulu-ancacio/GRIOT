@@ -146,7 +146,7 @@ $prods = supabaseRequest("filmes?select=*");
 
             <section id="filmes" class="movie-list-container">
 
-                <h1 class="movie-list-title">Desenhos</h1>
+                <h1 class="movie-list-title">Animações</h1>
                 <div class="movie-list-wrapper">
                     <div class="movie-list">
                         <?php if ($prods): ?>

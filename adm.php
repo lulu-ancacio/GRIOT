@@ -25,7 +25,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Painel Administrativo - Museu Virtual GRIOT">
+     <link rel="icon" href="meanStyle/assets/images/FavIcon_SF.png">
+    <meta name="description" content="Painel Administrativo ">
     <title>GRIOT • Painel Admin</title>
     
 
@@ -368,6 +369,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     </div>
                     
                     <button type="submit" class="btn-submit">Enviar Fotografia</button>
+                    <p>Adicione uma fotografia por vez.</p>
                 </form>
             </article>
 
@@ -398,6 +400,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     </div>
                     
                     <button type="submit" class="btn-submit">Enviar Pintura</button>
+                    <p>Adicione uma pintura por vez.</p>
                 </form>
             </article>
 
@@ -428,7 +431,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                             <option value="">Selecione...</option>
                             <option value="F">🎬 Filmes</option>
                             <option value="CU">🎞️ Curtas</option>
-                            <option value="DE">✏️ Desenhos Animados</option>
+                            <option value="DE">✏️ Animação</option>
                             <option value="DO">🎥 Documentários</option>
                             <option value="S">📺 Séries</option>
                             <option value="B">👤 Biografias</option>
@@ -442,6 +445,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     </div>
                     
                     <button type="submit" class="btn-submit">Enviar Mídia</button>
+                    <p>Adicione uma mídia por vez.</p>
                 </form>
             </article>
 

@@ -84,7 +84,7 @@
                         Bem-vindo ao GRIOT- Linha do Tempo
                     </h6>
                     <h2>
-                        Luz! <em>Câmera!</em> <span>GRIOT!</span>
+                        Passado <em>Presente...</em> <span>GRIOT!</span>
                     </h2>
                     <p>
                         Explore a linha do tempo do GRIOT, onde 
@@ -99,8 +99,8 @@
                     </p>
                 </div>
                 <div class="right-image">
-                    <img src="meanStyle/assets/images/Filme.jpg"
-                        alt="Câmera de cinema">
+                    <img src="meanStyle/assets/images/LinhadoTempo.jpg"
+                        alt="Imagem ilustrativa da linha do tempo do projeto GRIOT">
                 </div>
             </div>
         </div>
@@ -112,42 +112,49 @@
   
   <div class="timeline-item left">
     <div class="timeline-content">
-      <span class="timeline-year">2018</span>
-      <h3>Lançamento do Projeto</h3>
-      <p>Início das atividades do GRIOT com foco na preservação da memória e história afro-brasileira.</p>
+      <span class="timeline-year">Início do sec. XV</span>
+      <h3>Início da Escravidão Transatlântica</h3>
+      <p>milhares de indivíduos habitantes da costa oeste africana foram escravizados e trazidos para a América em navios negreiros que atravessavam o oceano Atlântico. 
+</p>
     </div>
   </div>
 
   <div class="timeline-item right">
     <div class="timeline-content">
-      <span class="timeline-year">2017</span>
+      <span class="timeline-year">1597 á 1695</span>
 
-      <h3>Expansão da Equipe</h3>
-      <p>Crescimento do time de colaboradores e ampliação das atividades culturais e educacionais.</p>
+      <h3>Fugas dos engenhos e fazenda para os quilombos
+</h3>
+      <p>Sendo o quilombo de Palmares, liderado por Zumbi dos Palmares, o mais importante deles, que abrigou cerca de 20 mil pessoas.
+</p>
     </div>
   </div>
 
   <div class="timeline-item left">
     <div class="timeline-content">
-      <span class="timeline-year">2017</span>
-      <h3>Modernização Tecnológica</h3>
-      <p>Implementação de novas tecnologias para melhor acesso ao acervo digital e interatividade.</p>
+      <span class="timeline-year">1835</span>
+      <h3>Revolta Populares</h3>
+      <p> Uma delas é a Revolta dos Malês, ocorrida na cidade de Salvador (BA), orquestrada por africanos mulçumanos nagôs, conhecidos como iorubas e haussás.</p>
     </div>
   </div>
 
   <div class="timeline-item right">
     <div class="timeline-content">
-      <span class="timeline-year">2017</span>
-      <h3>BlackPearl</h3>
-      <p>Projeto especial dedicado à valorização da cultura e história negra brasileira.</p>
+      <span class="timeline-year">1870 á 1880 
+</span>
+      <h3>Movimento Abolicionistas</h3>
+      <p>capitaneados por intelectuais, políticos e grupos de ex-escravizados.
+</p>
     </div>
   </div>
 
   <div class="timeline-item left">
     <div class="timeline-content">
-      <span class="timeline-year">2017</span>
-      <h3>Plataforma Angular</h3>
-      <p>Desenvolvimento de nova plataforma web com tecnologia Angular para melhor experiência.</p>
+      <span class="timeline-year">13 de maio de 1888</span>
+      <h3>Abolição da escravatura</h3>
+      <p> Assinatura da Lei Áurea, pela então princesa Isabel
+filha do imperador Dom Pedro II,libertando mais de 700 mil escravizados das suas condições de trabalho forçado e sem remuneração.
+</p>
     </div>
   </div>
 
