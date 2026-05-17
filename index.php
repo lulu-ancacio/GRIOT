@@ -37,7 +37,7 @@ session_start();
           <li><a href="Textos.php">Textos</a></li>
           <li><a href="Filmes.php">Filmes</a></li>
           <li><a href="Musicas.php">Músicas</a></li>
-          <li><a href="LinhadoTempo.php">Rascunho</a></li>
+          <li><a href="LinhadoTempo.php">Linha do Tempo</a></li>
           <li><a href="Legislação.php">Legislação</a></li>
         </ul>
       </div>
