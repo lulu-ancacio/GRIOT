@@ -1,6 +1,6 @@
 <?php
 session_start();
-require_once("config.php");
+require_once"config.php";
 
 function submeter($id_usuario, $titulo, $imagem, $descricao, $autor, $ano){
     global $mysqli;

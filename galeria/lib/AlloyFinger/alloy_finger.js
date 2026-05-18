@@ -4,7 +4,7 @@
  */
 ; (function () {
     function getLen(v) {
-        return Math.sqrt(v.x * v.x + v.y * v.y);
+        return Math.hypot(v.x * v.x + v.y * v.y);
     }
 
     function dot(v1, v2) {
@@ -14,7 +14,7 @@
     function getAngle(v1, v2) {
         var mr = getLen(v1) * getLen(v2);
         if (mr === 0) return 0;
-        var r = dot(v1, v2) / mr;
+        const r = dot(v1, v2) / mr;
         if (r > 1) r = 1;
         return Math.acos(r);
     }
