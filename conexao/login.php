@@ -3,14 +3,14 @@
 use GuzzleHttp\Exception\GuzzleException;
 
 session_start();
-require 'config.php';
-require 'auth.php';
-require '../composer/vendor/autoload.php';
+require_once 'config.php';
+require_once 'auth.php';
+require_once '../composer/vendor/autoload.php';
 $msg = '';
 
 if (
-    $_SERVER['REQUEST_METHOD'] == 'POST' and
-    isset($_POST['email_login']) and
+    $_SERVER['REQUEST_METHOD'] == 'POST' &&
+    isset($_POST['email_login']) &&
     isset($_POST['senha_login'])
 ) {
 

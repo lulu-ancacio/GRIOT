@@ -1,8 +1,8 @@
 <?php
 session_start();
 
-require 'conexao/config.php';
-require './composer/vendor/autoload.php';
+require_once 'conexao/config.php';
+require_once './composer/vendor/autoload.php';
 
 $fotos = supabaseRequest("fotografias?select=*");
 
@@ -119,12 +119,12 @@ $fotos = supabaseRequest("fotografias?select=*");
               <li><a href="Musicas.php">Músicas</a></li>
               <li><a href="LinhadoTempo.php">Linha do Tempo</a></li>
               <li><a href="Legislação.php">Legislação</a></li>
-            </ul> 
+            </ul>
           </div>
           <!-- ***** Logo Start ***** -->
           <div class="logo">
             <a href="index.php">
-              <img src="meanStyle/assets/images/LogoEst_SF.png">
+              <img src="meanStyle/assets/images/LogoEst_SF.png" alt = "Logo do site">
             </a>
           </div>
           
@@ -147,7 +147,7 @@ $fotos = supabaseRequest("fotografias?select=*");
       <div class = "left-content">
         <h6> Bem-Vindo ao GRIOT- Fotografias </h6>
 
-        <h2> 
+        <h2>
          <em>Diga X</em>
           <span>Diga GRIOT</span>
         </h2>

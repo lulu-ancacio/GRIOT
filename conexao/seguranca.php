@@ -1,8 +1,8 @@
 <?php
 
-require_once("config.php");
+require_once 'config.php';
 
-function verificar_usuario($email, $senha)
+function verificarUsuario($email, $senha)
 {
     global $mysqli;
 
@@ -28,7 +28,7 @@ function verificar_usuario($email, $senha)
     }
 }
 
-function verificar_sessao()
+function verificarSessao()
 {
     if (!isset($_SESSION)) {
         session_start();
@@ -38,7 +38,7 @@ function verificar_sessao()
     }
 }
 
-function criar_usuario($nome, $email, $senha)
+function criarUsuario($nome, $email, $senha)
 {
     $context = stream_context_create([
         "ssl" => [

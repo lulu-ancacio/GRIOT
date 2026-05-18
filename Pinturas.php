@@ -1,8 +1,9 @@
 <?php
 session_start();
 
-require 'conexao/config.php';
-require './composer/vendor/autoload.php';
+require_once 'conexao/config.php';
+require_once './composer/vendor/autoload.php';
+
 
 $quadros = supabaseRequest("pinturas?select=*");
 
@@ -118,12 +119,12 @@ $quadros = supabaseRequest("pinturas?select=*");
               <li><a href="Musicas.php">Músicas</a></li>
               <li><a href="LinhadoTempo.php">Linha do Tempo</a></li>
               <li><a href="Legislação.php">Legislação</a></li>
-            </ul> 
+            </ul>
           </div>
           <!-- ***** Logo Start ***** -->
           <div class="logo">
             <a href="index.php">
-              <img src="meanStyle/assets/images/LogoEst_SF.png">
+              <img src="meanStyle/assets/images/LogoEst_SF.png" alt="Logo do site GRIOT">
             </a>
           </div>
           
@@ -148,7 +149,7 @@ $quadros = supabaseRequest("pinturas?select=*");
       <div class = "left-content">
         <h6> Bem-Vindo ao GRIOT- Pinturas </h6>
 
-        <h2> 
+        <h2>
          <em>Voilà</em>
           <span>GRIOT</span>
         </h2>
@@ -206,7 +207,7 @@ $quadros = supabaseRequest("pinturas?select=*");
   </footer>
 
 
-  </script>
+
   <!-- VLibras -->
   <div vw class="enabled">
     <div vw-access-button class="active"></div>
@@ -215,10 +216,18 @@ $quadros = supabaseRequest("pinturas?select=*");
     </div>
   </div>
 
-  <script src="https://vlibras.gov.br/app/vlibras-plugin.js"></script>
-
+ 
   <script>
-    new window.VLibras.Widget('https://vlibras.gov.br/app');
+    (function(){
+      var s = document.createElement('script');
+      s.src = 'https://vlibras.gov.br/app/vlibras-plugin.js';
+      s.async = true;
+      s.crossOrigin = 'anonymous';
+      s.onload = function(){
+        try{ if(window.VLibras) new window.VLibras.Widget('https://vlibras.gov.br/app'); }catch(e){console.error('VLibras init error', e);} }
+      s.onerror = function(){ console.error('Failed to load VLibras plugin. Accessibility widget unavailable.'); };
+      document.head.appendChild(s);
+    })();
   </script>
 
   <!-- LIGHTBOX INITIALIZATION -->

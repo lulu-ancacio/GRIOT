@@ -317,7 +317,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <header class="header">
         <div class="header-inner">
             <a href="index.php">
-              <img src="meanStyle/assets/images/LogoEst_SF.png">
+              <img src="meanStyle/assets/images/LogoEst_SF.png" alt ="Logo site Griot">
             </a>
     </header>
 

@@ -44,7 +44,7 @@
             <!-- ***** Logo Start ***** -->
             <div class="logo">
                  <a href="index.php">
-              <img src="galeria\assets\images\LogoEst_SF.png">
+              <img src="galeria\assets\images\LogoEst_SF.png" alt = "Logo do site">
             </a>
           </div>
           <!-- ***** Logo End ***** -->
@@ -94,7 +94,7 @@
         <div class="col-lg-12 wow fadeIn" data-wow-duration="1s" data-wow-delay="0.25s">
           <p>
             Trabalho de Conclusão de Curso apresentado ao curso técnico em Informática IFPR Pinhais
-          </p>  
+          </p>
         </div>
       </div>
     </div>

@@ -51,7 +51,7 @@
             <!-- ***** Logo Start ***** -->
             <div class="logo">
                  <a href="index.php">
-              <img src="galeria\assets\images\LogoEst_SF.png">
+              <img src="galeria\assets\images\LogoEst_SF.png" alt= "Logo do site">
             </a>
           </div>
           <!-- ***** Logo End ***** -->
