@@ -2,34 +2,29 @@
 <html lang="pt">
 
 <head>
-
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta name="description" content="Museu virtual com tematica racial">
-  <meta name="author" content=" ">
+  <meta name="author" content="">
   <meta charset="UTF-8">
-  <link rel="icon" href=" galeria\assets\images\FavIcon_SF.png">
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap"
-    rel="stylesheet" integrity="sha384-4vfvqTjuQ1dDMnMx0pXJfPNM4Y9p5B5qfPvLY8bnzVBqQN6oLy5GfFhVnmlQl5xUo" crossorigin="anonymous">
+  <link rel="icon" href="galeria/assets/images/FavIcon_SF.png">
+  <link rel="stylesheet" href="meanStyle/assets/fonts/poppins.css">
 
   <title>GRIOT-Sugestões</title>
 
-  <!-- Scripts -->
-  <script
-    src="https://cdn.example.com/v5.3.6/script.js"
-    crossorigin="anonymous"
-    integrity="sha384-oqVuAfXRKap7fdgcCY5uykM6+R9GqQ8K/uxy9rx7HNQlGYl1kPzQho1wx4JwY8wC"
-></script>
+  <!-- Script Oficial do Supabase (Correção Crítica) -->
+ <script src="Supabase/supabase.min.js"></script>
 
   <!-- Additional CSS Files -->
   <link rel="stylesheet" href="meanStyle/assets/css/fontawesome.css">
   <link rel="stylesheet" href="meanStyle/assets/css/templatemo-space-dynamic.css">
 
-
   <style>
     .comments-section {
       padding-top: 120px;
-     }
-    comments-title {
+    }
+    
+    /* Correção: Adicionado o ponto (.) de classe */
+    .comments-title {
         text-align: left;
         font-size: 32px;
         font-weight: 700;
@@ -39,7 +34,7 @@
     }
 
     #lista {
-       display: grid;
+        display: grid;
         grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
         gap: 20px;
         padding: 0 20px;
@@ -68,18 +63,16 @@
     .card:nth-child(4n+3) { background: #d0ebff; }
     .card:nth-child(4n+4) { background: #e6fcf5; }
 
-
     .card p {
       font-size: 14px;
       color: #4a5568;
     }
 
     .card .enderecoOnline a {
-    color: #4f46e5;
-    font-weight: 12px;
-    text-decoration: none;
-   }
-
+      color: #4f46e5;
+      font-size: 12px;
+      text-decoration: none;
+    }
 
     .card p strong {
       color: #2d3748;
@@ -109,128 +102,29 @@
       }
     }
 
-    @keyframes fadeIn {
-      from {
-        opacity: 0;
-        transform: translateY(20px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
+    .card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 25px rgba(183, 71, 71, 0.2);
     }
 
+    .card h3 {
+      padding-right: 30px;
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
 
-    .card:nth-child(1) { animation-delay: 0.1s; }
-    .card:nth-child(2) { animation-delay: 0.2s; }
-    .card:nth-child(3) { animation-delay: 0.3s; }
-    .card:nth-child(4) { animation-delay: 0.4s; }
-    .card:nth-child(5) { animation-delay: 0.5s; }
+    .card h3 a {
+      color: #2d3748;
+      text-decoration: none;
+      transition: color 0.3s;
+    }
 
-
-
-.card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 8px 25px rgba(183, 71, 71, 0.2);
-}
-
-.card.nao-visto {
-  border-left-color: #e53e3e;
-  background: linear-gradient(135deg, #fff5f5 0%, #ffffff 100%);
-}
-
-.card.nao-visto::after {
-  content: '●';
-  position: absolute;
-  top: 15px;
-  right: 15px;
-  color: #e53e3e;
-  font-size: 12px;
-  animation: pulse 2s infinite;
-}
-
-.card.visto {
-  border-left-color: #48bb78;
-  opacity: 0.85;
-}
-
-.card.visto::after {
-  content: '✓';
-  position: absolute;
-  top: 15px;
-  right: 15px;
-  color: #48bb78;
-  font-size: 14px;
-  font-weight: bold;
-}
-
-@keyframes pulse {
-  0%, 100% { opacity: 1; }
-  50% { opacity: 0.5; }
-}
-
-
-.card .data-mensagem {
-  margin-top: 12px;
-  padding-top: 12px;
-  border-top: 1px solid rgba(0,0,0,0.1);
-  font-size: 12px;
-  color: #718096;
-  display: flex;
-  align-items: center;
-  gap: 5px;
-}
-
-.card .data-mensagem::before {
-  content: '📅';
-  font-size: 14px;
-}
-
-
-.status-badge {
-  display: inline-block;
-  padding: 3px 10px;
-  border-radius: 12px;
-  font-size: 11px;
-  font-weight: 600;
-  margin-left: 10px;
-}
-
-.status-novo {
-  background: #fed7d7;
-  color : #595959 ; 
-  background-color : #ffffff
-}
-
-.status-lido {
-  background: #c6f6d5;
-  color: #276749;
-}
-
-
-.card h3 {
-  padding-right: 30px;
-  display: flex;
-  align-items: center;
-  flex-wrap: wrap;
-  gap: 8px;
-}
-
-.card h3 a {
-  color: #2d3748;
-  text-decoration: none;
-  transition: color 0.3s;
-}
-
-.card h3 a:hover {
-  color: #4f46e5;
-}
-
-
-
+    .card h3 a:hover {
+      color: #4f46e5;
+    }
   </style>
-
-
 </head>
 
 <body>
@@ -249,91 +143,85 @@
   <!-- ***** Preloader End ***** -->
 
   <!-- ***** Header Area Start ***** -->
-<header class="header">
-        <div class="header-inner">
-            <a href="index.php">
-              <img src="meanStyle/assets/images/LogoEst_SF.png" alt="Logo do projeto GRIOT">
-            </a>
-    </header>
-
-
+  <header class="header">
+    <div class="header-inner">
+      <a href="index.php">
+        <img src="meanStyle/assets/images/LogoEst_SF.png" alt="Logo do projeto GRIOT">
+      </a>
+    </div>
+  </header> <!-- Correção: Fechamento correto da tag header -->
 
   <section class="comments-section">
     <div class="container">
       <div class="row">
         <div class="col-lg-12">
-          <h1 class="comments-title"> Veja as sugestões que nossos usuarios enviaram</h1>
+          <h1 class="comments-title">Veja as sugestões que nossos usuários enviaram</h1>
           <div id="lista"></div>
         </div>
       </div>
     </div>
   </section>
 
-
   <footer>
     <div class="container">
       <div class="row">
-        <div class="col-lg-12 wow fadeIn" data-wow-duration="1s" data-wow-delay="0.25s">
-          <p>
-            Trabalho de Conclusão de Curso apresentado ao curso técnico em Informática IFPR Pinhais
-         </p>
+        <div class="col-lg-12">
+          <p>Trabalho de Conclusão de Curso apresentado ao curso técnico em Informática - IFPR Pinhais</p>
+        </div>
       </div>
     </div>
   </footer>
-  
 
   <!-- Supabase Comments Script -->
   <script>
     const supabaseUrl = "https://cdhjzkmlucahtllfpdlx.supabase.co";
+    // Nota: Em produção, evite expor chaves de API diretamente se houver permissões de escrita abusivas. Para leitura pública (anon), está correto.
     const supabaseKey = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImNkaGp6a21sdWNhaHRsbGZwZGx4Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzUyNDgxNzMsImV4cCI6MjA5MDgyNDE3M30.ZaP_y-A2t32z8FRT4vAA8xsMqjhsdA0QuQIGTP5f36g";
 
     const supabaseClient = supabase.createClient(supabaseUrl, supabaseKey);
 
     async function carregarComentarios() {
-
         const { data, error } = await supabaseClient
             .from("comentarios")
             .select("*")
             .order("id", { ascending: false });
 
         if (error) {
-            console.log(error);
+            console.error("Erro ao carregar dados do Supabase:", error);
             return;
         }
 
         const lista = document.getElementById("lista");
         lista.innerHTML = "";
 
-        data.forEach(item => {
-            const div = document.createElement("div");
-            div.classList.add("card");
+        if (data && data.length > 0) {
+            data.forEach(item => {
+                const div = document.createElement("div");
+                div.classList.add("card");
 
-            const assunto = encodeURIComponent("Resposta ao seu comentário - Equipe GRIOT");
+                const assunto = encodeURIComponent("Resposta ao seu comentário - Equipe GRIOT");
+                const mensagem = encodeURIComponent(`Olá ${item.nome},\n\nRecebemos sua sugestão:\n\n"${item.msg}"\n\nResposta:\n`);
 
-            const mensagem = encodeURIComponent(`Olá ${item.nome},
-
-            Recebemos sua sugestão:
-
-            "${item.msg}"
-
-            Resposta:
-            `);
-
-div.innerHTML = `
-    <h3>
-      <a href="mailto:${item.email}?subject=${assunto}&body=${mensagem}">
-        ${item.nome} ${item.sobrenome}
-      </a>
-    </h3>
-    <p><strong>Email:</strong> ${item.email}</p>
-    <p>${item.msg}</p>
-`;
-
-            lista.appendChild(div);
-        });
+                div.innerHTML = `
+                    <h3>
+                      <a href="mailto:${item.email}?subject=${assunto}&body=${mensagem}">
+                        ${item.nome} ${item.sobrenome || ''}
+                      </a>
+                    </h3>
+                    <p><strong>Email:</strong> ${item.email}</p>
+                    <p>${item.msg}</p>
+                `;
+                lista.appendChild(div);
+            });
+        } else {
+            lista.innerHTML = "<p>Nenhuma sugestão enviada até o momento.</p>";
+        }
     }
 
-    carregarComentarios();
+    // Correção: Executa a função assim que a página termina de carregar
+    document.addEventListener("DOMContentLoaded", () => {
+        carregarComentarios();
+    });
   </script>
 </body>
 </html>
