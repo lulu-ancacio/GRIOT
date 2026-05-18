@@ -4,8 +4,26 @@ session_start();
 require 'conexao/config.php';
 require './composer/vendor/autoload.php';
 
-$quadros = supabaseRequest("pinturas?select=*");
+$busca = $_GET['q'] ?? '';
+$filtro = "pinturas?or=(titulo.ilike.*$busca*,autor.ilike.*$busca*,tags.cs.{\"$busca\"})";
+$quadros = supabaseRequest($filtro);
+if (isset($_GET['q'])) {
 
+  foreach ($quadros as $row) {
+
+    echo '
+        <a class="elem"
+            href="' . $row['url'] . '"
+            title="' . $row['titulo'] . '"
+            data-lcl-author="' . $row['autor'] . ' (' . $row['ano'] . ')">
+
+            <span style="background-image: url(\'' . $row['url'] . '\');"></span>
+
+        </a>';
+  }
+
+  exit;
+}
 ?>
 
 <!DOCTYPE html>
@@ -68,15 +86,17 @@ $quadros = supabaseRequest("pinturas?select=*");
       background-size: cover;
       background-position: center center;
     }
-      .grid-galeria {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 20px;
-    padding: 20px;
+
+    .grid-galeria {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+      padding: 20px;
     }
 
     .elem {
-   width: 100% !important; /* Reseta a largura fixa antiga */
+      width: 100% !important;
+      /* Reseta a largura fixa antiga */
     }
   </style>
 
@@ -100,95 +120,96 @@ $quadros = supabaseRequest("pinturas?select=*");
 
 
   <!-- ASSETS -->
- <script src="galeria/lib/AlloyFinger/alloy_finger.min.js" type="text/javascript"></script>
+  <script src="galeria/lib/AlloyFinger/alloy_finger.min.js" type="text/javascript"></script>
 </head>
+
 <body>
   <!-- ***** Header Area Start ***** -->
-<header class="header-area">
-  <div class="container">
-        <nav class="main-nav">
-          <div class="left-menu">
-            <button class="menu-trigger" aria-label="Abrir menu">
-              <span></span>
-            </button>
-            <ul class="menu-dropdown">
-              <li><a href="Fotografias.php">Fotografias</a></li>
-              <li><a href="Textos.php">Textos</a></li>
-              <li><a href="Filmes.php">Filmes</a></li>
-              <li><a href="Musicas.php">Músicas</a></li>
-              <li><a href="LinhadoTempo.php">Linha do Tempo</a></li>
-              <li><a href="Legislação.php">Legislação</a></li>
-            </ul> 
-          </div>
-          <!-- ***** Logo Start ***** -->
-          <div class="logo">
-            <a href="index.php">
-              <img src="meanStyle/assets/images/LogoEst_SF.png">
-            </a>
-          </div>
-          
-        
-          <div class="right-menu">
-            <a href="index.php" class="main-red-button">Início</a>
-          </div>
-        </nav>
-  </div>
-</header>
-<!-- ***** Header Area End ***** -->
+  <header class="header-area">
+    <div class="container">
+      <nav class="main-nav">
+        <div class="left-menu">
+          <button class="menu-trigger" aria-label="Abrir menu">
+            <span></span>
+          </button>
+          <ul class="menu-dropdown">
+            <li><a href="Fotografias.php">Fotografias</a></li>
+            <li><a href="Textos.php">Textos</a></li>
+            <li><a href="Filmes.php">Filmes</a></li>
+            <li><a href="Musicas.php">Músicas</a></li>
+            <li><a href="LinhadoTempo.php">Linha do Tempo</a></li>
+            <li><a href="Legislação.php">Legislação</a></li>
+          </ul>
+        </div>
+        <!-- ***** Logo Start ***** -->
+        <div class="logo">
+          <a href="index.php">
+            <img src="meanStyle/assets/images/LogoEst_SF.png">
+          </a>
+        </div>
+
+
+        <div class="right-menu">
+          <a href="index.php" class="main-red-button">Início</a>
+        </div>
+      </nav>
+    </div>
+  </header>
+  <!-- ***** Header Area End ***** -->
 
 
 
   <div class="ImagemFundo">
-    <section class = "main-banner" id = "top">
+    <section class="main-banner" id="top">
 
-    <div class="container">
+      <div class="container">
 
-      <div class="banner-content">
+        <div class="banner-content">
 
-      <div class = "left-content">
-        <h6> Bem-Vindo ao GRIOT- Pinturas </h6>
+          <div class="left-content">
+            <h6> Bem-Vindo ao GRIOT- Pinturas </h6>
 
-        <h2> 
-         <em>Voilà</em>
-          <span>GRIOT</span>
-        </h2>
+            <h2>
+              <em>Voilà</em>
+              <span>GRIOT</span>
+            </h2>
 
-         <p>A galeria de pinturas do GRIOT apresenta um conjunto de obras que expressam,
-            por meio da arte, a profundidade da cultura afro-brasileira e as múltiplas
-            dimensões da experiência negra. Cada pintura revela traços de história,
-            identidade e resistência, traduzidos em cores,
-            formas e simbolismos que dialogam com a ancestralidade e o presente.
-         </p>
-        </div>
+            <p>A galeria de pinturas do GRIOT apresenta um conjunto de obras que expressam,
+              por meio da arte, a profundidade da cultura afro-brasileira e as múltiplas
+              dimensões da experiência negra. Cada pintura revela traços de história,
+              identidade e resistência, traduzidos em cores,
+              formas e simbolismos que dialogam com a ancestralidade e o presente.
+            </p>
+          </div>
 
-        <!--IMAGEM-->
-      
-              <div class="right-image">
+          <!--IMAGEM-->
 
-                <img src="meanStyle/assets/images/Pintura.jpg" alt="Mãos com pincéis">
-              
-              </div>
+          <div class="right-image">
 
-            </div>
+            <img src="meanStyle/assets/images/Pintura.jpg" alt="Mãos com pincéis">
 
           </div>
+
         </div>
+
       </div>
-    </div>
   </div>
+
+  <input type="text" id="pesquisa" placeholder="Pesquisar...">
 
   <div id="portfolio" class="our-portfolio section">
     <div class="container">
-      <?php if ($quadros): ?>
-      <div class = "grid-galeria">
+
+      <div class="grid-galeria" id="resultados">
+
         <?php foreach ($quadros as $row): ?>
           <a class="elem" href="<?= $row['url'] ?>" title="<?= $row['titulo'] ?>" data-lcl-txt="<?= $row['desc'] ?>"
             data-lcl-author="<?= $row['autor'] ?> (<?= $row['ano'] ?>)">
             <span style="background-image: url('<?= $row['url'] ?>');"></span>
           </a>
         <?php endforeach; ?>
-        </div>
-      <?php endif; ?>
+
+      </div>
     </div>
   </div>
 
@@ -197,9 +218,9 @@ $quadros = supabaseRequest("pinturas?select=*");
     <div class="container">
       <div class="row">
         <div class="col-lg-12 wow fadeIn" data-wow-duration="1s" data-wow-delay="0.25s">
-           <p>
+          <p>
             Trabalho de Conclusão de Curso apresentado ao curso técnico em Informática IFPR Pinhais
-         </p>
+          </p>
         </div>
       </div>
     </div>
@@ -223,7 +244,7 @@ $quadros = supabaseRequest("pinturas?select=*");
 
   <!-- LIGHTBOX INITIALIZATION -->
   <script type="text/javascript">
-    $(document).ready(function (e) {
+    $(document).ready(function(e) {
 
       // live handler
       lc_lightbox('.elem', {
@@ -240,7 +261,19 @@ $quadros = supabaseRequest("pinturas?select=*");
     });
   </script>
   <script src="meanStyle/script.js"></script>
+  <script>
+    document.getElementById('pesquisa').addEventListener('input', async function() {
 
+      let busca = this.value;
+
+      let response = await fetch('Pinturas.php?q=' + busca);
+
+      let html = await response.text();
+
+      document.getElementById('resultados').innerHTML = html;
+
+    });
+  </script>
 
 </body>
 
