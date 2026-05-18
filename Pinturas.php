@@ -1,8 +1,8 @@
 <?php
 session_start();
 
-require 'conexao/config.php';
-require './composer/vendor/autoload.php';
+require_once 'conexao/config.php';
+require_once './composer/vendor/autoload.php';
 
 $busca = $_GET['q'] ?? '';
 $filtro = "pinturas?or=(titulo.ilike.*$busca*,autor.ilike.*$busca*,tags.cs.{\"$busca\"})";

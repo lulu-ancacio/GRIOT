@@ -8,3 +8,6 @@ config.env.php
 # .gitignore
 .env
 *.log
+
+#Ignore vscode AI rules
+.github\instructions\codacy.instructions.md
