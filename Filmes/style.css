@@ -137,25 +137,16 @@
 
 .movie-list-item-button{
   position: absolute;
-
   bottom: 20px;
   left: 15px;
-
   padding: 10px 20px;
-
   border: none;
-
   border-radius: 8px;
-
   background: #fe3f40;
-
   color: #ffffff;
   background-color: #fe3f40;
-
   cursor: pointer;
-
   opacity: 0;
-
   transition: 0.3s;
 }
 
