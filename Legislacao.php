@@ -8,8 +8,8 @@
   <meta name="author" content=" ">
   <meta charset="UTF-8">
   <link rel="icon" href=" meanStyle\assets\images\FavIcon_SF.png">
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap"
-    rel="stylesheet">
+  <link rel="stylesheet" href="meanStyle/assets/fonts/poppins.css">
+  
 
   <title>GRIOT-Legislação</title>
 
@@ -85,7 +85,7 @@
             <!-- ***** Logo Start ***** -->
             <div class="logo">
                  <a href="index.php">
-              <img src="galeria\assets\images\LogoEst_SF.png">
+              <img src="galeria\assets\images\LogoEst_SF.png" alt = "Logo do site">
             </a>
           </div>
           <!-- ***** Logo End ***** -->
@@ -168,7 +168,7 @@
   </div>
 </div>
 
-<script src="https://vlibras.gov.br/app/vlibras-plugin.js"></script>
+<script src="Vlibras/vlibras-plugin.js"></script>
 
 <script>
   new window.VLibras.Widget('https://vlibras.gov.br/app');

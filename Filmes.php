@@ -21,8 +21,12 @@ $prods = supabaseRequest("filmes?select=*");
     <link rel="icon" href="meanStyle/assets/images/FavIcon_SF.png">
     <link rel="stylesheet" href="meanStyle/assets/css/templatemo-space-dynamic.css">
     <link rel="stylesheet" href="Filmes/style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css">
+    <link rel="stylesheet" href="meanStyle/assets/fonts/poppins.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+    crossorigin="anonymous"
+    referrerpolicy="no-referrer"
+/>
     <title>GRIOT- Filmes</title>
 
 </head>
@@ -281,7 +285,7 @@ $prods = supabaseRequest("filmes?select=*");
         </div>
     </div>
 
-    <script src="https://vlibras.gov.br/app/vlibras-plugin.js"></script>
+    <script src="Vlibras/vlibras-plugin.js"></script>
 
     <script>
         new window.VLibras.Widget('https://vlibras.gov.br/app');
