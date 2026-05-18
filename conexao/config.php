@@ -153,4 +153,3 @@ function supabaseCreateFilm($bucket, $table)
     }
 }
 
-?>

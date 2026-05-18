@@ -143,7 +143,7 @@ if (isset($_GET['q'])) {
         <!-- ***** Logo Start ***** -->
         <div class="logo">
           <a href="index.php">
-            <img src="meanStyle/assets/images/LogoEst_SF.png">
+            <img src="meanStyle/assets/images/LogoEst_SF.png" alt = "Logo site">
           </a>
         </div>
 
