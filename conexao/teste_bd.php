@@ -20,3 +20,4 @@ $itens = supabaseRequest("pinturas?select=*");
 
 </body>
 </html>
+

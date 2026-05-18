@@ -1,4 +1,6 @@
-<html lang="pt-br"><head>
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta name="description" content="Museu virtual com tematica racial">
@@ -7,10 +9,9 @@
 
   <link rel="icon" href="meanStyle/assets/images/FavIcon_SF.png">
 
-  <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&amp;display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="meanStyle/assets/fonts/poppins.css">
 
-  <!-- CSS --> 
+  <!-- CSS -->
    <link rel="stylesheet" href="meanStyle/assets/css/templatemo-space-dynamic.css">
   <link rel="stylesheet" href="meanStyle/assets/css/fontawesome.css">
   <link rel="stylesheet" href="LinhaDoTempo/LinhadoTempo.css">
@@ -18,14 +19,14 @@
 
 
   <!-- Font Awesome -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+    crossorigin="anonymous"
+    referrerpolicy="no-referrer"
+/>
 
 
-
-<style>[vw] [vw-access-button]{display:none;flex-direction:row-reverse;width:40px;height:40px;cursor:pointer;overflow:hidden;position:absolute;border-radius:8px;transition:all 0.5s ease;right:0;left:auto}[vw] [vw-access-button] img{max-height:40px;transition:all 0.5s ease;border-radius:8px;opacity:1 !important;visibility:visible !important}[vw] [vw-access-button] .vp-access-button{width:40px;height:40px;z-index:1}[vw] [vw-access-button] .vp-pop-up{position:absolute;height:40px;min-width:150px;z-index:0;left:0;right:auto}[vw] [vw-access-button]:hover{width:200px}[vw] [vw-access-button].isLeft{flex-direction:row;left:0;right:auto}[vw] [vw-access-button].isLeft .vp-pop-up{left:auto;right:0}[vw] [vw-access-button].isTopOrBottom:hover{bottom:-20px;top:0;margin-right:-80px}[vw] [vw-access-button].active{display:flex}
-</style><style>[vw].left [vw-plugin-wrapper]{float:left}[vw] [vw-plugin-wrapper]{position:relative;display:none;width:300px;height:100%;float:right;background:white;-webkit-box-shadow:0px 0px 15px rgba(0,0,0,0.2);-moz-box-shadow:0px 0px 15px rgba(0,0,0,0.2);box-shadow:0px 0px 15px rgba(0,0,0,0.2);border-radius:12px;-moz-border-radius:12px;-webkit-border-radius:12px}[vw] [vw-plugin-wrapper].active{display:-webkit-flex;display:flex;flex-direction:column;-webkit-flex-direction:column;height:450px;max-width:100%;min-height:100%}
-</style><style>div[vw]{position:fixed;max-width:95vw;min-height:40px;min-width:40px;z-index:2147483645 !important;display:none;margin:10px !important}div[vw].enabled{display:block}div[vw].active{margin-top:-285px}div[vw].left{left:0;right:initial}
-</style></head>
+</head>
 
 <body>
 
@@ -40,8 +41,6 @@
         <span></span>
       </div>
     </div>
-  
-
 
   <!-- Header -->
   <!-- ***** Header Area Start ***** -->
@@ -59,12 +58,12 @@
                 <li><a href="Filmes.php">Filmes</a></li>
                 <li><a href="Musicas.php">Músicas</a></li>
                 <li><a href="Legislação.php">Legislação</a></li>
-                </ul> 
+                </ul>
             </div>
             <!-- ***** Logo Start ***** -->
             <div class="logo">
                 <a href="index.php">
-                <img src="meanStyle/assets/images/LogoEst_SF.png">
+                <img src="meanStyle/assets/images/LogoEst_SF.png" alt="Logo do site">
                 </a>
             </div>
             
@@ -87,10 +86,10 @@
                         Passado <em>Presente...</em> <span>GRIOT!</span>
                     </h2>
                     <p>
-                        Explore a linha do tempo do GRIOT, onde 
-                        cada marco é uma história, cada evento é um capítulo 
+                        Explore a linha do tempo do GRIOT, onde
+                        cada marco é uma história, cada evento é um capítulo
                         e cada conquista é um passo em direção a um futuro mais
-                        inclusivo e igualitário. Navegue por momentos históricos, 
+                        inclusivo e igualitário. Navegue por momentos históricos,
                         conquistas culturais e avanços sociais que moldaram a
                         narrativa da luta contra o racismo. Descubra como o passado
                         se conecta com o presente e inspire-se para construir um
@@ -99,7 +98,7 @@
                     </p>
                 </div>
                 <div class="right-image">
-                    <img src="meanStyle/assets/images/LinhadoTempo.jpg" alt="Imagem ilustrativa da linha do tempo do projeto GRIOT">
+                    <img src="meanStyle/assets/images/LinhadoTempo.jpg" alt=" ilustração da linha do tempo do projeto GRIOT">
                 </div>
             </div>
         </div>
@@ -113,7 +112,7 @@
     <div class="timeline-content">
       <span class="timeline-year">Início do sec. XV</span>
       <h3>Início da Escravidão Transatlântica</h3>
-      <p>milhares de indivíduos habitantes da costa oeste africana foram escravizados e trazidos para a América em navios negreiros que atravessavam o oceano Atlântico. 
+      <p>milhares de indivíduos habitantes da costa oeste africana foram escravizados e trazidos para a América em navios negreiros que atravessavam o oceano Atlântico.
 </p>
     </div>
   </div>
@@ -139,7 +138,7 @@
 
   <div class="timeline-item right">
     <div class="timeline-content">
-      <span class="timeline-year">1870 á 1880 
+      <span class="timeline-year">1870 á 1880
 </span>
       <h3>Movimento Abolicionistas</h3>
       <p>capitaneados por intelectuais, políticos e grupos de ex-escravizados.
@@ -198,7 +197,7 @@ filha do imperador Dom Pedro II,libertando mais de 700 mil escravizados das suas
 </div>
 </div>
 
-<script src="https://vlibras.gov.br/app/vlibras-plugin.js"></script>
+<script src="Vlibras/vlibras-plugin.js"></script>
 
 <script>
   new window.VLibras.Widget('https://vlibras.gov.br/app');
@@ -208,4 +207,6 @@ filha do imperador Dom Pedro II,libertando mais de 700 mil escravizados das suas
 
 
 
-</div></body></html>
+  </div>
+  </body>
+</html>

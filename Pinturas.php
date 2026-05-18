@@ -36,8 +36,7 @@ if (isset($_GET['q'])) {
   <meta name="author" content="Lucas Ancacio e Maria Eduarda Gomes">
   <meta charset="UTF-8">
   <link rel="icon" href=" galeria\assets\images\FavIcon_SF.png">
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap"
-    rel="stylesheet">
+  <link rel="stylesheet" href="meanStyle/assets/fonts/poppins.css">
 
   <title>GRIOT-Pinturas</title>
 
@@ -227,7 +226,7 @@ if (isset($_GET['q'])) {
   </footer>
 
 
-  </script>
+
   <!-- VLibras -->
   <div vw class="enabled">
     <div vw-access-button class="active"></div>
@@ -236,10 +235,18 @@ if (isset($_GET['q'])) {
     </div>
   </div>
 
-  <script src="https://vlibras.gov.br/app/vlibras-plugin.js"></script>
-
+ 
   <script>
-    new window.VLibras.Widget('https://vlibras.gov.br/app');
+    (function(){
+      var s = document.createElement('script');
+      s.src = 'https://vlibras.gov.br/app/vlibras-plugin.js';
+      s.async = true;
+      s.crossOrigin = 'anonymous';
+      s.onload = function(){
+        try{ if(window.VLibras) new window.VLibras.Widget('https://vlibras.gov.br/app'); }catch(e){console.error('VLibras init error', e);} }
+      s.onerror = function(){ console.error('Failed to load VLibras plugin. Accessibility widget unavailable.'); };
+      document.head.appendChild(s);
+    })();
   </script>
 
   <!-- LIGHTBOX INITIALIZATION -->

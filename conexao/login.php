@@ -3,14 +3,14 @@
 use GuzzleHttp\Exception\GuzzleException;
 
 session_start();
-require 'config.php';
-require 'auth.php';
-require '../composer/vendor/autoload.php';
+require_once 'config.php';
+require_once 'auth.php';
+require_once '../composer/vendor/autoload.php';
 $msg = '';
 
 if (
-    $_SERVER['REQUEST_METHOD'] == 'POST' and
-    isset($_POST['email_login']) and
+    $_SERVER['REQUEST_METHOD'] == 'POST' &&
+    isset($_POST['email_login']) &&
     isset($_POST['senha_login'])
 ) {
 
@@ -61,8 +61,7 @@ if (
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Acessar sua conta</title>
     <link rel="icon" href="meanStyle/assets/images/FavIcon_SF.png">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap"
-    rel="stylesheet">
+    <link rel="stylesheet" href="meanStyle/assets/fonts/poppins.css">
 
     <style>
         .body {
@@ -256,7 +255,7 @@ if (
   </div>
 </div>
 
-<script src="https://vlibras.gov.br/app/vlibras-plugin.js"></script>
+<script src="Vlibras/vlibras-plugin.js"></script>
 
 <script>
   new window.VLibras.Widget('https://vlibras.gov.br/app');

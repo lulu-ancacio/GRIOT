@@ -2,16 +2,16 @@
 
 use GuzzleHttp\Exception\GuzzleException;
 
-require 'config.php';
-require '../composer/vendor/autoload.php';
+require_once 'config.php';
+require_once '../composer/vendor/autoload.php';
 $msg = '';
 
 if (
-    $_SERVER['REQUEST_METHOD'] == 'POST' and
-    isset($_POST['nome_criar']) and
-    isset($_POST['email_criar']) and
-    isset($_POST['senha_criar']) and
-    isset($_POST['nome_criar']) and
+    $_SERVER['REQUEST_METHOD'] == 'POST' &&
+    isset($_POST['nome_criar']) &&
+    isset($_POST['email_criar']) &&
+    isset($_POST['senha_criar']) &&
+    isset($_POST['nome_criar']) &&
     isset($_POST['pronome_criar'])
 ) {
 
@@ -188,8 +188,7 @@ if (
     <!-- FAVICON -->
   <link rel="icon" href="meanStyle/assets/images/FavIcon_SF.png">
     <!-- FONTES -->
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap"
-  rel="stylesheet">
+  <link rel="stylesheet" href="meanStyle/assets/fonts/poppins.css">
 </head>
 
 <body>
@@ -213,23 +212,23 @@ if (
                 <p><?php echo $msg ?></p>
                 <!-- ***** Logo End ***** -->
 
-                <label>Como devemos te chamar?</label>
-                <input type="text" name="nome_criar" required>
+                <label for="nome_criar">Como devemos te chamar?</label>
+                <input id="nome_criar" type="text" name="nome_criar" required>
 
-                <label>Digite seu email:</label>
-                <input type="email" name="email_criar" required>
+                <label for ="email_criar">Digite seu email:</label>
+                <input id = "nome_criar "type="email" name="email_criar" required>
 
-                <label>Com que pronome você prefere ser tratado?</label>
+                <label for = "pronome_criar">Com que pronome você prefere ser tratado?</label>
                 <select name="pronome_criar" required="required">
                     <option value="fem">Ela/Dela</option>
                     <option value="masc">Ele/Dele</option>
                     <option value="nd">Nenhum</option>
                 </select>
 
-                <label>Digite sua senha:</label>
+                <label for = "senha_criar">Digite sua senha:</label>
                 <input type="password" name="senha_criar" required>
 
-                <label>Selecione seu gênero:</label>
+                <label for = "genero_criar">Selecione seu gênero:</label>
                 <select name="genero_criar" required>
                     <option value="">Selecione</option>
                     <option value="masculino">Masculino</option>
@@ -251,7 +250,7 @@ if (
   </div>
 </div>
 
-<script src="https://vlibras.gov.br/app/vlibras-plugin.js"></script>
+<script src="Vlibras/vlibras-plugin.js"></script>
 
 <script>
   new window.VLibras.Widget('https://vlibras.gov.br/app');

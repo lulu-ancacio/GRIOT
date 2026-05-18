@@ -1,8 +1,8 @@
 <?php
 session_start();
 
-require 'conexao/config.php';
-require './composer/vendor/autoload.php';
+require_once 'conexao/config.php';
+require_once './composer/vendor/autoload.php';
 
 $fotos = supabaseRequest("fotografias?select=*");
 
@@ -18,8 +18,7 @@ $fotos = supabaseRequest("fotografias?select=*");
   <meta name="author" content="Lucas Ancacio e Maria Eduarda Gomes">
   <meta charset="UTF-8">
   <link rel="icon" href=" galeria\assets\images\FavIcon_SF.png">
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap"
-    rel="stylesheet">
+  <link rel="stylesheet" href="meanStyle/assets/fonts/poppins.css">
 
   <title>GRIOT-Fotografias</title>
 
@@ -119,12 +118,12 @@ $fotos = supabaseRequest("fotografias?select=*");
               <li><a href="Musicas.php">Músicas</a></li>
               <li><a href="LinhadoTempo.php">Linha do Tempo</a></li>
               <li><a href="Legislação.php">Legislação</a></li>
-            </ul> 
+            </ul>
           </div>
           <!-- ***** Logo Start ***** -->
           <div class="logo">
             <a href="index.php">
-              <img src="meanStyle/assets/images/LogoEst_SF.png">
+              <img src="meanStyle/assets/images/LogoEst_SF.png" alt = "Logo do site">
             </a>
           </div>
           
@@ -147,7 +146,7 @@ $fotos = supabaseRequest("fotografias?select=*");
       <div class = "left-content">
         <h6> Bem-Vindo ao GRIOT- Fotografias </h6>
 
-        <h2> 
+        <h2>
          <em>Diga X</em>
           <span>Diga GRIOT</span>
         </h2>
@@ -215,9 +214,9 @@ $fotos = supabaseRequest("fotografias?select=*");
     </div>
   </div>
 
-  <script src="https://vlibras.gov.br/app/vlibras-plugin.js"></script>
 
-  <script>
+<script src="Vlibras/vlibras-plugin.js"></script>
+<script>
     new window.VLibras.Widget('https://vlibras.gov.br/app');
   </script>
 
