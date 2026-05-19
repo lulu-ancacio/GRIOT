@@ -11,7 +11,7 @@
 
   <title>GRIOT-Sugestões</title>
 
-  <!-- Script Oficial do Supabase (Correção Crítica) -->
+  
  <script src="Supabase/supabase.min.js"></script>
 
   <!-- Additional CSS Files -->
@@ -23,7 +23,7 @@
       padding-top: 120px;
     }
     
-    /* Correção: Adicionado o ponto (.) de classe */
+  
     .comments-title {
         text-align: left;
         font-size: 32px;
@@ -149,7 +149,7 @@
         <img src="meanStyle/assets/images/LogoEst_SF.png" alt="Logo do projeto GRIOT">
       </a>
     </div>
-  </header> <!-- Correção: Fechamento correto da tag header -->
+  </header> 
 
   <section class="comments-section">
     <div class="container">
@@ -172,10 +172,10 @@
     </div>
   </footer>
 
-  <!-- Supabase Comments Script -->
+ 
   <script>
     const supabaseUrl = "https://cdhjzkmlucahtllfpdlx.supabase.co";
-    // Nota: Em produção, evite expor chaves de API diretamente se houver permissões de escrita abusivas. Para leitura pública (anon), está correto.
+   
     const supabaseKey = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImNkaGp6a21sdWNhaHRsbGZwZGx4Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzUyNDgxNzMsImV4cCI6MjA5MDgyNDE3M30.ZaP_y-A2t32z8FRT4vAA8xsMqjhsdA0QuQIGTP5f36g";
 
     const supabaseClient = supabase.createClient(supabaseUrl, supabaseKey);
@@ -218,7 +218,7 @@
         }
     }
 
-    // Correção: Executa a função assim que a página termina de carregar
+  
     document.addEventListener("DOMContentLoaded", () => {
         carregarComentarios();
     });
