@@ -24,6 +24,33 @@ body {
 }
 
 
+.search-box {
+  position: relative;
+  max-width: 400px; 
+  margin: 0 auto 40px auto; 
+}
+
+
+.search-box input {
+  width: 100%;
+  padding: 12px 45px 12px 20px; 
+  border: 1px solid #5F3554;
+  border-radius: 30px; 
+  font-size: 16px;
+  outline: none;
+  transition: all 0.3s ease;
+}
+
+.search-box .search-icon {
+  position: absolute;
+  right: 20px;
+  top: 50%;
+  transform: translateY(-50%); 
+  color: #EECC3F;
+  font-size: 18px;                       
+  pointer-events: none; 
+}
+
 .ImagemFundo::before {
   content: "";
   position: absolute;
@@ -907,4 +934,8 @@ button {
     font-size: 13px;
   }
 
+}
+@media (max-width: 768px) {
+  #pesquisa { max-width: 100%; margin: 16px 0; }
+ 
 }

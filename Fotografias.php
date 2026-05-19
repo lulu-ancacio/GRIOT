@@ -24,7 +24,10 @@ $fotos = supabaseRequest("fotografias?select=*");
 
   <!-- Css principal -->
   <link rel="stylesheet" href="meanStyle/assets/css/templatemo-space-dynamic.css">
-  <link rel="stylesheet" href="meanStyle/assets/css/fontawesome.css">
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+    crossorigin="anonymous"
+    referrerpolicy="no-referrer"/>
 
   <style type="text/css">
     .lcl_fade_oc.lcl_pre_show #lcl_overlay,

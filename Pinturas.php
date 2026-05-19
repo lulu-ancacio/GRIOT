@@ -35,14 +35,17 @@ if (isset($_GET['q'])) {
   <meta name="description" content="Pinturas GRIOT">
   <meta name="author" content="Lucas Ancacio e Maria Eduarda Gomes">
   <meta charset="UTF-8">
-  <link rel="icon" href=" galeria\assets\images\FavIcon_SF.png">
+  <link rel="icon" href=" galeria/assets/images/FavIcon_SF.png">
   <link rel="stylesheet" href="meanStyle/assets/fonts/poppins.css">
 
   <title>GRIOT-Pinturas</title>
 
   <!-- Css principal -->
   <link rel="stylesheet" href="meanStyle/assets/css/templatemo-space-dynamic.css">
-  <link rel="stylesheet" href="meanStyle/assets/css/fontawesome.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+    crossorigin="anonymous"
+    referrerpolicy="no-referrer"/>
 
   <style type="text/css">
     .lcl_fade_oc.lcl_pre_show #lcl_overlay,
@@ -160,11 +163,8 @@ if (isset($_GET['q'])) {
 
   <div class="ImagemFundo">
     <section class="main-banner" id="top">
-
       <div class="container">
-
         <div class="banner-content">
-
           <div class="left-content">
             <h6> Bem-Vindo ao GRIOT- Pinturas </h6>
 
@@ -194,11 +194,14 @@ if (isset($_GET['q'])) {
       </div>
   </div>
 
-  <input type="text" id="pesquisa" placeholder="Pesquisar...">
-
+  
   <div id="portfolio" class="our-portfolio section">
     <div class="container">
-
+      <div class="search-box">
+        <input type = "text" id="pesquisa" placeholder="Pesquisar...">
+        <i class = "fa-solid fa-magnifying-glass search-icon">
+        </i>
+      </div>
       <div class="grid-galeria" id="resultados">
 
         <?php foreach ($quadros as $row): ?>
@@ -272,11 +275,8 @@ if (isset($_GET['q'])) {
     document.getElementById('pesquisa').addEventListener('input', async function() {
 
       let busca = this.value;
-
       let response = await fetch('Pinturas.php?q=' + busca);
-
       let html = await response.text();
-
       document.getElementById('resultados').innerHTML = html;
 
     });
