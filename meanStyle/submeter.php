@@ -26,4 +26,5 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'
     submeter($id_usuario,$titulo, $imagem, $descricao, $autor, $ano);
     exit;
 } 
-?>
+
+

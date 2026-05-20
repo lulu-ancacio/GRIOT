@@ -1,5 +1,5 @@
 <?php
-require '../composer/vendor/autoload.php';
+require_once '../composer/vendor/autoload.php';
 
 function getUserAdm($user_id, $token) {
     $client = new GuzzleHttp\Client();

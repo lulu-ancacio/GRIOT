@@ -4,8 +4,26 @@ session_start();
 require_once 'conexao/config.php';
 require_once './composer/vendor/autoload.php';
 
-$fotos = supabaseRequest("fotografias?select=*");
+$busca = $_GET['q'] ?? '';
+$filtro = "fotografias?or=(titulo.ilike.*$busca*,autor.ilike.*$busca*,tags.cs.{\"$busca\"})";
+$fotos = supabaseRequest($filtro);
+if (isset($_GET['q'])) {
 
+  foreach ($fotos as $row) {
+
+    echo '
+        <a class="elem"
+            href="' . $row['url'] . '"
+            title="' . $row['titulo'] . '"
+            data-lcl-author="' . $row['autor'] . ' (' . $row['ano'] . ')">
+
+            <span style="background-image: url(\'' . $row['url'] . '\');"></span>
+
+        </a>';
+  }
+
+  exit;
+}
 ?>
 
 <!DOCTYPE html>
@@ -24,7 +42,10 @@ $fotos = supabaseRequest("fotografias?select=*");
 
   <!-- Css principal -->
   <link rel="stylesheet" href="meanStyle/assets/css/templatemo-space-dynamic.css">
-  <link rel="stylesheet" href="meanStyle/assets/css/fontawesome.css">
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+    crossorigin="anonymous"
+    referrerpolicy="no-referrer"/>
 
   <style type="text/css">
     .lcl_fade_oc.lcl_pre_show #lcl_overlay,
@@ -178,16 +199,21 @@ $fotos = supabaseRequest("fotografias?select=*");
 
   <div id="portfolio" class="our-portfolio section">
     <div class="container">
-      <?php if ($fotos): ?>
-        <div class = "grid-galeria">
+      <div class="search-box">
+        <input type = "text" id="pesquisa" placeholder="Pesquisar...">
+        <i class = "fa-solid fa-magnifying-glass search-icon">
+        </i>
+      </div>
+      <div class="grid-galeria" id="resultados">
+
         <?php foreach ($fotos as $row): ?>
           <a class="elem" href="<?= $row['url'] ?>" title="<?= $row['titulo'] ?>" data-lcl-txt="<?= $row['desc'] ?>"
             data-lcl-author="<?= $row['autor'] ?> (<?= $row['ano'] ?>)">
             <span style="background-image: url('<?= $row['url'] ?>');"></span>
           </a>
         <?php endforeach; ?>
-        </div>
-      <?php endif; ?>
+
+      </div>
     </div>
   </div>
 
@@ -239,6 +265,16 @@ $fotos = supabaseRequest("fotografias?select=*");
     });
   </script>
   <script src="meanStyle/script.js"></script>
+    <script>
+    document.getElementById('pesquisa').addEventListener('input', async function() {
+
+      let busca = this.value;
+      let response = await fetch('Fotografias.php?q=' + busca);
+      let html = await response.text();
+      document.getElementById('resultados').innerHTML = html;
+
+    });
+  </script>
 
 </body>
 
