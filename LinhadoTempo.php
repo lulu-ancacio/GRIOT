@@ -168,40 +168,18 @@ filha do imperador Dom Pedro II,libertando mais de 700 mil escravizados das suas
          </p>
   </div></footer>
 
-   ... <!-- Conteúdo do Plug-in V-Libras -->
+ 
+  ... <!-- Conteúdo do Plug-in V-Libras -->
 
 <!-- VLibras -->
-<div vw="" class="enabled" style="left: initial; right: 0px; top: 50%; bottom: initial; transform: translateY(calc(-50% - 10px));">
-  <div vw-access-button="" class="active" style="width: 200px;"><img class="vp-access-button" data-src="assets/access_icon.svg?v=20260510" alt="Conteúdo acessível em Libras usando o VLibras Widget com opções dos Avatares Ícaro, Hosana ou Guga." src="https://vlibras.gov.br/app//assets/access_icon.svg?v=20260510">
-<img class="vp-pop-up" data-src="assets/access_popup.jpg?v=20260510" alt="Conteúdo acessível em Libras usando o VLibras Widget com opções dos Avatares Ícaro, Hosana ou Guga." src="https://vlibras.gov.br/app//assets/access_popup.jpg?v=20260510">
-</div>
-  <div vw-plugin-wrapper=""><div vp="">
-  <div vp-box=""></div>
-  <div vp-message-box=""></div>
-  <div vp-settings=""></div>
-  <div vp-dictionary=""></div>
-  <div vp-settings-btn=""></div>
-  <div vp-info-screen=""></div>
-  <div vp-suggestion-screen=""></div>
-  <div vp-translator-screen=""></div>
-  <div vp-more-options-screen=""></div>
-  <div vp-emotions-tooltip=""></div>
-  <div vp-main-guide-screen=""></div>
-  <div vp-suggestion-button=""></div>
-  <div vp-rate-box=""></div>
-  <div vp-change-avatar=""></div>
-  <div vp-aux-controls=""></div>
-  <div vp-controls=""></div>
-  <span vp-click-blocker=""></span>
-</div>
-</div>
+<div vw class="enabled">
+  <div vw-access-button class="active"></div>
+  <div vw-plugin-wrapper>
+    <div class="vw-plugin-top-wrapper"></div>
+  </div>
 </div>
 
 <script src="Vlibras/vlibras-plugin.js"></script>
-
-<script>
-  new window.VLibras.Widget('https://vlibras.gov.br/app');
-</script>
 
     <script src="meanStyle/script.js"></script>
 

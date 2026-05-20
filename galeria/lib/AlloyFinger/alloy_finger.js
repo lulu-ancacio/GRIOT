@@ -12,27 +12,23 @@
     }
 
     function getAngle(v1, v2) {
-        var mr = getLen(v1) * getLen(v2);
-        if (mr === 0) return 0;
-        const r = dot(v1, v2) / mr;
-        if (r > 1) r = 1;
-        return Math.acos(r);
-    }
+    const mr = getLen(v1) * getLen(v2);
+    if (mr === 0) return 0;
+    const r = Math.min(dot(v1, v2) / mr, 1);
+    return Math.acos(r);
 
+}
     function cross(v1, v2) {
         return v1.x * v2.y - v2.x * v1.y;
     }
 
     function getRotateAngle(v1, v2) {
-        var angle = getAngle(v1, v2);
-        if (cross(v1, v2) > 0) {
-            angle *= -1;
-        }
-
-        return angle * 180 / Math.PI;
+        const angle = getAngle(v1, v2);
+        const factor = cross(v1,v2) > 0 ? -1 : 1;
+        return (angle * factor) * 180 / Math.PI
     }
 
-    var HandlerAdmin = function(el) {
+    const HandlerAdmin = function(el) {
         this.handlers = [];
         this.el = el;
     };
@@ -44,28 +40,29 @@
     HandlerAdmin.prototype.del = function(handler) {
         if(!handler) this.handlers = [];
 
-        for(var i=this.handlers.length; i>=0; i--) {
-            if(this.handlers[i] === handler) {
-                this.handlers.splice(i, 1);
-            }
-        }
+      const filteredHandlers = this.handlers.filter(h => h ! == handler);
+      this.handlers = filteredHandlers; 
     }
 
     HandlerAdmin.prototype.dispatch = function() {
-        for(var i=0,len=this.handlers.length; i<len; i++) {
-            var handler = this.handlers[i];
-            if(typeof handler === 'function') handler.apply(this.el, arguments);
-        }
+        const args = Array.from(arguments);
+        const element = this. el;
+
+        this.handlers.forEach(function(handler){
+            if (typeof handler === 'function'){
+                handler.apply(element,args);
+            }
+        })
     }
 
     function wrapFunc(el, handler) {
-        var handlerAdmin = new HandlerAdmin(el);
+        const handlerAdmin = new HandlerAdmin(el);
         handlerAdmin.add(handler);
 
         return handlerAdmin;
     }
 
-    var AlloyFinger = function (el, option) {
+    const AlloyFinger = function (el, option) {
 
         this.element = typeof el == 'string' ? document.querySelector(el) : el;
 
@@ -83,7 +80,8 @@
         this.scale = 1;
         this.isDoubleTap = false;
 
-        var noop = function () { };
+        const noop = function () { };
+        {
 
         this.rotate = wrapFunc(this.element, option.rotate || noop);
         this.touchStart = wrapFunc(this.element, option.touchStart || noop);
@@ -125,12 +123,12 @@
             this.preTapPosition.x = this.x1;
             this.preTapPosition.y = this.y1;
             this.last = this.now;
-            var preV = this.preV,
+            const preV = this.preV,
                 len = evt.touches.length;
             if (len > 1) {
                 this._cancelLongTap();
                 this._cancelSingleTap();
-                var v = { x: evt.touches[1].pageX - this.x1, y: evt.touches[1].pageY - this.y1 };
+                const v = { x: evt.touches[1].pageX - this.x1, y: evt.touches[1].pageY - this.y1 };
                 preV.x = v.x;
                 preV.y = v.y;
                 this.pinchStartLen = getLen(preV);
@@ -142,13 +140,13 @@
         },
         move: function (evt) {
             if (!evt.touches) return;
-            var preV = this.preV,
+            const preV = this.preV,
                 len = evt.touches.length,
                 currentX = evt.touches[0].pageX,
                 currentY = evt.touches[0].pageY;
             this.isDoubleTap = false;
             if (len > 1) {
-                var v = { x: evt.touches[1].pageX - currentX, y: evt.touches[1].pageY - currentY };
+                const v = { x: evt.touches[1].pageX - currentX, y: evt.touches[1].pageY - currentY };
 
                 if (preV.x !== null) {
                     if (this.pinchStartLen > 0) {
@@ -185,7 +183,7 @@
         end: function (evt) {
             if (!evt.changedTouches) return;
             this._cancelLongTap();
-            var self = this;
+            const self = self;
             if (evt.touches.length < 2) {
                 this.multipointEnd.dispatch(evt);
             }
@@ -236,7 +234,10 @@
             clearTimeout(this.singleTapTimeout);
         },
         _swipeDirection: function (x1, x2, y1, y2) {
-            return Math.abs(x1 - x2) >= Math.abs(y1 - y2) ? (x1 - x2 > 0 ? 'Left' : 'Right') : (y1 - y2 > 0 ? 'Up' : 'Down')
+            if (Math.abs(x1 - x2)>=Math.abs(y1 - y2)){
+                return x1 - x2 > 0 ? 'Left' : 'Right';
+            }
+            return y1 - y2 > 0 ? 'Up' : 'Down'
         },
 
         on: function(evt, handler) {
@@ -286,6 +287,6 @@
     if (typeof module !== 'undefined' && typeof exports === 'object') {
         module.exports = AlloyFinger;
     } else {
-        window.AlloyFinger = AlloyFinger;
+        globalThis.AlloyFinger = AlloyFinger;
     }
 })();

@@ -13,25 +13,11 @@ cores:
 
     alt shift f
 
-          <?php if ($itens): ?>
-        <?php foreach ($itens as $row): ?>
-<div class="timeline-item left">
-    <div class="timeline-content">
-      <span class="timeline-year"><?= $row['data'] ?></span>
-      <h3><?= $row['titulo'] ?></h3>
-      <p><?= $row['desc'] ?></p>
-    </div>
-</div>
+    function getAngle(v1, v2) {
+    const mr = getLen(v1) * getLen(v2);
+    if (mr === 0) return 0;
+    const r = Math.min(dot(v1, v2) / mr, 1);
+    return Math.acos(r);
 
-<div class="timeline-item right">
-    <div class="timeline-content">
-      <span class="timeline-year"><?= $row['data'] ?></span>
-      <h3><?= $row['titulo'] ?></h3>
-      <p><?= $row['desc'] ?></p>
-    </div>
-</div>
-        <?php endforeach; ?>
-      <?php endif; ?>
-
-
+} 
 

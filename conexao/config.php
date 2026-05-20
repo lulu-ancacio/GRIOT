@@ -92,7 +92,7 @@ function supabaseCreatePhotoPainting($bucket, $table)
 
 function supabaseCreateFilm($bucket, $table)
 {
-    require './composer/vendor/autoload.php';
+    require_once './composer/vendor/autoload.php';
 
     $SUPABASE_URL = 'https://cdhjzkmlucahtllfpdlx.supabase.co';
     $API_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImNkaGp6a21sdWNhaHRsbGZwZGx4Iiwicm9sZSI6InNlcnZpY2Vfcm9sZSIsImlhdCI6MTc3NTI0ODE3MywiZXhwIjoyMDkwODI0MTczfQ.adPVCz1kuiC0M6Du7axunnXaySAfYV2hy7lpoplCY64'; // ⚠️ use service_role aqui (backend)
