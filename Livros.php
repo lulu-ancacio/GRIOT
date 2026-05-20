@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="pt">
+<html lang="pt-br">
 
 <head>
 
@@ -7,17 +7,24 @@
   <meta name="description" content="Museu virtual com tematica racial">
   <meta name="author" content=" ">
   <meta charset="UTF-8">
-  <link rel="icon" href=" galeria\assets\images\FavIcon_SF.png">
+  <link rel="icon" href=" meanStyle\assets\images\FavIcon_SF.png">
   <link rel="stylesheet" href="meanStyle/assets/fonts/poppins.css">
 
-  <title>GRIOT-Livros</title>
+  <title>GRIOT-Música</title>
 
 
+
+  <!-- Additional CSS Files -->
+  <link rel="stylesheet" href="meanStyle/assets/css/fontawesome.css">
+  <link rel="stylesheet" href="meanStyle/assets/css/templatemo-space-dynamic.css">
 
 
 </head>
 
 <body>
+
+
+  </style>
 
 
 
@@ -35,32 +42,34 @@
   <!-- ***** Preloader End ***** -->
 
   <!-- ***** Header Area Start ***** -->
-  <header class="header-area header-sticky wow slideInDown" data-wow-duration="0.75s" data-wow-delay="0s">
+  <header class="header-area">
     <div class="container">
-      <div class="row">
-        <div class="col-12">
-          <nav class="main-nav">
-            <!-- ***** Logo Start ***** -->
-            <div class="logo">
-                 <a href="index.php">
-              <img src="galeria\assets\images\LogoEst_SF.png" alt = "Logo do site">
-            </a>
-          </div>
-          <!-- ***** Logo End ***** -->
-            <!-- ***** Menu Start ***** -->
-            <ul class="nav">
-              <li class="scroll-to-section">
-                <a href="index.php" class="main-red-button">Início</a>
-              </li>
-            </ul>
-
-            <a class='menu-trigger'>
-              <span>Menu</span>
-            </a>
-            <!-- ***** Menu End ***** -->
-          </nav>
+      <nav class="main-nav">
+        <div class="left-menu">
+          <button class="menu-trigger" aria-label="Abrir menu">
+            <span></span>
+          </button>
+          <ul class="menu-dropdown">
+            <li><a href="Fotografias.php">Fotografias</a></li>
+            <li><a href="Musicas.php">Músicas</a></li>
+            <li><a href="Filmes.php">Filmes</a></li>
+            <li><a href="Pinturas.php">Pinturas</a></li>
+            <li><a href="LinhadoTempo.php">Linha do Tempo</a></li>
+            <li><a href="Legislação.php">Legislação</a></li>
+          </ul>
         </div>
-      </div>
+        <!-- ***** Logo Start ***** -->
+        <div class="logo">
+          <a href="index.php">
+            <img src="meanStyle/assets/images/LogoEst_SF.png" alt = "Logo site">
+          </a>
+        </div>
+
+
+        <div class="right-menu">
+          <a href="index.php" class="main-red-button">Início</a>
+        </div>
+      </nav>
     </div>
   </header>
   <!-- ***** Header Area End ***** -->
@@ -69,6 +78,45 @@
 
 
 
+
+
+
+
+
+<div class="ImagemFundo">
+    <section class = "main-banner" id = "top">
+
+    <div class="container">
+
+      <div class="banner-content">
+
+      <div class = "left-content">
+        <h6> Bem-Vindo ao GRIOT- Textos </h6>
+
+        <h2>
+         <em>Neste Momento</em>
+          <span>Estamos em Construção</span>
+        </h2>
+
+         <p>Estamos nesse momento arquitetando as páginas com o máximo de primazia possível, para entregar telas com materiais e funcionalidades de qualidade.
+         </p>
+        </div>
+
+        <!--IMAGEM-->
+      
+              <div class="right-image">
+
+                <img src="meanStyle/assets/images/obras.jpg" alt="Engrenagens">
+              
+              </div>
+
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 
 
 
@@ -85,45 +133,13 @@
     <div class="container">
       <div class="row">
         <div class="col-lg-12 wow fadeIn" data-wow-duration="1s" data-wow-delay="0.25s">
-          <p>
+           <p>
             Trabalho de Conclusão de Curso apresentado ao curso técnico em Informática IFPR Pinhais
-          </p>
+         </p>
         </div>
       </div>
     </div>
   </footer>
-  <!-- LIGHTBOX INITIALIZATION -->
-  <script type="text/javascript">
-    $(document).ready(function (e) {
-
-      // live handler
-      lc_lightbox('.elem', {
-        wrap_class: 'lcl_fade_oc',
-        gallery: true,
-        thumb_attr: 'data-lcl-thumb',
-
-        skin: 'minimal',
-        radius: 0,
-        padding: 0,
-        border_w: 0,
-      });
-
-    });
-  </script>
-   ... <!-- Conteúdo do Plug-in V-Libras -->
-
-<!-- VLibras -->
-<div vw class="enabled">
-  <div vw-access-button class="active"></div>
-  <div vw-plugin-wrapper>
-    <div class="vw-plugin-top-wrapper"></div>
-  </div>
-</div>
-
-<script src="Vlibras/vlibras-plugin.js"></script>
-
-<script>
-  new window.VLibras.Widget('https://vlibras.gov.br/app');
-</script>
+<script src="meanStyle/script.js"></script>
 </body>
 </html>
