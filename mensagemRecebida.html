@@ -210,6 +210,8 @@
                     </h3>
                     <p><strong>Email:</strong> ${item.email}</p>
                     <p>${item.msg}</p>
+                    <p><strong> Data:</strong> ${new Intl.DateTimeFormat('pt-BR').format(new Date(item.criado_em))}</p>
+                    
                 `;
                 lista.appendChild(div);
             });
