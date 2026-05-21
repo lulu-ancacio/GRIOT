@@ -2,29 +2,25 @@ const arrows = document.querySelectorAll(".arrow");
 const movieLists = document.querySelectorAll(".movie-list");
 
 arrows.forEach((arrow, i) => {
-  const itemNumber = movieLists[i].querySelectorAll("img").length;
-  let clickCounter = 0;
-
+  let currentPosition = 0;
+  const itemWidth = 270;
+  const gap = 25;
+  
   arrow.addEventListener("click", () => {
-    const ratio = Math.floor(window.innerWidth / 270);
-    clickCounter++;
-
-    if (itemNumber - (4 + clickCounter) + (4 - ratio) >= 0) {
-      movieLists[i].style.transform = `translateX(${
-        movieLists[i].computedStyleMap().get("transform")[0].x.value - 300
-      }px)`;
-    } else {
-      movieLists[i].style.transform = "translateX(0)";
-      clickCounter = 0;
+    const movieList = movieLists[i];
+    const items = movieList.querySelectorAll(".movie-list-item");
+    const totalWidth = items.length * (itemWidth + gap);
+    const visibleWidth = movieList.clientWidth;
+    const maxScroll = totalWidth - visibleWidth;
+    
+    currentPosition -= 300;
+    
+    if (Math.abs(currentPosition) > maxScroll) {
+      currentPosition = 0; // Reset ao início
     }
+    
+    movieList.style.transform = `translateX(${currentPosition}px)`;
+    movieList.style.transition = "transform 0.3s ease";
   });
 });
 
-const items = document.querySelectorAll(".menu-list-item");
-
-items.forEach(item => {
-  item.addEventListener("click", () => {
-    items.forEach(i => i.classList.remove("active"));
-    item.classList.add("active");
-  });
-});
