@@ -11,118 +11,152 @@
 
   <title>GRIOT-Sugestões</title>
 
-  
- <script src="Supabase/supabase.min.js"></script>
+  <script src="Supabase/supabase.min.js"></script>
 
   <!-- Additional CSS Files -->
   <link rel="stylesheet" href="meanStyle/assets/css/fontawesome.css">
   <link rel="stylesheet" href="meanStyle/assets/css/templatemo-space-dynamic.css">
 
   <style>
-    .comments-section {
-      padding-top: 120px;
-    }
-    
   
-    .comments-title {
-        text-align: left;
-        font-size: 32px;
-        font-weight: 700;
-        color: #1a202c;
-        margin-bottom: 100px;
-        padding-left: 20px;
-    }
+        .banner {
+            background: #e74c3c;
+            padding: 2.5rem 1.5rem;
+            text-align: center;
+        }
 
-    #lista {
-        display: grid;
-        grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-        gap: 20px;
-        padding: 0 20px;
-    }
+        .banner h1 {
+            font-size: 1.8rem;
+            margin-bottom: 0.5rem;
+            color:white;
+        }
 
-    .card {
-      position: relative;
-      background: #ffffff;
-      border-radius: 20px;
-      padding: 20px;
-      box-shadow: 0 4px 10px rgba(183, 71, 71, 0.1);
-      transition: 0.3s;
-    }
+        .banner p {
+            opacity: 0.95;
+            font-size: 1rem;
+        }
 
-    .card::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      height: 10px;
-    }
+        .user-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: rgba(255,255,255,0.15);
+            padding: 0.4rem 1rem;
+            border-radius: 50px;
+            margin-top: 1rem;
+            font-size: 0.95rem;
+        }
 
-    .card:nth-child(4n+1) { background: #fff3b0; }
-    .card:nth-child(4n+2) { background: #ffd6e0; }
-    .card:nth-child(4n+3) { background: #d0ebff; }
-    .card:nth-child(4n+4) { background: #e6fcf5; }
 
-    .card p {
-      font-size: 14px;
-      color: #4a5568;
-    }
+        #lista {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 20px;
+            padding: 0 20px;
+        }
 
-    .card .enderecoOnline a {
-      color: #4f46e5;
-      font-size: 12px;
-      text-decoration: none;
-    }
+      
+        .card {
+          position: relative;
+          background: #dcfce7; 
+          border-radius: 20px;
+          padding: 20px;
+          box-shadow: 0 4px 10px rgba(34, 197, 94, 0.15);
+          transition: all 0.3s ease;
+          cursor: pointer;
+        }
 
-    .card p strong {
-      color: #2d3748;
-      font-weight: 600;
-    }
+        .card::before {
+          content: '';
+          position: absolute;
+          top: 0;
+          left: 0;
+          right: 0;
+          height: 10px;
+      
+          border-radius: 20px 20px 0 0;
+        }
 
-    .card p:last-child {
-      margin-top: 16px;
-      padding-top: 16px;
-      border-top: 1px solid #e2e8f0;
-      color: #2d3748;
-      font-style: italic;
-    }
+        
+        .card.visto {
+          background: #fee2e2; 
+          opacity: 0.9;
+          box-shadow: 0 2px 8px rgba(239, 68, 68, 0.1);
+        }
 
-    @media (max-width: 768px) {
-      .comments-title {
-        font-size: 1.8rem;
-      }
+        .card p {
+          font-size: 14px;
+          color: #4a5568;
+        }
 
-      #lista {
-        grid-template-columns: 1fr;
-        padding: 0 10px;
-      }
+        .card .enderecoOnline a {
+          color: #4f46e5;
+          font-size: 12px;
+          text-decoration: none;
+        }
 
-      .card {
-        padding: 20px;
-      }
-    }
+        .card p strong {
+          color: #2d3748;
+          font-weight: 600;
+        }
 
-    .card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 8px 25px rgba(183, 71, 71, 0.2);
-    }
+        .card p:last-child {
+          margin-top: 16px;
+          padding-top: 16px;
+          border-top: 5px solid #e2e8f0;
+          color: #2d3748;
+          font-style: italic;
+        }
 
-    .card h3 {
-      padding-right: 30px;
-      display: flex;
-      align-items: center;
-      flex-wrap: wrap;
-      gap: 8px;
-    }
+        @media (max-width: 768px) {
+          .comments-title {
+            font-size: 1.8rem;
+          }
 
-    .card h3 a {
-      color: #2d3748;
-      text-decoration: none;
-      transition: color 0.3s;
-    }
+          #lista {
+            grid-template-columns: 1fr;
+            padding: 0 10px;
+          }
 
-    .card h3 a:hover {
-      color: #4f46e5;
+          .card {
+            padding: 20px;
+          }
+        }
+
+        .card h3 {
+          padding-right: 30px;
+          display: flex;
+          align-items: center;
+          flex-wrap: wrap;
+          gap: 8px;
+        }
+
+        .card h3 a {
+          color: #2d3748;
+          text-decoration: none;
+          transition: color 0.3s;
+          pointer-events: none; 
+        }
+
+        .card h3 a:hover {
+          color: #4f46e5;
+        }
+
+      
+        .status-badge {
+          font-size: 10px;
+          padding: 4px 8px;
+          border-radius: 12px;
+          font-weight: 600;
+          text-transform: uppercase;
+        }
+        .status-novo {
+          background: #22c55e;
+          color: white;
+        }
+        .status-lido {
+          background: #ef4444;
+          color: white;
     }
   </style>
 </head>
@@ -151,16 +185,24 @@
     </div>
   </header> 
 
-  <section class="comments-section">
-    <div class="container">
-      <div class="row">
-        <div class="col-lg-12">
-          <h1 class="comments-title">Veja as sugestões que nossos usuários enviaram</h1>
-          <div id="lista"></div>
+    <section class="banner">
+        <h1>Painel Administrativo</h1>
+        <p>Veja as sugestões que nossos usuários enviaram</p>
+        <div class="user-badge">
+            👤 <?= htmlspecialchars($_SESSION['email'] ?? 'Administrador') ?>
+        </div>
+    </section>
+
+
+    <section class="comments-section" style="padding: 60px 0;">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12">
+            <div id="lista"></div>
+          </div>
         </div>
       </div>
-    </div>
-  </section>
+</section>
 
   <footer>
     <div class="container">
@@ -172,22 +214,30 @@
     </div>
   </footer>
 
- 
   <script>
+  
     const supabaseUrl = "https://cdhjzkmlucahtllfpdlx.supabase.co";
-   
     const supabaseKey = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImNkaGp6a21sdWNhaHRsbGZwZGx4Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzUyNDgxNzMsImV4cCI6MjA5MDgyNDE3M30.ZaP_y-A2t32z8FRT4vAA8xsMqjhsdA0QuQIGTP5f36g";
+
+   
+    if (typeof supabase === 'undefined') {
+        console.error("❌ Erro: Script do Supabase não carregou! Verifique o caminho de 'Supabase/supabase.min.js'");
+    }
 
     const supabaseClient = supabase.createClient(supabaseUrl, supabaseKey);
 
     async function carregarComentarios() {
+        console.log("🔄 Carregando comentários do Supabase...");
+        
         const { data, error } = await supabaseClient
             .from("comentarios")
             .select("*")
             .order("id", { ascending: false });
 
         if (error) {
-            console.error("Erro ao carregar dados do Supabase:", error);
+            console.error("❌ Erro ao carregar dados:", error);
+            document.getElementById("lista").innerHTML = 
+                "<p style='color:red; padding:20px;'>⚠️ Erro ao carregar sugestões. Verifique o console (F12).</p>";
             return;
         }
 
@@ -195,34 +245,96 @@
         lista.innerHTML = "";
 
         if (data && data.length > 0) {
+            console.log(`✅ ${data.length} comentário(s) carregado(s)`);
+            
             data.forEach(item => {
                 const div = document.createElement("div");
                 div.classList.add("card");
 
+              
+                if (item.visto) {
+                    div.classList.add("visto");
+                }
+
                 const assunto = encodeURIComponent("Resposta ao seu comentário - Equipe GRIOT");
-                const mensagem = encodeURIComponent(`Olá ${item.nome},\n\nRecebemos sua sugestão:\n\n"${item.msg}"\n\nResposta:\n`);
+                const mensagem = encodeURIComponent(
+                    `Olá ${item.nome},\n\nRecebemos sua sugestão:\n\n"${item.msg}"\n\nResposta:\n`
+                );
+
+           
+                const badgeStatus = item.visto 
+                    ? '<span class="status-badge status-lido">Lido</span>' 
+                    : '<span class="status-badge status-novo">Novo</span>';
 
                 div.innerHTML = `
                     <h3>
-                      <a href="mailto:${item.email}?subject=${assunto}&body=${mensagem}">
-                        ${item.nome} ${item.sobrenome || ''}
-                      </a>
+                        <a href="mailto:${item.email}?subject=${assunto}&body=${mensagem}">
+                            ${item.nome} ${item.sobrenome || ''}
+                        </a>
+                        ${badgeStatus}
                     </h3>
-                    <p><strong>Email:</strong> ${item.email}</p>
+
+                    <p><strong>Email: ${item.email} </strong></p>
                     <p>${item.msg}</p>
-                    <p><strong> Data:</strong> ${new Intl.DateTimeFormat('pt-BR').format(new Date(item.criado_em))}</p>
-                    
+                    <p>
+                        <strong>Data:</strong>
+                        ${new Intl.DateTimeFormat('pt-BR').format(new Date(item.criado_em))}
+                    </p>
                 `;
+
+              
+                div.addEventListener("click", async (e) => {
+                    // Permite clique no link de email sem marcar como lido
+                    if (e.target.tagName === 'A' || e.target.closest('a')) {
+                        return;
+                    }
+
+                  
+                    if (item.visto) {
+                        console.log("ℹ️ Card já marcado como lido");
+                        return;
+                    }
+
+                    console.log(`🔄 Marcando comentário #${item.id} como lido...`);
+
+                    const { data: updateData, error: updateError } = await supabaseClient
+                        .from("comentarios")
+                        .update({ visto: true })
+                        .eq("id", item.id)
+                        .select();
+
+                    if (updateError) {
+                        console.error("❌ Erro ao atualizar no Supabase:", updateError);
+                        alert("⚠️ Não foi possível salvar a marcação como lido. Verifique as permissões no Supabase.");
+                    } else {
+                        console.log("✅ Atualização realizada com sucesso!", updateData);
+                        
+                       
+                        div.classList.add("visto");
+                        div.querySelector('.status-novo')?.remove();
+                        div.querySelector('h3').insertAdjacentHTML('beforeend', 
+                            '<span class="status-badge status-lido">Lido</span>');
+                        
+                        
+                        item.visto = true;
+                    }
+                });
+
                 lista.appendChild(div);
             });
         } else {
-            lista.innerHTML = "<p>Nenhuma sugestão enviada até o momento.</p>";
+            lista.innerHTML = "<p style='padding:20px; text-align:center;'>📭 Nenhuma sugestão recebida ainda.</p>";
         }
     }
 
   
     document.addEventListener("DOMContentLoaded", () => {
         carregarComentarios();
+       
+        setTimeout(() => {
+            const preloader = document.getElementById('js-preloader');
+            if (preloader) preloader.style.display = 'none';
+        }, 500);
     });
   </script>
 </body>
