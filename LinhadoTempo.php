@@ -57,13 +57,13 @@
                 <li><a href="Textos.php">Textos</a></li>
                 <li><a href="Filmes.php">Filmes</a></li>
                 <li><a href="Musicas.php">Músicas</a></li>
-                <li><a href="Legislação.php">Legislação</a></li>
+                <li><a href="Legislacao.php">Legislação</a></li>
                 </ul>
             </div>
             <!-- ***** Logo Start ***** -->
             <div class="logo">
                 <a href="index.php">
-                <img src="meanStyle/assets/images/LogoEst_SF.png" alt="Logo do site">
+                <img src="meanStyle/assets/images/LogoEst_SF.png" alt="Logotipo do projeto GRIOT com tipografia colorida e ícone de ave estilizada, com o subtítulo Memória e História Afro-Brasileira">
                 </a>
             </div>
             
@@ -98,7 +98,7 @@
                     </p>
                 </div>
                 <div class="right-image">
-                    <img src="meanStyle/assets/images/LinhadoTempo.jpg" alt=" ilustração da linha do tempo do projeto GRIOT">
+                    <img src="meanStyle/assets/images/LinhadoTempo.jpg" alt="Ilustração minimalista em tons de amarelo e preto que simula uma ampulheta. Na parte superior, camelos caminham sobre uma duna de areia que escorre para a metade inferior, acumulando-se no formato de uma pirâmide.">
                 </div>
             </div>
         </div>

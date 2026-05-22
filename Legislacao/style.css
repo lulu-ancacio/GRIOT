@@ -1,0 +1,83 @@
+
+    #container-leis {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.5rem;
+      padding: 2rem 0;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .lei-card {
+      background: #fff;
+      border-radius: 12px;
+      padding: 1.5rem;
+      box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+      transition: transform 0.2s, box-shadow 0.2s;
+      border-left: 4px solid #c91a23; /* tom vermelho do tema */
+    }
+
+    .lei-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 8px 30px rgba(0,0,0,0.15);
+    }
+
+    .lei-card h3 {
+      color: #c91a23;
+      font-size: 1.1rem;
+      margin-bottom: 0.3rem;
+    }
+
+    .lei-card .numero {
+      font-size: 0.9rem;
+      color: #666;
+      margin-bottom: 0.8rem;
+      display: block;
+    }
+
+    .lei-card .data {
+      display: inline-block;
+      background: #f0f0f0;
+      padding: 0.2rem 0.6rem;
+      border-radius: 20px;
+      font-size: 0.8rem;
+      margin-bottom: 1rem;
+      color: #333;
+    }
+
+    .lei-card p {
+      font-size: 0.95rem;
+      line-height: 1.5;
+      color: #444;
+      margin-bottom: 1rem;
+    }
+
+    .lei-card a {
+      display: inline-block;
+      color: #c91a23;
+      text-decoration: none;
+      font-weight: 500;
+      font-size: 0.9rem;
+    }
+
+    .lei-card a:hover {
+      text-decoration: underline;
+    }
+
+    .vazio {
+      grid-column: 1 / -1;
+      text-align: center;
+      padding: 3rem;
+      color: #777;
+      font-style: italic;
+    }
+
+
+
+    /* Ajuste para mobile */
+    @media (max-width: 768px) {
+      #container-leis {
+        grid-template-columns: 1fr;
+        padding: 1rem;
+      }
+    }

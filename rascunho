@@ -1,23 +1,2 @@
 
 
-    alt shift f  
-
-cores:
-#DA3A2D
-#5F3554
-#3260B9
-#EECC3F
-#4D2613
-
-
-
-    alt shift f
-
-    function getAngle(v1, v2) {
-    const mr = getLen(v1) * getLen(v2);
-    if (mr === 0) return 0;
-    const r = Math.min(dot(v1, v2) / mr, 1);
-    return Math.acos(r);
-
-} 
-

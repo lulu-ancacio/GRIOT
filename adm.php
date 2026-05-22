@@ -322,7 +322,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <header class="header">
         <div class="header-inner">
             <a href="index.php">
-              <img src="meanStyle/assets/images/LogoEst_SF.png" alt ="Logo site Griot">
+              <img src="meanStyle/assets/images/LogoEst_SF.png" alt ="Logotipo do projeto GRIOT com tipografia colorida e ícone de ave estilizada, com o subtítulo Memória e História Afro-Brasileira Griot">
             </a>
     </header>
 

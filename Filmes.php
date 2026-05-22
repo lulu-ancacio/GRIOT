@@ -47,13 +47,13 @@ $prods = supabaseRequest("filmes?select=*");
                 <li><a href="Filmes.php">Filmes</a></li>
                 <li><a href="Musicas.php">Músicas</a></li>
                 <li><a href="LinhadoTempo.php">Linha do Tempo</a></li>
-                <li><a href="Legislação.php">Legislação</a></li>
+                <li><a href="Legislacao.php">Legislação</a></li>
                 </ul>
             </div>
             <!-- ***** Logo Start ***** -->
             <div class="logo">
                 <a href="index.php">
-                <img src="meanStyle/assets/images/LogoEst_SF.png" alt="Logo do Site">
+                <img src="meanStyle/assets/images/LogoEst_SF.png" alt="Logotipo do projeto GRIOT com tipografia colorida e ícone de ave estilizada, com o subtítulo Memória e História Afro-Brasileira">
                 </a>
             </div>
             
@@ -86,7 +86,7 @@ $prods = supabaseRequest("filmes?select=*");
                 </div>
                 <div class="right-image">
                     <img src="meanStyle/assets/images/Filme.jpg"
-                        alt="Câmera de cinema">
+                        alt="Profissional de cinema operando câmera Panavision em set de filmagem externo, vestindo roupas escuras e boné, com paisagem natural ao fundo">
                 </div>
             </div>
         </div>

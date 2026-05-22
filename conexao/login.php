@@ -230,7 +230,7 @@ if (
             <!-- ***** Logo Start ***** -->
             <div class="logo">
                  <a href="../index.php" class="logo">
-                      <img src="../meanStyle/assets/images/LogoEst_SF.png" alt="Logo GRIOT">
+                      <img src="../meanStyle/assets/images/LogoEst_SF.png" alt="Logotipo do projeto GRIOT com tipografia colorida e ícone de ave estilizada, com o subtítulo Memória e História Afro-Brasileira">
                  </a>
             </div>
             <!-- ***** Logo End ***** -->
