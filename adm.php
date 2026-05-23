@@ -31,6 +31,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     
 
     <link rel="stylesheet" href="meanStyle/assets/fonts/poppins.css">
+    <link rel="stylesheet" href="meanStyle/assets/css/templatemo-space-dynamic.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
     integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
     crossorigin="anonymous"
@@ -39,293 +40,181 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     
     <style>
-        /* ===== RESET & BASE ===== */
-        *, *::before, *::after {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+:root {
+    --primary: #e74c3c;
+    --accent: #03a4ed;
+    --bg-light: #f8f9fa;
+    --white: #ffffff;
+    --secondary: #2c3e50;
+    --border: #dee2e6;
+    --shadow: 0 4px 20px rgba(0,0,0,0.08);
+    --radius: 12px;
+    --transition: all 0.3s ease;
+}
 
-        :root {
-            --primary: #e74c3c;
-            --primary-dark: #c0392b;
-            --secondary: #2c3e50;
-            --accent: #03a4ed;
-            --bg-light: #f8f9fa;
-            --white: #ffffff;
-            --gray: #6c757d;
-            --border: #dee2e6;
-            --shadow: 0 4px 20px rgba(0,0,0,0.08);
-            --shadow-hover: 0 8px 30px rgba(0,0,0,0.12);
-            --radius: 12px;
-            --transition: all 0.3s ease;
-        }
+body {
+    font-family: 'Poppins', sans-serif;
+    background: var(--bg-light);
+    color: var(--secondary);
+}
 
-        body {
-            font-family: 'Poppins', sans-serif;
-            background: var(--bg-light);
-            color: var(--secondary);
-            line-height: 1.6;
-            min-height: 100vh;
-        }
+/* ===== BANNER ===== */
+.banner {
+    background: #ff5845;
+    padding: 7rem 1.5rem 2.5rem;
+    text-align: center;
+}
 
-        /* ===== HEADER ===== */
-        .header {
-            background: var(--white);
-            box-shadow: var(--shadow);
-            position: sticky;
-            top: 0;
-            z-index: 100;
-        }
+.banner h1 {
+    font-size: 1.8rem;
+    margin-bottom: 0.5rem;
+    color: white;
+}
 
-        .header-inner {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 1rem 1.5rem;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            gap: 1rem;
-        }
+.banner p {
+    color: white;
+}
 
-        .logo {
-            display: flex;
-            align-items: center;
-            gap: 0.75rem;
-            text-decoration: none;
-            color: var(--primary);
-            font-weight: 700;
-            font-size: 1.25rem;
-        }
+.user-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: rgba(255,255,255,0.15);
+    padding: 0.4rem 1rem;
+    border-radius: 50px;
+    margin-top: 1rem;
+    color: white;
+}
 
-        .logo img {
-            height: 40px;
-            width: auto;
-        }
+/* ===== MAIN ===== */
+main.container {
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+}
 
-        .nav-links {
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            flex-wrap: wrap;
-        }
+.section-title {
+    text-align: center;
+    margin-bottom: 2rem;
+}
 
-        .nav-btn {
-            padding: 0.5rem 1rem;
-            background: #e74c3c;
-            color: var(--white) !important;
-            text-decoration: none;
-            border-radius: 50px;
-            font-size: 0.9rem;
-            font-weight: 500;
-            transition: var(--transition);
-            border: none;
-            cursor: pointer;
-        }
+/* ===== GRID ===== */
+.forms-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 1.5rem;
+}
 
-        .nav-btn:hover {
-            background: #03a4ed;
-            transform: translateY(-2px);
-        }
+/* ===== CARD ===== */
+.form-card {
+    background: white;
+    border-radius: var(--radius);
+    padding: 1.75rem;
+    box-shadow: var(--shadow);
+    transition: var(--transition);
+}
 
-        .nav-btn.secondary {
-            background:#e74c3c;
-        }
+.form-card:hover {
+    transform: translateY(-4px);
+}
 
-        .nav-btn.secondary:hover {
-            background: #03a4ed;
-        }
+.form-card h3 {
+    color: var(--primary);
+    margin-bottom: 1rem;
+}
 
+/* ===== FORM ===== */
+.form-group {
+    margin-bottom: 1rem;
+}
 
-        /* ===== BANNER ===== */
-        .banner {
-            background: #e74c3c;
-            padding: 2.5rem 1.5rem;
-            text-align: center;
-        }
+.form-group label {
+    display: block;
+    margin-bottom: 0.4rem;
+    font-weight: 500;
+}
 
-        .banner h1 {
-            font-size: 1.8rem;
-            margin-bottom: 0.5rem;
-            color:white;
-        }
+.form-group input,
+.form-group select {
+    width: 100%;
+    padding: 0.75rem 1rem;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+}
 
-        .banner p {
-            opacity: 0.95;
-            font-size: 1rem;
-        }
+.btn-submit {
+    width: 100%;
+    padding: 0.85rem;
+    background: var(--primary);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: 0.3s;
+}
 
-        .user-badge {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            background: rgba(255,255,255,0.15);
-            padding: 0.4rem 1rem;
-            border-radius: 50px;
-            margin-top: 1rem;
-            font-size: 0.95rem;
-        }
+.btn-submit:hover {
+    background: var(--accent);
+}
 
-        /* ===== MAIN CONTENT ===== */
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 2rem 1.5rem;
-        }
+.footer {
+    text-align: center;
+    padding: 2rem;
+}
 
-        .section-title {
-            text-align: center;
-            margin-bottom: 2rem;
-            color: var(--secondary);
-            font-size: 1.5rem;
-            font-weight: 600;
-        }
+/* ===== MOBILE ===== */
+@media (max-width: 768px) {
+    .banner {
+        padding-top: 6rem;
+    }
 
-        /* ===== FORMS GRID ===== */
-        .forms-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 1.5rem;
-        }
-
-        .form-card {
-            background: var(--white);
-            border-radius: var(--radius);
-            padding: 1.75rem;
-            box-shadow: var(--shadow);
-            transition: var(--transition);
-        }
-
-        .form-card:hover {
-            box-shadow: var(--shadow-hover);
-            transform: translateY(-4px);
-        }
-
-        .form-card h3 {
-            color: var(--primary);
-            margin-bottom: 1.25rem;
-            padding-bottom: 0.75rem;
-            border-bottom: 2px solid var(--border);
-            font-size: 1.25rem;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-
-        .form-group {
-            margin-bottom: 1rem;
-        }
-
-        .form-group label {
-            display: block;
-            font-weight: 500;
-            margin-bottom: 0.4rem;
-            color: var(--secondary);
-            font-size: 0.95rem;
-        }
-
-        .form-group input,
-        .form-group select,
-        .form-group textarea {
-            width: 100%;
-            padding: 0.75rem 1rem;
-            border: 1px solid var(--border);
-            border-radius: 8px;
-            font-size: 0.95rem;
-            font-family: inherit;
-            transition: var(--transition);
-            background: var(--white);
-        }
-
-        .form-group input:focus,
-        .form-group select:focus,
-        .form-group textarea:focus {
-            outline: none;
-            border-color: var(--primary);
-            box-shadow: 0 0 0 3px rgba(231, 76, 60, 0.15);
-        }
-
-        .form-group input[type="file"] {
-            padding: 0.5rem;
-            background: var(--bg-light);
-        }
-
-        .btn-submit {
-            width: 100%;
-            padding: 0.85rem;
-            background:#e74c3c;
-            color: var(--white);
-            border: none;
-            border-radius: 8px;
-            font-size: 1rem;
-            font-weight: 600;
-            cursor: pointer;
-            transition: var(--transition);
-            margin-top: 0.5rem;
-        }
-
-        .btn-submit:hover {
-            transform: translateY(-2px);
-            background: #03a4ed;
-        }
-
-        .btn-submit:active {
-            transform: translateY(0);
-        }
-
-        /* ===== FOOTER ===== */
-        .footer {
-          
-            text-align: center;
-            padding: 1.5rem;
-            margin-top: 3rem;
-            font-size: 0.9rem;
-        }
-
-        /* ===== RESPONSIVE ===== */
-        @media (max-width: 768px) {
-            .header-inner {
-                flex-direction: column;
-                text-align: center;
-            }
-
-            .nav-links {
-                justify-content: center;
-                width: 100%;
-            }
-
-            .banner h1 {
-                font-size: 1.5rem;
-            }
-
-            .forms-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .form-card {
-                padding: 1.5rem;
-            }
-        }
-
-        /* ===== UTILS ===== */
-        .hidden { display: none; }
-        .text-center { text-align: center; }
-        .mt-1 { margin-top: 0.5rem; }
-        .mt-2 { margin-top: 1rem; }
-        .mb-1 { margin-bottom: 0.5rem; }
-        .mb-2 { margin-bottom: 1rem; }
-    </style>
+    .forms-grid {
+        grid-template-columns: 1fr;
+    }
+}
+</style>
+        
 </head>
 <body>
+     
+  <!-- Preloader -->
+  <div id="js-preloader" class="js-preloader">
+    <div class="preloader-inner">
+      <span class="dot"></span>
+      <div class="dots">
+        <span></span><span></span><span></span>
+      </div>
+    </div>
+  </div>
 
-    <!-- ===== HEADER ===== -->
-    <header class="header">
-        <div class="header-inner">
-            <a href="index.php">
-              <img src="meanStyle/assets/images/LogoEst_SF.png" alt ="Logotipo do projeto GRIOT com tipografia colorida e ícone de ave estilizada, com o subtítulo Memória e História Afro-Brasileira Griot">
-            </a>
-    </header>
+  <!-- Header -->
+  <header class="header-area">
+    <div class="container">
+      <nav class="main-nav">
+        <div class="left-menu">
+          <button class="menu-trigger" aria-label="Abrir menu"><span></span></button>
+          <ul class="menu-dropdown">
+            <li><a href="Fotografias.php">Fotografias</a></li>
+            <li><a href="Textos.php">Textos</a></li>
+            <li><a href="Filmes.php">Filmes</a></li>
+            <li><a href="Pinturas.php">Pinturas</a></li>
+            <li><a href="LinhadoTempo.php">Linha do Tempo</a></li>
+            <li><a href="Músicas.php">Músicas</a></li>
+            <li><a href="mensagemRecebida.html">Sugestões</a></li>
+          </ul>
+        </div>
+        <div class="logo">
+          <a href="index.php">
+            <img src="meanStyle/assets/images/LogoEst_SF.png" alt="Logotipo do projeto GRIOT com tipografia colorida e ícone de ave estilizada, com o subtítulo Memória e História Afro-Brasileira">
+          </a>
+        </div>
+        <div class="right-menu">
+          <a href="index.php" class="main-red-button">Início</a>
+        </div>
+      </nav>
+    </div>
+  </header>
 
+    
     <!-- ===== BANNER ===== -->
     <section class="banner">
         <h1>Painel Administrativo</h1>
@@ -481,6 +370,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
          
         }
     </script>
+      <script src="meanStyle/script.js"></script>
 
 </body>
 </html>
