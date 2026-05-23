@@ -6,7 +6,7 @@ export const options = {
   duration: '10s',
 };
 
-export default function () {
+export default function loadTest () {
   http.get('https://griot.gt.tc/Fotografias.php');
   sleep(1);
 }
