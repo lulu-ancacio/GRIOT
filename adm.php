@@ -27,7 +27,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
      <link rel="icon" href="meanStyle/assets/images/FavIcon_SF.png">
     <meta name="description" content="Painel Administrativo ">
-    <title>GRIOT • Painel Admin</title>
+    <title>GRIOT-Painel Admin</title>
     
 
     <link rel="stylesheet" href="meanStyle/assets/fonts/poppins.css">

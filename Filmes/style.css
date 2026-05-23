@@ -20,7 +20,8 @@
 
 .movie-list-wrapper{
   position: relative;
-  overflow: visible;
+  overflow: hidden;
+  width: 100%;
 }
 
 .movie-list{
@@ -28,13 +29,12 @@
   align-items: center;
   gap: 25px;
   height: 500px;
-  overflow-y: hidden;
-  padding: 40px 0;
+  padding: 40px 60px;
+  transition: transform 0.4s ease;
+  width: max-content;
 }
 
-.movie-list::-webkit-scrollbar{
-  display: none;
-}
+
 
 
 .movie-list-item{
@@ -133,7 +133,6 @@
 .arrow{
   position: absolute;
   top: 50%;
-  right: 10px;
   transform: translateY(-50%);
   width: 50px;
   height: 50px;
@@ -151,17 +150,24 @@
 
 .arrow:hover{
   background: #fe3f40;
-
   transform: translateY(-50%) scale(1.1);
+}
+
+
+.right-arrow{
+  right: -15px;
+}
+
+
+.left-arrow{
+  left: -15px;
 }
 
 /* FOOTER */
 
 footer{
   text-align: center;
-
   padding: 30px 20px;
-
   margin-top: 60px;
 }
 

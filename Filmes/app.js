@@ -1,26 +1,42 @@
-const arrows = document.querySelectorAll(".arrow");
-const movieLists = document.querySelectorAll(".movie-list");
+const wrappers = document.querySelectorAll(".movie-list-wrapper");
 
-arrows.forEach((arrow, i) => {
-  let currentPosition = 0;
-  const itemWidth = 270;
-  const gap = 25;
-  
-  arrow.addEventListener("click", () => {
-    const movieList = movieLists[i];
-    const items = movieList.querySelectorAll(".movie-list-item");
-    const totalWidth = items.length * (itemWidth + gap);
-    const visibleWidth = movieList.clientWidth;
-    const maxScroll = totalWidth - visibleWidth;
-    
-    currentPosition -= 300;
-    
-    if (Math.abs(currentPosition) > maxScroll) {
-      currentPosition = 0; // Reset ao início
-    }
-    
-    movieList.style.transform = `translateX(${currentPosition}px)`;
-    movieList.style.transition = "transform 0.3s ease";
-  });
+wrappers.forEach((wrapper) => {
+
+    const movieList = wrapper.querySelector(".movie-list");
+    const leftArrow = wrapper.querySelector(".left-arrow");
+    const rightArrow = wrapper.querySelector(".right-arrow");
+
+    let currentPosition = 0;
+
+    const itemWidth = 295;
+
+    rightArrow.addEventListener("click", () => {
+
+        const items = movieList.querySelectorAll(".movie-list-item");
+
+        const totalWidth = items.length * itemWidth;
+        const visibleWidth = wrapper.offsetWidth;
+
+        const maxScroll = totalWidth - visibleWidth;
+
+        currentPosition -= itemWidth;
+
+        if (Math.abs(currentPosition) > maxScroll) {
+            currentPosition = -maxScroll;
+        }
+
+        movieList.style.transform = `translateX(${currentPosition}px)`;
+    });
+
+    leftArrow.addEventListener("click", () => {
+
+        currentPosition += itemWidth;
+
+        if (currentPosition > 0) {
+            currentPosition = 0;
+        }
+
+        movieList.style.transform = `translateX(${currentPosition}px)`;
+    });
+
 });
-
