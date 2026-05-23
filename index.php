@@ -182,7 +182,6 @@ session_start();
             <h4>
               Legislação
               <br>
-              <span>(Em breve)</span>
             </h4>
           </a>
         </div>
