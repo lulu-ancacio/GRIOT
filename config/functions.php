@@ -56,7 +56,7 @@ function supabaseCreatePhotoPainting($bucket, $table)
 
             // 📦 1. upload para o storage
             $client->post(
-                "$url/storage/v1/object/$bucket/$fileName",
+                "urlencode($url)/storage/v1/object/$bucket/$fileName",
                 [
                     'headers' => [
                         'apikey' => $api_key,
@@ -95,7 +95,7 @@ function supabaseCreatePhotoPainting($bucket, $table)
 function supabaseCreateFilm($table)
 {
     require_once './composer/vendor/autoload.php';
-
+    
     $url = $_ENV['SUPABASE_URL'];
     $api_key = $_ENV['SUPABASE_SERVICE_ROLE'];
 
