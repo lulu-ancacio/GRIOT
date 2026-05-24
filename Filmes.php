@@ -215,7 +215,7 @@ $prods = supabaseRequest("filmes?select=*");
                     </div>
                 </div>
 
-                <h1 class="movie-list-title">Biográfias</h1>
+                <h1 class="movie-list-title">Biografias</h1>
                 <div class="movie-list-wrapper">
                     <div class="movie-list">
                         <?php if ($prods): ?>
