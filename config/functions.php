@@ -56,7 +56,7 @@ function supabaseCreatePhotoPainting($bucket, $table)
 
             // 📦 1. upload para o storage
             $client->post(
-                "urlencode($url)/storage/v1/object/$bucket/$fileName",
+                "$url/storage/v1/object/$bucket/$fileName",
                 [
                     'headers' => [
                         'apikey' => $api_key,
