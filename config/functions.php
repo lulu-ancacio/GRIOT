@@ -37,6 +37,7 @@ function supabaseCreatePhotoPainting($bucket, $table)
     require_once './composer/vendor/autoload.php';
 
     $url = $_ENV['SUPABASE_URL'];
+    $url = urlencode($url);
     $api_key = $_ENV['SUPABASE_SERVICE_ROLE'];
     $bucket;
 
@@ -97,6 +98,7 @@ function supabaseCreateFilm($table)
     require_once './composer/vendor/autoload.php';
     
     $url = $_ENV['SUPABASE_URL'];
+    $url = urlencode($url);
     $api_key = $_ENV['SUPABASE_SERVICE_ROLE'];
 
     if ($_SERVER['REQUEST_METHOD'] === 'POST') {
@@ -159,8 +161,8 @@ function getUserAdm($user_id, $token) {
     require_once '../composer/vendor/autoload.php';
     $client = new GuzzleHttp\Client();
 
-    $url = $_ENV['SUPABASE_URL'].'/rest/v1/usuarios?id_usuario=eq.' . $user_id;
-
+    $url = $_ENV['SUPABASE_URL'];
+    $url = urlencode($url).'/rest/v1/usuarios?id_usuario=eq.' . $user_id;
     try {
         $response = $client->get($url, [
             'headers' => [

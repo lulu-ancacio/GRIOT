@@ -129,7 +129,7 @@ $prods = supabaseRequest("filmes?select=*");
                 <div class="movie-list-wrapper">
                  <div class="arrow left-arrow">
                         <i class="fas fa-angle-left"></i>
-                  </div>  
+                  </div>
                     <div class="movie-list">
                         <?php if ($prods): ?>
                             <?php foreach ($prods as $row): ?>
