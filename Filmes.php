@@ -4,7 +4,7 @@ session_start();
 
 use GuzzleHttp\Exception\GuzzleException;
 
-require_once 'conexao/config.php';
+require_once 'config/functions.php';
 require_once './composer/vendor/autoload.php';
 
 $prods = supabaseRequest("filmes?select=*");
@@ -18,10 +18,10 @@ $prods = supabaseRequest("filmes?select=*");
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" href="meanStyle/assets/images/FavIcon_SF.png">
-    <link rel="stylesheet" href="meanStyle/assets/css/templatemo-space-dynamic.css">
+    <link rel="icon" href="mainStyle/assets/images/FavIcon_SF.png">
+    <link rel="stylesheet" href="mainStyle/assets/css/templatemo-space-dynamic.css">
     <link rel="stylesheet" href="Filmes/style.css">
-    <link rel="stylesheet" href="meanStyle/assets/fonts/poppins.css">
+    <link rel="stylesheet" href="mainStyle/assets/fonts/poppins.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
     integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
     crossorigin="anonymous"
@@ -53,7 +53,7 @@ $prods = supabaseRequest("filmes?select=*");
             <!-- ***** Logo Start ***** -->
             <div class="logo">
                 <a href="index.php">
-                <img src="meanStyle/assets/images/LogoEst_SF.png" alt="Logotipo do projeto GRIOT com tipografia colorida e ícone de ave estilizada, com o subtítulo Memória e História Afro-Brasileira">
+                <img src="mainStyle/assets/images/LogoEst_SF.png" alt="Logotipo do projeto GRIOT com tipografia colorida e ícone de ave estilizada, com o subtítulo Memória e História Afro-Brasileira">
                 </a>
             </div>
             
@@ -85,7 +85,7 @@ $prods = supabaseRequest("filmes?select=*");
                     </p>
                 </div>
                 <div class="right-image">
-                    <img src="meanStyle/assets/images/Filme.jpg"
+                    <img src="mainStyle/assets/images/Filme.jpg"
                         alt="Profissional de cinema operando câmera Panavision em set de filmagem externo, vestindo roupas escuras e boné, com paisagem natural ao fundo">
                 </div>
             </div>
@@ -311,7 +311,7 @@ $prods = supabaseRequest("filmes?select=*");
     <script>
         new window.VLibras.Widget('https://vlibras.gov.br/app');
     </script>
-    <script src="meanStyle/script.js"></script>
+    <script src="mainStyle/script.js"></script>
 
 </body>
 

@@ -5,7 +5,7 @@ if (empty($_SESSION['adm'])) {
     exit;
 }
 
-require_once 'conexao/config.php';
+require_once 'config/functions.php';
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if ($_POST['tipo'] === 'fotografias') {
@@ -15,7 +15,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         supabaseCreatePhotoPainting('Pinturas', 'pinturas');
     }
     if ($_POST['tipo'] === 'filmes') {
-        supabaseCreateFilm('Filmes', 'filmes');
+        supabaseCreateFilm('filmes');
     }
 }
 ?>
@@ -25,13 +25,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-     <link rel="icon" href="meanStyle/assets/images/FavIcon_SF.png">
+     <link rel="icon" href="mainStyle/assets/images/FavIcon_SF.png">
     <meta name="description" content="Painel Administrativo ">
     <title>GRIOT-Painel Admin</title>
     
 
-    <link rel="stylesheet" href="meanStyle/assets/fonts/poppins.css">
-    <link rel="stylesheet" href="meanStyle/assets/css/templatemo-space-dynamic.css">
+    <link rel="stylesheet" href="mainStyle/assets/fonts/poppins.css">
+    <link rel="stylesheet" href="mainStyle/assets/css/templatemo-space-dynamic.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
     integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
     crossorigin="anonymous"
@@ -204,7 +204,7 @@ main.container {
         </div>
         <div class="logo">
           <a href="index.php">
-            <img src="meanStyle/assets/images/LogoEst_SF.png" alt="Logotipo do projeto GRIOT com tipografia colorida e ícone de ave estilizada, com o subtítulo Memória e História Afro-Brasileira">
+            <img src="mainStyle/assets/images/LogoEst_SF.png" alt="Logotipo do projeto GRIOT com tipografia colorida e ícone de ave estilizada, com o subtítulo Memória e História Afro-Brasileira">
           </a>
         </div>
         <div class="right-menu">
@@ -317,13 +317,13 @@ main.container {
                         <label for="filme_tipo">Tipo de Mídia *</label>
                         <select id="filme_tipo" name="tipomidia" required>
                             <option value="">Selecione...</option>
-                            <option value="F">🎬 Longas de Ficção</option>
-                            <option value="CU">🎞️ Curtas</option>
-                            <option value="DE">✏️ Animações</option>
-                            <option value="DO">🎥 Documentários</option>
-                            <option value="S">📺 Séries</option>
-                            <option value="B">👤 Biografias</option>
-                            <option value="CL">🎵 Musicais</option>
+                            <option value="Filmes">🎬 Longas de Ficção</option>
+                            <option value="Curtas">🎞️ Curtas</option>
+                            <option value="Desenhos">✏️ Animações</option>
+                            <option value="Documentarios">🎥 Documentários</option>
+                            <option value="Series">📺 Séries</option>
+                            <option value="Biografias">👤 Biografias</option>
+                            <option value="Clipes">🎵 Musicais</option>
                         </select>
                     </div>
                     
@@ -370,7 +370,7 @@ main.container {
          
         }
     </script>
-      <script src="meanStyle/script.js"></script>
+      <script src="mainStyle/script.js"></script>
 
 </body>
 </html>

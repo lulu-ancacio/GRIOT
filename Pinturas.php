@@ -1,7 +1,7 @@
 <?php
 session_start();
 
-require_once 'conexao/config.php';
+require_once 'config/functions.php';
 require_once './composer/vendor/autoload.php';
 
 $busca = $_GET['q'] ?? '';
@@ -36,12 +36,12 @@ if (isset($_GET['q'])) {
   <meta name="author" content="Lucas Ancacio e Maria Eduarda Gomes">
   <meta charset="UTF-8">
   <link rel="icon" href=" galeria/assets/images/FavIcon_SF.png">
-  <link rel="stylesheet" href="meanStyle/assets/fonts/poppins.css">
+  <link rel="stylesheet" href="mainStyle/assets/fonts/poppins.css">
 
   <title>GRIOT-Pinturas</title>
 
   <!-- Css principal -->
-  <link rel="stylesheet" href="meanStyle/assets/css/templatemo-space-dynamic.css">
+  <link rel="stylesheet" href="mainStyle/assets/css/templatemo-space-dynamic.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
     integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
     crossorigin="anonymous"
@@ -146,7 +146,7 @@ if (isset($_GET['q'])) {
         <!-- ***** Logo Start ***** -->
         <div class="logo">
           <a href="index.php">
-            <img src="meanStyle/assets/images/LogoEst_SF.png" alt = "Logotipo do projeto GRIOT com tipografia colorida e ícone de ave estilizada, com o subtítulo Memória e História Afro-Brasileira">
+            <img src="mainStyle/assets/images/LogoEst_SF.png" alt = "Logotipo do projeto GRIOT com tipografia colorida e ícone de ave estilizada, com o subtítulo Memória e História Afro-Brasileira">
           </a>
         </div>
 
@@ -185,7 +185,7 @@ if (isset($_GET['q'])) {
 
           <div class="right-image">
 
-            <img src="meanStyle/assets/images/Pintura.jpg" alt="Mão de artista segurando pincel fino de pintura sobre mesa de trabalho com pote de pincéis e tubos de tinta ao fundo, fotografia em preto e branco de ateliê">
+            <img src="mainStyle/assets/images/Pintura.jpg" alt="Mão de artista segurando pincel fino de pintura sobre mesa de trabalho com pote de pincéis e tubos de tinta ao fundo, fotografia em preto e branco de ateliê">
 
           </div>
 
@@ -270,7 +270,7 @@ if (isset($_GET['q'])) {
 
     });
   </script>
-  <script src="meanStyle/script.js"></script>
+  <script src="mainStyle/script.js"></script>
   <script>
     document.getElementById('pesquisa').addEventListener('input', async function() {
 

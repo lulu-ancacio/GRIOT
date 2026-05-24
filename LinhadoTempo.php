@@ -7,13 +7,13 @@
   <meta name="author" content=" ">
   <title>GRIOT-Linha do Tempo</title>
 
-  <link rel="icon" href="meanStyle/assets/images/FavIcon_SF.png">
+  <link rel="icon" href="mainStyle/assets/images/FavIcon_SF.png">
 
-  <link rel="stylesheet" href="meanStyle/assets/fonts/poppins.css">
+  <link rel="stylesheet" href="mainStyle/assets/fonts/poppins.css">
 
   <!-- CSS -->
-   <link rel="stylesheet" href="meanStyle/assets/css/templatemo-space-dynamic.css">
-  <link rel="stylesheet" href="meanStyle/assets/css/fontawesome.css">
+   <link rel="stylesheet" href="mainStyle/assets/css/templatemo-space-dynamic.css">
+  <link rel="stylesheet" href="mainStyle/assets/css/fontawesome.css">
   <link rel="stylesheet" href="LinhaDoTempo/LinhadoTempo.css">
 
 
@@ -63,7 +63,7 @@
             <!-- ***** Logo Start ***** -->
             <div class="logo">
                 <a href="index.php">
-                <img src="meanStyle/assets/images/LogoEst_SF.png" alt="Logotipo do projeto GRIOT com tipografia colorida e ícone de ave estilizada, com o subtítulo Memória e História Afro-Brasileira">
+                <img src="mainStyle/assets/images/LogoEst_SF.png" alt="Logotipo do projeto GRIOT com tipografia colorida e ícone de ave estilizada, com o subtítulo Memória e História Afro-Brasileira">
                 </a>
             </div>
             
@@ -98,7 +98,7 @@
                     </p>
                 </div>
                 <div class="right-image">
-                    <img src="meanStyle/assets/images/LinhadoTempo.jpg" alt="Ilustração minimalista em tons de amarelo e preto que simula uma ampulheta. Na parte superior, camelos caminham sobre uma duna de areia que escorre para a metade inferior, acumulando-se no formato de uma pirâmide.">
+                    <img src="mainStyle/assets/images/LinhadoTempo.jpg" alt="Ilustração minimalista em tons de amarelo e preto que simula uma ampulheta. Na parte superior, camelos caminham sobre uma duna de areia que escorre para a metade inferior, acumulando-se no formato de uma pirâmide.">
                 </div>
             </div>
         </div>
@@ -181,7 +181,7 @@ filha do imperador Dom Pedro II,libertando mais de 700 mil escravizados das suas
 
 <script src="Vlibras/vlibras-plugin.js"></script>
 
-    <script src="meanStyle/script.js"></script>
+    <script src="mainStyle/script.js"></script>
 
 
 

@@ -11,14 +11,14 @@ session_start();
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="Museu virtual com temática racial">
   <title>GRIOT - Início</title>
-  <link rel="icon" href="meanStyle/assets/images/FavIcon_SF.png">
-  <link rel="stylesheet" href="meanStyle/assets/fonts/poppins.css">
+  <link rel="icon" href="mainStyle/assets/images/FavIcon_SF.png">
+  <link rel="stylesheet" href="mainStyle/assets/fonts/poppins.css">
   
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
     integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
     crossorigin="anonymous"
     referrerpolicy="no-referrer"/>
-  <link rel="stylesheet" href="meanStyle/assets/css/templatemo-space-dynamic.css">
+  <link rel="stylesheet" href="mainStyle/assets/css/templatemo-space-dynamic.css">
 
 
 </head>
@@ -45,16 +45,16 @@ session_start();
         </ul>
       </div>
       <a href="index.php" class="logo">
-        <img src="meanStyle/assets/images/LogoEst_SF.png" alt="Logotipo do projeto GRIOT com tipografia colorida e ícone de ave estilizada, com o subtítulo Memória e História Afro-Brasileira">
+        <img src="mainStyle/assets/images/LogoEst_SF.png" alt="Logotipo do projeto GRIOT com tipografia colorida e ícone de ave estilizada, com o subtítulo Memória e História Afro-Brasileira">
       </a>
 
       <div class="right-menu">
         <?php if (empty($_SESSION['email'])): ?>
-          <a href="./conexao/login.php" class="main-blue-button">
+          <a href="./auth/login.php" class="main-blue-button">
             Login
           </a>
         <?php else: ?>
-          <a href="./conexao/logout.php" class="main-red-button">
+          <a href="./auth/logout.php" class="main-red-button">
             Sair
           </a>
           <?php if ($_SESSION['adm']): ?>
@@ -80,16 +80,18 @@ session_start();
             <?php if (!empty($_SESSION['email'])): ?>
               <div class="welcome-box">
                 <h5>
-                  Bem-vindo(a),
-                  <?= $_SESSION['email'] ?> 👋
+                  <?php if (($_SESSION['pronome']) == "M"): ?>Bem-vindo,<?php elseif (($_SESSION['pronome']) == "F"):?>Bem-vinda,<?php else: ?>Boas-vindas,<?php endif; ?>
+                <?= $_SESSION['nome'] ?> 👋
                 </h5>
                 <?php if (!empty($_SESSION['adm'])): ?>
                   <p>
-                    Você está logado como administrador(a)
+                    <?php if (($_SESSION['pronome']) == "M"): ?>Você está logado como administrador<?php elseif (($_SESSION['pronome']) == "F"):?> Você está logada como administradora <?php else: ?> Você está com função de administrar<?php endif; ?>
                   </p>
                 <?php endif; ?>
               </div>
             <?php endif; ?>
+
+
             <h6>
               Bem Vindo ao GRIOT
             </h6>
@@ -106,7 +108,7 @@ session_start();
             </p>
           </div>
           <div class="right-image">
-            <img src="meanStyle/assets/images/FotoPrincipal.jpg" alt="Jovem negro com 3 pentes garfos em seu cabelo">
+            <img src="mainStyle/assets/images/FotoPrincipal.jpg" alt="Jovem negro com 3 pentes garfos em seu cabelo">
           </div>
         </div>
       </div>
@@ -310,7 +312,7 @@ session_start();
 
   </script>
   <!-- JS -->
-  <script src="meanStyle/script.js" defer></script>
+  <script src="mainStyle/script.js" defer></script>
   <!-- VLibras -->
   <div vw class="enabled">
     <div vw-access-button class="active"></div>

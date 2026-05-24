@@ -2,7 +2,7 @@
 
 use GuzzleHttp\Exception\GuzzleException;
 
-require_once 'config.php';
+require_once '../config/functions.php';
 require_once '../composer/vendor/autoload.php';
 $msg = '';
 
@@ -11,11 +11,10 @@ if (
     isset($_POST['nome_criar']) &&
     isset($_POST['email_criar']) &&
     isset($_POST['senha_criar']) &&
-    isset($_POST['nome_criar']) &&
     isset($_POST['pronome_criar'])
 ) {
 
-  
+
     $email = $_POST['email_criar'];
     $senha = $_POST['senha_criar'];
     $nome = $_POST['nome_criar'];
@@ -26,7 +25,11 @@ if (
     $body = [
         'email' => $email,
         'password' => $senha,
-        'display_name'=> $nome,
+
+        'data' => [
+            'nome' => $nome,
+            'pronome' => $pronome
+        ]
     ];
 
     try {
@@ -40,19 +43,40 @@ if (
 
         $data = json_decode($response->getBody(), true);
 
+
         if (isset($data['user'])) {
+
             $msg = 'Usuário criado com sucesso!';
-        } elseif (isset($data['error'])) {
-            $msg = 'Usuário já cadastrado!';
         } else {
-            $msg = 'Erro no cadastro!';
+
+            $msg = 'Erro inesperado no cadastro.';
         }
     } catch (GuzzleHttp\Exception\RequestException $e) {
+
         if ($e->hasResponse()) {
-            $msg = 'Usuário já cadastrado';
+
+            $erro = json_decode(
+                $e->getResponse()->getBody()->getContents(),
+                true
+            );
+
+            // EMAIL JÁ CADASTRADO
+            if (
+                isset($erro['msg']) &&
+                str_contains(strtolower($erro['msg']), 'already registered')
+            ) {
+
+                $msg = 'Usuário já cadastrado!';
+            }
+
+            // OUTROS ERROS DO SUPABASE
+            else {
+
+                $msg = $erro['msg'] ?? 'Erro no cadastro.';
+            }
         } else {
-            header('Location: ./login.php');
-            exit;
+
+            $msg = 'Erro de conexão com o servidor.';
         }
     }
 }
@@ -140,7 +164,7 @@ if (
         }
 
 
-         input[type="submit"] {
+        input[type="submit"] {
             width: 100%;
             display: inline-block;
             border: none;
@@ -152,12 +176,12 @@ if (
             font-weight: 600;
             cursor: pointer;
             transition: all 0.3s ease;
-             margin-top: 25px;
+            margin-top: 25px;
         }
 
         input[type="submit"]:hover {
-             background: #fe3f40;
-               transform: translateY(-3px);
+            background: #fe3f40;
+            transform: translateY(-3px);
         }
 
         a {
@@ -186,9 +210,9 @@ if (
     </style>
 
     <!-- FAVICON -->
-  <link rel="icon" href="meanStyle/assets/images/FavIcon_SF.png">
+    <link rel="icon" href="mainStyle/assets/images/FavIcon_SF.png">
     <!-- FONTES -->
-  <link rel="stylesheet" href="meanStyle/assets/fonts/poppins.css">
+    <link rel="stylesheet" href="mainStyle/assets/fonts/poppins.css">
 </head>
 
 <body>
@@ -196,7 +220,7 @@ if (
     <div class="container">
 
         <div class="imagem">
-            <img src="../meanStyle/assets/images/FotoPrincipal.jpg" alt="Dureg">
+            <img src="../mainStyle/assets/images/FotoPrincipal.jpg" alt="Dureg">
         </div>
 
 
@@ -206,8 +230,8 @@ if (
                 <!-- ***** Logo Start ***** -->
                 <div class="logo">
                     <a href="../index.php" class="logo">
-                      <img src="../meanStyle/assets/images/LogoEst_SF.png" alt="Logotipo do projeto GRIOT com tipografia colorida e ícone de ave estilizada, com o subtítulo Memória e História Afro-Brasileira">
-                 </a>
+                        <img src="../mainStyle/assets/images/LogoEst_SF.png" alt="Logotipo do projeto GRIOT com tipografia colorida e ícone de ave estilizada, com o subtítulo Memória e História Afro-Brasileira">
+                    </a>
                 </div>
                 <p><?php echo $msg ?></p>
                 <!-- ***** Logo End ***** -->
@@ -215,26 +239,18 @@ if (
                 <label for="nome_criar">Como devemos te chamar?</label>
                 <input id="nome_criar" type="text" name="nome_criar" required>
 
-                <label for ="email_criar">Digite seu email:</label>
-                <input id = "nome_criar "type="email" name="email_criar" required>
+                <label for="email_criar">Digite seu email:</label>
+                <input id="nome_criar " type="email" name="email_criar" required>
 
-                <label for = "pronome_criar">Com que pronome você prefere ser tratado?</label>
+                <label for="pronome_criar">Com que pronome você prefere ser tratado?</label>
                 <select name="pronome_criar" required="required">
-                    <option value="fem">Ela/Dela</option>
-                    <option value="masc">Ele/Dele</option>
-                    <option value="nd">Nenhum</option>
+                    <option value="F">Ela/Dela</option>
+                    <option value="M">Ele/Dele</option>
+                    <option value="N">Nenhum</option>
                 </select>
 
-                <label for = "senha_criar">Digite sua senha:</label>
+                <label for="senha_criar">Digite sua senha:</label>
                 <input type="password" name="senha_criar" required>
-
-                <label for = "genero_criar">Selecione seu gênero:</label>
-                <select name="genero_criar" required>
-                    <option value="">Selecione</option>
-                    <option value="masculino">Masculino</option>
-                    <option value="feminino">Feminino</option>
-                    <option value="outro">Outro</option>
-                </select>
 
                 <input type="submit" value="Criar conta">
 
@@ -242,19 +258,19 @@ if (
             <a href='../index.php'>◃ Voltar ao início..</a>
         </div>
     </div>
-      <!-- VLibras -->
-<div vw class="enabled">
-  <div vw-access-button class="active"></div>
-  <div vw-plugin-wrapper>
-    <div class="vw-plugin-top-wrapper"></div>
-  </div>
-</div>
+    <!-- VLibras -->
+    <div vw class="enabled">
+        <div vw-access-button class="active"></div>
+        <div vw-plugin-wrapper>
+            <div class="vw-plugin-top-wrapper"></div>
+        </div>
+    </div>
 
-<script src="Vlibras/vlibras-plugin.js"></script>
+    <script src="Vlibras/vlibras-plugin.js"></script>
 
-<script>
-  new window.VLibras.Widget('https://vlibras.gov.br/app');
-</script>
+    <script>
+        new window.VLibras.Widget('https://vlibras.gov.br/app');
+    </script>
 
 
 </body>

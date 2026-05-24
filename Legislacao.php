@@ -8,8 +8,8 @@
   <meta name="description" content="Museu virtual com tematica racial">
   <meta name="author" content=" ">
   <meta charset="UTF-8">
-  <link rel="icon" href=" meanStyle\assets\images\FavIcon_SF.png">
-  <link rel="stylesheet" href="meanStyle/assets/fonts/poppins.css">
+  <link rel="icon" href=" mainStyle\assets\images\FavIcon_SF.png">
+  <link rel="stylesheet" href="mainStyle/assets/fonts/poppins.css">
 
   <title>GRIOT-Legislação</title>
 
@@ -17,8 +17,8 @@
 
   <!-- Additional CSS Files -->
    <link rel="stylesheet" href="Legislacao/style.css">
-  <link rel="stylesheet" href="meanStyle/assets/css/fontawesome.css">
-  <link rel="stylesheet" href="meanStyle/assets/css/templatemo-space-dynamic.css">
+  <link rel="stylesheet" href="mainStyle/assets/css/fontawesome.css">
+  <link rel="stylesheet" href="mainStyle/assets/css/templatemo-space-dynamic.css">
 
 
 </head>
@@ -51,7 +51,7 @@
         </div>
         <div class="logo">
           <a href="index.php">
-            <img src="meanStyle/assets/images/LogoEst_SF.png" alt="Logotipo do projeto GRIOT com tipografia colorida e ícone de ave estilizada, com o subtítulo Memória e História Afro-Brasileira">
+            <img src="mainStyle/assets/images/LogoEst_SF.png" alt="Logotipo do projeto GRIOT com tipografia colorida e ícone de ave estilizada, com o subtítulo Memória e História Afro-Brasileira">
           </a>
         </div>
         <div class="right-menu">
@@ -73,7 +73,7 @@
 Durante muito tempo, as leis foram escritas para nos silenciar e outras pessoas ditaram as regras da nossa história. Mas hoje, apropriando-nos das normas, dos códigos e da justiça, nós retomamos o protagonismo e escrevemos a nossa própria libertação.</p>
         </div>
         <div class="right-image">
-          <img src="meanStyle/assets/images/Legislacao.jpg" alt="Fotografia em tom sépia de uma mulher negra personificando a deusa da Justiça. Ela está de olhos vendados, veste mantos tradicionais e segura uma balança na mão esquerda e uma espada na mão direita.">
+          <img src="mainStyle/assets/images/Legislacao.jpg" alt="Fotografia em tom sépia de uma mulher negra personificando a deusa da Justiça. Ela está de olhos vendados, veste mantos tradicionais e segura uma balança na mão esquerda e uma espada na mão direita.">
         </div>
       </div>
     </div>
@@ -98,7 +98,7 @@ Durante muito tempo, as leis foram escritas para nos silenciar e outras pessoas 
   </footer>
 
   <!-- Scripts -->
-  <script src="meanStyle/script.js"></script>
+  <script src="mainStyle/script.js"></script>
   <script>
  
   const leis = [

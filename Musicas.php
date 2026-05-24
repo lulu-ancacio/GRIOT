@@ -7,16 +7,16 @@
   <meta name="description" content="Museu virtual com tematica racial">
   <meta name="author" content=" ">
   <meta charset="UTF-8">
-  <link rel="icon" href=" meanStyle\assets\images\FavIcon_SF.png">
-  <link rel="stylesheet" href="meanStyle/assets/fonts/poppins.css">
+  <link rel="icon" href=" mainStyle\assets\images\FavIcon_SF.png">
+  <link rel="stylesheet" href="mainStyle/assets/fonts/poppins.css">
 
   <title>GRIOT-Música</title>
 
 
 
   <!-- Additional CSS Files -->
-  <link rel="stylesheet" href="meanStyle/assets/css/fontawesome.css">
-  <link rel="stylesheet" href="meanStyle/assets/css/templatemo-space-dynamic.css">
+  <link rel="stylesheet" href="mainStyle/assets/css/fontawesome.css">
+  <link rel="stylesheet" href="mainStyle/assets/css/templatemo-space-dynamic.css">
 
 
 </head>
@@ -61,7 +61,7 @@
         <!-- ***** Logo Start ***** -->
         <div class="logo">
           <a href="index.php">
-            <img src="meanStyle/assets/images/LogoEst_SF.png" alt = "Logotipo do projeto GRIOT com tipografia colorida e ícone de ave estilizada, com o subtítulo Memória e História Afro-Brasileira">
+            <img src="mainStyle/assets/images/LogoEst_SF.png" alt = "Logotipo do projeto GRIOT com tipografia colorida e ícone de ave estilizada, com o subtítulo Memória e História Afro-Brasileira">
           </a>
         </div>
 
@@ -106,7 +106,7 @@
       
               <div class="right-image">
 
-                <img src="meanStyle/assets/images/obras.jpg" alt="Engrenagens">
+                <img src="mainStyle/assets/images/obras.jpg" alt="Engrenagens">
               
               </div>
 
@@ -140,6 +140,6 @@
       </div>
     </div>
   </footer>
-<script src="meanStyle/script.js"></script>
+<script src="mainStyle/script.js"></script>
 </body>
 </html>

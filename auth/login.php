@@ -3,8 +3,7 @@
 use GuzzleHttp\Exception\GuzzleException;
 
 session_start();
-require_once 'config.php';
-require_once 'auth.php';
+require_once '../config/functions.php';
 require_once '../composer/vendor/autoload.php';
 $msg = '';
 
@@ -38,6 +37,8 @@ if (
         if (isset($data->access_token)) {
             $_SESSION['token'] = $data->access_token;
             $_SESSION['email'] = $data->user->email;
+            $_SESSION['nome'] = $data->user->user_metadata->nome;
+            $_SESSION['pronome'] = $data->user->user_metadata->pronome;
             $user_id = $data->user->id;
             $_SESSION['adm'] = getUserAdm($user_id, $_SESSION['token']);
 
@@ -51,6 +52,7 @@ if (
         }
     }
 }
+
 ?>
 
 <!DOCTYPE html>
@@ -60,8 +62,8 @@ if (
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Acessar sua conta</title>
-    <link rel="icon" href="meanStyle/assets/images/FavIcon_SF.png">
-    <link rel="stylesheet" href="meanStyle/assets/fonts/poppins.css">
+    <link rel="icon" href="mainStyle/assets/images/FavIcon_SF.png">
+    <link rel="stylesheet" href="mainStyle/assets/fonts/poppins.css">
 
     <style>
         .body {
@@ -223,14 +225,14 @@ if (
 
     <div class="container">
         <div class="imagem">
-            <img src="../meanStyle/assets/images/FotoPrincipal2.jpg" alt="Dureg">
+            <img src="../mainStyle/assets/images/FotoPrincipal2.jpg" alt="Dureg">
         </div>
 
         <form method="post" class="form">
             <!-- ***** Logo Start ***** -->
             <div class="logo">
                  <a href="../index.php" class="logo">
-                      <img src="../meanStyle/assets/images/LogoEst_SF.png" alt="Logotipo do projeto GRIOT com tipografia colorida e ícone de ave estilizada, com o subtítulo Memória e História Afro-Brasileira">
+                      <img src="../mainStyle/assets/images/LogoEst_SF.png" alt="Logotipo do projeto GRIOT com tipografia colorida e ícone de ave estilizada, com o subtítulo Memória e História Afro-Brasileira">
                  </a>
             </div>
             <!-- ***** Logo End ***** -->

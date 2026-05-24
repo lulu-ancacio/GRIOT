@@ -1,21 +1,24 @@
 <?php
+
+require_once "env.php";
+
 function baseUri($endpoint = '') {
-    return 'https://cdhjzkmlucahtllfpdlx.supabase.co/auth/v1/' . $endpoint;
+    return $_ENV['SUPABASE_URL']. '/auth/v1/' . $endpoint;
 }
 
 function getHeader(){
     return [
-        'apikey' => 'sb_publishable_UrRqF6xuKo4rHwfw_zWfHQ_dbhsn4hy',
+        'apikey' => $_ENV['SUPABASE_DEFAULT_KEY'],
         'Content-Type' => 'application/json'
     ];
 }
 
 function supabaseRequest($endpoint) {
-    $url = "https://cdhjzkmlucahtllfpdlx.supabase.co/rest/v1/" . $endpoint;
+    $url = $_ENV['SUPABASE_URL']. '/rest/v1/' . $endpoint;
 
     $headers = [
         "apikey: sb_publishable_UrRqF6xuKo4rHwfw_zWfHQ_dbhsn4hy",
-        "Authorization: Bearer sb_publishable_UrRqF6xuKo4rHwfw_zWfHQ_dbhsn4hy",
+        "Authorization: Bearer ".$_ENV['SUPABASE_DEFAULT_KEY'],
         "Content-Type: application/json"
     ];
 
@@ -33,9 +36,9 @@ function supabaseCreatePhotoPainting($bucket, $table)
 {
     require_once './composer/vendor/autoload.php';
 
-    $SUPABASE_URL = 'https://cdhjzkmlucahtllfpdlx.supabase.co';
-    $API_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImNkaGp6a21sdWNhaHRsbGZwZGx4Iiwicm9sZSI6InNlcnZpY2Vfcm9sZSIsImlhdCI6MTc3NTI0ODE3MywiZXhwIjoyMDkwODI0MTczfQ.adPVCz1kuiC0M6Du7axunnXaySAfYV2hy7lpoplCY64'; // ⚠️ use service_role aqui (backend)
-    $BUCKET = $bucket;
+    $url = $_ENV['SUPABASE_URL'];
+    $api_key = $_ENV['SUPABASE_SERVICE_ROLE'];
+    $bucket;
 
     if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
@@ -52,12 +55,12 @@ function supabaseCreatePhotoPainting($bucket, $table)
             $fileName = uniqid() . '-' . basename($file['name']);
 
             // 📦 1. upload para o storage
-            $response = $client->post(
-                "$SUPABASE_URL/storage/v1/object/$BUCKET/$fileName",
+            $client->post(
+                "$url/storage/v1/object/$bucket/$fileName",
                 [
                     'headers' => [
-                        'apikey' => $API_KEY,
-                        'Authorization' => "Bearer $API_KEY",
+                        'apikey' => $api_key,
+                        'Authorization' => "Bearer $api_key",
                         'Content-Type' => $file['type']
                     ],
                     'body' => fopen($file['tmp_name'], 'r')
@@ -65,16 +68,15 @@ function supabaseCreatePhotoPainting($bucket, $table)
             );
 
             // 🔗 2. URL pública
-            $publicUrl = "$SUPABASE_URL/storage/v1/object/public/$BUCKET/$fileName";
+            $publicUrl = "$url/storage/v1/object/public/$bucket/$fileName";
 
             // 🗄️ 3. inserir no banco
-            $dbResponse = $client->post(
-                "$SUPABASE_URL/rest/v1/$table",
+            $client->post(
+                "$url/rest/v1/$table",
                 [
                     'headers' => [
-                        'apikey' => $API_KEY,
-                        'Authorization' => "Bearer $API_KEY",
-                        'Content-Type' => 'application/json',
+                        'apikey' => $api_key,
+                        'Authorization' => "Bearer $api_key",
                         'Prefer' => 'return=minimal'
                     ],
                     'json' => [
@@ -90,12 +92,12 @@ function supabaseCreatePhotoPainting($bucket, $table)
     }
 }
 
-function supabaseCreateFilm($bucket, $table)
+function supabaseCreateFilm($table)
 {
     require_once './composer/vendor/autoload.php';
 
-    $SUPABASE_URL = 'https://cdhjzkmlucahtllfpdlx.supabase.co';
-    $API_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImNkaGp6a21sdWNhaHRsbGZwZGx4Iiwicm9sZSI6InNlcnZpY2Vfcm9sZSIsImlhdCI6MTc3NTI0ODE3MywiZXhwIjoyMDkwODI0MTczfQ.adPVCz1kuiC0M6Du7axunnXaySAfYV2hy7lpoplCY64'; // ⚠️ use service_role aqui (backend)
+    $url = $_ENV['SUPABASE_URL'];
+    $api_key = $_ENV['SUPABASE_SERVICE_ROLE'];
 
     if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
@@ -104,7 +106,7 @@ function supabaseCreateFilm($bucket, $table)
         $titulo = $_POST['titulo'];
         $desc = $_POST['desc'];
         $tipomidia = $_POST['tipomidia'];
-        $BUCKET = $bucket.'/'.$tipomidia;
+        $bucket = 'Filmes/'.$tipomidia;
 
         if ($file['error'] === 0) {
 
@@ -114,12 +116,12 @@ function supabaseCreateFilm($bucket, $table)
             $fileName = uniqid() . '-' . basename($file['name']);
 
             // 📦 1. upload para o storage
-            $response = $client->post(
-                "$SUPABASE_URL/storage/v1/object/$BUCKET/$fileName",
+            $client->post(
+                "$url/storage/v1/object/$bucket/$fileName",
                 [
                     'headers' => [
-                        'apikey' => $API_KEY,
-                        'Authorization' => "Bearer $API_KEY",
+                        'apikey' => $api_key,
+                        'Authorization' => "Bearer $api_key",
                         'Content-Type' => $file['type']
                     ],
                     'body' => fopen($file['tmp_name'], 'r')
@@ -127,15 +129,15 @@ function supabaseCreateFilm($bucket, $table)
             );
 
             // 🔗 2. URL pública
-            $publicUrl = "$SUPABASE_URL/storage/v1/object/public/$BUCKET/$fileName";
+            $publicUrl = "$url/storage/v1/object/public/$bucket/$fileName";
 
             // 🗄️ 3. inserir no banco
-            $dbResponse = $client->post(
-                "$SUPABASE_URL/rest/v1/$table",
+            $client->post(
+                "$url/rest/v1/$table",
                 [
                     'headers' => [
-                        'apikey' => $API_KEY,
-                        'Authorization' => "Bearer $API_KEY",
+                        'apikey' => $api_key,
+                        'Authorization' => "Bearer $api_key",
                         'Content-Type' => 'application/json',
                         'Prefer' => 'return=minimal'
                     ],
@@ -153,3 +155,30 @@ function supabaseCreateFilm($bucket, $table)
     }
 }
 
+function getUserAdm($user_id, $token) {
+    require_once '../composer/vendor/autoload.php';
+    $client = new GuzzleHttp\Client();
+
+    $url = $_ENV['SUPABASE_URL'].'/rest/v1/usuarios?id_usuario=eq.' . $user_id;
+
+    try {
+        $response = $client->get($url, [
+            'headers' => [
+                'apikey' => $_ENV['SUPABASE_SERVICE_ROLE'],
+                'Authorization' => 'Bearer ' . $token
+            ]
+        ]);
+
+        $data = json_decode($response->getBody());
+
+        if (!empty($data) && isset($data[0]->adm)) {
+            return (bool)$data[0]->adm;
+        }
+
+        return false;
+
+    } catch (Exception $e) {
+        echo 'Erro: ' . $e->getMessage();
+        exit;
+    }
+}
