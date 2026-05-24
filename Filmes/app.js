@@ -1,30 +1,42 @@
-const arrows = document.querySelectorAll(".arrow");
-const movieLists = document.querySelectorAll(".movie-list");
+const wrappers = document.querySelectorAll(".movie-list-wrapper");
 
-arrows.forEach((arrow, i) => {
-  const itemNumber = movieLists[i].querySelectorAll("img").length;
-  let clickCounter = 0;
+wrappers.forEach((wrapper) => {
 
-  arrow.addEventListener("click", () => {
-    const ratio = Math.floor(window.innerWidth / 270);
-    clickCounter++;
+    const movieList = wrapper.querySelector(".movie-list");
+    const leftArrow = wrapper.querySelector(".left-arrow");
+    const rightArrow = wrapper.querySelector(".right-arrow");
 
-    if (itemNumber - (4 + clickCounter) + (4 - ratio) >= 0) {
-      movieLists[i].style.transform = `translateX(${
-        movieLists[i].computedStyleMap().get("transform")[0].x.value - 300
-      }px)`;
-    } else {
-      movieLists[i].style.transform = "translateX(0)";
-      clickCounter = 0;
-    }
-  });
-});
+    let currentPosition = 0;
 
-const items = document.querySelectorAll(".menu-list-item");
+    const itemWidth = 295;
 
-items.forEach(item => {
-  item.addEventListener("click", () => {
-    items.forEach(i => i.classList.remove("active"));
-    item.classList.add("active");
-  });
+    rightArrow.addEventListener("click", () => {
+
+        const items = movieList.querySelectorAll(".movie-list-item");
+
+        const totalWidth = items.length * itemWidth;
+        const visibleWidth = wrapper.offsetWidth;
+
+        const maxScroll = totalWidth - visibleWidth;
+
+        currentPosition -= itemWidth;
+
+        if (Math.abs(currentPosition) > maxScroll) {
+            currentPosition = -maxScroll;
+        }
+
+        movieList.style.transform = `translateX(${currentPosition}px)`;
+    });
+
+    leftArrow.addEventListener("click", () => {
+
+        currentPosition += itemWidth;
+
+        if (currentPosition > 0) {
+            currentPosition = 0;
+        }
+
+        movieList.style.transform = `translateX(${currentPosition}px)`;
+    });
+
 });

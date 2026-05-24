@@ -35,7 +35,7 @@
 			'<div id="lcl_loader" class="lcl_loader_pre_first_el"><span id="lcll_1"></span><span id="lcll_2"></span></div>'+
 			'<div id="lcl_nav_cmd">'+
 				'<button class="lcl_icon lcl_prev" title="previous" aria-label="previous" tabindex="10"></button>'+
-				'<button class="lcl_icon lcl_play" title="play/pause" aria-label="play/pause" tabindex="20"></button>'+
+				'<button class="lcl_icon lcl_play" title="Pausar/Reproduzir" aria-label="Pausar/Reproduzir" tabindex="20"></button>'+
 				'<button class="lcl_icon lcl_next" title="next" aria-label="next" tabindex="30"></button>'+
 				'<div class="lcl_icon lcl_counter"></div>'+
 
@@ -147,7 +147,7 @@
 			data_position	: 'over', // over / under / lside / rside	
 			cmd_position	: 'inner', // inner / outer	
 			ins_close_pos	: 'normal', // set closing button position for inner commands - normal/corner	
-			nav_btn_pos		: 'normal', // set arrows and play/pause position - normal/middle
+			nav_btn_pos		: 'normal', // set arrows and Pausar/Reproduzir position - normal/middle
 	
 			txt_hidden		: 500, // whether to hide texts on lightbox opening - bool or int (related to browser's smaller side)
 			show_title		: true, // bool / whether to display titles

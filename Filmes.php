@@ -47,13 +47,13 @@ $prods = supabaseRequest("filmes?select=*");
                 <li><a href="Filmes.php">Filmes</a></li>
                 <li><a href="Musicas.php">Músicas</a></li>
                 <li><a href="LinhadoTempo.php">Linha do Tempo</a></li>
-                <li><a href="Legislação.php">Legislação</a></li>
+                <li><a href="Legislacao.php">Legislação</a></li>
                 </ul>
             </div>
             <!-- ***** Logo Start ***** -->
             <div class="logo">
                 <a href="index.php">
-                <img src="meanStyle/assets/images/LogoEst_SF.png" alt="Logo do Site">
+                <img src="meanStyle/assets/images/LogoEst_SF.png" alt="Logotipo do projeto GRIOT com tipografia colorida e ícone de ave estilizada, com o subtítulo Memória e História Afro-Brasileira">
                 </a>
             </div>
             
@@ -86,7 +86,7 @@ $prods = supabaseRequest("filmes?select=*");
                 </div>
                 <div class="right-image">
                     <img src="meanStyle/assets/images/Filme.jpg"
-                        alt="Câmera de cinema">
+                        alt="Profissional de cinema operando câmera Panavision em set de filmagem externo, vestindo roupas escuras e boné, com paisagem natural ao fundo">
                 </div>
             </div>
         </div>
@@ -95,24 +95,27 @@ $prods = supabaseRequest("filmes?select=*");
             <section class="movie-list-container">
                 <h1 class="movie-list-title">Longas de Ficção</h1>
                 <div class="movie-list-wrapper">
-                    <div class="movie-list">
-                        <?php if ($prods): ?>
-                            <?php foreach ($prods as $row): ?>
-                                <?php if ($row['tipo'] == 'Filmes'): ?>
-                                    <div class="movie-list-item">
-                                        <img class="movie-list-item-img" src="<?= $row['url'] ?>" alt="">
-                                        <span class="movie-list-item-title"><?= $row['titulo'] ?></span>
-                                        <p class="movie-list-item-desc"> <?= $row['desc'] ?> </p>
-                                        <button class="movie-list-item-button"
-                                            onclick="window.open('<?= $row['link'] ?>', '_blank')">
-                                            Assistir
-                                        </button>
+                    <div class="arrow left-arrow">
+                        <i class="fas fa-angle-left"></i>
+                    </div>
+                        <div class="movie-list">
+                            <?php if ($prods): ?>
+                                <?php foreach ($prods as $row): ?>
+                                    <?php if ($row['tipo'] == 'Filmes'): ?>
+                                        <div class="movie-list-item">
+                                            <img class="movie-list-item-img" src="<?= $row['url'] ?>" alt="">
+                                            <span class="movie-list-item-title"><?= $row['titulo'] ?></span>
+                                            <p class="movie-list-item-desc"> <?= $row['desc'] ?> </p>
+                                            <button class="movie-list-item-button"
+                                                onclick="window.open('<?= $row['link'] ?>', '_blank')">
+                                                Assistir
+                                            </button>
                                     </div>
                                 <?php endif; ?>
                             <?php endforeach; ?>
                         <?php endif; ?>
                     </div>
-                    <div class = "arrow">
+                    <div class = "arrow right-arrow">
                     <i class="fas fa-angle-right"></i>
                     </div>
                 </div>
@@ -120,6 +123,9 @@ $prods = supabaseRequest("filmes?select=*");
 
                 <h1 class="movie-list-title">Curtas</h1>
                 <div class="movie-list-wrapper">
+                 <div class="arrow left-arrow">
+                        <i class="fas fa-angle-left"></i>
+                  </div>  
                     <div class="movie-list">
                         <?php if ($prods): ?>
                             <?php foreach ($prods as $row): ?>
@@ -137,7 +143,7 @@ $prods = supabaseRequest("filmes?select=*");
                             <?php endforeach; ?>
                         <?php endif; ?>
                     </div>
-                    <div class = "arrow">
+                    <div class = "arrow right-arrow">
                     <i class="fas fa-angle-right"></i>
                     </div>
                 </div>
@@ -145,30 +151,36 @@ $prods = supabaseRequest("filmes?select=*");
 
                 <h1 class="movie-list-title">Animações</h1>
                 <div class="movie-list-wrapper">
-                    <div class="movie-list">
-                        <?php if ($prods): ?>
-                            <?php foreach ($prods as $row): ?>
-                                <?php if ($row['tipo'] == 'Desenhos'): ?>
-                                    <div class="movie-list-item">
-                                        <img class="movie-list-item-img" src="<?= $row['url'] ?>" alt="">
-                                        <span class="movie-list-item-title"><?= $row['titulo'] ?></span>
-                                        <p class="movie-list-item-desc"> <?= $row['desc'] ?> </p>
-                                        <button class="movie-list-item-button"
-                                            onclick="window.open('<?= $row['link'] ?>', '_blank')">
-                                            Assistir
-                                        </button>
+                    <div class="arrow left-arrow">
+                        <i class="fas fa-angle-left"></i>
+                    </div>
+                        <div class="movie-list">
+                            <?php if ($prods): ?>
+                                <?php foreach ($prods as $row): ?>
+                                    <?php if ($row['tipo'] == 'Desenhos'): ?>
+                                        <div class="movie-list-item">
+                                            <img class="movie-list-item-img" src="<?= $row['url'] ?>" alt="">
+                                            <span class="movie-list-item-title"><?= $row['titulo'] ?></span>
+                                            <p class="movie-list-item-desc"> <?= $row['desc'] ?> </p>
+                                            <button class="movie-list-item-button"
+                                                onclick="window.open('<?= $row['link'] ?>', '_blank')">
+                                                Assistir
+                                            </button>
                                     </div>
                                 <?php endif; ?>
                             <?php endforeach; ?>
                         <?php endif; ?>
                     </div>
-                    <div class = "arrow">
+                    <div class = "arrow right-arrow">
                     <i class="fas fa-angle-right"></i>
                     </div>
                 </div>
     
                 <h1 class="movie-list-title">Documentários</h1>
                 <div class="movie-list-wrapper">
+                    <div class="arrow left-arrow">
+                        <i class="fas fa-angle-left"></i>
+                    </div>
                     <div class="movie-list">
                         <?php if ($prods): ?>
                             <?php foreach ($prods as $row): ?>
@@ -186,13 +198,16 @@ $prods = supabaseRequest("filmes?select=*");
                             <?php endforeach; ?>
                         <?php endif; ?>
                     </div>
-                    <div class="arrow">
+                    <div class="arrow right-arrow">
                     <i class="fas fa-angle-right"></i>
                     </div>
                 </div>
 
                 <h1 class="movie-list-title">Séries</h1>
                 <div class="movie-list-wrapper">
+                 <div class="arrow left-arrow">
+                        <i class="fas fa-angle-left"></i>
+                </div>
                     <div class="movie-list">
                         <?php if ($prods): ?>
                             <?php foreach ($prods as $row): ?>
@@ -210,13 +225,16 @@ $prods = supabaseRequest("filmes?select=*");
                             <?php endforeach; ?>
                         <?php endif; ?>
                     </div>
-                    <div class ="arrow">
+                    <div class ="arrow right-arrow">
                     <i class="fas fa-angle-right"></i>
                     </div>
                 </div>
 
                 <h1 class="movie-list-title">Biografias</h1>
                 <div class="movie-list-wrapper">
+                    <div class="arrow left-arrow">
+                        <i class="fas fa-angle-left"></i>
+                    </div>
                     <div class="movie-list">
                         <?php if ($prods): ?>
                             <?php foreach ($prods as $row): ?>
@@ -234,7 +252,7 @@ $prods = supabaseRequest("filmes?select=*");
                             <?php endforeach; ?>
                         <?php endif; ?>
                     </div>
-                    <div class="arrow">
+                    <div class="arrow right-arrow">
                         <i class="fas fa-angle-right"></i>
                     </div>
                     
@@ -242,6 +260,9 @@ $prods = supabaseRequest("filmes?select=*");
 
                 <h1 class="movie-list-title">Musicais</h1>
                 <div class="movie-list-wrapper">
+                    <div class="arrow left-arrow">
+                        <i class="fas fa-angle-left"></i>
+                    </div>
                     <div class="movie-list">
                         <?php if ($prods): ?>
                             <?php foreach ($prods as $row): ?>
@@ -259,7 +280,7 @@ $prods = supabaseRequest("filmes?select=*");
                             <?php endforeach; ?>
                         <?php endif; ?>
                     </div>
-                       <div class="arrow">
+                       <div class="arrow right-arrow">
                         <i class="fas fa-angle-right"></i>
                     </div>
                 </div>

@@ -138,13 +138,13 @@ if (isset($_GET['q'])) {
               <li><a href="Filmes.php">Filmes</a></li>
               <li><a href="Musicas.php">Músicas</a></li>
               <li><a href="LinhadoTempo.php">Linha do Tempo</a></li>
-              <li><a href="Legislação.php">Legislação</a></li>
+              <li><a href="Legislacao.php">Legislação</a></li>
             </ul>
           </div>
           <!-- ***** Logo Start ***** -->
           <div class="logo">
             <a href="index.php">
-              <img src="meanStyle/assets/images/LogoEst_SF.png" alt = "Logo do site">
+              <img src="meanStyle/assets/images/LogoEst_SF.png" alt = "Logotipo do projeto GRIOT com tipografia colorida e ícone de ave estilizada, com o subtítulo Memória e História Afro-Brasileira">
             </a>
           </div>
           
@@ -184,7 +184,7 @@ if (isset($_GET['q'])) {
       
               <div class="right-image">
 
-                <img src="meanStyle/assets/images/Camera.jpg" alt="Mãos com pincéis">
+                <img src="meanStyle/assets/images/Camera.jpg" alt="Fotografia em preto e branco de um menino negro olhando fixamente para a frente enquanto segura uma câmera fotográfica profissional com as duas mãos.">
               
               </div>
 

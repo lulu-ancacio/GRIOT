@@ -25,6 +25,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST'
     $ano = $_POST['ano'];
     submeter($id_usuario,$titulo, $imagem, $descricao, $autor, $ano);
     exit;
-} 
+}
+
 
 

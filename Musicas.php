@@ -55,13 +55,13 @@
             <li><a href="Filmes.php">Filmes</a></li>
             <li><a href="Pinturas.php">Pinturas</a></li>
             <li><a href="LinhadoTempo.php">Linha do Tempo</a></li>
-            <li><a href="Legislação.php">Legislação</a></li>
+            <li><a href="Legislacao.php">Legislação</a></li>
           </ul>
         </div>
         <!-- ***** Logo Start ***** -->
         <div class="logo">
           <a href="index.php">
-            <img src="meanStyle/assets/images/LogoEst_SF.png" alt = "Logo site">
+            <img src="meanStyle/assets/images/LogoEst_SF.png" alt = "Logotipo do projeto GRIOT com tipografia colorida e ícone de ave estilizada, com o subtítulo Memória e História Afro-Brasileira">
           </a>
         </div>
 
