@@ -2,11 +2,11 @@
 .github/instructions/codacy.instructions.md
 
 # Arquivo com chaves e configs privadas
-env.php
+.env
 
 
 # .gitignore
-config/.env
+
 *.log
 
 #Ignore vscode AI rules
