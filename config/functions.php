@@ -4,7 +4,9 @@ require_once "env.php";
 
 function baseUri($endpoint = '')
 {
-    return $_ENV['SUPABASE_URL'] . '/auth/v1/' . $endpoint;
+    $q = $_ENV['SUPABASE_URL'] . '/auth/v1/' . $endpoint;
+    $q = urldecode($q);
+    return $q;
 }
 
 function getHeader()
@@ -100,9 +102,8 @@ function supabaseCreatePhotoPainting($bucket, $table)
 function supabaseCreateFilm($table)
 {
     require_once './composer/vendor/autoload.php';
-
-    $url = $_ENV['SUPABASE_URL'];
     $url = urlencode($url);
+    $url = $_ENV['SUPABASE_URL'];
     $api_key = $_ENV['SUPABASE_SERVICE_ROLE'];
 
     if ($_SERVER['REQUEST_METHOD'] === 'POST') {
@@ -113,9 +114,13 @@ function supabaseCreateFilm($table)
         $desc = $_POST['desc'];
         $tipomidia = $_POST['tipomidia'];
         $tiposPermitidos = [
-            'trailers',
-            'capas',
-            'videos'
+            'Curtas',
+            'Filmes',
+            'Desenhos',
+            'Documentarios',
+            'Series',
+            'Biografias',
+            'Clipes'
         ];
         if (!in_array($tipomidia, $tiposPermitidos)) {
             die('Tipo de mídia inválido.');
@@ -175,7 +180,7 @@ function getUserAdm($user_id, $token)
     $client = new GuzzleHttp\Client();
 
     $url = $_ENV['SUPABASE_URL'];
-    $url = urlencode($url) . '/rest/v1/usuarios?id_usuario=eq.' . $user_id;
+    $url = $url . '/rest/v1/usuarios?id_usuario=eq.' . $user_id;
     try {
         $response = $client->get($url, [
             'headers' => [
