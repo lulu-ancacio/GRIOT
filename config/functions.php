@@ -4,9 +4,9 @@ require_once "env.php";
 
 function baseUri($endpoint = '')
 {
-    $q = $_ENV['SUPABASE_URL'] . '/auth/v1/' . $endpoint;
-    $q = urldecode($q);
-    return $q;
+    
+    $cleanEndpoint = basename($endpoint);
+    return $_ENV['SUPABASE_URL'] . '/auth/v1/' . $cleanEndpoint;
 }
 
 function getHeader()
@@ -19,10 +19,12 @@ function getHeader()
 
 function supabaseRequest($endpoint)
 {
-    $url = $_ENV['SUPABASE_URL'] . '/rest/v1/' . $endpoint;
+  
+    $cleanEndpoint = basename($endpoint);
+    $url = $_ENV['SUPABASE_URL'] . '/rest/v1/' . $cleanEndpoint;
 
     $headers = [
-        "apikey: sb_publishable_UrRqF6xuKo4rHwfw_zWfHQ_dbhsn4hy",
+       "apikey: " . $_ENV['SUPABASE_DEFAULT_KEY'],
         "Authorization: Bearer " . $_ENV['SUPABASE_DEFAULT_KEY'],
         "Content-Type: application/json"
     ];
@@ -33,6 +35,7 @@ function supabaseRequest($endpoint)
     curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
 
     $response = curl_exec($ch);
+    curl_close($ch);
 
     return json_decode($response, true);
 }
@@ -41,10 +44,9 @@ function supabaseCreatePhotoPainting($bucket, $table)
 {
     require_once './composer/vendor/autoload.php';
 
+   
     $url = $_ENV['SUPABASE_URL'];
-    $url = urlencode($url);
     $api_key = $_ENV['SUPABASE_SERVICE_ROLE'];
-    $bucket;
 
     if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
@@ -57,10 +59,10 @@ function supabaseCreatePhotoPainting($bucket, $table)
 
             $client = new GuzzleHttp\Client();
 
-            // nome único do arquivo
-            $fileName = uniqid() . '-' . basename($file['name']);
+            $extension = preg_replace('/[^a-zA-Z0-9]/', '', pathinfo($file['name'], PATHINFO_EXTENSION));
+            $fileName = uniqid('img_', true) . '.' . $extension;
 
-            // 1. upload para o storage
+           
             $client->post(
                 "$url/storage/v1/object/$bucket/$fileName",
                 [
@@ -73,11 +75,10 @@ function supabaseCreatePhotoPainting($bucket, $table)
                 ]
             );
 
-
-            // 2. URL pública
+           
             $publicUrl = "$url/storage/v1/object/public/$bucket/$fileName";
 
-            // 3. inserir no banco
+            
             $client->post(
                 "$url/rest/v1/$table",
                 [
@@ -102,7 +103,6 @@ function supabaseCreatePhotoPainting($bucket, $table)
 function supabaseCreateFilm($table)
 {
     require_once './composer/vendor/autoload.php';
-    $url = urlencode($url);
     $url = $_ENV['SUPABASE_URL'];
     $api_key = $_ENV['SUPABASE_SERVICE_ROLE'];
 
@@ -113,6 +113,7 @@ function supabaseCreateFilm($table)
         $titulo = $_POST['titulo'];
         $desc = $_POST['desc'];
         $tipomidia = $_POST['tipomidia'];
+        
         $tiposPermitidos = [
             'Curtas',
             'Filmes',
@@ -122,19 +123,22 @@ function supabaseCreateFilm($table)
             'Biografias',
             'Clipes'
         ];
+        
         if (!in_array($tipomidia, $tiposPermitidos)) {
             die('Tipo de mídia inválido.');
         }
-        $bucket = 'Filmes/' . $tipomidia;
+        
+       
+        $bucket = 'Filmes/' . basename($tipomidia);
 
         if ($file['error'] === 0) {
 
             $client = new GuzzleHttp\Client();
 
-            // nome único do arquivo
-            $fileName = uniqid() . '-' . basename($file['name']);
+            $extension = preg_replace('/[^a-zA-Z0-9]/', '', pathinfo($file['name'], PATHINFO_EXTENSION));
+            $fileName = uniqid('mov_', true) . '.' . $extension;
 
-            // 📦 1. upload para o storage
+           
             $client->post(
                 "$url/storage/v1/object/$bucket/$fileName",
                 [
@@ -147,10 +151,10 @@ function supabaseCreateFilm($table)
                 ]
             );
 
-            // 🔗 2. URL pública
+          
             $publicUrl = "$url/storage/v1/object/public/$bucket/$fileName";
 
-            // 🗄️ 3. inserir no banco
+          
             $client->post(
                 "$url/rest/v1/$table",
                 [
@@ -180,7 +184,8 @@ function getUserAdm($user_id, $token)
     $client = new GuzzleHttp\Client();
 
     $url = $_ENV['SUPABASE_URL'];
-    $url = $url . '/rest/v1/usuarios?id_usuario=eq.' . $user_id;
+    $url = $url . '/rest/v1/usuarios?id_usuario=eq.' . urlencode($user_id);
+    
     try {
         $response = $client->get($url, [
             'headers' => [
