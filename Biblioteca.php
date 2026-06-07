@@ -106,7 +106,7 @@ $biblioteca = [
 
         <!-- Primeiro Carrossel (Livros disponíveis) -->
         <div class="carousel-containeNPagos">
-            <p id="Classificacao">Livros disponíveis</p>
+            <p class="Classificacao">Livros disponíveis</p>
             <!-- CORRIGIDO: Passando o ID específico do carrossel na função JS -->
             <button class="carousel-btn prev" onclick="scrollCarousel(-1, 'carousel-disponiveis')">❮</button>
             <div class="carousel" id="carousel-disponiveis">
