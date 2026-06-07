@@ -98,7 +98,7 @@ $biblioteca = [
                         </p>
                     </div>
                     <div class="right-image">
-                        <img src="mainStyle/assets/images/Biblioteca.jpg" alt="Ilustração minimalista em tons de amarelo e preto que simula uma ampulheta. Na parte superior, camelos caminham sobre uma duna de areia que escorre para a metade inferior, acumulando-se no formato de uma pirâmide.">
+                        <img src="mainStyle/assets/images/Biblioteca.jpg" alt="Capa de livro com fundo bege. No topo esquerdo, o título "Querido estudante negro" em letras brancas; à direita, o nome da autora Bárbara Carine. No centro, ilustração de um homem negro sentado em uma cadeira giratória diante de uma escrivaninha de madeira, lendo uma folha de papel. Sobre a mesa há um computador portátil e outros objetos. Acima da mesa, um espelho oval reflete uma criança negra estudando. Na parte inferior esquerda aparece o logotipo da editora Planeta.">
                     </div>
                 </div>
             </div>
