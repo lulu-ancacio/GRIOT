@@ -36,7 +36,7 @@ session_start();
         <ul class="menu-dropdown">
           <li><a href="Pinturas.php">Pinturas</a></li>
           <li><a href="Fotografias.php">Fotografias</a></li>
-          <li><a href="Textos.php">Textos</a></li>
+          <li><a href="Biblioteca.php">Biblioteca</a></li>
           <li><a href="Filmes.php">Filmes</a></li>
           <li><a href="Musicas.php">Músicas</a></li>
           <li><a href="LinhadoTempo.php">Linha do Tempo</a></li>
@@ -140,11 +140,11 @@ session_start();
           </a>
 
         
-          <a href="Livros.php" class="content-card card-vermelho">
+          <a href="Biblioteca.php" class="content-card card-vermelho">
             <div class="icon-box">
               <i class="fa fa-book"></i>
             </div>
-            <h4>Textos<br><span>(Em breve)</span></h4>
+            <h4>Biblioteca<br><span>(Em breve)</span></h4>
           </a>
 
          

@@ -31,16 +31,7 @@
 <body>
 
 
-  <!-- Preloader -->
-  <div id="js-preloader" class="js-preloader">
-    <div class="preloader-inner">
-      <span class="dot"></span>
-      <div class="dots">
-        <span></span>
-        <span></span>
-        <span></span>
-      </div>
-    </div>
+
 
   <!-- Header -->
   <!-- ***** Header Area Start ***** -->
@@ -54,7 +45,7 @@
                 <ul class="menu-dropdown">
                 <li><a href="Pinturas.php">Pinturas</a></li>
                 <li><a href="Fotografias.php">Fotografias</a></li>
-                <li><a href="Textos.php">Textos</a></li>
+                <li><a href="Biblioteca.php">Biblioteca</a></li>
                 <li><a href="Filmes.php">Filmes</a></li>
                 <li><a href="Musicas.php">Músicas</a></li>
                 <li><a href="Legislacao.php">Legislação</a></li>
@@ -104,7 +95,7 @@
         </div>
     </section>
 
-  <!-- Timeline -->
+ 
   <!-- Linha do Tempo -->
 <div class="timeline-container">
   

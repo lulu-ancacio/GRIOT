@@ -51,7 +51,7 @@
           </button>
           <ul class="menu-dropdown">
             <li><a href="Fotografias.php">Fotografias</a></li>
-            <li><a href="Textos.php">Textos</a></li>
+            <li><a href="Biblioteca.php">Biblioteca</a></li>
             <li><a href="Filmes.php">Filmes</a></li>
             <li><a href="Pinturas.php">Pinturas</a></li>
             <li><a href="LinhadoTempo.php">Linha do Tempo</a></li>
