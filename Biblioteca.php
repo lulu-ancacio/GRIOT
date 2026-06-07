@@ -8,7 +8,7 @@ class Livro {
     public $link;
 
     // ADICIONADO: $link foi incluído aqui nos parâmetros do construtor
-    public function __construct($titulo, $autor, $ano, $capa, $link) { 
+    public function __construct($titulo, $autor, $ano, $capa, $link) {
         $this->titulo = $titulo;
         $this->autor = $autor;
         $this->ano = $ano;
@@ -93,7 +93,7 @@ $biblioteca = [
                             é um capítulo e cada obra é um passo em direção a um futuro mais inclusivo e
                              igualitário. Navegue por páginas de resistência, conquistas culturais e saberes
                               que moldaram a narrativa da luta contra o racismo. Descubra como a literatura
-                               conecta o passado ao presente e inspire-se a folhear as páginas de um futuro onde a 
+                               conecta o passado ao presente e inspire-se a folhear as páginas de um futuro onde a
                             diversidade seja celebrada e a igualdade seja uma realidade para todos.
                         </p>
                     </div>
@@ -125,8 +125,8 @@ $biblioteca = [
 
         <!-- Segundo Carrossel (Livros externos) -->
         <div class="carousel-containePagos">
-            <p id="Classificacao">Livros externos</p>
-            <!-- CORRIGIDO: Passando o ID específico do carrossel na função JS -->
+            <p class="Classificacao">Livros externos</p>
+           
             <button class="carousel-btn prev" onclick="scrollCarousel(-1, 'carousel-externos')">❮</button>
             <div class="carousel" id="carousel-externos">
                 <?php foreach ($biblioteca as $livro): ?>

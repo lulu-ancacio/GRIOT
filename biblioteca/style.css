@@ -22,7 +22,7 @@
             padding: 20px;
         }
 
-        #Classificacao{
+        .Classificacao{
             font-size: 1.5em;
             color: #333;
             margin-bottom: 20px;
@@ -147,7 +147,7 @@
 
         .link-btn{
         background: #fe3f40;
-        color: #ffffff;
+        color: #000000;
         padding: 10px 22px;
         border-radius: 999px;
         font-weight: 500;
