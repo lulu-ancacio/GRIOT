@@ -262,7 +262,7 @@ $prods = supabaseRequest("filmes?select=*");
                     
                 </div>
 
-                <h1 class="movie-list-title">personalidadesis</h1>
+                <h1 class="movie-list-title">Clipes</h1>
                 <div class="movie-list-wrapper">
                     <div class="arrow left-arrow">
                         <i class="fas fa-angle-left"></i>
