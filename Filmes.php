@@ -49,7 +49,7 @@ $prods = supabaseRequest("filmes?select=*");
                 <li><a href="Fotografias.php">Fotografias</a></li>
                 <li><a href="Biblioteca.php">Biblioteca</a></li>
                 <li><a href="Filmes.php">Filmes</a></li>
-                <li><a href="Musicas.php">Músicas</a></li>
+                <li><a href="Personalidades.php">Personalidades</a></li>
                 <li><a href="LinhadoTempo.php">Linha do Tempo</a></li>
                 <li><a href="Legislacao.php">Legislação</a></li>
                 </ul>
@@ -262,7 +262,7 @@ $prods = supabaseRequest("filmes?select=*");
                     
                 </div>
 
-                <h1 class="movie-list-title">Musicais</h1>
+                <h1 class="movie-list-title">personalidadesis</h1>
                 <div class="movie-list-wrapper">
                     <div class="arrow left-arrow">
                         <i class="fas fa-angle-left"></i>

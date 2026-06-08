@@ -1,6 +1,4 @@
 
-/* TITULOS */
-
 .movie-list-title{
   color: #fe3f40;
 
@@ -12,7 +10,6 @@
   font-weight: 700;
 }
 
-/* LISTAS */
 
 .movie-list-container{
   padding: 0 3px;
@@ -34,9 +31,6 @@
   width: max-content;
 }
 
-
-
-
 .movie-list-item{
   width: 270px;
   min-width: 270px;
@@ -50,15 +44,6 @@
   cursor: pointer;
   z-index: 1;
 }
-
-.movie-list-item:hover{
-  transform: scale(1.06) translateY(-20px);
-  height: 380px;
-  z-index: 999;
-  margin-top: -50px;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.7);
-}
-
 
 
 .movie-list-item-img{
@@ -74,53 +59,67 @@
 }
 
 
-.movie-list-item-title{
-  position: absolute;
-  top: 210px;
-  left: 15px;
-  color: #fff;
-  font-size: 22px;
-  font-weight: 700;
-  opacity: 0;
-  transition: 0.3s;
+.movie-list-item-title {
+    position: absolute;
+    top: 210px;
+    left: 15px;
+    right: 15px;
+    color: #fff;
+    font-size: 22px;
+    font-weight: 700;
+    opacity: 0;
+    transition: 0.3s;
+    white-space: nowrap;          
+    overflow: hidden;              
+    text-overflow: ellipsis;       
+    max-width: calc(100% - 30px);  
 }
 
-
-
-.movie-list-item-desc{
-  position: absolute;
-  top:250px;
-  left: 15px;
-  width: 85%;
-  color: #ccc;
-  font-size: 12px;
-  line-height: 1.5;
-  opacity: 0;
-  transition: 0.3s;
+.movie-list-item-desc {
+    position: absolute;
+    top: 250px;
+    left: 15px;
+    right: 15px;
+    color: #ccc;
+    font-size: 12px;
+    line-height: 1.5;
+    opacity: 0;
+    transition: 0.3s;
+    
+    /* ADICIONE ISSO: */
+    display: -webkit-box;
+    -webkit-line-clamp: 4;         
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-height: 90px;             
 }
 
-/* BOTÃO CARD */
-
-.movie-list-item-button{
-  position: absolute;
-  bottom: 20px;
-  left: 15px;
-  padding: 10px 20px;
-  border: none;
-  border-radius: 8px;
-  background: #fe3f40;
-  color: #ffffff;
-  background-color: #fe3f40;
-  cursor: pointer;
-  opacity: 0;
-  transition: 0.3s;
+.movie-list-item:hover {
+    transform: scale(1.06) translateY(-20px);
+    height: 420px; 
+    z-index: 999;
+    margin-top: -50px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.7);
 }
 
+.movie-list-item-button {
+    position: absolute;
+    top: 350px; 
+    left: 15px;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 8px;
+    background: #fe3f40;
+    color: #ffffff;
+    cursor: pointer;
+    opacity: 0;
+    transition: 0.3s;
+}
 .movie-list-item-button:hover{
   background: #03a4ed;
 }
 
-/* MOSTRAR TEXOS */
 
 .movie-list-item:hover .movie-list-item-title,
 .movie-list-item:hover .movie-list-item-desc,
@@ -128,7 +127,7 @@
   opacity: 1;
 }
 
-/* SETA */
+
 
 .arrow{
   position: absolute;

@@ -38,7 +38,7 @@ session_start();
           <li><a href="Fotografias.php">Fotografias</a></li>
           <li><a href="Biblioteca.php">Biblioteca</a></li>
           <li><a href="Filmes.php">Filmes</a></li>
-          <li><a href="Musicas.php">Músicas</a></li>
+          <li><a href="Personalidades.php">Personalidades</a></li>
           <li><a href="LinhadoTempo.php">Linha do Tempo</a></li>
           <li><a href="Legislacao.php">Legislação</a></li>
         </ul>
@@ -117,7 +117,7 @@ session_start();
         <div class="section-heading">
           <h2>Conteúdos que valorizam a <em>Cultura Negra</em></h2>
           <p>
-            Fotografias, Pinturas, Recomendações de Filmes e Músicas.
+            Fotografias, Pinturas, Recomendações de Filmes e Personalidades.
             <br>
             Selecione o seu desejado e acesse um mundo novo.
           </p>
@@ -144,7 +144,7 @@ session_start();
             <div class="icon-box">
               <i class="fa fa-book"></i>
             </div>
-            <h4>Biblioteca<br><span>(Em breve)</span></h4>
+            <h4>Biblioteca</h4>
           </a>
 
          
@@ -156,10 +156,10 @@ session_start();
           </a>
 
          
-          <a href="Musicas.php" class="content-card card-azul">
+          <a href="Personalidades.php" class="content-card card-azul">
             <div class="icon-box">
-              <i class="fa fa-music"></i>
-            </div><h4>Músicas<br><span>(Em breve)</span></h4>
+              <i class="fa-solid fa-person"></i>
+            </div><h4>Personalidades</h4>
           </a>
 
       

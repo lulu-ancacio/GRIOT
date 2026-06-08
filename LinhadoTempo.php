@@ -47,7 +47,7 @@
                 <li><a href="Fotografias.php">Fotografias</a></li>
                 <li><a href="Biblioteca.php">Biblioteca</a></li>
                 <li><a href="Filmes.php">Filmes</a></li>
-                <li><a href="Musicas.php">Músicas</a></li>
+                <li><a href="Personalidades.php">Personalidades</a></li>
                 <li><a href="Legislacao.php">Legislação</a></li>
                 </ul>
             </div>
@@ -163,16 +163,13 @@ filha do imperador Dom Pedro II,libertando mais de 700 mil escravizados das suas
   ... <!-- Conteúdo do Plug-in V-Libras -->
 
 <!-- VLibras -->
-<div vw class="enabled">
-  <div vw-access-button class="active"></div>
-  <div vw-plugin-wrapper>
-    <div class="vw-plugin-top-wrapper"></div>
-  </div>
-</div>
 
-<script src="Vlibras/vlibras-plugin.js"></script>
 
-    <script src="mainStyle/script.js"></script>
+
+
+
+
+<script src="mainStyle/script.js"></script>
 
 
 

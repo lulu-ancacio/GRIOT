@@ -64,7 +64,7 @@ $biblioteca = [
                         <li><a href="Fotografias.php">Fotografias</a></li>
                         <li><a href="Biblioteca.php">Linha do Tempo</a></li>
                         <li><a href="Filmes.php">Filmes</a></li>
-                        <li><a href="Musicas.php">Músicas</a></li>
+                        <li><a href="Personalidades.php">Personalidades</a></li>
                         <li><a href="Legislacao.php">Legislação</a></li>
                     </ul>
                 </div>
@@ -142,6 +142,11 @@ $biblioteca = [
             <button class="carousel-btn next" onclick="scrollCarousel(1, 'carousel-externos')">❯</button>
         </div>
     </div>
+        <!-- ===== FOOTER ===== -->
+    <footer class="footer">
+        <p>
+            Trabalho de Conclusão de Curso apresentado ao curso técnico em Informática IFPR Pinhais
+    </footer>
 
     <script src="biblioteca/main.js"></script>
     <script src="mainStyle/script.js"></script>

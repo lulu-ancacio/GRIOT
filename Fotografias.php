@@ -103,28 +103,17 @@ if (isset($_GET['q'])) {
 
 
 
-  <!-- //////////////////////////////////////////////// -->
-  <!-- REQUIRED ELEMENTS -->
+
 
   <script src="galeria/lib/jquery.js" type="text/javascript"></script>
 
   <script src="galeria/js/lc_lightbox.lite.js" type="text/javascript"></script>
   <link rel="stylesheet" href="galeria/css/lc_lightbox.css" />
-
-
-  <!-- SKINS -->
   <link rel="stylesheet" href="galeria/skins/minimal.css" />
-
-
-  <!-- //////////////////////////////////////////////// -->
-
-
-  <!-- ASSETS -->
  <script src="galeria/lib/AlloyFinger/alloy_finger.min.js" type="text/javascript"></script>
 </head>
 
 <body>
-<!-- ***** Header Area Start ***** -->
 <header class="header-area">
   <div class="container">
         <nav class="main-nav">
@@ -136,12 +125,12 @@ if (isset($_GET['q'])) {
               <li><a href="Pinturas.php">Pinturas</a></li>
               <li><a href="Biblioteca.php">Biblioteca</a></li>
               <li><a href="Filmes.php">Filmes</a></li>
-              <li><a href="Musicas.php">Músicas</a></li>
+              <li><a href="Personalidades.php">Personalidades</a></li>
               <li><a href="LinhadoTempo.php">Linha do Tempo</a></li>
               <li><a href="Legislacao.php">Legislação</a></li>
             </ul>
           </div>
-          <!-- ***** Logo Start ***** -->
+
           <div class="logo">
             <a href="index.php">
               <img src="mainStyle/assets/images/LogoEst_SF.png" alt = "Logotipo do projeto GRIOT com tipografia colorida e ícone de ave estilizada, com o subtítulo Memória e História Afro-Brasileira">
@@ -155,18 +144,12 @@ if (isset($_GET['q'])) {
         </nav>
   </div>
 </header>
-<!-- ***** Header Area End ***** -->
-
   <div class="ImagemFundo">
     <section class = "main-banner" id = "top">
-
     <div class="container">
-
       <div class="banner-content">
-
       <div class = "left-content">
         <h6> Bem-Vindo ao GRIOT- Fotografias </h6>
-
         <h2>
          <em>Diga X</em>
           <span>Diga GRIOT</span>
@@ -180,16 +163,11 @@ if (isset($_GET['q'])) {
          </p>
         </div>
 
-        <!--IMAGEM-->
-      
+  
               <div class="right-image">
-
                 <img src="mainStyle/assets/images/Camera.jpg" alt="Fotografia em preto e branco de um menino negro olhando fixamente para a frente enquanto segura uma câmera fotográfica profissional com as duas mãos.">
-              
               </div>
-
             </div>
-
           </div>
         </div>
       </div>
@@ -246,11 +224,11 @@ if (isset($_GET['q'])) {
     new window.VLibras.Widget('https://vlibras.gov.br/app');
   </script>
 
-  <!-- LIGHTBOX INITIALIZATION -->
+
   <script type="text/javascript">
     $(document).ready(function (e) {
 
-      // live handler
+   
       lc_lightbox('.elem', {
         wrap_class: 'lcl_fade_oc',
         gallery: true,

@@ -199,7 +199,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                         <li><a href="Filmes.php">Filmes</a></li>
                         <li><a href="Pinturas.php">Pinturas</a></li>
                         <li><a href="LinhadoTempo.php">Linha do Tempo</a></li>
-                        <li><a href="Músicas.php">Músicas</a></li>
+                        <li><a href="Personalidades.php">Personalidades</a></li>
                         <li><a href="mensagemRecebida.html">Sugestões</a></li>
                     </ul>
                 </div>
