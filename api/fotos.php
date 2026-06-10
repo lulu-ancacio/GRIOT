@@ -24,8 +24,7 @@ require_once '../composer/vendor/autoload.php';
     <link rel="stylesheet" href="../mainStyle/assets/css/templatemo-space-dynamic.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
         integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
-        crossorigin="anonymous"
-        referrerpolicy="no-referrer" />
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
 
     <style type="text/css">
         .lcl_fade_oc.lcl_pre_show #lcl_overlay,
@@ -110,7 +109,8 @@ require_once '../composer/vendor/autoload.php';
 
                 <div class="logo">
                     <a href="index.php">
-                        <img src="mainStyle/assets/images/LogoEst_SF.png" alt="Logotipo do projeto GRIOT com tipografia colorida e ícone de ave estilizada, com o subtítulo Memória e História Afro-Brasileira">
+                        <img src="mainStyle/assets/images/LogoEst_SF.png"
+                            alt="Logotipo do projeto GRIOT com tipografia colorida e ícone de ave estilizada, com o subtítulo Memória e História Afro-Brasileira">
                     </a>
                 </div>
 
@@ -122,36 +122,6 @@ require_once '../composer/vendor/autoload.php';
         </div>
     </header>
 
-    <div class="ImagemFundo">
-        <section class="main-banner" id="top">
-            <div class="container">
-                <div class="banner-content">
-                    <div class="left-content">
-                        <h6> Bem-Vindo ao GRIOT- Fotografias </h6>
-                        <h2>
-                            <em>Diga X</em>
-                            <span>Diga GRIOT</span>
-                        </h2>
-
-                        <p>A fotografia é muito mais do que um clique congelado no tempo;
-                            é uma forma de escrever a história com a luz. No contexto da cultura
-                            negra e da ancestralidade, a câmera torna-se uma ferramenta poderosa de
-                            reexistência. Durante muito tempo, outras pessoas contaram as nossas histórias,
-                            mas hoje, através das lentes,nós retomamos o protagonismo da nossa própria narrativa.
-                        </p>
-                    </div>
-
-
-                    <div class="right-image">
-                        <img src="mainStyle/assets/images/Camera.jpg" alt="Fotografia em preto e branco de um menino negro olhando fixamente para a frente enquanto segura uma câmera fotográfica profissional com as duas mãos.">
-                    </div>
-                </div>
-            </div>
-    </div>
-    </div>
-    </div>
-    </div>
-
 
     <div id="portfolio" class="our-portfolio section">
         <div class="container">
@@ -162,24 +132,17 @@ require_once '../composer/vendor/autoload.php';
             </div>
             <div class="grid-galeria" id="resultados">
 
+<?php
 
+    $teste = include_once 'api.php';
+    echo $teste[1]['autor'];
+
+
+?>
 
             </div>
         </div>
     </div>
-
-
-    <footer>
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12 wow fadeIn" data-wow-duration="1s" data-wow-delay="0.25s">
-                    <p>
-                        Trabalho de Conclusão de Curso apresentado ao curso técnico em Informática IFPR Pinhais
-                    </p>
-                </div>
-            </div>
-        </div>
-    </footer>
 
 
 
@@ -199,7 +162,7 @@ require_once '../composer/vendor/autoload.php';
 
 
     <script type="text/javascript">
-        $(document).ready(function(e) {
+        $(document).ready(function (e) {
 
 
             lc_lightbox('.elem', {
@@ -215,7 +178,31 @@ require_once '../composer/vendor/autoload.php';
 
         });
     </script>
+    
     <script src="../mainStyle/script.js"></script>
+
+    <script>
+        async function carregarFotos() {
+            const response = await fetch('api/api.php');
+            const fotos = await response.json();
+
+            let html = '';
+
+            fotos.forEach(foto => {
+
+                html += `
+                    <div class="card">
+                        <img src="${foto.url}">
+                        <h3>${foto.titulo}</h3>
+                        <p>${foto.autor}</p>
+                    </div>
+                    `;
+            });
+
+        document.getElementById('resultados').innetHTML = html;
+        }
+        carregarFotos();
+    </script>
 
     <script>
         async function carregarObras(busca = '') {
@@ -243,7 +230,7 @@ require_once '../composer/vendor/autoload.php';
 
         document
             .getElementById('pesquisa')
-            .addEventListener('input', function() {
+            .addEventListener('input', function () {
 
                 carregarObras(this.value);
 
