@@ -118,58 +118,6 @@ session_start();
         </div>
     </header>
 
-
-    <div id="portfolio" class="our-portfolio section">
-        <div class="container">
-            <div class="search-box">
-                <input type="text" id="pesquisa" placeholder="Pesquisar...">
-                <i class="fa-solid fa-magnifying-glass search-icon">
-                </i>
-            </div>
-            <div class="grid-galeria" id="resultados">
-            </div>
-        </div>
-    </div>
-
-
-
-    <!-- VLibras -->
-    <div vw class="enabled">
-        <div vw-access-button class="active"></div>
-        <div vw-plugin-wrapper>
-            <div class="vw-plugin-top-wrapper"></div>
-        </div>
-    </div>
-
-
-    <script src="Vlibras/vlibras-plugin.js"></script>
-    <script>
-        new window.VLibras.Widget('https://vlibras.gov.br/app');
-    </script>
-
-
-    <script type="text/javascript">
-        $(document).ready(function (e) {
-
-
-            lc_lightbox('.elem', {
-                wrap_class: 'lcl_fade_oc',
-                gallery: true,
-                thumb_attr: 'data-lcl-thumb',
-
-                skin: 'minimal',
-                radius: 0,
-                padding: 0,
-                border_w: 0,
-            });
-
-        });
-    </script>
-
-    <script src="../mainStyle/script.js"></script>
-
-    <script src="../mainStyle/script.js"></script>
-
     <script>
         async function carregarObras(busca = '') {
 

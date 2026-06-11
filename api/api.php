@@ -5,8 +5,5 @@ require_once '../config/functions.php';
 
 $filtro = "fotografias?select=*";
 $quadros = supabaseRequest($filtro);
-$quadros = json_encode($quadros, JSON_PRETTY_PRINT);
+echo json_encode($quadros, JSON_UNESCAPED_UNICODE);
 
-#echo '<pre>'. $quadros .'</pre>';
-
-return $quadros;
