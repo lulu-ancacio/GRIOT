@@ -1,9 +1,5 @@
-<?php
-session_start();
-?>
-
 <!DOCTYPE html>
-<html lang="pt-br">
+<html>
 
 <head>
 
@@ -17,10 +13,11 @@ session_start();
     <title>GRIOT-Fotografias</title>
 
     <!-- Css principal -->
-    <link rel="stylesheet" href="../mainStyle/assets/css/templatemo-space-dynamic.css">
+    <link rel="stylesheet" href="mainStyle/assets/css/templatemo-space-dynamic.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
         integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
-        crossorigin="anonymous" referrerpolicy="no-referrer" />
+        crossorigin="anonymous"
+        referrerpolicy="no-referrer" />
 
     <style type="text/css">
         .lcl_fade_oc.lcl_pre_show #lcl_overlay,
@@ -77,6 +74,11 @@ session_start();
         }
     </style>
 
+
+
+
+
+
     <script src="galeria/lib/jquery.js" type="text/javascript"></script>
 
     <script src="galeria/js/lc_lightbox.lite.js" type="text/javascript"></script>
@@ -86,115 +88,84 @@ session_start();
 </head>
 
 <body>
-    <header class="header-area">
+
+    <h1>Teste da API</h1>
+
+    <div id="portfolio" class="our-portfolio section">
         <div class="container">
-            <nav class="main-nav">
-                <div class="left-menu">
-                    <button class="menu-trigger" aria-label="Abrir menu">
-                        <span></span>
-                    </button>
-                    <ul class="menu-dropdown">
-                        <li><a href="Pinturas.php">Pinturas</a></li>
-                        <li><a href="Biblioteca.php">Biblioteca</a></li>
-                        <li><a href="Filmes.php">Filmes</a></li>
-                        <li><a href="Personalidades.php">Personalidades</a></li>
-                        <li><a href="LinhadoTempo.php">Linha do Tempo</a></li>
-                        <li><a href="Legislacao.php">Legislação</a></li>
-                    </ul>
-                </div>
-
-                <div class="logo">
-                    <a href="index.php">
-                        <img src="mainStyle/assets/images/LogoEst_SF.png"
-                            alt="Logotipo do projeto GRIOT com tipografia colorida e ícone de ave estilizada, com o subtítulo Memória e História Afro-Brasileira">
-                    </a>
-                </div>
-
-
-                <div class="right-menu">
-                    <a href="index.php" class="main-red-button">Início</a>
-                </div>
-            </nav>
+            <div class="search-box">
+                <input type="text" id="pesquisa" placeholder="Pesquisar...">
+                <i class="fa-solid fa-magnifying-glass search-icon">
+                </i>
+            </div>
+            <div class="grid-galeria" id="resultado">
+            </div>
         </div>
-    </header>
+    </div>
 
     <script>
-        async function carregarObras(busca = '') {
+        async function testarApi() {
 
             try {
 
-                const response =
-                    await fetch('./api.php?q=' + encodeURIComponent(busca));
-
-                if (!response.ok) {
-                    throw new Error(`Erro HTTP ${response.status}`);
-                }
+                const response = await fetch('./api.php');
 
                 const dados = await response.json();
 
                 let html = '';
 
-                dados.forEach(row => {
-
-                    const titulo = row.titulo ?? 'Sem título';
-                    const autor = row.autor ?? 'Autor desconhecido';
-                    const ano = row.ano ?? '';
-                    const url = row.url ?? '';
+                dados.forEach(foto => {
 
                     html += `
-                <div class="obra-card">
+          <a class="elem" href="${foto.url}" title="${foto.titulo}"
+            data-lcl-author="${foto.autor} (${foto.ano})">
+            <span style="background-image: url('${foto.url}');"></span>
+          </a>
+    `;
 
-                    <a class="elem"
-                       href="${url}"
-                       title="${titulo}"
-                       data-lcl-author="${autor}${ano ? ' (' + ano + ')' : ''}">
-
-                        <span
-                            style="background-image:url('${url}')">
-                        </span>
-
-                    </a>
-
-                    <h4>${titulo}</h4>
-                    <p>${autor}</p>
-
-                </div>
-            `;
                 });
 
-                document.getElementById('resultados').innerHTML = html;
-
-                // Inicializa o lightbox após inserir os elementos
-                lc_lightbox('.elem', {
-                    wrap_class: 'lcl_fade_oc',
-                    gallery: true,
-                    thumb_attr: 'data-lcl-thumb',
-                    skin: 'minimal',
-                    radius: 0,
-                    padding: 0,
-                    border_w: 0
-                });
+                document.getElementById('resultado').innerHTML = html;
 
             } catch (erro) {
 
                 console.error(erro);
 
-                document.getElementById('resultados').innerHTML =
-                    '<p>Erro ao carregar as obras.</p>';
+                document.getElementById('resultado').textContent =
+                    'Erro ao consumir API';
             }
         }
 
-        // Carrega tudo ao abrir a página
-        carregarObras();
+        testarApi();
+    </script>
 
-        // Pesquisa dinâmica
-        document
-            .getElementById('pesquisa')
-            .addEventListener('input', function () {
+    <script type="text/javascript">
+        $(document).ready(function(e) {
 
-                carregarObras(this.value);
 
+            lc_lightbox('.elem', {
+                wrap_class: 'lcl_fade_oc',
+                gallery: true,
+                thumb_attr: 'data-lcl-thumb',
+
+                skin: 'minimal',
+                radius: 0,
+                padding: 0,
+                border_w: 0,
             });
+
+        });
+    </script>
+    <script src="../mainStyle/script.js"></script>
+    <script>
+        document.getElementById('pesquisa').addEventListener('input', async function() {
+
+            let busca = this.value;
+            let response = await fetch('api.php?q=' + busca);
+            let html = await response.text();
+            document.getElementById('resultados').innerHTML = html;
+
+        });
     </script>
 
 </body>

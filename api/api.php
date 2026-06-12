@@ -2,9 +2,26 @@
 
 require_once '../config/functions.php';
 
+header('Content-Type: application/json; charset=utf-8');
 
-$filtro = "fotografias?select=*";
-$quadros = supabaseRequest($filtro);
-$quadros = json_encode($quadros, JSON_PRETTY_PRINT);
+$busca = trim($_GET['q'] ?? '');
 
-echo '<pre>'. $quadros .'</pre>';
+if ($busca === '') {
+
+    $endpoint =
+        'pinturas?select=*';
+
+} else {
+
+    $busca = urlencode("*{$busca}*");
+
+    $endpoint =
+        "pinturas?select=*&or=(titulo.ilike.$busca,autor.ilike.$busca)";
+}
+
+$dados = supabaseRequest($endpoint);
+
+echo json_encode(
+    $dados,
+    JSON_UNESCAPED_UNICODE
+);
