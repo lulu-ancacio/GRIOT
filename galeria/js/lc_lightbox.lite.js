@@ -31,20 +31,20 @@
 	let lb_code =
 	'<div id="lcl_wrap" class="lcl_pre_show lcl_pre_first_el lcl_first_sizing lcl_is_resizing">'+
 		'<div id="lcl_window">'+
-			'<a href="javascript:void(0);" id="lcl_corner_close" title="close" aria-label="close" tabindex="300"></a>'+
+			'<a href="javascript:void(0);" id="lcl_corner_close" title="Fechar" aria-label="Fechar" tabindex="300"></a>'+
 			'<div id="lcl_loader" class="lcl_loader_pre_first_el"><span id="lcll_1"></span><span id="lcll_2"></span></div>'+
 			'<div id="lcl_nav_cmd">'+
-				'<button class="lcl_icon lcl_prev" title="previous" aria-label="previous" tabindex="10"></button>'+
+				'<button class="lcl_icon lcl_prev" title="Anterior" aria-label="Anterior" tabindex="10"></button>'+
 				'<button class="lcl_icon lcl_play" title="Pausar/Reproduzir" aria-label="Pausar/Reproduzir" tabindex="20"></button>'+
-				'<button class="lcl_icon lcl_next" title="next" aria-label="next" tabindex="30"></button>'+
+				'<button class="lcl_icon lcl_next" title="Próximo" aria-label="Próximo" tabindex="30"></button>'+
 				'<div class="lcl_icon lcl_counter"></div>'+
 
-				'<button class="lcl_icon lcl_right_icon lcl_close" title="close" tabindex="300"></button>'+
+				'<button class="lcl_icon lcl_right_icon lcl_close" title="Fechar" aria-label="Fechar" tabindex="300"></button>'+
 				
 				'<button class="lcl_icon lcl_right_icon lcl_fullscreen" title="toggle fullscreen" aria-label="toggle fullscreen" tabindex="100"></button>'+
-				'<button class="lcl_icon lcl_right_icon lcl_txt_toggle" title="toggle text" aria-label="toggle text" tabindex="90"></button>'+
+				'<button class="lcl_icon lcl_right_icon lcl_txt_toggle" title="Detalhes" aria-label="Detalhes" tabindex="90"></button>'+
 				'<button class="lcl_icon lcl_right_icon lcl_download" title="download" aria-label="download" tabindex="80"></button>'+
-				'<button class="lcl_icon lcl_right_icon lcl_thumbs_toggle" title="toggle thumbnails" aria-label="toggle thumbnails" tabindex="70"></button>'+
+				'<button class="lcl_icon lcl_right_icon lcl_thumbs_toggle" title="Tela Cheia" aria-label="Tela Cheia" tabindex="70"></button>'+
 				'<button class="lcl_icon lcl_right_icon lcl_socials" title="toggle socials" aria-label="toggle socials" tabindex="60"></button>'+
 			'</div>'+
 			'<div id="lcl_contents_wrap">'+
