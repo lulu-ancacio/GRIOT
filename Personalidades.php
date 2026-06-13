@@ -42,7 +42,7 @@
                 <li><a href="Fotografias.php">Fotografias</a></li>
                 <li><a href="Biblioteca.php">Biblioteca</a></li>
                 <li><a href="Filmes.php">Filmes</a></li>
-                <li><a href="LinhaDoTempo.php">Linha do Tempo</a></li>
+                <li><a href="LinhadoTempo.php">Linha do Tempo</a></li>
                 <li><a href="Legislacao.php">Legislação</a></li>
                 </ul>
             </div>
