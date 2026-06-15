@@ -1,30 +1,3 @@
-<?php
-
-class Livro {
-    public $titulo;
-    public $autor;
-    public $ano;
-    public $capa;
-    public $link;
-
-    // ADICIONADO: $link foi incluído aqui nos parâmetros do construtor
-    public function __construct($titulo, $autor, $ano, $capa, $link) {
-        $this->titulo = $titulo;
-        $this->autor = $autor;
-        $this->ano = $ano;
-        $this->capa = $capa;
-        $this->link = $link;
-    }
-}
-
-$biblioteca = [
-    new Livro("Quarto de Despejo", "Carolina Maria de Jesus", 1960, "https://m.media-amazon.com/images/I/71z42zpEwbL._AC_UF1000,1000_QL80_.jpg", "https://www.amazon.com.br/Quarto-Despejo-Di%C3%A1rio-Uma-Favelada/dp/8508171277"),
-    new Livro("Dispositivo de Racialidade", "Sueli Carneiro", 2023, "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTA5yQwy9g20EjW_fAynhEEuRVkUZ6XDvSYeg&s", "https://www.amazon.com.br/Dispositivo-racialidade-constru%C3%A7%C3%A3o-outro-fundamento/dp/6559790967"),
- 
-];
-
-?>
-
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
@@ -60,12 +33,12 @@ $biblioteca = [
                         <span></span>
                     </button>
                     <ul class="menu-dropdown">
-                        <li><a href="Pinturas.php">Pinturas</a></li>
-                        <li><a href="Fotografias.php">Fotografias</a></li>
-                        <li><a href="LinhadoTempo.php">Linha do Tempo</a></li>
-                        <li><a href="Filmes.php">Filmes</a></li>
-                        <li><a href="Personalidades.php">Personalidades</a></li>
-                        <li><a href="Legislacao.php">Legislação</a></li>
+                        <li><a href="Pinturas.html">Pinturas</a></li>
+                        <li><a href="Fotografias.html">Fotografias</a></li>
+                        <li><a href="LinhadoTempo.html">Linha do Tempo</a></li>
+                        <li><a href="Audiovisuais.html"</a></li>
+                        <li><a href="Personalidades.html">Personalidades</a></li>
+                        <li><a href="Legislacao.html">Legislação</a></li>
                     </ul>
                 </div>
                 <!-- Logo Start -->

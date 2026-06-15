@@ -194,12 +194,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 <div class="left-menu">
                     <button class="menu-trigger" aria-label="Abrir menu"><span></span></button>
                     <ul class="menu-dropdown">
-                        <li><a href="Fotografias.php">Fotografias</a></li>
-                        <li><a href="Biblioteca.php">Biblioteca</a></li>
-                        <li><a href="Filmes.php">Filmes</a></li>
-                        <li><a href="Pinturas.php">Pinturas</a></li>
-                        <li><a href="LinhadoTempo.php">Linha do Tempo</a></li>
-                        <li><a href="Personalidades.php">Personalidades</a></li>
+                        <li><a href="Fotografias.html">Fotografias</a></li>
+                        <li><a href="Biblioteca.html">Biblioteca</a></li>
+                        <li><a href="Audiovisuais.html"</a></li>
+                        <li><a href="Pinturas.html">Pinturas</a></li>
+                        <li><a href="LinhadoTempo.html">Linha do Tempo</a></li>
+                        <li><a href="Personalidades.html">Personalidades</a></li>
                         <li><a href="mensagemRecebida.html">Sugestões</a></li>
                     </ul>
                 </div>
@@ -318,13 +318,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                         <label for="filme_tipo">Tipo de Mídia *</label>
                         <select id="filme_tipo" name="tipomidia" required>
                             <option value="">Selecione...</option>
-                            <option value="Filmes">🎬 Longas de Ficção</option>
-                            <option value="Curtas">🎞️ Curtas</option>
-                            <option value="Desenhos">✏️ Animações</option>
-                            <option value="Documentarios">🎥 Documentários</option>
-                            <option value="Series">📺 Séries</option>
-                            <option value="Biografias">👤 Biografias</option>
-                            <option value="Clipes">🎵 Musicais</option>
+                            <option value="filmes">🎬 Longas de Ficção</option>
+                            <option value="curtas">🎞️ Curtas</option>
+                            <option value="desenhos">✏️ Animações</option>
+                            <option value="documentarios">🎥 Documentários</option>
+                            <option value="series">📺 Séries</option>
+                            <option value="biografias">👤 Biografias</option>
+                            <option value="clipes">🎵 Musicais</option>
                         </select>
                     </div>
 

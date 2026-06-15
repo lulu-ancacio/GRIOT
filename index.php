@@ -34,13 +34,13 @@ session_start();
           <span></span>
         </button>
         <ul class="menu-dropdown">
-          <li><a href="Pinturas.php">Pinturas</a></li>
-          <li><a href="Fotografias.php">Fotografias</a></li>
-          <li><a href="Biblioteca.php">Biblioteca</a></li>
-          <li><a href="Filmes.php">Filmes</a></li>
-          <li><a href="Personalidades.php">Personalidades</a></li>
-          <li><a href="LinhadoTempo.php">Linha do Tempo</a></li>
-          <li><a href="Legislacao.php">Legislação</a></li>
+          <li><a href="Pinturas.html">Pinturas</a></li>
+          <li><a href="Fotografias.html">Fotografias</a></li>
+          <li><a href="Biblioteca.html">Biblioteca</a></li>
+          <li><a href="Audiovisuais.html">Audiovisuais</a></li>
+          <li><a href="Personalidades.html">Personalidades</a></li>
+          <li><a href="LinhadoTempo.html">Linha do Tempo</a></li>
+          <li><a href="Legislacao.html">Legislação</a></li>
         </ul>
       </div>
       <a href="index.php" class="logo">
@@ -125,14 +125,14 @@ session_start();
         </div>
 
         <div class="content-grid">
-          <a href="Fotografias.php" class="content-card card-roxo">
+          <a href="Fotografias.html" class="content-card card-roxo">
             <div class="icon-box">
               <i class="fa fa-camera"></i>
             </div>
             <h4>Fotografias</h4>
           </a>
 
-          <a href="Pinturas.php" class="content-card card-amarela">
+          <a href="Pinturas.html" class="content-card card-amarela">
             <div class="icon-box">
               <i class="fa fa-paint-brush"></i>
             </div>
@@ -140,7 +140,7 @@ session_start();
           </a>
 
         
-          <a href="Biblioteca.php" class="content-card card-vermelho">
+          <a href="Biblioteca.html" class="content-card card-vermelho">
             <div class="icon-box">
               <i class="fa fa-book"></i>
             </div>
@@ -148,22 +148,22 @@ session_start();
           </a>
 
          
-          <a href="Filmes.php" class="content-card card-marrom">
+          <a href="Audiovisuais.html" class="content-card card-marrom">
             <div class="icon-box">
               <i class="fa fa-film"></i>
             </div>
-            <h4>Filmes</h4>
+            <h4>Audiovisuais</h4>
           </a>
 
          
-          <a href="Personalidades.php" class="content-card card-azul">
+          <a href="Personalidades.html" class="content-card card-azul">
             <div class="icon-box">
               <i class="fa-solid fa-person"></i>
             </div><h4>Personalidades</h4>
           </a>
 
       
-          <a href="LinhadoTempo.php" class="content-card card-rosa">
+          <a href="LinhadoTempo.html" class="content-card card-rosa">
             <div class="icon-box">
               <i class="fa fa-clock"></i>
             </div>
@@ -175,7 +175,7 @@ session_start();
 
           </a>
 
-          <a href="Legislacao.php" class="content-card card-laranja">
+          <a href="Legislacao.html" class="content-card card-laranja">
             <div class="icon-box">
               <i class="fa fa-gavel"></i>
             </div>

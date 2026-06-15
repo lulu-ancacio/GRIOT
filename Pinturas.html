@@ -1,31 +1,3 @@
-<?php
-session_start();
-
-require_once 'config/functions.php';
-require_once './composer/vendor/autoload.php';
-
-$busca = $_GET['q'] ?? '';
-$filtro = "pinturas?or=(titulo.ilike.*$busca*,autor.ilike.*$busca*,tags.cs.{\"$busca\"})";
-$quadros = supabaseRequest($filtro);
-if (isset($_GET['q'])) {
-
-  foreach ($quadros as $row) {
-
-    echo '
-        <a class="elem"
-            href="' . $row['url'] . '"
-            title="' . $row['titulo'] . '"
-            data-lcl-author="' . $row['autor'] . ' (' . $row['ano'] . ')">
-
-            <span style="background-image: url(\'' . $row['url'] . '\');"></span>
-
-        </a>';
-  }
-
-  exit;
-}
-?>
-
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -135,12 +107,12 @@ if (isset($_GET['q'])) {
             <span></span>
           </button>
           <ul class="menu-dropdown">
-            <li><a href="Fotografias.php">Fotografias</a></li>
-            <li><a href="Biblioteca.php">Biblioteca</a></li>
-            <li><a href="Filmes.php">Filmes</a></li>
-            <li><a href="Personalidades.php">Personalidades</a></li>
-            <li><a href="LinhadoTempo.php">Linha do Tempo</a></li>
-            <li><a href="Legislacao.php">Legislação</a></li>
+            <li><a href="Fotografias.html">Fotografias</a></li>
+            <li><a href="Biblioteca.html">Biblioteca</a></li>
+            <li><a href="Audiovisuais.html"</a></li>
+            <li><a href="Personalidades.html">Personalidades</a></li>
+            <li><a href="LinhadoTempo.html">Linha do Tempo</a></li>
+            <li><a href="Legislacao.html">Legislação</a></li>
           </ul>
         </div>
         <!-- ***** Logo Start ***** -->
@@ -195,21 +167,14 @@ if (isset($_GET['q'])) {
   </div>
 
   
-  <div id="portfolio" class="our-portfolio section">
+    <div id="portfolio" class="our-portfolio section">
     <div class="container">
       <div class="search-box">
-        <input type = "text" id="pesquisa" placeholder="Pesquisar...">
-        <i class = "fa-solid fa-magnifying-glass search-icon">
+        <input type="text" id="pesquisa" placeholder="Pesquisar...">
+        <i class="fa-solid fa-magnifying-glass search-icon">
         </i>
       </div>
-      <div class="grid-galeria" id="resultados">
-
-        <?php foreach ($quadros as $row): ?>
-          <a class="elem" href="<?= $row['url'] ?>" title="<?= $row['titulo'] ?>" data-lcl-txt="<?= $row['desc'] ?>"
-            data-lcl-author="<?= $row['autor'] ?> (<?= $row['ano'] ?>)">
-            <span style="background-image: url('<?= $row['url'] ?>');"></span>
-          </a>
-        <?php endforeach; ?>
+      <div class="grid-galeria" id="resultado">
 
       </div>
     </div>
@@ -238,7 +203,7 @@ if (isset($_GET['q'])) {
     </div>
   </div>
 
- 
+  <!-- VLibras -->
   <script>
     (function(){
       var s = document.createElement('script');
@@ -270,17 +235,69 @@ if (isset($_GET['q'])) {
 
     });
   </script>
+
+  <!-- Estilização-->
   <script src="mainStyle/script.js"></script>
+
+    <script>
+    async function chamarApi() {
+
+      try {
+
+        const response = await fetch('api/Pinturas.php');
+
+        const dados = await response.json();
+
+        let html = '';
+
+        dados.forEach(item => {
+
+          html += `
+          <a class="elem" href="${item.url}" title="${item.titulo}"
+            data-lcl-author="${item.autor} (${item.ano})">
+            <span style="background-image: url('${item.url}');"></span>
+          </a>
+    `;
+
+        });
+
+        document.getElementById('resultado').innerHTML = html;
+
+      } catch (erro) {
+
+        console.error(erro);
+
+        document.getElementById('resultado').textContent =
+          'Erro ao consumir API';
+      }
+    }
+
+    chamarApi();
+  </script>
+
   <script>
     document.getElementById('pesquisa').addEventListener('input', async function() {
 
       let busca = this.value;
-      let response = await fetch('Pinturas.php?q=' + busca);
-      let html = await response.text();
-      document.getElementById('resultados').innerHTML = html;
+      let response = await fetch('api/Pinturas.php?q=' + encodeURIComponent(busca));
+      const dados = await response.json();
+      let html = '';
+
+        dados.forEach(item => {
+
+          html += `
+          <a class="elem" href="${item.url}" title="${item.titulo}"
+            data-lcl-author="${item.autor} (${item.ano})">
+            <span style="background-image: url('${item.url}');"></span>
+          </a>
+    `;
+
+        });
+      document.getElementById('resultado').innerHTML = html;
 
     });
   </script>
+
 
 </body>
 

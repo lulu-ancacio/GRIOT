@@ -9,14 +9,15 @@ $busca = trim($_GET['q'] ?? '');
 if ($busca === '') {
 
     $endpoint =
-        'pinturas?select=*';
+        'fotografias?select=*';
 
 } else {
 
+    $buscaNaoEncodada = $busca;
     $busca = urlencode("*{$busca}*");
 
     $endpoint =
-        "pinturas?select=*&or=(titulo.ilike.$busca,autor.ilike.$busca)";
+        "fotografias?select=*&or=(titulo.ilike.$busca,autor.ilike.$busca,tags.cs.{{$buscaNaoEncodada}})";
 }
 
 $dados = supabaseRequest($endpoint);
