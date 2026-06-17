@@ -196,10 +196,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     <ul class="menu-dropdown">
                         <li><a href="Fotografias.html">Fotografias</a></li>
                         <li><a href="Biblioteca.html">Biblioteca</a></li>
-                        <li><a href="Audiovisuais.html"></a></li>
+                        <li><a href="Audiovisuais.html">Audiovisuais</a></li>
                         <li><a href="Pinturas.html">Pinturas</a></li>
                         <li><a href="LinhadoTempo.html">Linha do Tempo</a></li>
                         <li><a href="Personalidades.html">Personalidades</a></li>
+                        <li><a href = "Musica.html"> Músicas</a><li>
                         <li><a href="mensagemRecebida.html">Sugestões</a></li>
                     </ul>
                 </div>

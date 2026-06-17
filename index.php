@@ -41,6 +41,8 @@ session_start();
           <li><a href="Personalidades.html">Personalidades</a></li>
           <li><a href="LinhadoTempo.html">Linha do Tempo</a></li>
           <li><a href="Legislacao.html">Legislação</a></li>
+           <li><a href="Musica.html">Músicas</a></li>
+          
         </ul>
       </div>
       <a href="index.php" class="logo">
@@ -163,7 +165,7 @@ session_start();
           </a>
 
       
-          <a href="LinhadoTempo.html" class="content-card card-rosa">
+          <a href="LinhadoTempo.html" class="content-card card-roxo">
             <div class="icon-box">
               <i class="fa fa-clock"></i>
             </div>
@@ -175,7 +177,19 @@ session_start();
 
           </a>
 
-          <a href="Legislacao.html" class="content-card card-laranja">
+           <a href="LinhadoTempo.html" class="content-card card-amarela">
+            <div class="icon-box">
+              <i class="fa-solid fa-headphones-simple"></i>
+            </div>
+
+            <h4>
+              Música
+              <br>
+            </h4>
+
+          </a>
+
+          <a href="Legislacao.html" class="content-card card-vermelho">
             <div class="icon-box">
               <i class="fa fa-gavel"></i>
             </div>
