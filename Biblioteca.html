@@ -88,6 +88,11 @@
         <!-- Primeiro Carrossel (Livros disponíveis) -->
         <p class="Classificacao">Livros disponíveis</p>
         <div class="carousel-containeNPagos">
+            <button class="carousel-btn prev" onclick="scrollCarousel(-1, 'carousel-disponiveis')"></button>
+            <div class="carousel" id="carousel-disponiveis">
+                <div id="nao-pago"></div>
+            </div>
+            <button class="carousel-btn next" onclick="scrollCarousel(1, 'carousel-disponiveis')"></button>
 
         </div>
 
@@ -95,7 +100,7 @@
         <div class="carousel-containePagos">
             <p class="Classificacao">Livros disponíveis</p>
             <!-- CORRIGIDO: Passando o ID específico do carrossel na função JS -->
-            <button class="carousel-btn prev" onclick="scrollCarousel(-1, 'carousel-disponiveis')">❮</button>
+            <button class="carousel-btn prev" onclick="scrollCarousel(-1, 'carousel-disponiveis')"></button>
             <div class="carousel" id="carousel-disponiveis">
                 <div class="livro-cardP">
                     <img src="" alt="" onerror="this.src='https://via.placeholder.com/250x350?text=Sem+Capa'">
@@ -105,7 +110,7 @@
                     <button class="link-btn" onclick="window.open('', '_blank')">Comprar</button>
                 </div>
             </div>
-            <button class="carousel-btn next" onclick="scrollCarousel(1, 'carousel-disponiveis')">❯</button>
+            <button class="carousel-btn next" onclick="scrollCarousel(1, 'carousel-disponiveis')"></button>
         </div>
     </div>
     <!-- ===== FOOTER ===== -->
@@ -137,29 +142,23 @@
                 const dados = await response.json();
                 let html = '';
 
-                    dados.forEach(item => {
-                            html += `
-                                            <button class="carousel-btn prev" onclick="scrollCarousel(-1, 'carousel-disponiveis')"></button>
-            <div class="carousel" id="carousel-disponiveis">
-                <div class="livro-cardNP">
-                    <img src="${item.url}" alt="" onerror="this.src='https://via.placeholder.com/250x350?text=Sem+Capa'">
+                dados.forEach(item => {
+                    html += `
+                    <div class="livro-cardNP">
+                
+                    <img src="${item.url}" alt="oioi">
+                    <p>${item.url}</p>
                     <h3>${item.titulo}</h3>
                     <p><strong>${item.autor}</strong></p>
                     <p class="ano">${item.ano}</p>
                     <button class="link-btn" onclick="window.open('${item.link}', '_blank')">Comprar</button>
-                </div>
-            </div>
-            <button class="carousel-btn next" onclick="scrollCarousel(1, 'carousel-disponiveis')"></button>
-        
-                            `;
-                        
-                    });
-                    document.querySelector(`.carousel-containeNPagos`).innerHTML = html;
-                    html = '';
+                    </div>        `;
+                });
+                document.getElementById('nao-pago').innerHTML = html;
 
             } catch (erro) {
                 console.error(erro);
-                document.getElementById('movie-list-filmes').textContent =
+                document.getElementById('nao-pago').textContent =
                     'Erro ao consumir API';
             }
         }
