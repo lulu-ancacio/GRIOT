@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -18,9 +19,7 @@
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
         integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
-        crossorigin="anonymous"
-        referrerpolicy="no-referrer"
-    />
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 
 <body>
@@ -39,14 +38,15 @@
                         <li><a href="Audiovisuais.html">Audiovisuais</a></li>
                         <li><a href="Personalidades.html">Personalidades</a></li>
                         <li><a href="Legislacao.html">Legislação</a></li>
-                            <li><a href="Musica.html">Músicas</a></li>
+                        <li><a href="Musica.html">Músicas</a></li>
 
                     </ul>
                 </div>
                 <!-- Logo Start -->
                 <div class="logo">
                     <a href="index.php">
-                        <img src="mainStyle/assets/images/LogoEst_SF.png" alt="Logotipo do projeto GRIOT com tipografia colorida e ícone de ave estilizada, com o subtítulo Memória e História Afro-Brasileira">
+                        <img src="mainStyle/assets/images/LogoEst_SF.png"
+                            alt="Logotipo do projeto GRIOT com tipografia colorida e ícone de ave estilizada, com o subtítulo Memória e História Afro-Brasileira">
                     </a>
                 </div>
                 <div class="right-menu">
@@ -66,58 +66,49 @@
                         <p>
                             Explore o acervo do GRIOT, onde cada livro é uma história, cada prateleira
                             é um capítulo e cada obra é um passo em direção a um futuro mais inclusivo e
-                             igualitário. Navegue por páginas de resistência, conquistas culturais e saberes
-                              que moldaram a narrativa da luta contra o racismo. Descubra como a literatura
-                               conecta o passado ao presente e inspire-se a folhear as páginas de um futuro onde a
+                            igualitário. Navegue por páginas de resistência, conquistas culturais e saberes
+                            que moldaram a narrativa da luta contra o racismo. Descubra como a literatura
+                            conecta o passado ao presente e inspire-se a folhear as páginas de um futuro onde a
                             diversidade seja celebrada e a igualdade seja uma realidade para todos.
                         </p>
                     </div>
                     <div class="right-image">
-                        <img src="mainStyle/assets/images/Biblioteca.jpg" alt="Capa de livro com fundo bege. No topo esquerdo, o título "Querido estudante negro" em letras brancas; à direita, o nome da autora Bárbara Carine. No centro, ilustração de um homem negro sentado em uma cadeira giratória diante de uma escrivaninha de madeira, lendo uma folha de papel. Sobre a mesa há um computador portátil e outros objetos. Acima da mesa, um espelho oval reflete uma criança negra estudando. Na parte inferior esquerda aparece o logotipo da editora Planeta.">
+                        <img src="mainStyle/assets/images/Biblioteca.jpg"
+                            alt="Capa de livro com fundo bege. No topo esquerdo, o título " Querido estudante negro" em
+                            letras brancas; à direita, o nome da autora Bárbara Carine. No centro, ilustração de um
+                            homem negro sentado em uma cadeira giratória diante de uma escrivaninha de madeira, lendo
+                            uma folha de papel. Sobre a mesa há um computador portátil e outros objetos. Acima da mesa,
+                            um espelho oval reflete uma criança negra estudando. Na parte inferior esquerda aparece o
+                            logotipo da editora Planeta.">
                     </div>
                 </div>
             </div>
         </section>
 
         <!-- Primeiro Carrossel (Livros disponíveis) -->
+        <p class="Classificacao">Livros disponíveis</p>
         <div class="carousel-containeNPagos">
-            <p class="Classificacao">Livros disponíveis</p>
-            <!-- CORRIGIDO: Passando o ID específico do carrossel na função JS -->
-            <button class="carousel-btn prev" onclick="scrollCarousel(-1, 'carousel-disponiveis')">❮</button>
-            <div class="carousel" id="carousel-disponiveis">
-                <?php foreach ($biblioteca as $livro): ?>
-                    <div class="livro-cardNP">
-                        <img src="<?php echo $livro->capa; ?>" alt="<?php echo $livro->titulo; ?>" onerror="this.src='https://via.placeholder.com/250x350?text=Sem+Capa'">
-                        <h3><?php echo $livro->titulo; ?></h3>
-                        <p><strong><?php echo $livro->autor; ?></strong></p>
-                        <p class="ano"><?php echo $livro->ano; ?></p>
-                        <button class="link-btn" onclick="window.open('<?php echo $livro->link; ?>', '_blank')">Comprar</button>
-                    </div>
-                <?php endforeach; ?>
-            </div>
-            <button class="carousel-btn next" onclick="scrollCarousel(1, 'carousel-disponiveis')">❯</button>
+
         </div>
 
         <!-- Segundo Carrossel (Livros externos) -->
         <div class="carousel-containePagos">
-            <p class="Classificacao">Livros externos</p>
-           
-            <button class="carousel-btn prev" onclick="scrollCarousel(-1, 'carousel-externos')">❮</button>
-            <div class="carousel" id="carousel-externos">
-                <?php foreach ($biblioteca as $livro): ?>
-                    <div class="livro-cardP">
-                        <img src="<?php echo $livro->capa; ?>" alt="<?php echo $livro->titulo; ?>" onerror="this.src='https://via.placeholder.com/250x350?text=Sem+Capa'">
-                        <h3><?php echo $livro->titulo; ?></h3>
-                        <p><strong><?php echo $livro->autor; ?></strong></p>
-                        <p class="ano"><?php echo $livro->ano; ?></p>
-                        <button class="link-btn" onclick="window.open('<?php echo $livro->link; ?>', '_blank')">Comprar</button>
-                    </div>
-                <?php endforeach; ?>
+            <p class="Classificacao">Livros disponíveis</p>
+            <!-- CORRIGIDO: Passando o ID específico do carrossel na função JS -->
+            <button class="carousel-btn prev" onclick="scrollCarousel(-1, 'carousel-disponiveis')">❮</button>
+            <div class="carousel" id="carousel-disponiveis">
+                <div class="livro-cardP">
+                    <img src="" alt="" onerror="this.src='https://via.placeholder.com/250x350?text=Sem+Capa'">
+                    <h3></h3>
+                    <p><strong></strong></p>
+                    <p class="ano"></p>
+                    <button class="link-btn" onclick="window.open('', '_blank')">Comprar</button>
+                </div>
             </div>
-            <button class="carousel-btn next" onclick="scrollCarousel(1, 'carousel-externos')">❯</button>
+            <button class="carousel-btn next" onclick="scrollCarousel(1, 'carousel-disponiveis')">❯</button>
         </div>
     </div>
-        <!-- ===== FOOTER ===== -->
+    <!-- ===== FOOTER ===== -->
     <footer class="footer">
         <p>
             Trabalho de Conclusão de Curso apresentado ao curso técnico em Informática IFPR Pinhais
@@ -138,5 +129,44 @@
     <script>
         new window.VLibras.Widget('https://vlibras.gov.br/app');
     </script>
+
+    <script>
+        async function chamarApi() {
+            try {
+                const response = await fetch('api/Biblioteca.php');
+                const dados = await response.json();
+                let html = '';
+
+                    dados.forEach(item => {
+                            html += `
+                                            <button class="carousel-btn prev" onclick="scrollCarousel(-1, 'carousel-disponiveis')"></button>
+            <div class="carousel" id="carousel-disponiveis">
+                <div class="livro-cardNP">
+                    <img src="${item.url}" alt="" onerror="this.src='https://via.placeholder.com/250x350?text=Sem+Capa'">
+                    <h3>${item.titulo}</h3>
+                    <p><strong>${item.autor}</strong></p>
+                    <p class="ano">${item.ano}</p>
+                    <button class="link-btn" onclick="window.open('${item.link}', '_blank')">Comprar</button>
+                </div>
+            </div>
+            <button class="carousel-btn next" onclick="scrollCarousel(1, 'carousel-disponiveis')"></button>
+        
+                            `;
+                        
+                    });
+                    document.querySelector(`.carousel-containeNPagos`).innerHTML = html;
+                    html = '';
+
+            } catch (erro) {
+                console.error(erro);
+                document.getElementById('movie-list-filmes').textContent =
+                    'Erro ao consumir API';
+            }
+        }
+        chamarApi();
+    </script>
+
 </body>
+
+
 </html>
