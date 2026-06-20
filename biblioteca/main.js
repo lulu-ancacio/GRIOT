@@ -7,6 +7,5 @@
             });
         }
 
-        // Auto-scroll opcional (descomente se quiser)
         setInterval(() => scrollCarousel(1), 5000);
    

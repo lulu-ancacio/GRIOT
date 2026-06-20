@@ -17,14 +17,14 @@ session_start();
 
   <script src="Supabase/supabase.min.js"></script>
 
-  <!-- Additional CSS Files -->
+
   <link rel="stylesheet" href="mainStyle/assets/css/fontawesome.css">
   <link rel="stylesheet" href="mainStyle/assets/css/templatemo-space-dynamic.css">
 
   <style>
   
         .banner {
-            background: #ff5845;
+            background:#e11d1d;
             padding: 2.5rem 1.5rem;
             text-align: center;
              margin-top: 120px;
@@ -202,7 +202,8 @@ session_start();
             <li><a href="LinhadoTempo.html">Linha do Tempo</a></li>
             <li><a href="Personalidades.html">Personalidades</a></li>
             <li><a href="adm.php">Administrador</a></li>
-             <li><a href="Musica.html">Músicas</a></li>
+            <li><a href="Musica.html">Músicas</a></li>
+            <li><a href="Denuncia.php">Denúncias</a></li>
           </ul>
         </div>
         <div class="logo">
@@ -219,14 +220,13 @@ session_start();
 
  
 
-    <section class="banner">
-        <h1>Painel Administrativo</h1>
-        <p>Veja as sugestões que nossos usuários enviaram</p>
-        <div class="user-badge">
-            👤 <?= htmlspecialchars($_SESSION['email'] ?? 'Administrador') ?>
-        </div>
-    </section>
-
+  <section class="banner">
+    <h1><i class="fa-solid fa-shield-halved"></i> Painel de Moderação</h1>
+    <p>Análise de conteúdos denunciados pelos usuários</p>
+    <div class="user-badge">
+      👤 <?= htmlspecialchars($_SESSION['email'] ?? 'Administrador') ?>
+    </div>
+  </section>
 
     <section class="comments-section" style="padding: 60px 0;">
       <div class="container">

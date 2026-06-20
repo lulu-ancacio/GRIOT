@@ -1,0 +1,46 @@
+ .lcl_fade_oc.lcl_pre_show #lcl_overlay,
+    .lcl_fade_oc.lcl_pre_show #lcl_window,
+    .lcl_fade_oc.lcl_is_closing #lcl_overlay,
+    .lcl_fade_oc.lcl_is_closing #lcl_window {
+      opacity: 0 !important;
+    }
+
+    .lcl_fade_oc.lcl_is_closing #lcl_overlay {
+      -webkit-transition-delay: .15s !important;
+      transition-delay: .15s !important;
+    }
+
+    .elem,
+    .elem * {
+      box-sizing: border-box;
+      margin: 0 !important;
+    }
+
+    .elem {
+      display: inline-block;
+      font-size: 0;
+      border: 20px solid transparent;
+      border-bottom: none;
+      background: #fff;
+      padding: 10px;
+      height: auto;
+      background-clip: padding-box;
+      width: 100% !important;
+    }
+
+    .elem>span {
+      display: block;
+      cursor: pointer;
+      height: 0;
+      padding-bottom: 70%;
+      background-size: cover;
+      background-position: center center;
+    }
+
+    .grid-galeria {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+      padding: 20px;
+    }
+

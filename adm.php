@@ -58,7 +58,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             color: var(--secondary);
         }
 
-        /* ===== BANNER ===== */
+       
         .banner {
             background: #ff5845;
             padding: 7rem 1.5rem 2.5rem;
@@ -86,7 +86,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             color: white;
         }
 
-        /* ===== MAIN ===== */
+     
         main.container {
             padding-top: 3rem;
             padding-bottom: 3rem;
@@ -97,14 +97,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             margin-bottom: 2rem;
         }
 
-        /* ===== GRID ===== */
+       
         .forms-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
             gap: 1.5rem;
         }
 
-        /* ===== CARD ===== */
+    
         .form-card {
             background: white;
             border-radius: var(--radius);
@@ -122,7 +122,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             margin-bottom: 1rem;
         }
 
-        /* ===== FORM ===== */
+   
         .form-group {
             margin-bottom: 1rem;
         }
@@ -177,7 +177,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
 <body>
 
-    <!-- Preloader -->
+   
     <div id="js-preloader" class="js-preloader">
         <div class="preloader-inner">
             <span class="dot"></span>
@@ -187,7 +187,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         </div>
     </div>
 
-    <!-- Header -->
+
     <header class="header-area">
         <div class="container">
             <nav class="main-nav">
@@ -217,7 +217,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     </header>
 
 
-    <!-- ===== BANNER ===== -->
+ 
     <section class="banner">
         <h1>Painel Administrativo</h1>
         <p>Gerencie o conteúdo do Museu Virtual GRIOT</p>
@@ -226,13 +226,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         </div>
     </section>
 
-    <!-- ===== MAIN CONTENT ===== -->
+ 
     <main class="container">
         <h2 class="section-title">Submissão de Conteúdo</h2>
 
         <div class="forms-grid">
 
-            <!-- 📷 FORM: FOTOGRAFIAS -->
+     
             <article class="form-card">
                 <h3>📷 Fotografias</h3>
                 <form method="POST" enctype="multipart/form-data">
@@ -342,13 +342,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         </div>
     </main>
 
-    <!-- ===== FOOTER ===== -->
+
     <footer class="footer">
         <p>
             Trabalho de Conclusão de Curso apresentado ao curso técnico em Informática IFPR Pinhais
     </footer>
 
-    <!-- ===== VLibras (Acessibilidade) ===== -->
+
     <div vw class="enabled">
         <div vw-access-button class="active"></div>
         <div vw-plugin-wrapper>

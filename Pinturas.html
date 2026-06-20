@@ -12,93 +12,25 @@
 
   <title>GRIOT-Pinturas</title>
 
-  <!-- Css principal -->
+   <link rel="stylesheet" href="galeria/css/style.css" />
   <link rel="stylesheet" href="mainStyle/assets/css/templatemo-space-dynamic.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+  <script src="galeria/lib/jquery.js" type="text/javascript"></script>
+  <script src="galeria/js/lc_lightbox.lite.js" type="text/javascript"></script>
+  <link rel="stylesheet" href="galeria/css/lc_lightbox.css" />
+  <link rel="stylesheet" href="galeria/skins/minimal.css" />
+  <script src="galeria/lib/AlloyFinger/alloy_finger.min.js" type="text/javascript"></script>
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
     integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
     crossorigin="anonymous"
     referrerpolicy="no-referrer"/>
 
-  <style type="text/css">
-    .lcl_fade_oc.lcl_pre_show #lcl_overlay,
-    .lcl_fade_oc.lcl_pre_show #lcl_window,
-    .lcl_fade_oc.lcl_is_closing #lcl_overlay,
-    .lcl_fade_oc.lcl_is_closing #lcl_window {
-      opacity: 0 !important;
-    }
 
-    .lcl_fade_oc.lcl_is_closing #lcl_overlay {
-      -webkit-transition-delay: .15s !important;
-      transition-delay: .15s !important;
-    }
-  </style>
-
-  <style>
-    .elem,
-    .elem * {
-      box-sizing: border-box;
-      margin: 0 !important;
-    }
-
-    .elem {
-      display: inline-block;
-      font-size: 0;
-      width: 33%;
-      border: 20px solid transparent;
-      border-bottom: none;
-      background: #fff;
-      padding: 10px;
-      height: auto;
-      background-clip: padding-box;
-    }
-
-    .elem>span {
-      display: block;
-      cursor: pointer;
-      height: 0;
-      padding-bottom: 70%;
-      background-size: cover;
-      background-position: center center;
-    }
-
-    .grid-galeria {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 20px;
-      padding: 20px;
-    }
-
-    .elem {
-      width: 100% !important;
-      /* Reseta a largura fixa antiga */
-    }
-  </style>
-
-
-
-
-  <!-- //////////////////////////////////////////////// -->
-  <!-- REQUIRED ELEMENTS -->
-
-  <script src="galeria/lib/jquery.js" type="text/javascript"></script>
-
-  <script src="galeria/js/lc_lightbox.lite.js" type="text/javascript"></script>
-  <link rel="stylesheet" href="galeria/css/lc_lightbox.css" />
-
-
-  <!-- SKINS -->
-  <link rel="stylesheet" href="galeria/skins/minimal.css" />
-
-
-  <!-- //////////////////////////////////////////////// -->
-
-
-  <!-- ASSETS -->
-  <script src="galeria/lib/AlloyFinger/alloy_finger.min.js" type="text/javascript"></script>
+  <script src="Supabase/supabase.min.js"></script>
+    
 </head>
-
 <body>
-  <!-- ***** Header Area Start ***** -->
+
   <header class="header-area">
     <div class="container">
       <nav class="main-nav">
@@ -116,7 +48,7 @@
             <li><a href ="Musica.html">Músicas</a></li>
           </ul>
         </div>
-        <!-- ***** Logo Start ***** -->
+       
         <div class="logo">
           <a href="index.php">
             <img src="mainStyle/assets/images/LogoEst_SF.png" alt = "Logotipo do projeto GRIOT com tipografia colorida e ícone de ave estilizada, com o subtítulo Memória e História Afro-Brasileira">
@@ -130,8 +62,7 @@
       </nav>
     </div>
   </header>
-  <!-- ***** Header Area End ***** -->
-
+  
 
 
   <div class="ImagemFundo">
@@ -154,8 +85,7 @@
             </p>
           </div>
 
-          <!--IMAGEM-->
-
+         
           <div class="right-image">
 
             <img src="mainStyle/assets/images/Pintura.jpg" alt="Mão de artista segurando pincel fino de pintura sobre mesa de trabalho com pote de pincéis e tubos de tinta ao fundo, fotografia em preto e branco de ateliê">
@@ -170,6 +100,15 @@
   
     <div id="portfolio" class="our-portfolio section">
     <div class="container">
+      
+       
+        <div style="text-align: right; margin-bottom: 20px;">
+        <button onclick="abrirModalBuscaDenuncia()" 
+                style="background: #e11d48; color: white; border: none; padding: 10px 20px; border-radius: 8px; cursor: pointer; font-weight: 600; display: inline-flex; align-items: center; gap: 8px;">
+          <i class="fa-solid fa-flag"></i> Denunciar Obra
+        </button>
+      </div>
+
       <div class="search-box">
         <input type="text" id="pesquisa" placeholder="Pesquisar...">
         <i class="fa-solid fa-magnifying-glass search-icon">
@@ -196,7 +135,7 @@
 
 
 
-  <!-- VLibras -->
+  
   <div vw class="enabled">
     <div vw-access-button class="active"></div>
     <div vw-plugin-wrapper>
@@ -204,7 +143,7 @@
     </div>
   </div>
 
-  <!-- VLibras -->
+
   <script>
     (function(){
       var s = document.createElement('script');
@@ -218,11 +157,11 @@
     })();
   </script>
 
-  <!-- LIGHTBOX INITIALIZATION -->
+ 
   <script type="text/javascript">
     $(document).ready(function(e) {
 
-      // live handler
+   
       lc_lightbox('.elem', {
         wrap_class: 'lcl_fade_oc',
         gallery: true,
@@ -237,10 +176,21 @@
     });
   </script>
 
-  <!-- Estilização-->
+ 
   <script src="mainStyle/script.js"></script>
 
-    <script>
+
+  <script>
+    function escapeHtml(text) {
+      if (text === null || text === undefined) return '';
+      const div = document.createElement('div');
+      div.textContent = text;
+      return div.innerHTML;
+    }
+  </script>
+
+ 
+  <script>
     async function chamarApi() {
 
       try {
@@ -254,8 +204,8 @@
         dados.forEach(item => {
 
           html += `
-          <a class="elem" href="${item.url}" title="${item.titulo}"
-            data-lcl-author="${item.autor} (${item.ano})">
+          <a class="elem" href="${item.url}" title="${escapeHtml(item.titulo)}"
+            data-lcl-author="${escapeHtml(item.autor)} (${escapeHtml(item.ano)})">
             <span style="background-image: url('${item.url}');"></span>
           </a>
     `;
@@ -276,6 +226,7 @@
     chamarApi();
   </script>
 
+  
   <script>
     document.getElementById('pesquisa').addEventListener('input', async function() {
 
@@ -287,8 +238,8 @@
         dados.forEach(item => {
 
           html += `
-          <a class="elem" href="${item.url}" title="${item.titulo}"
-            data-lcl-author="${item.autor} (${item.ano})">
+          <a class="elem" href="${item.url}" title="${escapeHtml(item.titulo)}"
+            data-lcl-author="${escapeHtml(item.autor)} (${escapeHtml(item.ano)})">
             <span style="background-image: url('${item.url}');"></span>
           </a>
     `;
@@ -296,9 +247,223 @@
         });
       document.getElementById('resultado').innerHTML = html;
 
+   
+      if (typeof lc_lightbox === 'function') {
+        lc_lightbox('.elem', {
+          wrap_class: 'lcl_fade_oc',
+          gallery: true,
+          thumb_attr: 'data-lcl-thumb',
+          skin: 'minimal',
+          radius: 0,
+          padding: 0,
+          border_w: 0,
+        });
+      }
+
     });
   </script>
 
+ 
+  <div id="modalBuscaDenuncia" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.7); z-index: 9998; justify-content: center; align-items: center;">
+    <div style="background: white; padding: 30px; border-radius: 15px; max-width: 500px; width: 90%;">
+      <h3 style="color: #1f2937; margin-bottom: 10px;">
+        <i class="fa-solid fa-flag" style="color: #e11d48;"></i> Denunciar uma Obra
+      </h3>
+      <p style="color: #6b7280; margin-bottom: 20px; font-size: 0.95rem;">
+        Digite o nome da pintura que deseja denunciar:
+      </p>
+      
+      <div style="position: relative; margin-bottom: 15px;">
+        <input 
+          type="text" 
+          id="buscaNomeDenuncia" 
+          placeholder="Digite o nome da pintura..." 
+          autocomplete="off"
+          style="width: 100%; padding: 12px 15px; border: 2px solid #e5e7eb; border-radius: 8px; font-size: 1rem; box-sizing: border-box;"
+        >
+      </div>
+      
+     
+      <div id="sugestoesDenuncia" style="display: none; background: white; border: 2px solid #e5e7eb; border-radius: 8px; max-height: 250px; overflow-y: auto; margin-bottom: 15px;"></div>
+      
+      <div style="text-align: right;">
+        <button type="button" onclick="fecharModalBuscaDenuncia()" 
+                style="background: #e5e7eb; color: #374151; padding: 10px 20px; border: none; border-radius: 8px; cursor: pointer; font-weight: 600;">
+          Cancelar
+        </button>
+      </div>
+    </div>
+  </div>
+
+ 
+  <div id="modalDenuncia" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.7); z-index: 9999; justify-content: center; align-items: center;">
+    <div style="background: white; padding: 30px; border-radius: 15px; max-width: 450px; width: 90%;">
+      <h3 style="color: #1f2937; margin-bottom: 10px;">Denunciar Conteúdo</h3>
+      <p style="color: #6b7280; margin-bottom: 20px;">
+        Obra: <strong id="modalNomeObra" style="color: #e11d48;"></strong>
+      </p>
+      
+   
+      <form id="formDenuncia">
+        <input type="hidden" name="id_pintura" id="idConteudoDenunciado">
+        <input type="hidden" name="nome_pintura" id="nomeConteudoDenunciado">
+        
+        <select name="motivo" id="motivoDenuncia" required style="width: 100%; padding: 10px; margin-bottom: 15px; border: 2px solid #e5e7eb; border-radius: 8px;">
+          <option value="" disabled selected>Selecione um motivo...</option>
+          <option value="Conteúdo Ofensivo">Conteúdo Ofensivo</option>
+          <option value="Direitos Autorais">Direitos Autorais</option>
+          <option value="Informação Incorreta">Informação Incorreta</option>
+          <option value="Outros">Outros</option>
+        </select>
+        
+        <button type="submit" style="background: #e11d48; color: white; padding: 10px 20px; border: none; border-radius: 8px; cursor: pointer; font-weight: 600;">
+          Enviar Denúncia
+        </button>
+        <button type="button" onclick="fecharDenuncia()" style="background: #ccc; color: black; padding: 10px 20px; border: none; border-radius: 8px; cursor: pointer;">
+          Cancelar
+        </button>
+      </form>
+    </div>
+  </div>
+
+ 
+  <script>
+    let todasPinturas = [];
+    let pinturasCarregadas = false;
+
+    
+    async function carregarPinturasParaBusca() {
+      try {
+        const response = await fetch('api/Pinturas.php');
+        todasPinturas = await response.json();
+        pinturasCarregadas = true;
+      } catch (erro) {
+        console.error('Erro ao carregar pinturas:', erro);
+      }
+    }
+    carregarPinturasParaBusca();
+
+  
+    function abrirModalBuscaDenuncia() {
+      if (!pinturasCarregadas) {
+        alert('Aguarde, carregando lista de obras...');
+        return;
+      }
+      
+      document.getElementById('modalBuscaDenuncia').style.display = 'flex';
+      document.getElementById('buscaNomeDenuncia').value = '';
+      document.getElementById('sugestoesDenuncia').style.display = 'none';
+      setTimeout(() => document.getElementById('buscaNomeDenuncia').focus(), 100);
+    }
+
+    function fecharModalBuscaDenuncia() {
+      document.getElementById('modalBuscaDenuncia').style.display = 'none';
+    }
+
+   
+    document.getElementById('buscaNomeDenuncia').addEventListener('input', function() {
+      const termo = this.value.toLowerCase().trim();
+      const container = document.getElementById('sugestoesDenuncia');
+      
+      if (termo.length < 2) {
+        container.style.display = 'none';
+        return;
+      }
+      
+      const filtradas = todasPinturas.filter(p => 
+        p.titulo.toLowerCase().includes(termo) || 
+        p.autor.toLowerCase().includes(termo)
+      );
+      
+      if (filtradas.length > 0) {
+    
+        container.innerHTML = filtradas.map(p => `
+          <div class="item-sugestao" 
+               data-id="${p.id}" 
+               data-titulo="${String(p.titulo).replace(/"/g, '&quot;')}"
+               style="padding: 12px 15px; cursor: pointer; border-bottom: 1px solid #f3f4f6; transition: background 0.2s;"
+               onmouseover="this.style.background='#fef3c7'" 
+               onmouseout="this.style.background='white'">
+            <div style="font-weight: 600; color: #1f2937;">${escapeHtml(p.titulo)}</div>
+            <div style="font-size: 0.85rem; color: #6b7280;">${escapeHtml(p.autor)} • ${escapeHtml(p.ano)}</div>
+          </div>
+        `).join('');
+        container.style.display = 'block';
+        
+     
+        container.querySelectorAll('.item-sugestao').forEach(item => {
+          item.addEventListener('click', function() {
+            const id = this.dataset.id;
+            const titulo = this.dataset.titulo;
+            selecionarObraParaDenunciar(id, titulo);
+          });
+        });
+      } else {
+        container.innerHTML = '<div style="padding: 15px; color: #6b7280; text-align: center;">Nenhuma obra encontrada</div>';
+        container.style.display = 'block';
+      }
+    });
+
+ 
+    function selecionarObraParaDenunciar(id, titulo) {
+      fecharModalBuscaDenuncia();
+      
+  
+      document.getElementById('idConteudoDenunciado').value = id;
+      document.getElementById('nomeConteudoDenunciado').value = titulo;
+      document.getElementById('modalNomeObra').textContent = titulo;
+      document.getElementById('modalDenuncia').style.display = 'flex';
+    }
+
+    function fecharDenuncia() {
+      document.getElementById('modalDenuncia').style.display = 'none';
+    }
+
+
+    document.getElementById('modalBuscaDenuncia').addEventListener('click', function(e) {
+      if (e.target === this) fecharModalBuscaDenuncia();
+    });
+
+    document.getElementById('modalDenuncia').addEventListener('click', function(e) {
+      if (e.target === this) fecharDenuncia();
+    });
+
+  </script>
+
+  
+  <script>
+    const supabaseUrl = "https://cdhjzkmlucahtllfpdlx.supabase.co";
+    const supabaseKey = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImNkaGp6a21sdWNhaHRsbGZwZGx4Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzUyNDgxNzMsImV4cCI6MjA5MDgyNDE3M30.ZaP_y-A2t32z8FRT4vAA8xsMqjhsdA0QuQIGTP5f36g";
+
+    const supabaseClient = supabase.createClient(supabaseUrl, supabaseKey);
+
+   
+    document.getElementById('formDenuncia').addEventListener('submit', async function(e) {
+      e.preventDefault();
+      
+      
+      const idPintura = document.getElementById('idConteudoDenunciado').value;
+      const nomePintura = document.getElementById('nomeConteudoDenunciado').value;
+      const motivo = document.getElementById('motivoDenuncia').value;
+   
+      const { error } = await supabaseClient
+        .from("denuncias")
+        .insert([{
+          id_pintura: idPintura,
+          nome_pintura: nomePintura,
+          motivo: motivo
+        }]);
+        
+      if (error) {
+        alert("Erro ao enviar denúncia");
+        console.log(error);
+      } else {
+        alert("Denúncia enviada com sucesso! 🚀");
+        this.reset();
+        fecharDenuncia();
+      }
+    });
+  </script>
 
 </body>
 

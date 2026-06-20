@@ -65,6 +65,9 @@ session_start();
             <a href="./mensagemRecebida.html" class="main-red-button">
               Mensagens
             </a>
+            <a href="./Denuncia.php" class="main-red-button">
+              Denúncias
+            </a>
           <?php endif; ?>
         <?php endif; ?>
       </div>
@@ -177,7 +180,7 @@ session_start();
 
           </a>
 
-           <a href="LinhadoTempo.html" class="content-card card-amarela">
+           <a href="Musica.html" class="content-card card-amarela">
             <div class="icon-box">
               <i class="fa-solid fa-headphones-simple"></i>
             </div>
@@ -324,9 +327,9 @@ session_start();
       });
 
   </script>
-  <!-- JS -->
+
   <script src="mainStyle/script.js" defer></script>
-  <!-- VLibras -->
+
   <div vw class="enabled">
     <div vw-access-button class="active"></div>
 
