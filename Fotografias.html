@@ -185,7 +185,7 @@
 
       try {
 
-        const response = await fetch('api/Pinturas.php');
+        const response = await fetch('api/Fotografias.php');
 
         const dados = await response.json();
 
@@ -221,7 +221,7 @@
     document.getElementById('pesquisa').addEventListener('input', async function() {
 
       let busca = this.value;
-      let response = await fetch('api/Pinturas.php?q=' + encodeURIComponent(busca));
+      let response = await fetch('api/Fotografias.php?q=' + encodeURIComponent(busca));
       const dados = await response.json();
       let html = '';
 
@@ -324,11 +324,11 @@
     
     async function carregarPinturasParaBusca() {
       try {
-        const response = await fetch('api/Pinturas.php');
+        const response = await fetch('api/Fotografias.php');
         todasPinturas = await response.json();
         pinturasCarregadas = true;
       } catch (erro) {
-        console.error('Erro ao carregar pinturas:', erro);
+        console.error('Erro ao carregar fotografias:', erro);
       }
     }
     carregarPinturasParaBusca();
