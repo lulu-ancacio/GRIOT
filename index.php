@@ -18,6 +18,9 @@ session_start();
     crossorigin="anonymous"
     referrerpolicy="no-referrer"/>
   <link rel="stylesheet" href="mainStyle/assets/css/templatemo-space-dynamic.css">
+  <link rel="stylesheet" href="mapaInterativo/style.css">
+   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    
 
 
 </head>
@@ -28,7 +31,6 @@ session_start();
   <header class="header-area">
   <div class="container">
     <nav class="main-nav">
-      <!-- MENU ESQUERDO -->
       <div class="left-menu">
         <button class="menu-trigger" aria-label="Abrir menu">
           <span></span>
@@ -206,6 +208,14 @@ session_start();
       </div>
     </section>
 
+     <div id="mapa">
+        <div class="painel-info" id="painel">
+            <h3>Municípios da RMC</h3>
+            <p id="conteudo">Passe o mouse em uma cidade para ver os detalhes.</p>
+        </div>
+    </div>
+
+
 
     <section class="contact-section">
       <div class="container">
@@ -342,6 +352,78 @@ session_start();
 
   <script>
     new window.VLibras.Widget('https://vlibras.gov.br/app');
+  </script>
+
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+
+  <script>
+  
+    const map = L.map('mapa', { 
+        zoomControl: false,
+        dragging: false,
+        scrollWheelZoom: false,
+        doubleClickZoom: false,
+        boxZoom: false,
+        touchZoom: false,
+        keyboard: false
+    }).setView([-25.4284, -49.2733], 10);
+
+    function definirEstilo(feature) {
+        return {
+            fillColor: '#da74be',
+            weight: 2,
+            opacity: 1,
+            color: 'yellow',
+            fillOpacity: 0.7
+        };
+    }
+
+    let camadaGeoJson;
+
+    function destacarCidade(e) {
+        const camada = e.target;
+        camada.setStyle({
+            fillColor: '#DA3A2D',
+            fillOpacity: 0.7
+        });
+
+        const props = camada.feature.properties;
+        const nomeCidade = props.NM_MUNICIP || props.name || props.NM_MUN || props.nome || "Cidade";
+
+        document.getElementById('conteudo').innerHTML = `<strong>${nomeCidade}</strong>`;
+    }
+
+    function resetarDestaque(e) {
+        camadaGeoJson.resetStyle(e.target);
+        document.getElementById('conteudo').innerHTML = "Passe o mouse em uma cidade para ver os detalhes.";
+    }
+
+    function interacoes(feature, layer) {
+        layer.on({
+            mouseover: destacarCidade,
+            mouseout: resetarDestaque
+        });
+    }
+
+    fetch('mapaInterativo/mapa.json')
+        .then(resposta => resposta.json())
+        .then(dados => {
+            camadaGeoJson = L.geoJSON(dados, {
+                style: definirEstilo,
+                onEachFeature: interacoes
+            }).addTo(map);
+
+          
+            map.fitBounds(camadaGeoJson.getBounds());
+            
+            setTimeout(() => {
+                map.invalidateSize();
+            }, 200);
+        })
+        .catch(erro => {
+            console.error("Erro ao carregar o arquivo de vetores:", erro);
+            document.getElementById('conteudo').innerHTML = "Erro ao carregar os vetores.";
+        });
   </script>
 
 

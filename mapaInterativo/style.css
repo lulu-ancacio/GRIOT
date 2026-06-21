@@ -1,0 +1,27 @@
+
+    #mapa { 
+        height: 600px; 
+        width: 100%; 
+        position: relative; 
+        margin-top: 30px;
+        margin-bottom: 30px;
+        background-color: transparent !important; 
+    }
+
+   
+    .leaflet-container {
+        background-color: transparent !important;
+    }
+
+    
+    .painel-info {
+        position: absolute;
+        top: 20px;
+        right: 20px;
+        padding: 15px;
+        background: rgba(255, 255, 255, 0.95);
+        border-radius: 8px;
+        box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+        z-index: 2000; 
+        min-width: 220px;
+    }
