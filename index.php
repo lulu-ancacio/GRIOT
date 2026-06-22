@@ -358,7 +358,7 @@ session_start();
 
   <script>
   
-    const map = L.map('mapa', { 
+    const map = L.map('mapa', {
         zoomControl: false,
         dragging: false,
         scrollWheelZoom: false,
@@ -370,10 +370,10 @@ session_start();
 
     function definirEstilo(feature) {
         return {
-            fillColor: '#da74be',
+            fillColor: ' #3260B9 ',
             weight: 2,
             opacity: 1,
-            color: 'yellow',
+            color: 'purple',
             fillOpacity: 0.7
         };
     }
@@ -401,8 +401,24 @@ session_start();
     function interacoes(feature, layer) {
         layer.on({
             mouseover: destacarCidade,
-            mouseout: resetarDestaque
+            mouseout: resetarDestaque,
+            click : PaginaCidade
         });
+    }
+
+    function PaginaCidade(e){
+      const prop = e.target.feature.properties;
+     const nomeCidade = prop.NM_MUNICIP || prop.name || prop.NM_MUN || prop.nome;
+      if(nomeCidade){
+        const nomeFormatado = nomeCidade
+            .toLowerCase()
+            .normalize("NFD")
+            .replace(/[\u0300-\u036f]/g, "") 
+            .replace(/\s+/g, "-");
+
+       window.location.href = `Cidades/${nomeFormatado}.html`;
+      }
+        
     }
 
     fetch('mapaInterativo/mapa.json')
@@ -414,7 +430,8 @@ session_start();
             }).addTo(map);
 
           
-            map.fitBounds(camadaGeoJson.getBounds());
+           
+            map.fitBounds(camadaGeoJson.getBounds(), { padding: [50, 50] });
             
             setTimeout(() => {
                 map.invalidateSize();
