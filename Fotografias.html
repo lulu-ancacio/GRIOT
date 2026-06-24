@@ -104,6 +104,7 @@
       </div>
 
       <div class="search-box">
+        <label for="pesquisa"> </label>
         <input type="text" id="pesquisa" placeholder="Pesquisar...">
         <i class="fa-solid fa-magnifying-glass search-icon">
         </i>
@@ -141,7 +142,8 @@
       s.async = true;
       s.crossOrigin = 'anonymous';
       s.onload = function(){
-        try{ if(window.VLibras) new window.VLibras.Widget('https://vlibras.gov.br/app'); }catch(e){console.error('VLibras init error', e);} }
+        try{ if(globalThis.VLibras)
+            globalThis.VLibras.Widget('https://vlibras.gov.br/app'); }catch(e){console.error('VLibras init error', e);} }
       s.onerror = function(){ console.error('Failed to load VLibras plugin. Accessibility widget unavailable.'); };
       document.head.appendChild(s);
     })();
@@ -204,9 +206,9 @@
 
         document.getElementById('resultado').innerHTML = html;
 
-      } catch (erro) {
+      } catch (error_) {
 
-        console.error(erro);
+        console.error(error_);
 
         document.getElementById('resultado').textContent =
           'Erro ao consumir API';
@@ -269,6 +271,7 @@
           id="buscaNomeDenuncia" 
           placeholder="Digite o nome da fotografia..." 
           autocomplete="off"
+          aria-label="Buscar nome pelo nome da fotografia para denúnciar"
           style="width: 100%; padding: 12px 15px; border: 2px solid #e5e7eb; border-radius: 8px; font-size: 1rem; box-sizing: border-box;"
         >
       </div>
@@ -298,8 +301,12 @@
         <input type="hidden" name="id_pintura" id="idConteudoDenunciado">
         <input type="hidden" name="nome_pintura" id="nomeConteudoDenunciado">
         
-        <select name="motivo" id="motivoDenuncia" required style="width: 100%; padding: 10px; margin-bottom: 15px; border: 2px solid #e5e7eb; border-radius: 8px;">
-          <option value="" disabled selected>Selecione um motivo...</option>
+        <select name="motivo"
+         id="motivoDenuncia" 
+         required aria-label="Selecione o motivo da denúncia"
+         required style="width: 100%; padding: 10px; margin-bottom: 15px; border: 2px solid #e5e7eb; border-radius: 8px;">
+          <option value=""
+           disabled selected>Selecione um motivo...</option>
           <option value="Conteúdo Ofensivo">Conteúdo Ofensivo</option>
           <option value="Direitos Autorais">Direitos Autorais</option>
           <option value="Informação Incorreta">Informação Incorreta</option>
@@ -327,8 +334,8 @@
         const response = await fetch('api/Fotografias.php');
         todasPinturas = await response.json();
         pinturasCarregadas = true;
-      } catch (erro) {
-        console.error('Erro ao carregar fotografias:', erro);
+      } catch (error_) {
+        console.error('Erro ao carregar fotografias:', error_);
       }
     }
     carregarPinturasParaBusca();
@@ -370,7 +377,7 @@
         container.innerHTML = filtradas.map(p => `
           <div class="item-sugestao" 
                data-id="${p.id}" 
-               data-titulo="${String(p.titulo).replace(/"/g, '&quot;')}"
+               data-titulo="${String(p.titulo).replace('"', '&quot;')}"
                style="padding: 12px 15px; cursor: pointer; border-bottom: 1px solid #f3f4f6; transition: background 0.2s;"
                onmouseover="this.style.background='#fef3c7'" 
                onmouseout="this.style.background='white'">

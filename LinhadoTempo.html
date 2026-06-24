@@ -162,7 +162,7 @@ filha do imperador Dom Pedro II,libertando mais de 700 mil escravizados das suas
       s.async = true;
       s.crossOrigin = 'anonymous';
       s.onload = function(){
-        try{ if(window.VLibras) new window.VLibras.Widget('https://vlibras.gov.br/app'); }catch(e){console.error('VLibras init error', e);} }
+        try{ if(globalThis.VLibras) new globalThis.VLibras.Widget('https://vlibras.gov.br/app'); }catch(e){console.error('VLibras init error', e);} }
       s.onerror = function(){ console.error('Failed to load VLibras plugin. Accessibility widget unavailable.'); };
       document.head.appendChild(s);
     })();
