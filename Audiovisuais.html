@@ -197,7 +197,7 @@
 
     <script src="Vlibras/vlibras-plugin.js"></script>
     <script>
-        new window.VLibras.Widget('https://vlibras.gov.br/app');
+        globalThis.VLibras.Widget('https://vlibras.gov.br/app');
     </script>
 
     <script src="mainStyle/script.js"></script>
@@ -234,8 +234,8 @@
                 }
 
 
-            } catch (erro) {
-                console.error(erro);
+            } catch (error_) {
+                console.error(error_);
                 document.getElementById('movie-list-filmes').textContent =
                     'Erro ao consumir API';
             }

@@ -357,7 +357,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     </div>
     <script src="Vlibras/vlibras-plugin.js"></script>
     <script>
-        new window.VLibras.Widget('https://vlibras.gov.br/app');
+        globalThis.VLibras.Widget('https://vlibras.gov.br/app');
     </script>
 
 
