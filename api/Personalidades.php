@@ -1,199 +1,28 @@
-<!DOCTYPE html>
-<html lang="pt-BR">
-  <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="description" content="Museu virtual com tematica racial">
-  <meta name="author" content=" ">
-  <title>GRIOT - Personalidades</title>
+<?php
 
-  <link rel="icon" href="mainStyle/assets/images/FavIcon_SF.png">
+require_once '../config/functions.php';
 
-  <link rel="stylesheet" href="mainStyle/assets/fonts/poppins.css">
+header('Content-Type: application/json; charset=utf-8');
 
-  <!-- CSS -->
-  <link rel="stylesheet" href="mainStyle/assets/css/templatemo-space-dynamic.css">
-  <link rel="stylesheet" href="mainStyle/assets/css/fontawesome.css">
-  <link rel="stylesheet" href="personalidades/style.css">
+$busca = trim($_GET['q'] ?? '');
 
+if ($busca === '') {
 
+    $endpoint =
+        'personalidades?select=*';
 
-  <!-- Font Awesome -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
-    integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
-    crossorigin="anonymous"
-    referrerpolicy="no-referrer"
-/>
+} else {
 
+    $buscaNaoEncodada = $busca;
+    $busca = urlencode("*{$busca}*");
 
-</head>
-
-<body>
-  <!-- ***** Header Area Start ***** -->
-    <header class="header-area">
-    <div class="container">
-            <nav class="main-nav">
-            <div class="left-menu">
-                <button class="menu-trigger" aria-label="Abrir menu">
-                <span></span>
-                </button>
-                <ul class="menu-dropdown">
-                <li><a href="Pinturas.php">Pinturas</a></li>
-                <li><a href="Fotografias.php">Fotografias</a></li>
-                <li><a href="Biblioteca.php">Biblioteca</a></li>
-                <li><a href="Filmes.php">Filmes</a></li>
-                <li><a href="LinhadoTempo.php">Linha do Tempo</a></li>
-                <li><a href="Legislacao.php">Legislação</a></li>
-                </ul>
-            </div>
-            <!-- ***** Logo Start ***** -->
-            <div class="logo">
-                <a href="index.php">
-                <img src="mainStyle/assets/images/LogoEst_SF.png" alt="Logotipo do projeto GRIOT com tipografia colorida e ícone de ave estilizada, com o subtítulo Memória e História Afro-Brasileira">
-                </a>
-            </div>
-            
-            
-            <div class="right-menu">
-                <a href="index.php" class="main-red-button">Início</a>
-            </div>
-            </nav>
-    </div>
-    </header>
-   <div class="ImagemFundo">
-    <section class="main-banner">
-        <div class="container">
-            <div class="banner-content">
-                <div class="left-content">
-                    <h6>
-                        Bem-vindo ao GRIOT- Personalidades
-                    </h6>
-                    <h2>
-                        Rainhas <em>Reis...</em> <span>GRIOT!</span>
-                    </h2>
-                    <p>
-                        Explore a linha do tempo do GRIOT, onde
-                        cada marco é uma história, cada evento é um capítulo
-                        e cada conquista é um passo em direção a um futuro mais
-                        inclusivo e igualitário. Navegue por momentos históricos,
-                        conquistas culturais e avanços sociais que moldaram a
-                        narrativa da luta contra o racismo. Descubra como o passado
-                        se conecta com o presente e inspire-se para construir um
-                        futuro onde a diversidade seja celebrada e a igualdade
-                        seja uma realidade para todos.
-                    </p>
-                </div>
-                <div class="right-image">
-                    <img src="mainStyle/assets/images/Personalidades.jpg" alt="Ilustração minimalista em tons de amarelo e preto que simula uma ampulheta. Na parte superior, camelos caminham sobre uma duna de areia que escorre para a metade inferior, acumulando-se no formato de uma pirâmide.">
-                </div>
-            </div>
-        </div>
-    </section>
-
-     <!-- Personalidades --> 
-    <div class="gallery">
-        <!-- Pessoa 1 -->
-        <div class="frame-container" onclick="openSidebar(1)">
-            <div class="frame">
-                <img src="https://i.pinimg.com/736x/2a/12/74/2a12748d5fe91b76480c5bf5cb2a8c13.jpg" alt="Djonga" class="photo">
-                <div class="person-name">Djonga</div>
-            </div>
-        </div>
-
-        <!-- Pessoa 2 -->
-        <div class="frame-container" onclick="openSidebar(2)">
-            <div class="frame">
-                <img src="https://i.pinimg.com/736x/a0/12/ed/a012eda8a95f46e037bb9d2d21ffc2d3.jpg" alt="Carolina Maria de Jesus" class="photo">
-                <div class="person-name">Carolina Maria de Jesus</div>
-            </div>
-        </div>
-
-        <!-- Pessoa 3 -->
-        <div class="frame-container" onclick="openSidebar(3)">
-            <div class="frame">
-                <img src="https://i.pinimg.com/736x/7f/e9/61/7fe961fb70c99cc41ff9b7107297ba82.jpg" alt="Marielle Franco" class="photo">
-                <div class="person-name">Marielle Franco</div>
-            </div>
-        </div>
-
-        <!-- Pessoa 4 -->
-        <div class="frame-container" onclick="openSidebar(4)">
-            <div class="frame">
-                <img src="https://i.pinimg.com/736x/2a/12/74/2a12748d5fe91b76480c5bf5cb2a8c13.jpg" alt="Djonga" class="photo">
-                <div class="person-name">Djonga</div>
-            </div>
-        </div>
-
-        <!-- Pessoa 5 -->
-        <div class="frame-container" onclick="openSidebar(5)">
-            <div class="frame">
-                <img src="https://i.pinimg.com/736x/a0/12/ed/a012eda8a95f46e037bb9d2d21ffc2d3.jpg" alt="Carolina Maria de Jesus" class="photo">
-                <div class="person-name">Carolina Maria de Jesus</div>
-            </div>
-        </div>
-
-        <!-- Pessoa 6 -->
-        <div class="frame-container" onclick="openSidebar(6)">
-            <div class="frame">
-                <img src="https://i.pinimg.com/736x/7f/e9/61/7fe961fb70c99cc41ff9b7107297ba82.jpg" alt="Marielle Franco" class="photo">
-                <div class="person-name">Marielle Franco</div>
-            </div>
-        </div>
-    </div>
-
-  
-    <div class="overlay" onclick="closeSidebar()"></div>
-
-    <div class="sidebar" id="sidebar">
-        <div class="sidebar-header">
-            <button class="close-btn" onclick="closeSidebar()">&times;</button>
-            <img src="" alt="" class="sidebar-photo" id="sidebar-photo">
-            <h2 id="sidebar-name">Nome</h2>
-        </div>
-        <div class="sidebar-content" id="sidebar-content">
-         
-        </div>
-    </div>
-
-        <!-- ===== FOOTER ===== -->
-    <footer class="footer">
-        <p>
-            Trabalho de Conclusão de Curso apresentado ao curso técnico em Informática IFPR Pinhais
-    </footer>
-
-
-<script src="personalidades/script.js"></script>
-<script src="mainStyle/script.js"></script>
-
- <!-- ===== VLibras (Acessibilidade) ===== -->
-    <div vw class="enabled">
-        <div vw-access-button class="active"></div>
-        <div vw-plugin-wrapper>
-            <div class="vw-plugin-top-wrapper"></div>
-        </div>
-    </div>
-    <script src="Vlibras/vlibras-plugin.js"></script>
-    <script>
-        new window.VLibras.Widget('https://vlibras.gov.br/app');
-    </script>
-
-
-    <script src="Supabase/supabase.min.js"></script>
-    <script>
-        if (typeof window.SUPABASE_URL !== 'undefined') {
-            const supabase = window.supabase.createClient(
-                window.SUPABASE_URL,
-                window.SUPABASE_KEY
-            );
-
-        }
-    </script>
-    <style>
-/* Forçar z-index do VLibras para não sobrepor */
-.vw-access-button,
-[vw-access-button] {
-    z-index: 9997 !important;
+    $endpoint =
+        "personalidades?select=*&or=(nome.ilike.$busca,prof.ilike.$busca,bio.ilike.$busca)";
 }
-</style>
-</body>
-</html>
+
+$dados = supabaseRequest($endpoint);
+
+echo json_encode(
+    $dados,
+    JSON_UNESCAPED_UNICODE
+);
