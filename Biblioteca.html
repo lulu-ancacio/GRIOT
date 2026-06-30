@@ -10,16 +10,20 @@
 
     <link rel="icon" href="mainStyle/assets/images/FavIcon_SF.png">
     <link rel="stylesheet" href="mainStyle/assets/fonts/poppins.css">
+
+    <!-- CSS -->
     <link rel="stylesheet" href="mainStyle/assets/css/templatemo-space-dynamic.css">
     <link rel="stylesheet" href="mainStyle/assets/css/fontawesome.css">
     <link rel="stylesheet" href="biblioteca/style.css">
+
+    <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
         integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 
 <body>
-  
+    <!-- Header Area Start -->
     <header class="header-area">
         <div class="container">
             <nav class="main-nav">
@@ -38,7 +42,7 @@
 
                     </ul>
                 </div>
-              
+                <!-- Logo Start -->
                 <div class="logo">
                     <a href="index.php">
                         <img src="mainStyle/assets/images/LogoEst_SF.png"
@@ -81,35 +85,26 @@
             </div>
         </section>
 
-  
-        <p class="Classificacao">Livros disponíveis</p>
+        <!-- Primeiro Carrossel (Livros disponíveis) -->
         <div class="carousel-containeNPagos">
-            <button class="carousel-btn prev" onclick="scrollCarousel(-1, 'carousel-disponiveis')"></button>
-            <div class="carousel" id="carousel-disponiveis">
-                <div id="nao-pago"></div>
-            </div>
-            <button class="carousel-btn next" onclick="scrollCarousel(1, 'carousel-disponiveis')"></button>
-
-        </div>
-
-      
-        <div class="carousel-containePagos">
             <p class="Classificacao">Livros disponíveis</p>
-         
-            <button class="carousel-btn prev" onclick="scrollCarousel(-1, 'carousel-disponiveis')"></button>
+            <button class="carousel-btn prev" onclick="scrollCarousel(-1, 'carousel-disponiveis')">❮</button>
             <div class="carousel" id="carousel-disponiveis">
-                <div class="livro-cardP">
-                    <img src="" alt="" onerror="this.src='https://via.placeholder.com/250x350?text=Sem+Capa'">
-                    <h3></h3>
-                    <p><strong></strong></p>
-                    <p class="ano"></p>
-                    <button class="link-btn" onclick="window.open('', '_blank')">Comprar</button>
-                </div>
             </div>
-            <button class="carousel-btn next" onclick="scrollCarousel(1, 'carousel-disponiveis')"></button>
+            <button class="carousel-btn next" onclick="scrollCarousel(1, 'carousel-disponiveis')">❯</button>
         </div>
+
+        <!-- Segundo Carrossel (Livros externos) -->
+        <div class="carousel-containePagos">
+            <p class="Classificacao">Livros pagos</p>
+            <button class="carousel-btn prev" onclick="scrollCarousel(-1, 'carousel-disponiveis')">❮</button>
+            <div class="carousel" id="carousel-indisponiveis">
+            </div>
+            <button class="carousel-btn next" onclick="scrollCarousel(1, 'carousel-disponiveis')">❯</button>
+        </div>
+
     </div>
-  
+    <!-- ===== FOOTER ===== -->
     <footer class="footer">
         <p>
             Trabalho de Conclusão de Curso apresentado ao curso técnico em Informática IFPR Pinhais
@@ -127,8 +122,9 @@
     </div>
 
     <script src="Vlibras/vlibras-plugin.js"></script>
+    <script src="biblioteca/main.js"></script>
     <script>
-        globalThis.VLibras.Widget('https://vlibras.gov.br/app');
+        new window.VLibras.Widget('https://vlibras.gov.br/app');
     </script>
 
     <script>
@@ -138,24 +134,38 @@
                 const dados = await response.json();
                 let html = '';
 
-                dados.forEach(item => {
-                    html += `
-                    <div class="livro-cardNP">
-                
-                    <img src="${item.url}" alt="oioi">
-                    <p>${item.url}</p>
-                    <h3>${item.titulo}</h3>
-                    <p><strong>${item.autor}</strong></p>
-                    <p class="ano">${item.ano}</p>
-                    <button class="link-btn" onclick="window.open('${item.link}', '_blank')">Comprar</button>
-                    </div>        `;
-                });
-                document.getElementById('nao-pago').innerHTML = html;
 
-            } catch (error_) {
-                console.error(error_);
-                document.getElementById('nao-pago').textContent =
-                    'Erro ao consumir API';
+                dados.forEach(item => {
+                    if (item.cc0 == true) {
+                        html += `
+                    <div class="livro-cardNP">
+                        <img src="${item.url}" alt="Erro ao carregar imagem" onerror="this.src='https://via.placeholder.com/250x350?text=Sem+Capa'">
+                        <h3>${item.titulo}</h3>
+                        <p><strong>${item.autor}</strong></p>
+                        <p class="ano">${item.ano}</p>
+                        <button class="link-btn" onclick="window.open('${item.link}', '_blank')">Comprar</button>
+                    </div>       `;
+                    }
+                });
+                document.getElementById('carousel-disponiveis').innerHTML = html;
+                html = '';
+                dados.forEach(item => {
+                    if (item.cc0 == false) {
+                        html += `
+                    <div class="livro-cardNP">
+                        <img src="${item.url}" alt="Erro ao carregar imagem" onerror="this.src='https://via.placeholder.com/250x350?text=Sem+Capa'">
+                        <h3>${item.titulo}</h3>
+                        <p><strong>${item.autor}</strong></p>
+                        <p class="ano">${item.ano}</p>
+                        <button class="link-btn" onclick="window.open('${item.link}', '_blank')">Comprar</button>
+                    </div>       `;
+                    }
+                });
+                document.getElementById('carousel-indisponiveis').innerHTML = html;
+
+            } catch (erro) {
+                console.error(erro);
+                document.getElementById('carousel-disponiveis').innerHTML = 'Erro ao consumir API';
             }
         }
         chamarApi();
