@@ -85,23 +85,24 @@
             </div>
         </section>
 
-        <!-- Primeiro Carrossel (Livros disponíveis) -->
+        
         <div class="carousel-containeNPagos">
-            <p class="Classificacao">Livros disponíveis</p>
-            <button class="carousel-btn prev" onclick="scrollCarousel(-1, 'carousel-disponiveis')">❮</button>
-            <div class="carousel" id="carousel-disponiveis">
+            <p class="Classificacao">Livros Internos</p>
+            <p> Nessa seção você encontrará livros disponíveis de maneira gratuita.</p>
+            <button class="carousel-btn prev" onclick="scrollCarousel(-1, 'carousel-internos')">❮</button>
+            <div class="carousel" id="carousel-internos">
             </div>
-            <button class="carousel-btn next" onclick="scrollCarousel(1, 'carousel-disponiveis')">❯</button>
+            <button class="carousel-btn next" onclick="scrollCarousel(1, 'carousel-internos')">❯</button>
         </div>
 
-        <!-- Segundo Carrossel (Livros externos) -->
         <div class="carousel-containePagos">
-            <p class="Classificacao">Livros pagos</p>
-            <button class="carousel-btn prev" onclick="scrollCarousel(-1, 'carousel-disponiveis')">❮</button>
-            <div class="carousel" id="carousel-indisponiveis">
+            <p class="Classificacao">Livros Externos</p>
+            <p> Nessa seção você encontrará livros que não estão disponíveis de maneira gratuita, mas você pode adquiri-los através do link de compra fornecido.</p>
+            <button class="carousel-btn prev" onclick="scrollCarousel(-1, 'carousel-externos')">❮</button>
+            <div class="carousel" id="carousel-externos">
             </div>
-            <button class="carousel-btn next" onclick="scrollCarousel(1, 'carousel-disponiveis')">❯</button>
-        </div>
+            <button class="carousel-btn next" onclick="scrollCarousel(1, 'carousel-externos')">❯</button>
+    </div>
 
     </div>
     <!-- ===== FOOTER ===== -->
@@ -143,11 +144,11 @@
                         <h3>${item.titulo}</h3>
                         <p><strong>${item.autor}</strong></p>
                         <p class="ano">${item.ano}</p>
-                        <button class="link-btn" onclick="window.open('${item.link}', '_blank')">Comprar</button>
+                        <button class="link-btn" onclick="window.open('${item.link}', '_blank')">Ler</button>
                     </div>       `;
                     }
                 });
-                document.getElementById('carousel-disponiveis').innerHTML = html;
+                document.getElementById('carousel-internos').innerHTML = html;
                 html = '';
                 dados.forEach(item => {
                     if (item.cc0 == false) {
@@ -161,11 +162,11 @@
                     </div>       `;
                     }
                 });
-                document.getElementById('carousel-indisponiveis').innerHTML = html;
+                document.getElementById('carousel-externos').innerHTML = html;
 
             } catch (erro) {
                 console.error(erro);
-                document.getElementById('carousel-disponiveis').innerHTML = 'Erro ao consumir API';
+                document.getElementById('carousel-internos').innerHTML = 'Erro ao consumir API';
             }
         }
         chamarApi();
