@@ -4,7 +4,7 @@ require_once "env.php";
 
 function baseUri($endpoint = '')
 {
-    
+
     $cleanEndpoint = basename($endpoint);
     return $_ENV['SUPABASE_URL'] . '/auth/v1/' . $cleanEndpoint;
 }
@@ -19,12 +19,12 @@ function getHeader()
 
 function supabaseRequest($endpoint)
 {
-  
+
     $cleanEndpoint = basename($endpoint);
     $url = $_ENV['SUPABASE_URL'] . '/rest/v1/' . $cleanEndpoint;
 
     $headers = [
-       "apikey: " . $_ENV['SUPABASE_DEFAULT_KEY'],
+        "apikey: " . $_ENV['SUPABASE_DEFAULT_KEY'],
         "Authorization: Bearer " . $_ENV['SUPABASE_DEFAULT_KEY'],
         "Content-Type: application/json"
     ];
@@ -44,7 +44,7 @@ function supabaseCreatePhotoPainting($bucket, $table)
 {
     require_once './composer/vendor/autoload.php';
 
-   
+
     $url = $_ENV['SUPABASE_URL'];
     $api_key = $_ENV['SUPABASE_SERVICE_ROLE'];
 
@@ -62,7 +62,7 @@ function supabaseCreatePhotoPainting($bucket, $table)
             $extension = preg_replace('/[^a-zA-Z0-9]/', '', pathinfo($file['name'], PATHINFO_EXTENSION));
             $fileName = uniqid('img_', true) . '.' . $extension;
 
-           
+
             $client->post(
                 "$url/storage/v1/object/$bucket/$fileName",
                 [
@@ -75,10 +75,10 @@ function supabaseCreatePhotoPainting($bucket, $table)
                 ]
             );
 
-           
+
             $publicUrl = "$url/storage/v1/object/public/$bucket/$fileName";
 
-            
+
             $client->post(
                 "$url/rest/v1/$table",
                 [
@@ -100,7 +100,94 @@ function supabaseCreatePhotoPainting($bucket, $table)
     }
 }
 
-function supabaseCreateFilm($table)
+function supabaseCreateBook()
+{
+    require_once './composer/vendor/autoload.php';
+
+    $url = $_ENV['SUPABASE_URL'];
+    $api_key = $_ENV['SUPABASE_SERVICE_ROLE'];
+
+    if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+
+        $file = $_FILES['imagem'];
+        $titulo = $_POST['titulo'];
+        $autor = $_POST['autor'];
+        $ano = $_POST['ano'];
+        $cc0 = $_POST['cc0'];
+
+        if ($file['error'] === UPLOAD_ERR_OK || $file['error'] === UPLOAD_ERR_NO_FILE) {
+
+            $client = new GuzzleHttp\Client();
+
+            if ($file['error'] === UPLOAD_ERR_OK) {
+
+                $extension = preg_replace('/[^a-zA-Z0-9]/', '', pathinfo($file['name'], PATHINFO_EXTENSION));
+                $fileName = uniqid('img_', true) . '.' . $extension;
+
+
+                $client->post(
+                    "$url/storage/v1/object/Biblioteca/CapasImagem/$fileName",
+                    [
+                        'headers' => [
+                            'apikey' => $api_key,
+                            'Authorization' => "Bearer $api_key",
+                            'Content-Type' => $file['type']
+                        ],
+                        'body' => fopen($file['tmp_name'], 'r')
+                    ]
+                );
+                $publicUrlImage = "$url/storage/v1/object/public/Biblioteca/CapasImagem/$fileName";
+            } else {
+                $publicUrlImage = "$url/storage/v1/object/public/Biblioteca/CapasImagem/semcapa.jpg";
+            }
+
+            if ($cc0 == "True") {
+                $link = $_FILES['link'];
+                $extension = preg_replace('/[^a-zA-Z0-9]/', '', pathinfo($link['name'], PATHINFO_EXTENSION));
+                $fileName = uniqid('pdf', true) . '.' . $extension;
+
+
+                $client->post(
+                    "$url/storage/v1/object/Biblioteca/pdfscc0/$fileName",
+                    [
+                        'headers' => [
+                            'apikey' => $api_key,
+                            'Authorization' => "Bearer $api_key",
+                            'Content-Type' => $link['type']
+                        ],
+                        'body' => file_get_contents($link['tmp_name'])
+                    ]
+                );
+                $linkTratado = "$url/storage/v1/object/public/Biblioteca/pdfscc0/$fileName";
+            } else {
+                $link = $_POST['link'];
+                $linkTratado = $link;
+            }
+
+            $client->post(
+                "$url/rest/v1/livros",
+                [
+                    'headers' => [
+                        'apikey' => $api_key,
+                        'Authorization' => "Bearer $api_key",
+                        'Prefer' => 'return=minimal'
+                    ],
+                    'json' => [
+                        'titulo' => $titulo,
+                        'autor' => $autor,
+                        'ano' => $ano,
+                        'url' => $publicUrlImage,
+                        'link' => $linkTratado,
+                        'cc0' => $cc0
+                    ]
+                ]
+            );
+            echo "<script>alert('Obra submetida!');</script>";
+        }
+    }
+}
+
+function supabaseCreateFilm()
 {
     require_once './composer/vendor/autoload.php';
     $url = $_ENV['SUPABASE_URL'];
@@ -113,22 +200,22 @@ function supabaseCreateFilm($table)
         $titulo = $_POST['titulo'];
         $desc = $_POST['desc'];
         $tipomidia = $_POST['tipomidia'];
-        
+
         $tiposPermitidos = [
-            'Curtas',
-            'Filmes',
-            'Desenhos',
-            'Documentarios',
-            'Series',
-            'Biografias',
-            'Clipes'
+            'curtas',
+            'filmes',
+            'desenhos',
+            'documentarios',
+            'series',
+            'biografias',
+            'clipes'
         ];
-        
+
         if (!in_array($tipomidia, $tiposPermitidos)) {
             die('Tipo de mídia inválido.');
         }
-        
-       
+
+
         $bucket = 'Filmes/' . basename($tipomidia);
 
         if ($file['error'] === 0) {
@@ -138,7 +225,7 @@ function supabaseCreateFilm($table)
             $extension = preg_replace('/[^a-zA-Z0-9]/', '', pathinfo($file['name'], PATHINFO_EXTENSION));
             $fileName = uniqid('mov_', true) . '.' . $extension;
 
-           
+
             $client->post(
                 "$url/storage/v1/object/$bucket/$fileName",
                 [
@@ -151,12 +238,12 @@ function supabaseCreateFilm($table)
                 ]
             );
 
-          
+
             $publicUrl = "$url/storage/v1/object/public/$bucket/$fileName";
 
-          
+
             $client->post(
-                "$url/rest/v1/$table",
+                "$url/rest/v1/filmes",
                 [
                     'headers' => [
                         'apikey' => $api_key,
@@ -185,7 +272,7 @@ function getUserAdm($user_id, $token)
 
     $url = $_ENV['SUPABASE_URL'];
     $url = $url . '/rest/v1/usuarios?id_usuario=eq.' . urlencode($user_id);
-    
+
     try {
         $response = $client->get($url, [
             'headers' => [

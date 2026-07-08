@@ -8,16 +8,15 @@ if (empty($_SESSION['adm'])) {
 require_once 'config/functions.php';
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    if ($_POST['tipo'] === 'fotografias') {
-        supabaseCreatePhotoPainting('Fotografias', 'fotografias');
-    }
-    if ($_POST['tipo'] === 'pinturas') {
-        supabaseCreatePhotoPainting('Pinturas', 'pinturas');
-    }
-    if ($_POST['tipo'] === 'filmes') {
-        supabaseCreateFilm('filmes');
-    }
+    match ($_POST['tipo']){
+        'fotografias' => supabaseCreatePhotoPainting('Fotografias', 'fotografias'),
+        'pinturas' => supabaseCreatePhotoPainting('Pinturas', 'pinturas'),
+        'filmes' => supabaseCreateFilm(),
+        'livros' => supabaseCreateBook(),
+        default => null
+    };
 }
+
 ?>
 
 <!DOCTYPE html>
@@ -58,7 +57,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             color: var(--secondary);
         }
 
-       
+
         .banner {
             background: #ff5845;
             padding: 7rem 1.5rem 2.5rem;
@@ -86,7 +85,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             color: white;
         }
 
-     
+
         main.container {
             padding-top: 3rem;
             padding-bottom: 3rem;
@@ -97,14 +96,14 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             margin-bottom: 2rem;
         }
 
-       
+
         .forms-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
             gap: 1.5rem;
         }
 
-    
+
         .form-card {
             background: white;
             border-radius: var(--radius);
@@ -122,7 +121,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             margin-bottom: 1rem;
         }
 
-   
+
         .form-group {
             margin-bottom: 1rem;
         }
@@ -177,7 +176,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
 <body>
 
-   
+
     <div id="js-preloader" class="js-preloader">
         <div class="preloader-inner">
             <span class="dot"></span>
@@ -200,7 +199,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                         <li><a href="Pinturas.html">Pinturas</a></li>
                         <li><a href="LinhadoTempo.html">Linha do Tempo</a></li>
                         <li><a href="Personalidades.html">Personalidades</a></li>
-                        <li><a href = "Musica.html"> Músicas</a><li>
+                        <li><a href="Musica.html"> Músicas</a>
+                        <li>
                         <li><a href="mensagemRecebida.html">Sugestões</a></li>
                     </ul>
                 </div>
@@ -217,7 +217,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     </header>
 
 
- 
+
     <section class="banner">
         <h1>Painel Administrativo</h1>
         <p>Gerencie o conteúdo do Museu Virtual GRIOT</p>
@@ -226,13 +226,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         </div>
     </section>
 
- 
+
     <main class="container">
         <h2 class="section-title">Submissão de Conteúdo</h2>
 
         <div class="forms-grid">
 
-     
+
             <article class="form-card">
                 <h3>📷 Fotografias</h3>
                 <form method="POST" enctype="multipart/form-data">
@@ -291,6 +291,54 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
                     <button type="submit" class="btn-submit">Enviar Pintura</button>
                     <p>Adicione uma pintura por vez.</p>
+                </form>
+            </article>
+
+            <!-- 📚 FORM: BIBLIOTECA -->
+            <article class="form-card">
+                <h3>📚 Livros</h3>
+                <form method="POST" enctype="multipart/form-data">
+                    <input type="hidden" name="tipo" value="livros">
+
+                    <div class="form-group">
+                        <label for="livros_titulo">Título *</label>
+                        <input type="text" id="livros_titulo" name="titulo" required placeholder="Ex: Querido estudante negro">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="livros_autor">Autor(a) *</label>
+                        <input type="text" id="livros_autor" name="autor" required placeholder="Nome do autor">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="livros_ano">Ano</label>
+                        <input type="number" id="livros_ano" name="ano" min="1800" max="2100" placeholder="Ex: 2023">
+                    </div>
+
+                    <div class="form-group">
+                        <p>Esta obra literário é de <strong>domínio público</strong>?</p>
+                        <input type="radio" id="livros_cc0_true" name="cc0" value="True" onClick="painelCc0(this)">
+                        <label for="livros_cc0_true">Sim</label><br>
+                        <input type="radio" id="livros_cc0_false" name="cc0" value="False" onClick="painelCc0(this)">
+                        <label for="livros_cc0_false">Não</label><br>
+                    </div>
+
+                    <div class="form-group" id="painelToCc0">
+                    </div>
+
+                     <div class="form-group">
+                        <p>Esta obra literário possui capa?</p>
+                        <input type="radio" id="livros_capa_true" name="capa" value="True" onClick="showImagemInput(this)">
+                        <label for="livros_capa_true">Sim</label><br>
+                        <input type="radio" id="livros_capa_false" name="capa" value="False" onClick="showImagemInput(this)">
+                        <label for="livros_capa_false">Não</label><br>
+                    </div>
+
+                    <div class="form-group" id="imagemCapa">
+                    </div>
+
+                    <button type="submit" class="btn-submit">Enviar Obra</button>
+                    <p>Adicione uma obra por vez.</p>
                 </form>
             </article>
 
@@ -371,9 +419,46 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
         }
     </script>
+
+    <script>
+        function painelCc0(elemento) {
+            let valor = elemento.value;
+            let html = '';
+
+            if (valor == "True") {
+                html += `
+                    <label for="livros_arquivo">Livro (PDF) *</label>
+                    <input type="file" id="livros_arquivo" name="link" accept="application/pdf" required>
+                `;
+            } else {
+                html += `
+                    <label for="livros_arquivo">Link de compra *</label>
+                    <input type="text" id="livros_arquivo" name="link" placeholder="https://...">
+                `;
+            }
+            document.getElementById('painelToCc0').innerHTML = html;
+        }
+
+        function showImagemInput(elemento) {
+            let valor = elemento.value;
+            let html = '';
+
+            if (valor == "True") {
+                html += `
+                    <label for="livros_imagem">Capa do livro *</label>
+                    <input type="file" id="livros_imagem" name="imagem" accept="image/*" required>
+                `;
+            } else {
+                html += `
+                    <input type="file" id="livros_imagem" name="imagem" style="display: none;">
+                `;
+            }
+            document.getElementById('imagemCapa').innerHTML = html;
+        }
+    </script>
+
     <script src="mainStyle/script.js"></script>
 
 </body>
 
 </html>
-

@@ -143,7 +143,7 @@
                         <h3>${item.titulo}</h3>
                         <p><strong>${item.autor}</strong></p>
                         <p class="ano">${item.ano}</p>
-                        <button class="link-btn" onclick="window.open('${item.link}', '_blank')">Comprar</button>
+                        <button class="link-btn" onclick="window.open('${item.link}', '_blank')">Acessar</button>
                     </div>       `;
                     }
                 });
@@ -152,8 +152,8 @@
                 dados.forEach(item => {
                     if (item.cc0 == false) {
                         html += `
-                    <div class="livro-cardNP">
-                        <img src="${item.url}" alt="Erro ao carregar imagem" onerror="this.src='https://via.placeholder.com/250x350?text=Sem+Capa'">
+                    <div class="livro-cardP">
+                        <img src="${item.url}" alt="Erro ao carregar imagem" onerror="this.src='https://via.placeholder.com/356x511?text=Sem+Capa'">
                         <h3>${item.titulo}</h3>
                         <p><strong>${item.autor}</strong></p>
                         <p class="ano">${item.ano}</p>
