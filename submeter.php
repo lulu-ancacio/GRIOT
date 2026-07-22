@@ -27,7 +27,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" href="mainStyle/assets/images/FavIcon_SF.png">
     <meta name="description" content="Painel Administrativo ">
-    <title>GRIOT - Painel Administrativo</title>
+    <title>GRIOT - Painel de Submissão</title>
 
 
     <link rel="stylesheet" href="mainStyle/assets/fonts/poppins.css">
@@ -228,13 +228,164 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
 
     <main class="container">
-        <h2 class="section-title">Controle de Conteúdo</h2>
+        <h2 class="section-title">Submissão de Conteúdo</h2>
 
         <div class="forms-grid">
 
-            <button onclick="window.location.href='submeter.php'" class="btn-submit">Submissão de obras</button>
-            <button onclick="window.location.href='excluir.php'" class="btn-submit"><a>Exclusão de obras</a></button>
-            <button onclick="window.location.href='editar.php'" class="btn-submit"><a>Edição de obras</a></button>
+
+            <article class="form-card">
+                <h3>📷 Fotografias</h3>
+                <form method="POST" enctype="multipart/form-data">
+                    <input type="hidden" name="tipo" value="fotografias">
+
+                    <div class="form-group">
+                        <label for="foto_titulo">Título *</label>
+                        <input type="text" id="foto_titulo" name="titulo" required placeholder="Ex: Retrato da Liberdade">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="foto_autor">Autor(a) *</label>
+                        <input type="text" id="foto_autor" name="autor" required placeholder="Nome do artista">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="foto_ano">Ano</label>
+                        <input type="number" id="foto_ano" name="ano" min="1800" max="2100" placeholder="Ex: 2024">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="foto_imagem">Imagem *</label>
+                        <input type="file" id="foto_imagem" name="imagem" accept="image/*" required>
+                    </div>
+
+                    <button type="submit" class="btn-submit">Enviar Fotografia</button>
+                    <p>Adicione uma fotografia por vez.</p>
+                </form>
+            </article>
+
+            <!-- 🎨 FORM: PINTURAS -->
+            <article class="form-card">
+                <h3>🎨 Pinturas</h3>
+                <form method="POST" enctype="multipart/form-data">
+                    <input type="hidden" name="tipo" value="pinturas">
+
+                    <div class="form-group">
+                        <label for="pint_titulo">Título *</label>
+                        <input type="text" id="pint_titulo" name="titulo" required placeholder="Ex: Raízes Ancestrais">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="pint_autor">Autor(a) *</label>
+                        <input type="text" id="pint_autor" name="autor" required placeholder="Nome do artista">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="pint_ano">Ano</label>
+                        <input type="number" id="pint_ano" name="ano" min="1800" max="2100" placeholder="Ex: 2023">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="pint_imagem">Imagem *</label>
+                        <input type="file" id="pint_imagem" name="imagem" accept="image/*" required>
+                    </div>
+
+                    <button type="submit" class="btn-submit">Enviar Pintura</button>
+                    <p>Adicione uma pintura por vez.</p>
+                </form>
+            </article>
+
+            <!-- 📚 FORM: BIBLIOTECA -->
+            <article class="form-card">
+                <h3>📚 Acervo literário</h3>
+                <form method="POST" enctype="multipart/form-data">
+                    <input type="hidden" name="tipo" value="livros">
+
+                    <div class="form-group">
+                        <label for="livros_titulo">Título *</label>
+                        <input type="text" id="livros_titulo" name="titulo" required placeholder="Ex: Querido estudante negro">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="livros_autor">Autor(a) *</label>
+                        <input type="text" id="livros_autor" name="autor" required placeholder="Nome do autor">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="livros_ano">Ano</label>
+                        <input type="number" id="livros_ano" name="ano" min="1800" max="2100" placeholder="Ex: 2023">
+                    </div>
+
+                    <div class="form-group">
+                        <p>Esta obra literário é de <strong>domínio público</strong>?</p>
+                        <input type="radio" id="livros_cc0_true" name="cc0" value="True" onClick="painelCc0(this)">
+                        <label for="livros_cc0_true">Sim</label><br>
+                        <input type="radio" id="livros_cc0_false" name="cc0" value="False" onClick="painelCc0(this)">
+                        <label for="livros_cc0_false">Não</label><br>
+                    </div>
+
+                    <div class="form-group" id="painelToCc0">
+                    </div>
+
+                     <div class="form-group">
+                        <p>Esta obra literário possui capa?</p>
+                        <input type="radio" id="livros_capa_true" name="capa" value="True" onClick="showImagemInput(this)">
+                        <label for="livros_capa_true">Sim</label><br>
+                        <input type="radio" id="livros_capa_false" name="capa" value="False" onClick="showImagemInput(this)">
+                        <label for="livros_capa_false">Não</label><br>
+                    </div>
+
+                    <div class="form-group" id="imagemCapa">
+                    </div>
+
+                    <button type="submit" class="btn-submit">Enviar Obra</button>
+                    <p>Adicione uma obra por vez.</p>
+                </form>
+            </article>
+
+            <!-- 🎬 FORM: FILMES -->
+            <article class="form-card">
+                <h3>🎬 Audiovisuais</h3>
+                <form method="POST" enctype="multipart/form-data">
+                    <input type="hidden" name="tipo" value="filmes">
+
+                    <div class="form-group">
+                        <label for="filme_titulo">Título *</label>
+                        <input type="text" id="filme_titulo" name="titulo" required placeholder="Ex: Quilombo dos Palmares">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="filme_desc">Descrição *</label>
+                        <input type="text" id="filme_desc" name="desc" required placeholder="Breve descrição da obra">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="filme_link">Link *</label>
+                        <input type="url" id="filme_link" name="link" required placeholder="https://...">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="filme_tipo">Tipo de Mídia *</label>
+                        <select id="filme_tipo" name="tipomidia" required>
+                            <option value="">Selecione...</option>
+                            <option value="filmes">🎬 Longas de Ficção</option>
+                            <option value="curtas">🎞️ Curtas</option>
+                            <option value="desenhos">✏️ Animações</option>
+                            <option value="documentarios">🎥 Documentários</option>
+                            <option value="series">📺 Séries</option>
+                            <option value="biografias">👤 Biografias</option>
+                            <option value="clipes">🎵 Musicais</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="filme_capa">Imagem de Capa *</label>
+                        <input type="file" id="filme_capa" name="imagem" accept="image/*" required>
+                    </div>
+
+                    <button type="submit" class="btn-submit">Enviar Mídia</button>
+                    <p>Adicione uma mídia por vez.</p>
+                </form>
+            </article>
 
         </div>
     </main>

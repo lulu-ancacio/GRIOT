@@ -9,7 +9,7 @@ $busca = trim($_GET['q'] ?? '');
 if ($busca === '') {
 
     $endpoint =
-        'personalidades?select=*';
+        'personalidades?select=*&order=nome.asc';
 
 } else {
 
@@ -17,7 +17,7 @@ if ($busca === '') {
     $busca = urlencode("*{$busca}*");
 
     $endpoint =
-        "personalidades?select=*&or=(nome.ilike.$busca,prof.ilike.$busca,bio.ilike.$busca)";
+        "personalidades?select=*&or=(nome.ilike.$busca,prof.ilike.$busca,bio.ilike.$busca)&order=nome.asc";
 }
 
 $dados = supabaseRequest($endpoint);

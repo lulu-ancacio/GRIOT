@@ -293,3 +293,26 @@ function getUserAdm($user_id, $token)
         exit;
     }
 }
+
+function supabaseDeleteItem($tabela)
+{
+    require_once './composer/vendor/autoload.php';
+
+    $id = $_POST['id'];
+    $url = $_ENV['SUPABASE_URL'];
+    $api_key = $_ENV['SUPABASE_SERVICE_ROLE'];
+
+    $client = new GuzzleHttp\Client();
+
+    $client->delete(
+        "$url/rest/v1/$tabela?id=eq.$id",
+        [
+            'headers' => [
+                'apikey' => $api_key,
+                'Authorization' => "Bearer $api_key",
+                'Prefer' => 'return=minimal'
+            ]
+        ]
+    );
+    echo "<script>alert('Item apagado!');</script>";
+}

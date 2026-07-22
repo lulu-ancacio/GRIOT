@@ -8,11 +8,11 @@ if (empty($_SESSION['adm'])) {
 require_once 'config/functions.php';
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    match ($_POST['tipo']){
-        'fotografias' => supabaseCreatePhotoPainting('Fotografias', 'fotografias'),
-        'pinturas' => supabaseCreatePhotoPainting('Pinturas', 'pinturas'),
-        'filmes' => supabaseCreateFilm(),
-        'livros' => supabaseCreateBook(),
+    match ($_POST['secao']) {
+        'fotografias' => supabaseDeleteItem(''),
+        'pinturas' => supabaseDeleteItem('pinturas'),
+        'filmes' => supabaseDeleteItem('filmes'),
+        'livros' => supabaseDeleteItem('livros'),
         default => null
     };
 }
@@ -27,7 +27,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" href="mainStyle/assets/images/FavIcon_SF.png">
     <meta name="description" content="Painel Administrativo ">
-    <title>GRIOT - Painel Administrativo</title>
+    <title>GRIOT - Exclusão de Conteúdo</title>
 
 
     <link rel="stylesheet" href="mainStyle/assets/fonts/poppins.css">
@@ -141,7 +141,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         }
 
         .btn-submit {
-            width: 100%;
+            width: 10%;
             padding: 0.85rem;
             background: var(--primary);
             color: white;
@@ -149,6 +149,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             border-radius: 8px;
             cursor: pointer;
             transition: 0.3s;
+            margin-left: 20px;
         }
 
         .btn-submit:hover {
@@ -228,13 +229,34 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
 
     <main class="container">
-        <h2 class="section-title">Controle de Conteúdo</h2>
+        <h2 class="section-title">Exclusão de Conteúdo</h2>
 
         <div class="forms-grid">
 
-            <button onclick="window.location.href='submeter.php'" class="btn-submit">Submissão de obras</button>
-            <button onclick="window.location.href='excluir.php'" class="btn-submit"><a>Exclusão de obras</a></button>
-            <button onclick="window.location.href='editar.php'" class="btn-submit"><a>Edição de obras</a></button>
+
+            <article class="form-card">
+                <h3>Obras</h3>
+                <form method="POST" enctype="multipart/form-data">
+                    
+                    <label for="secao">Selecione a seção *</label>
+                    <select id="secao" name="secao" required>
+                        <option value="">Selecione...</option>
+                        <option value="pinturas">🎨 Pinturas</option>
+                        <option value="fotografias">📷 Fotografias</option>
+                        <option value="filmes">🎬 Audiovisuais</option>
+                        <option value="livros">📚 Acervo literário</option>
+                    </select>
+
+                    <div id="sugestoes" style=" max-height:300px; overflow-y:auto; overflow-x:hidden; background:white; border:2px solid #e5e7eb; border-radius:8px; margin:20px"></div>
+
+                    <label for="apagar_item"><strong>Qual ID do item que você deseja apagar?</strong></label>
+                    <input type="number" id="apagar_item" name="id">
+                    <button type="submit" class="btn-submit">Excluir Item</button>
+                </form>
+            </article>
+
+
+
 
         </div>
     </main>
@@ -270,39 +292,124 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     </script>
 
     <script>
-        function painelCc0(elemento) {
-            let valor = elemento.value;
-            let html = '';
+        document.getElementById('secao').addEventListener('change', function() {
 
-            if (valor == "True") {
-                html += `
-                    <label for="livros_arquivo">Livro (PDF) *</label>
-                    <input type="file" id="livros_arquivo" name="link" accept="application/pdf" required>
-                `;
-            } else {
-                html += `
-                    <label for="livros_arquivo">Link de compra *</label>
-                    <input type="text" id="livros_arquivo" name="link" placeholder="https://...">
-                `;
+            switch (this.value) {
+
+                case 'fotografias':
+                    mostrarFotografias();
+                    break;
+
+                case 'pinturas':
+                    mostrarPinturas();
+                    break;
+
+                case 'filmes':
+                    mostrarFilmes();
+                    break;
+
+                case 'livros':
+                    mostrarLivros();
+                    break;
+
+                default:
+                    break;
             }
-            document.getElementById('painelToCc0').innerHTML = html;
+
+        });
+    </script>
+
+    <script>
+        let dados = [];
+
+        async function mostrarFotografias() {
+            try {
+                const response = await fetch('api/Fotografias.php');
+                dados = await response.json();
+                let html = '';
+                dados.forEach((item) => {
+                    html += `
+                    <p style="padding: 12px 15px; cursor: pointer; border-bottom: 1px solid rgb(243, 244, 246); transition: background 0.2s; background: white;" onmouseover="this.style.background='#fef3c7'" onmouseout="this.style.background='white'">
+                    <img style="width: 200px; height: 100px; object-fit: cover; border-radius: 8px;" src="${item.url}"/>
+                    <strong>${item.titulo}</strong><br>
+                    ${item.autor} • ${item.ano}<br>
+                    <strong>ID: ${item.id}</strong>
+                    </p>
+                    `;
+                });
+                document.getElementById('sugestoes').innerHTML = html;
+            } catch (erro) {
+                console.error(erro);
+                document.getElementById('sugestoes').innerHTML =
+                    'Erro ao consumir API';
+            }
         }
 
-        function showImagemInput(elemento) {
-            let valor = elemento.value;
-            let html = '';
-
-            if (valor == "True") {
-                html += `
-                    <label for="livros_imagem">Capa do livro *</label>
-                    <input type="file" id="livros_imagem" name="imagem" accept="image/*" required>
-                `;
-            } else {
-                html += `
-                    <input type="file" id="livros_imagem" name="imagem" style="display: none;">
-                `;
+        async function mostrarPinturas() {
+            try {
+                const response = await fetch('api/Pinturas.php');
+                dados = await response.json();
+                let html = '';
+                dados.forEach((item) => {
+                    html += `
+                    <p style="padding: 12px 15px; cursor: pointer; border-bottom: 1px solid rgb(243, 244, 246); transition: background 0.2s; background: white;" onmouseover="this.style.background='#fef3c7'" onmouseout="this.style.background='white'">
+                    <img style="width: 200px; height: 100px; object-fit: cover; border-radius: 8px;" src="${item.url}"/>
+                    <strong>${item.titulo}</strong><br>
+                    ${item.autor} • ${item.ano}<br>
+                    <strong>ID: ${item.id}</strong>
+                    </p>
+                    `;
+                });
+                document.getElementById('sugestoes').innerHTML = html;
+            } catch (erro) {
+                console.error(erro);
+                document.getElementById('sugestoes').innerHTML =
+                    'Erro ao consumir API';
             }
-            document.getElementById('imagemCapa').innerHTML = html;
+        }
+
+        async function mostrarFilmes() {
+            try {
+                const response = await fetch('api/Audiovisuais.php');
+                dados = await response.json();
+                let html = '';
+                dados.forEach((item) => {
+                    html += `
+                    <p style="padding: 12px 15px; cursor: pointer; border-bottom: 1px solid rgb(243, 244, 246); transition: background 0.2s; background: white;" onmouseover="this.style.background='#fef3c7'" onmouseout="this.style.background='white'">
+                    <img style="width: 200px; height: 100px; object-fit: cover; border-radius: 8px;" src="${item.url}"/>
+                    <strong>${item.titulo}</strong><br>
+                    <strong>ID: ${item.id}</strong>
+                    </p>
+                    `;
+                });
+                document.getElementById('sugestoes').innerHTML = html;
+            } catch (erro) {
+                console.error(erro);
+                document.getElementById('sugestoes').innerHTML =
+                    'Erro ao consumir API';
+            }
+        }
+
+        async function mostrarLivros() {
+            try {
+                const response = await fetch('api/Biblioteca.php');
+                dados = await response.json();
+                let html = '';
+                dados.forEach((item) => {
+                    html += `
+                    <p style="padding: 12px 15px; cursor: pointer; border-bottom: 1px solid rgb(243, 244, 246); transition: background 0.2s; background: white;" onmouseover="this.style.background='#fef3c7'" onmouseout="this.style.background='white'">
+                    <img style="width: 90px; height: 135px; object-fit: cover; border-radius: 8px;" src="${item.url}"/>
+                    <strong>${item.titulo}</strong><br>
+                    <strong>ID: ${item.id}</strong>
+                    </p>
+                    `;
+                });
+                document.getElementById('sugestoes').innerHTML = html;
+            } catch (erro) {
+                console.error(erro);
+                document.getElementById('sugestoes').innerHTML =
+                    'Erro ao consumir API';
+            }
         }
     </script>
 

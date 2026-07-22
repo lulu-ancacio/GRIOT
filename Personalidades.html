@@ -92,6 +92,13 @@
             </div>
         </section>
 
+        <div class="search-box">
+            <label for="pesquisa"> </label>
+            <input type="text" id="pesquisa" placeholder="Pesquisar...">
+            <i class="fa-solid fa-magnifying-glass search-icon">
+            </i>
+        </div>
+
         <!-- Personalidades -->
         <div class="gallery">
         </div>
@@ -145,16 +152,15 @@
         </script>
 
         <script>
-            async function chamarApi() {
+
+            let dados = [];
+
+            async function chamarApi(busca = '') {
 
                 try {
 
-                    const response = await fetch('api/Personalidades.php');
-
-                    const dados = await response.json();
-
-
-
+                    const response = await fetch('api/Personalidades.php?q=' + encodeURIComponent(busca));
+                    dados = await response.json();
                     let html = '';
 
                     dados.forEach((item, i) => {
@@ -181,6 +187,35 @@
             }
 
             chamarApi();
+
+            document.getElementById('pesquisa').addEventListener('input', function () {
+                chamarApi(this.value);
+            });
+        
+            async function openSidebar(id) {
+                const person = dados[id];
+                if (!person) return;
+
+                document.getElementById('sidebar-photo').src = person.url;
+                document.getElementById('sidebar-photo').alt = person.nome;
+                document.getElementById('sidebar-name').textContent = person.nome;
+
+                document.getElementById('sidebar-content').innerHTML = `
+                        <div class="info-item">
+                            <strong>Profissão</strong>
+                            <p>${person.prof}</p>
+                        </div>
+                        <div class="info-item">
+                            <strong>Biografia</strong>
+                            <p>${person.bio}</p>
+                        </div>
+
+                    `;
+
+                document.getElementById('sidebar').classList.add('active');
+                document.querySelector('.overlay').classList.add('active');
+                document.body.style.overflow = 'hidden';
+                }
         </script>
 
         <style>

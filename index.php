@@ -66,7 +66,7 @@ session_start();
           </a>
           <?php if ($_SESSION['adm']): ?>
             <a href="./adm.php" class="main-red-button">
-              Painel de Administrador
+              Painel Administrativo
             </a>
             <a href="./mensagemRecebida.html" class="main-red-button">
               Mensagens
@@ -155,7 +155,7 @@ session_start();
             <div class="icon-box">
               <i class="fa fa-book"></i>
             </div>
-            <h4>Biblioteca</h4>
+            <h4>Acervo literário</h4>
           </a>
 
          

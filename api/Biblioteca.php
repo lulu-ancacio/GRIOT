@@ -9,7 +9,7 @@ $busca = trim($_GET['q'] ?? '');
 if ($busca === '') {
 
     $endpoint =
-        'livros?select=*';
+        'livros?select=*&order=titulo.asc';
 
 } else {
 
@@ -17,7 +17,7 @@ if ($busca === '') {
     $busca = urlencode("*{$busca}*");
 
     $endpoint =
-        "livros?select=*&or=(titulo.ilike.$busca,autor.ilike.$busca)";
+        "livros?select=*&or=(titulo.ilike.$busca,autor.ilike.$busca)&order=titulo.asc";
 }
 
 $dados = supabaseRequest($endpoint);

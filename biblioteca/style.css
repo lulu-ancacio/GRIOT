@@ -58,7 +58,6 @@ h1 {
 }
 
 
-<<<<<<< HEAD
         .livro-cardP img {
             width: 100%;
             height: 200px;
@@ -67,11 +66,6 @@ h1 {
             margin-bottom: 15px;
             box-shadow: 0 3px 10px rgba(0,0,0,0.2);
         }
-=======
-.livro-cardNP {
-    background: #c9d2dc;
-}
->>>>>>> 305b0c42fb1c7825cac8ebef1a5e145256774360
 
 
 .livro-cardP {

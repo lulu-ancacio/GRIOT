@@ -9,7 +9,7 @@ $busca = trim($_GET['q'] ?? '');
 if ($busca === '') {
 
     $endpoint =
-        'fotografias?select=*';
+        'fotografias?select=*&order=autor.asc';
 
 } else {
 
@@ -17,7 +17,7 @@ if ($busca === '') {
     $busca = urlencode("*{$busca}*");
 
     $endpoint =
-        "fotografias?select=*&or=(titulo.ilike.$busca,autor.ilike.$busca,tags.cs.{{$buscaNaoEncodada}})";
+        "fotografias?select=*&or=(titulo.ilike.$busca,autor.ilike.$busca,tags.cs.{{$buscaNaoEncodada}})&order=autor.asc";
 }
 
 $dados = supabaseRequest($endpoint);
