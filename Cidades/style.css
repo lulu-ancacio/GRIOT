@@ -134,6 +134,122 @@
     text-align: center;
     font-style: italic;
 }
+
+
+@media screen and (max-width: 992px){
+
+    .banner-content{
+        flex-direction: column;
+        text-align: center;
+        gap: 30px;
+    }
+
+    .left-content,
+    .right-image{
+        width: 100%;
+    }
+
+    .pessoas-grid{
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .tours-grid{
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .musica iframe{
+        width: 100%;
+    }
+
+    .bandeiraCidade img{
+        width: 220px;
+        max-width: 100%;
+    }
+
+}
+
+@media screen and (max-width: 768px){
+
+    .banner-content{
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .left-content h2{
+        font-size: 30px;
+    }
+
+    .left-content p{
+        font-size: 15px;
+    }
+
+    .right-image img{
+        width: 100%;
+        height: auto;
+    }
+
+    .pessoas-grid{
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .tours-grid{
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .musica iframe{
+        height: 250px;
+    }
+
+    .modalConteudo{
+        width: 95%;
+        max-height: 90vh;
+        overflow-y: auto;
+        padding: 20px;
+    }
+
+    .modalConteudo img{
+        width: 180px;
+        max-width: 100%;
+    }
+
+    .section-heading h2{
+        font-size: 28px;
+    }
+
+    .titulo h3{
+        font-size: 24px;
+    }
+
+    footer{
+        text-align: center;
+        padding: 20px;
+    }
+
+}
+
+
+
+@media screen and (max-width: 480px){
+
+    .left-content h2{
+        font-size: 24px;
+    }
+
+    .left-content p{
+        font-size: 14px;
+    }
+
+    .section-heading h2{
+        font-size: 24px;
+    }
+
+    .titulo h3{
+        font-size: 20px;
+    }
+
+}
     
 
       
