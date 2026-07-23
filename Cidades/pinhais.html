@@ -68,12 +68,11 @@
                        És de um povo varonil <em>Uma estrela que surgiu</em> <span>GRIOT!</span>
                     </h2>
                     <p>
-                        A música preta não é apenas som; é a tradução da nossa história em ritmo e poesia.
-                         Do pulsar ancestral dos tambores às manifestações contemporâneas, cada melodia carrega 
-                         o eco da nossa resistência, das nossas dores e das nossas celebrações. Na galeria musical do GRIOT, 
-                         o som se torna o fio condutor da nossa memória e da nossa identidade. Sintonize-se com as vozes que
-                          cantaram a liberdade no passado e inspire-se nos ritmos 
-                        que continuam ditando o compasso do nosso protagonismo.
+                        Pinhais, integrante da Região Metropolitana de Curitiba, é uma cidade marcada pela 
+                        diversidade cultural e pela participação de diferentes povos na construção de sua identidade.
+                         Entre essas contribuições, destaca-se a presença da população negra, cuja história, trabalho,
+                          manifestações
+                         culturais e participação social colaboram para o desenvolvimento do município.
                     </p>
                 </div>
                 <div class="right-image">
@@ -98,13 +97,33 @@
 
     <div class="pessoas-grid">
         
-        <div class="pessoas"><img src="../mainStyle/assets/images/Busto.jpg" alt=""></div>
-        <div class="pessoas"><img src="../mainStyle/assets/images/Busto.jpg" alt=""></div>
-        <div class="pessoas"><img src="../mainStyle/assets/images/Busto.jpg" alt=""></div>
+        <div class="pessoas"
+            data-nome="Miss Preta"
+            data-nascimento="★ 8 de setembro de 1993"
+            data-foto="../mainStyle/assets/images/MissPreta.jpg"
+            data-biografia="Miss Preta, cujo nome de batismo é Edna dos Santos Sousa, 
+            é uma ativista social, política e ex-miss nascida em Campos dos Goytacazes (RJ).Radicada no Paraná, tornou-se um marco na política de Pinhais, onde fez história 
+             ao ser eleita a vereadora mais votada do município .">
+            <img src="../mainStyle/assets/images/MissPreta.jpg" alt="Foto da Pessoa">
+      </div>
 
-        <div class="pessoas"><img src="../mainStyle/assets/images/Busto.jpg" alt=""></div>
-        <div class="pessoas"><img src="../mainStyle/assets/images/Busto.jpg" alt=""></div>
-        <div class="pessoas"><img src="../mainStyle/assets/images/Busto.jpg" alt=""></div>
+           <div class="pessoas"
+            data-nome=" "
+            data-nascimento="  "
+            data-foto="../mainStyle/assets/images/Busto.jpg"
+            data-biografia="  ">
+            <img src="../mainStyle/assets/images/Busto.jpg" alt="Foto da Pessoa">
+      </div>
+
+      <div class="pessoas"
+            data-nome=" "
+            data-nascimento="  "
+            data-foto="../mainStyle/assets/images/Busto.jpg"
+            data-biografia="  ">
+            <img src="../mainStyle/assets/images/Busto.jpg" alt="Foto da Pessoa">
+      </div>
+
+
     </div>
 
 
@@ -177,14 +196,47 @@
     z-index: 9997 !important;
 }
 </style>
-
-
-
 <script src="../mainStyle/script.js"></script>
+</div>
 
 
+<div id = "modalPessoa" class = "modal">
+    <div class = "modalConteudo">
+        <span class = "fechar" id = "fecharModal">&times;</span>
+        <img  id = "fotoPessoa" src = "" alt = "">
+        <h2 id = "nomePessoa"></h2> 
+        <p id = "nascimento"></p> <br>
+        <p id = "biografia"></p>
+    </div>
+</div>
+  
 
 
-  </div>
+  <script>
+    const modal = document.getElementById("modalPessoa");
+    const nomePessoa = document.getElementById("nomePessoa");
+    const fotoPessoa = document.getElementById("fotoPessoa");
+    const biografia = document.getElementById("biografia");
+    const nascimento = document.getElementById("nascimento");
+    const fechar = document.getElementById("fecharModal");
+    const pessoas = document.querySelectorAll(".pessoas");
+
+
+    pessoas.forEach (function(pessoa){
+        pessoa.addEventListener("click", function(){
+            nomePessoa.textContent = pessoa.dataset.nome;
+            fotoPessoa.src = pessoa.dataset.foto;
+            biografia.textContent = pessoa.dataset.biografia;
+            nascimento.textContent = pessoa.dataset.nascimento;
+
+            modal.style.display = "flex";
+           });
+        });
+
+        fechar.addEventListener("click", function(){
+            modal.style.display = "none";
+        }); 
+    
+  </script>
   </body>
 </html>

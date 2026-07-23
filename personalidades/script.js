@@ -6,7 +6,7 @@ function closeSidebar() {
     document.body.style.overflow = 'auto';
 }
 
-// Fechar com ESC
+
 document.addEventListener('keydown', function (e) {
     if (e.key === 'Escape') {
         closeSidebar();
