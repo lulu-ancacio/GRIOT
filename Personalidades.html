@@ -209,6 +209,12 @@
                             <p>${person.bio}</p>
                         </div>
 
+                        ${person.dedicatoria ? `<div class="info-item dedicatoria">
+                            <strong>Dedicatória</strong>
+                            <p>${person.dedicatoria}</p>
+                        </div>
+                        ` : ''}
+
                     `;
 
                 document.getElementById('sidebar').classList.add('active');
