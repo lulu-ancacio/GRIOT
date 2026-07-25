@@ -12,90 +12,90 @@ session_start();
   <title>GRIOT - Início</title>
   <link rel="icon" href="mainStyle/assets/images/FavIcon_SF.png">
   <link rel="stylesheet" href="mainStyle/assets/fonts/poppins.css">
-  
+
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
     integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
     crossorigin="anonymous"
-    referrerpolicy="no-referrer"/>
+    referrerpolicy="no-referrer" />
 
   <link rel="stylesheet" href="mainStyle/assets/css/templatemo-space-dynamic.css">
   <link rel="stylesheet" href="mapaInterativo/style.css">
 
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
-  integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
-  crossorigin="anonymous"/>
-    
+    integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
+    crossorigin="anonymous" />
+
 
 
 </head>
 
 <body>
 
-  
-  <header class="header-area">
-  <div class="container">
-    <nav class="main-nav">
-      <div class="left-menu">
-        <button class="menu-trigger" aria-label="Abrir menu">
-          <span></span>
-        </button>
-        <ul class="menu-dropdown">
-          <li><a href="Pinturas.html">Pinturas</a></li>
-          <li><a href="Fotografias.html">Fotografias</a></li>
-          <li><a href="Biblioteca.html">Biblioteca</a></li>
-          <li><a href="Audiovisuais.html">Audiovisuais</a></li>
-          <li><a href="Personalidades.html">Personalidades</a></li>
-          <li><a href="LinhadoTempo.html">Linha do Tempo</a></li>
-          <li><a href="Legislacao.html">Legislação</a></li>
-           <li><a href="Musica.html">Músicas</a></li>
-          
-        </ul>
-      </div>
-      <a href="index.php" class="logo">
-        <img src="mainStyle/assets/images/LogoEst_SF.png" alt="Logotipo do projeto GRIOT com tipografia colorida e ícone de ave estilizada, com o subtítulo Memória e História Afro-Brasileira">
-      </a>
 
-      <div class="right-menu">
-        <?php if (empty($_SESSION['email'])): ?>
-          <a href="./auth/login.php" class="main-blue-button">
-            Login
-          </a>
-        <?php else: ?>
-          <a href="./auth/logout.php" class="main-red-button">
-            Sair
-          </a>
-          <?php if ($_SESSION['adm']): ?>
-            <a href="./adm.php" class="main-red-button">
-              Painel Administrativo
+  <header class="header-area">
+    <div class="container">
+      <nav class="main-nav">
+        <div class="left-menu">
+          <button class="menu-trigger" aria-label="Abrir menu">
+            <span></span>
+          </button>
+          <ul class="menu-dropdown">
+            <li><a href="Pinturas.html">Pinturas</a></li>
+            <li><a href="Fotografias.html">Fotografias</a></li>
+            <li><a href="Biblioteca.html">Biblioteca</a></li>
+            <li><a href="Audiovisuais.html">Audiovisuais</a></li>
+            <li><a href="Personalidades.html">Personalidades</a></li>
+            <li><a href="LinhadoTempo.html">Linha do Tempo</a></li>
+            <li><a href="Legislacao.html">Legislação</a></li>
+            <li><a href="Musica.html">Músicas</a></li>
+
+          </ul>
+        </div>
+        <a href="index.php" class="logo">
+          <img src="mainStyle/assets/images/LogoEst_SF.png" alt="Logotipo do projeto GRIOT com tipografia colorida e ícone de ave estilizada, com o subtítulo Memória e História Afro-Brasileira">
+        </a>
+
+        <div class="right-menu">
+          <?php if (empty($_SESSION['email'])): ?>
+            <a href="./auth/login.php" class="main-blue-button">
+              Login
             </a>
-            <a href="./mensagemRecebida.html" class="main-red-button">
-              Mensagens
+          <?php else: ?>
+            <a href="./auth/logout.php" class="main-red-button">
+              Sair
             </a>
-            <a href="./Denuncia.php" class="main-red-button">
-              Denúncias
-            </a>
+            <?php if ($_SESSION['adm']): ?>
+              <a href="./adm.php" class="main-red-button">
+                Painel Administrativo
+              </a>
+              <a href="./mensagemRecebida.html" class="main-red-button">
+                Mensagens
+              </a>
+              <a href="./Denuncia.php" class="main-red-button">
+                Denúncias
+              </a>
+            <?php endif; ?>
           <?php endif; ?>
-        <?php endif; ?>
-      </div>
-    </nav>
-  </div>
-</header>
+        </div>
+      </nav>
+    </div>
+  </header>
 
   <div class="ImagemFundo">
     <section class="main-banner" id="top">
       <div class="container">
         <div class="banner-content">
-  
+
           <div class="left-content">
             <?php if (!empty($_SESSION['email'])): ?>
               <div class="welcome-box">
                 <h5>
-                  <?php if (($_SESSION['pronome']) == "M"): ?>Bem-vindo,<?php elseif (($_SESSION['pronome']) == "F"):?>Bem-vinda,<?php else: ?>Boas-vindas,<?php endif; ?>
-                <?= $_SESSION['nome'] ?> 👋
+                  <?php if (($_SESSION['pronome']) == "M"): ?>Bem-vindo,<?php elseif (($_SESSION['pronome']) == "F"): ?>Bem-vinda,<?php else: ?>Boas-vindas,<?php endif; ?>
+                  <?= $_SESSION['nome'] ?> 👋
                 </h5>
                 <?php if (!empty($_SESSION['adm'])): ?>
                   <p>
-                    <?php if (($_SESSION['pronome']) == "M"): ?>Você está logado como administrador<?php elseif (($_SESSION['pronome']) == "F"):?> Você está logada como administradora <?php else: ?> Você está com função de administrar<?php endif; ?>
+                    <?php if (($_SESSION['pronome']) == "M"): ?>Você está logado como administrador<?php elseif (($_SESSION['pronome']) == "F"): ?> Você está logada como administradora <?php else: ?> Você está com função de administrar<?php endif; ?>
                   </p>
                 <?php endif; ?>
               </div>
@@ -150,7 +150,7 @@ session_start();
             <h4>Pinturas</h4>
           </a>
 
-        
+
           <a href="Biblioteca.html" class="content-card card-vermelho">
             <div class="icon-box">
               <i class="fa fa-book"></i>
@@ -158,7 +158,7 @@ session_start();
             <h4>Acervo literário</h4>
           </a>
 
-         
+
           <a href="Audiovisuais.html" class="content-card card-marrom">
             <div class="icon-box">
               <i class="fa fa-film"></i>
@@ -166,14 +166,15 @@ session_start();
             <h4>Audiovisuais</h4>
           </a>
 
-         
+
           <a href="Personalidades.html" class="content-card card-azul">
             <div class="icon-box">
               <i class="fa-solid fa-person"></i>
-            </div><h4>Personalidades</h4>
+            </div>
+            <h4>Personalidades</h4>
           </a>
 
-      
+
           <a href="LinhadoTempo.html" class="content-card card-roxo">
             <div class="icon-box">
               <i class="fa fa-clock"></i>
@@ -186,7 +187,7 @@ session_start();
 
           </a>
 
-           <a href="Musica.html" class="content-card card-amarela">
+          <a href="Musica.html" class="content-card card-amarela">
             <div class="icon-box">
               <i class="fa-solid fa-headphones-simple"></i>
             </div>
@@ -212,14 +213,76 @@ session_start();
       </div>
     </section>
 
-     <div id="mapa">
-        <div class="painel-info" id="painel">
-            <h3>Municípios da RMC</h3>
-            <p id="conteudo">Passe o mouse em uma cidade para ver os detalhes.</p>
-        </div>
+    <div class="section-heading">
+      <h2>Quem fomenta a <em>Cultura Negra</em> na RMC?</h2>
+    </div>
+    <div id="mapa">
+      <div class="painel-info" id="painel">
+        <h3>Municípios da RMC</h3>
+        <p id="conteudo">Passe o mouse em uma cidade para ver os detalhes.</p>
+      </div>
     </div>
 
+    <section class="content-section" id="redirection">
+      <div class="container">
+        <div class="section-heading">
+          <h2>Faça <em>igual</em>, faça <em>mais</em> com a nossa <em>API</em></h2>
 
+        </div>
+
+        <div class="content-grid">
+          <a href="api/Fotografias.php" class="content-card card-roxo">
+            <div class="icon-box">
+              <i class="fa fa-camera"></i>
+            </div>
+            <h4>Fotografias</h4>
+          </a>
+
+          <a href="api/Pinturas.php" class="content-card card-amarela">
+            <div class="icon-box">
+              <i class="fa fa-paint-brush"></i>
+            </div>
+            <h4>Pinturas</h4>
+          </a>
+
+
+          <a href="api/Biblioteca.php" class="content-card card-vermelho">
+            <div class="icon-box">
+              <i class="fa fa-book"></i>
+            </div>
+            <h4>Acervo literário</h4>
+          </a>
+
+
+          <a href="api/Audiovisuais.php" class="content-card card-marrom">
+            <div class="icon-box">
+              <i class="fa fa-film"></i>
+            </div>
+            <h4>Audiovisuais</h4>
+          </a>
+
+
+          <a href="api/Personalidades.php" class="content-card card-azul">
+            <div class="icon-box">
+              <i class="fa-solid fa-person"></i>
+            </div>
+            <h4>Personalidades</h4>
+          </a>
+
+
+          <a href="api/Legislacao.php" class="content-card card-vermelho">
+            <div class="icon-box">
+              <i class="fa fa-gavel"></i>
+            </div>
+
+            <h4>
+              Legislação
+              <br>
+            </h4>
+          </a>
+        </div>
+      </div>
+    </section>
 
     <section class="contact-section">
       <div class="container">
@@ -237,7 +300,7 @@ session_start();
               </p>
             </div>
 
-      
+
             <div class="phone-info">
               <h4>
                 <i class="fa fa-phone"></i>
@@ -248,7 +311,7 @@ session_start();
               </h4>
             </div>
           </div>
-         
+
           <div class="contact-form">
             <form id="contact">
               <div class="input-group">
@@ -267,21 +330,20 @@ session_start();
   </div>
 
 
-  
+
   <footer class="footer">
     <div class="container">
-       <p>
-            Trabalho de Conclusão de Curso apresentado ao curso técnico em Informática IFPR Pinhais
-         </p>
+      <p>
+        Trabalho de Conclusão de Curso apresentado ao curso técnico em Informática IFPR Pinhais
+      </p>
     </div>
   </footer>
 
-  
-   <script src="Supabase/supabase.min.js"></script>
 
- 
+  <script src="Supabase/supabase.min.js"></script>
+
+
   <script>
-
     const supabaseUrl =
       "https://cdhjzkmlucahtllfpdlx.supabase.co";
 
@@ -296,7 +358,7 @@ session_start();
 
     document
       .getElementById("contact")
-      .addEventListener("submit", async function (e) {
+      .addEventListener("submit", async function(e) {
 
         e.preventDefault();
 
@@ -312,17 +374,17 @@ session_start();
         const msg =
           document.getElementById("message").value;
 
-        const { error } =
-          await supabaseClient
-            .from("comentarios")
-            .insert([
-              {
-                nome: nome,
-                sobrenome: sobrenome,
-                email: email,
-                msg: msg
-              }
-            ]);
+        const {
+          error
+        } =
+        await supabaseClient
+          .from("comentarios")
+          .insert([{
+            nome: nome,
+            sobrenome: sobrenome,
+            email: email,
+            msg: msg
+          }]);
 
         if (error) {
 
@@ -339,7 +401,6 @@ session_start();
         }
 
       });
-
   </script>
 
   <script src="mainStyle/script.js" defer></script>
@@ -358,97 +419,97 @@ session_start();
     new window.VLibras.Widget('https://vlibras.gov.br/app');
   </script>
 
-<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 
   <script>
-  
     const map = L.map('mapa', {
-        zoomControl: false,
-        dragging: false,
-        scrollWheelZoom: false,
-        doubleClickZoom: false,
-        boxZoom: false,
-        touchZoom: false,
-        keyboard: false
+      zoomControl: false,
+      dragging: false,
+      scrollWheelZoom: false,
+      doubleClickZoom: false,
+      boxZoom: false,
+      touchZoom: false,
+      keyboard: false
     }).setView([-25.4284, -49.2733], 10);
 
     function definirEstilo(feature) {
-        return {
-            fillColor: ' #3260B9 ',
-            weight: 2,
-            opacity: 1,
-            color: 'purple',
-            fillOpacity: 0.7
-        };
+      return {
+        fillColor: ' #3260B9 ',
+        weight: 2,
+        opacity: 1,
+        color: 'purple',
+        fillOpacity: 0.7
+      };
     }
 
     let camadaGeoJson;
 
     function destacarCidade(e) {
-        const camada = e.target;
-        camada.setStyle({
-            fillColor: '#DA3A2D',
-            fillOpacity: 0.7
-        });
+      const camada = e.target;
+      camada.setStyle({
+        fillColor: '#DA3A2D',
+        fillOpacity: 0.7
+      });
 
-        const props = camada.feature.properties;
-        const nomeCidade = props.NM_MUNICIP || props.name || props.NM_MUN || props.nome || "Cidade";
+      const props = camada.feature.properties;
+      const nomeCidade = props.NM_MUNICIP || props.name || props.NM_MUN || props.nome || "Cidade";
 
-        document.getElementById('conteudo').innerHTML = `<strong>${nomeCidade}</strong>`;
+      document.getElementById('conteudo').innerHTML = `<strong>${nomeCidade}</strong>`;
     }
 
     function resetarDestaque(e) {
-        camadaGeoJson.resetStyle(e.target);
-        document.getElementById('conteudo').innerHTML = "Passe o mouse em uma cidade para ver os detalhes.";
+      camadaGeoJson.resetStyle(e.target);
+      document.getElementById('conteudo').innerHTML = "Passe o mouse em uma cidade para ver os detalhes.";
     }
 
     function interacoes(feature, layer) {
-        layer.on({
-            mouseover: destacarCidade,
-            mouseout: resetarDestaque,
-            click : PaginaCidade
-        });
+      layer.on({
+        mouseover: destacarCidade,
+        mouseout: resetarDestaque,
+        click: PaginaCidade
+      });
     }
 
-    function PaginaCidade(e){
+    function PaginaCidade(e) {
       const prop = e.target.feature.properties;
-     const nomeCidade = prop.NM_MUNICIP || prop.name || prop.NM_MUN || prop.nome;
-      if(nomeCidade){
+      const nomeCidade = prop.NM_MUNICIP || prop.name || prop.NM_MUN || prop.nome;
+      if (nomeCidade) {
         const nomeFormatado = nomeCidade
-            .toLowerCase()
-            .normalize("NFD")
-            .replace(/[\u0300-\u036f]/g, "")
-            .replace(/\s+/g, "-");
+          .toLowerCase()
+          .normalize("NFD")
+          .replace(/[\u0300-\u036f]/g, "")
+          .replace(/\s+/g, "-");
 
-       window.location.href = `Cidades/${nomeFormatado}.html`;
+        window.location.href = `Cidades/${nomeFormatado}.html`;
       }
-        
+
     }
 
     fetch('mapaInterativo/mapa.json')
-        .then(resposta => resposta.json())
-        .then(dados => {
-            camadaGeoJson = L.geoJSON(dados, {
-                style: definirEstilo,
-                onEachFeature: interacoes
-            }).addTo(map);
+      .then(resposta => resposta.json())
+      .then(dados => {
+        camadaGeoJson = L.geoJSON(dados, {
+          style: definirEstilo,
+          onEachFeature: interacoes
+        }).addTo(map);
 
-          
-           
-            map.fitBounds(camadaGeoJson.getBounds(), { padding: [50, 50] });
-            
-            setTimeout(() => {
-                map.invalidateSize();
-            }, 200);
-        })
-        .catch(erro => {
-            console.error("Erro ao carregar o arquivo de vetores:", erro);
-            document.getElementById('conteudo').innerHTML = "Erro ao carregar os vetores.";
+
+
+        map.fitBounds(camadaGeoJson.getBounds(), {
+          padding: [50, 50]
         });
+
+        setTimeout(() => {
+          map.invalidateSize();
+        }, 200);
+      })
+      .catch(erro => {
+        console.error("Erro ao carregar o arquivo de vetores:", erro);
+        document.getElementById('conteudo').innerHTML = "Erro ao carregar os vetores.";
+      });
   </script>
 
 
 </body>
 
 </html>
-

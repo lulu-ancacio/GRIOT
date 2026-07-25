@@ -38,6 +38,22 @@
     visibility: visible;
 }
 
+.credito-ia {
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 8px;
+    width: 100%;
+}
+
+.credito-ia p {
+    margin: 0 !important;
+}
+
+.credito-ia img {
+    height: 20px;
+    width: 20px;
+}
 
 .header-area {
   
