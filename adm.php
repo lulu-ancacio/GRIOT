@@ -201,7 +201,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                         <li><a href="Personalidades.html">Personalidades</a></li>
                         <li><a href="Musica.html"> Músicas</a>
                         <li>
-                        <li><a href="mensagemRecebida.html">Sugestões</a></li>
+                        <li><a href="mensagemRecebida.php">Sugestões</a></li>
                     </ul>
                 </div>
                 <div class="logo">
@@ -235,7 +235,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             <button onclick="window.location.href='submeter.php'" class="btn-submit">Submissão de obras</button>
             <button onclick="window.location.href='excluir.php'" class="btn-submit"><a>Exclusão de obras</a></button>
             <button onclick="window.location.href='editar.php'" class="btn-submit"><a>Edição de obras</a></button>
-
+            <button onclick="window.location.href='Denuncia.php'" class="btn-submit"><a>Moderação de Contéudo</a></button>
+            <button onclick="window.location.href='mensagemRecebida.php'" class="btn-submit"><a>Controle de Sugestões</a></button>
         </div>
     </main>
 

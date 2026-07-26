@@ -61,20 +61,14 @@ session_start();
               Login
             </a>
           <?php else: ?>
-            <a href="./auth/logout.php" class="main-red-button">
-              Sair
-            </a>
             <?php if ($_SESSION['adm']): ?>
               <a href="./adm.php" class="main-red-button">
                 Painel Administrativo
               </a>
-              <a href="./mensagemRecebida.html" class="main-red-button">
-                Mensagens
-              </a>
-              <a href="./Denuncia.php" class="main-red-button">
-                Denúncias
-              </a>
-            <?php endif; ?>
+            <?php endif;?>
+            <a href="./auth/logout.php" class="main-red-button">
+              Sair
+            </a>
           <?php endif; ?>
         </div>
       </nav>

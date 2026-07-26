@@ -202,7 +202,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                         <li><a href="Personalidades.html">Personalidades</a></li>
                         <li><a href="Musica.html"> Músicas</a>
                         <li>
-                        <li><a href="mensagemRecebida.html">Sugestões</a></li>
+                        <li><a href="mensagemRecebida.php">Sugestões</a></li>
                     </ul>
                 </div>
                 <div class="logo">
@@ -229,6 +229,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
 
     <main class="container">
+        <a href="adm.php">
+            <div class="icon-box">
+                <i class="fa-solid fa-arrow-left"></i>
+            </div>
+        </a>
+
         <h2 class="section-title">Exclusão de Conteúdo</h2>
 
         <div class="forms-grid">
@@ -237,7 +243,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             <article class="form-card">
                 <h3>Obras</h3>
                 <form method="POST" enctype="multipart/form-data">
-                    
+
                     <label for="secao">Selecione a seção *</label>
                     <select id="secao" name="secao" required>
                         <option value="">Selecione...</option>

@@ -8,7 +8,7 @@ if (empty($_SESSION['adm'])) {
 require_once 'config/functions.php';
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    match ($_POST['tipo']){
+    match ($_POST['tipo']) {
         'fotografias' => supabaseCreatePhotoPainting('Fotografias', 'fotografias'),
         'pinturas' => supabaseCreatePhotoPainting('Pinturas', 'pinturas'),
         'filmes' => supabaseCreateFilm(),
@@ -201,7 +201,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                         <li><a href="Personalidades.html">Personalidades</a></li>
                         <li><a href="Musica.html"> Músicas</a>
                         <li>
-                        <li><a href="mensagemRecebida.html">Sugestões</a></li>
+                        <li><a href="mensagemRecebida.php">Sugestões</a></li>
                     </ul>
                 </div>
                 <div class="logo">
@@ -226,8 +226,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         </div>
     </section>
 
-
     <main class="container">
+        <a href="adm.php">
+            <div class="icon-box">
+                <i class="fa-solid fa-arrow-left"></i>
+            </div>
+        </a>
         <h2 class="section-title">Submissão de Conteúdo</h2>
 
         <div class="forms-grid">
@@ -326,7 +330,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     <div class="form-group" id="painelToCc0">
                     </div>
 
-                     <div class="form-group">
+                    <div class="form-group">
                         <p>Esta obra literário possui capa?</p>
                         <input type="radio" id="livros_capa_true" name="capa" value="True" onClick="showImagemInput(this)">
                         <label for="livros_capa_true">Sim</label><br>

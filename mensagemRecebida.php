@@ -1,0 +1,404 @@
+<?php
+session_start();
+?>
+
+<!DOCTYPE html>
+<html lang="pt">
+
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="Museu virtual com tematica racial">
+  <meta name="author" content="">
+  <meta charset="UTF-8">
+  <link rel="icon" href="galeria/assets/images/FavIcon_SF.png">
+  <link rel="stylesheet" href="mainStyle/assets/fonts/poppins.css">
+
+  <title>GRIOT - Controle de Sugestões</title>
+
+  <script src="Supabase/supabase.min.js"></script>
+
+  <link rel="stylesheet" href="mainStyle/assets/css/templatemo-space-dynamic.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+    crossorigin="anonymous"
+    referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="mainStyle/assets/css/fontawesome.css">
+  <link rel="stylesheet" href="mainStyle/assets/css/templatemo-space-dynamic.css">
+
+  <style>
+    .banner {
+      background: #ff5845;
+      padding: 7rem 1.5rem 2.5rem;
+      text-align: center;
+    }
+
+    .banner h1 {
+      font-size: 1.8rem;
+      margin-bottom: 0.5rem;
+      color: white;
+    }
+
+    .banner p {
+      color: white;
+    }
+
+    .section-title {
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+
+    .user-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: rgba(255, 255, 255, 0.15);
+      padding: 0.4rem 1rem;
+      border-radius: 50px;
+      margin-top: 1rem;
+      color: white;
+    }
+
+
+    #lista {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 20px;
+      padding: 0 20px;
+    }
+
+
+    .card {
+      position: relative;
+      background: #dcfce7;
+      border-radius: 20px;
+      padding: 20px;
+      box-shadow: 0 4px 10px rgba(34, 197, 94, 0.15);
+      transition: all 0.3s ease;
+      cursor: pointer;
+    }
+
+    .card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 10px;
+      border-radius: 20px 20px 0 0;
+    }
+
+
+    .card.visto {
+      background: #fee2e2;
+      opacity: 0.9;
+      box-shadow: 0 2px 8px rgba(239, 68, 68, 0.1);
+    }
+
+    .card p {
+      font-size: 14px;
+      color: #4a5568;
+    }
+
+    .card .enderecoOnline a {
+      color: #4f46e5;
+      font-size: 12px;
+      text-decoration: none;
+    }
+
+    .card p strong {
+      color: #2d3748;
+      font-weight: 600;
+    }
+
+    .card p:last-child {
+      margin-top: 16px;
+      padding-top: 16px;
+      border-top: 5px solid #e2e8f0;
+      color: #2d3748;
+      font-style: italic;
+    }
+
+    .btn-email {
+      margin-top: 10px;
+      background: #ff9e78;
+      color: rgb(0, 0, 0);
+      border: none;
+      padding: 8px 12px;
+      border-radius: 10px;
+      cursor: pointer;
+      font-size: 12px
+    }
+
+    @media (max-width: 768px) {
+      .comments-title {
+        font-size: 1.8rem;
+      }
+
+      #lista {
+        grid-template-columns: 1fr;
+        padding: 0 10px;
+      }
+
+      .card {
+        padding: 20px;
+      }
+    }
+
+    .card h3 {
+      padding-right: 30px;
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .card h3 a {
+      color: #2d3748;
+      text-decoration: none;
+      transition: color 0.3s;
+      pointer-events: none;
+    }
+
+    .card h3 a:hover {
+      color: #4f46e5;
+    }
+
+
+    .status-badge {
+      font-size: 10px;
+      padding: 4px 8px;
+      border-radius: 12px;
+      font-weight: 600;
+      text-transform: uppercase;
+    }
+
+    .status-novo {
+      background: #22c55e;
+      color: white;
+    }
+
+    .status-lido {
+      background: #ef4444;
+      color: white;
+    }
+  </style>
+</head>
+
+
+<body>
+  <!-- Preloader -->
+  <div id="js-preloader" class="js-preloader">
+    <div class="preloader-inner">
+      <span class="dot"></span>
+      <div class="dots">
+        <span></span><span></span><span></span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Header -->
+  <header class="header-area">
+    <div class="container">
+      <nav class="main-nav">
+        <div class="left-menu">
+          <button class="menu-trigger" aria-label="Abrir menu"><span></span></button>
+          <ul class="menu-dropdown">
+            <li><a href="Fotografias.html">Fotografias</a></li>
+            <li><a href="Biblioteca.html">Biblioteca</a></li>
+            <li><a href="Audiovisuais.html">Audiovisuais</a></li>
+            <li><a href="Pinturas.html">Pinturas</a></li>
+            <li><a href="LinhadoTempo.html">Linha do Tempo</a></li>
+            <li><a href="Personalidades.html">Personalidades</a></li>
+            <li><a href="adm.php">Administrador</a></li>
+            <li><a href="Musica.html">Músicas</a></li>
+            <li><a href="Denuncia.php">Denúncias</a></li>
+          </ul>
+        </div>
+        <div class="logo">
+          <a href="index.php">
+            <img src="mainStyle/assets/images/LogoEst_SF.png"
+              alt="Logotipo do projeto GRIOT com tipografia colorida e ícone de ave estilizada, com o subtítulo Memória e História Afro-Brasileira">
+          </a>
+        </div>
+        <div class="right-menu">
+          <a href="index.php" class="main-red-button">Início</a>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <section class="banner">
+    <h1>Painel Administrativo</h1>
+    <p>Gerencie o conteúdo do Museu Virtual GRIOT</p>
+    <div class="user-badge">
+      👤
+      <?= htmlspecialchars($_SESSION['email'] ?? 'Administrador') ?>
+    </div>
+  </section>
+
+  <main class="container">
+    <a href="adm.php">
+      <div class="icon-box">
+        <i class="fa-solid fa-arrow-left"></i>
+      </div>
+    </a>
+    <h2 class="section-title">Controle de Sugestões</h2>
+
+    <section class="comments-section" style="padding: 60px 0;">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-12">
+            <div id="lista"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-12">
+          <p>Trabalho de Conclusão de Curso apresentado ao curso técnico em Informática - IFPR Pinhais</p>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    const supabaseUrl = "https://cdhjzkmlucahtllfpdlx.supabase.co";
+    const supabaseKey = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImNkaGp6a21sdWNhaHRsbGZwZGx4Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzUyNDgxNzMsImV4cCI6MjA5MDgyNDE3M30.ZaP_y-A2t32z8FRT4vAA8xsMqjhsdA0QuQIGTP5f36g";
+
+
+    if (typeof supabase === 'undefined') {
+      console.error("❌ Erro: Script do Supabase não carregou! Verifique o caminho de 'Supabase/supabase.min.js'");
+    }
+
+    const supabaseClient = supabase.createClient(supabaseUrl, supabaseKey);
+
+    async function carregarComentarios() {
+      console.log("🔄 Carregando comentários do Supabase...");
+
+      const {
+        data,
+        error
+      } = await supabaseClient
+        .from("comentarios")
+        .select("*")
+        .order("id", {
+          ascending: false
+        });
+
+      if (error) {
+        console.error("❌ Erro ao carregar dados:", error);
+        document.getElementById("lista").innerHTML =
+          "<p style='color:red; padding:20px;'>⚠️ Erro ao carregar sugestões. Verifique o console (F12).</p>";
+        return;
+      }
+
+      const lista = document.getElementById("lista");
+      lista.innerHTML = "";
+
+      if (data && data.length > 0) {
+        console.log(`✅ ${data.length} comentário(s) carregado(s)`);
+
+        data.forEach(item => {
+          const div = document.createElement("div");
+          div.classList.add("card");
+
+
+          if (item.visto) {
+            div.classList.add("visto");
+          }
+
+          const assunto = encodeURIComponent("Resposta ao seu comentário - Equipe GRIOT");
+          const mensagem = encodeURIComponent(
+            `Olá ${item.nome},\n\nRecebemos sua sugestão:\n\n"${item.msg}"\n\nResposta:\n`
+          );
+
+
+          const badgeStatus = item.visto ?
+            '<span class="status-badge status-lido">Lido</span>' :
+            '<span class="status-badge status-novo">Novo</span>';
+
+          div.innerHTML = `
+                    <h3>
+                        ${item.nome} ${item.sobrenome || ''} ${badgeStatus}
+                    </h3>
+                    
+                    <p><strong>Email: ${item.email} </strong></p>
+                    <p>${item.msg}</p>
+                    <p>
+                        <strong>Data:</strong>
+                        ${new Intl.DateTimeFormat('pt-BR').format(new Date(item.criado_em))}
+                    </p>
+                      <button 
+                      class="btn-email"
+                      onclick="event.stopPropagation(); window.location.href='mailto:${item.email}?subject=${assunto}&body=${mensagem}'">
+                      Responder por email
+                  </button>
+                `;
+
+
+          div.addEventListener("click", async (e) => {
+            if (e.target.tagName === 'A' || e.target.closest('a')) {
+              return;
+            }
+
+
+            if (item.visto) {
+              console.log("ℹ️ Card já marcado como lido");
+              return;
+            }
+
+            console.log(`🔄 Marcando comentário #${item.id} como lido...`);
+
+            const {
+              data: updateData,
+              error: updateError
+            } = await supabaseClient
+              .from("comentarios")
+              .update({
+                visto: true
+              })
+              .eq("id", item.id)
+              .select();
+
+            if (updateError) {
+              console.error("❌ Erro ao atualizar no Supabase:", updateError);
+              alert("⚠️ Não foi possível salvar a marcação como lido. Verifique as permissões no Supabase.");
+            } else {
+              console.log("✅ Atualização realizada com sucesso!", updateData);
+
+
+              div.classList.add("visto");
+              div.querySelector('.status-novo')?.remove();
+              div.querySelector('h3').insertAdjacentHTML('beforeend',
+                '<span class="status-badge status-lido">Lido</span>');
+
+
+              item.visto = true;
+            }
+          });
+
+          lista.appendChild(div);
+        });
+      } else {
+        lista.innerHTML = "<p style='padding:20px; text-align:center;'>📭 Nenhuma sugestão recebida ainda.</p>";
+      }
+    }
+
+
+    document.addEventListener("DOMContentLoaded", () => {
+      carregarComentarios();
+
+      setTimeout(() => {
+        const preloader = document.getElementById('js-preloader');
+        if (preloader) preloader.style.display = 'none';
+      }, 500);
+    });
+  </script>
+  <script src="mainStyle/script.js"></script>
+</body>
+
+</html>
