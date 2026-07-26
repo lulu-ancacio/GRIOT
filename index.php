@@ -128,11 +128,10 @@ session_start();
         <div class="section-heading">
           <h2>Conteúdos que valorizam a <em>Cultura Negra</em></h2>
           <p>
-            Fotografias, Pinturas, Recomendações de Filmes e Personalidades.
+            Fotografias, Pinturas, Recomendações de Filmes, Personalidades e mais.
             <br>
             Selecione o seu desejado e acesse um mundo novo.
           </p>
-
         </div>
 
         <div class="content-grid">
@@ -215,6 +214,11 @@ session_start();
 
     <div class="section-heading">
       <h2>Quem fomenta a <em>Cultura Negra</em> na RMC?</h2>
+      <p>
+        Poetizas, ativistas, musicistas, políticas...
+        <br>
+        Conheça mais pessoas negras que movimentam a região.
+      </p>
     </div>
     <div id="mapa">
       <div class="painel-info" id="painel">
@@ -227,20 +231,22 @@ session_start();
       <div class="container">
         <div class="section-heading">
           <h2>Faça <em>igual</em>, faça <em>mais</em> com a nossa <em>API</em></h2>
-
+          <p>
+            Acesso massificado e livre dos Recursos Educacionais Digitais da plataforma GRIOT para o seu projeto!
+          </p>
         </div>
 
         <div class="content-grid">
           <a href="api/Fotografias.php" class="content-card card-roxo">
             <div class="icon-box">
-              <i class="fa fa-camera"></i>
+              <i class="fa-solid fa-gear"></i>
             </div>
             <h4>Fotografias</h4>
           </a>
 
           <a href="api/Pinturas.php" class="content-card card-amarela">
             <div class="icon-box">
-              <i class="fa fa-paint-brush"></i>
+              <i class="fa-solid fa-gear"></i>
             </div>
             <h4>Pinturas</h4>
           </a>
@@ -248,7 +254,7 @@ session_start();
 
           <a href="api/Biblioteca.php" class="content-card card-vermelho">
             <div class="icon-box">
-              <i class="fa fa-book"></i>
+              <i class="fa-solid fa-gear"></i>
             </div>
             <h4>Acervo literário</h4>
           </a>
@@ -256,7 +262,7 @@ session_start();
 
           <a href="api/Audiovisuais.php" class="content-card card-marrom">
             <div class="icon-box">
-              <i class="fa fa-film"></i>
+              <i class="fa-solid fa-gear"></i>
             </div>
             <h4>Audiovisuais</h4>
           </a>
@@ -264,7 +270,7 @@ session_start();
 
           <a href="api/Personalidades.php" class="content-card card-azul">
             <div class="icon-box">
-              <i class="fa-solid fa-person"></i>
+              <i class="fa-solid fa-gear"></i>
             </div>
             <h4>Personalidades</h4>
           </a>
@@ -272,7 +278,7 @@ session_start();
 
           <a href="api/Legislacao.php" class="content-card card-vermelho">
             <div class="icon-box">
-              <i class="fa fa-gavel"></i>
+              <i class="fa-solid fa-gear"></i>
             </div>
 
             <h4>
