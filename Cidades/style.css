@@ -122,7 +122,13 @@
        flex-direction: column;
        align-items: center;
        border: 7px solid #3260B9;
-       transform: translateY(60px);
+
+       /* ⬇️ ADICIONE ESTAS 3 LINHAS AQUI ⬇️ */
+       max-height: 80vh;
+       /* Limita a altura em 80% da tela no desktop */
+       overflow-y: auto;
+       /* Ativa o scroll vertical */
+       box-sizing: border-box;
    }
 
    .modalConteudo img {
