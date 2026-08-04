@@ -209,6 +209,7 @@ footer p{
 
   .movie-list-title{
     font-size: 26px;
+    margin-left: 200px !important;
   }
 
   .movie-list{

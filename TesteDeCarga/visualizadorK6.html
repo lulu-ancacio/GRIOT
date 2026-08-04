@@ -1,0 +1,787 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dashboard de Métricas - k6 / Caixa Preta</title>
+
+  <!-- Chart.js -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.7/dist/chart.umd.min.js"></script>
+
+  <style>
+    :root {
+      --bg-color: #f4f6f9;
+      --card-bg: #ffffff;
+      --text-primary: #1e293b;
+      --text-secondary: #64748b;
+      --accent: #3b82f6;
+      --border: #e2e8f0;
+      --error: #ef4444;
+      --warning: #b45309;
+      --success: #16a34a;
+      --good: #059669;
+      --acceptable: #ca8a04;
+      --poor: #ea580c;
+      --critical: #dc2626;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: "Segoe UI", system-ui, -apple-system, sans-serif;
+    }
+
+    body {
+      background-color: var(--bg-color);
+      color: var(--text-primary);
+      padding: 2rem;
+      line-height: 1.6;
+    }
+
+    .container { max-width: 1300px; margin: 0 auto; }
+    h1 { font-size: 1.8rem; margin-bottom: 0.5rem; }
+    .subtitle { color: var(--text-secondary); margin-bottom: 2rem; font-size: 0.95rem; }
+
+    .input-section {
+      background: var(--card-bg);
+      padding: 1.5rem;
+      border-radius: 12px;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+      margin-bottom: 2rem;
+      border: 1px solid var(--border);
+    }
+
+    textarea {
+      width: 100%;
+      height: 180px;
+      padding: 1rem;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      font-family: Consolas, monospace;
+      font-size: 0.85rem;
+      resize: vertical;
+      margin-bottom: 1rem;
+      background: #f8fafc;
+    }
+
+    .button-row { display: flex; gap: 0.75rem; flex-wrap: wrap; }
+
+    button {
+      background: var(--accent);
+      color: white;
+      border: none;
+      padding: 0.75rem 1.5rem;
+      border-radius: 8px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: opacity 0.2s;
+    }
+    button:hover { opacity: 0.9; }
+    button:disabled { opacity: 0.5; cursor: not-allowed; }
+    button.secondary { background: #475569; }
+    button.success { background: var(--success); }
+
+    .error-msg {
+      color: var(--error);
+      margin-top: 0.75rem;
+      font-weight: 600;
+      display: none;
+      white-space: pre-wrap;
+    }
+
+    .metrics-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .metric-card {
+      background: var(--card-bg);
+      padding: 1.5rem;
+      border-radius: 12px;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+      border: 1px solid var(--border);
+      break-inside: avoid;
+      page-break-inside: avoid;
+    }
+
+    .metric-header {
+      margin-bottom: 1rem;
+      border-bottom: 1px solid var(--border);
+      padding-bottom: 0.75rem;
+    }
+
+    .metric-title-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .metric-title { font-size: 1.1rem; font-weight: 700; color: var(--text-primary); }
+    .metric-sigla {
+      font-size: 0.75rem;
+      color: var(--text-secondary);
+      font-family: monospace;
+      background: #f1f5f9;
+      padding: 2px 6px;
+      border-radius: 4px;
+      margin-left: 8px;
+      display: inline-block;
+    }
+    .metric-desc { font-size: 0.85rem; color: var(--text-secondary); margin-top: 4px; }
+
+    .assessment {
+      margin-top: 12px;
+      padding: 10px 12px;
+      border-radius: 8px;
+      font-size: 0.85rem;
+      border-left: 4px solid;
+      background: #f8fafc;
+    }
+    .assessment.excellent { background: #f0fdf4; border-color: var(--success); color: #166534; }
+    .assessment.good { background: #ecfdf5; border-color: var(--good); color: #065f46; }
+    .assessment.acceptable { background: #fefce8; border-color: var(--acceptable); color: #713f12; }
+    .assessment.poor { background: #fff7ed; border-color: var(--poor); color: #7c2d12; }
+    .assessment.critical { background: #fef2f2; border-color: var(--critical); color: #7f1d1d; }
+    .assessment-title { font-weight: 700; display: inline-block; margin-right: 6px; }
+
+    .chart-container {
+      position: relative;
+      height: 260px;
+      width: 100%;
+      overflow: auto;
+    }
+
+    .fallback-warning { font-size: 0.75rem; color: var(--warning); margin-bottom: 8px; }
+    .fallback-bars { display: flex; flex-direction: column; gap: 10px; padding: 4px 0; }
+    .bar-row {
+      display: grid;
+      grid-template-columns: 90px 1fr 110px;
+      align-items: center;
+      gap: 10px;
+      font-size: 0.8rem;
+    }
+    .bar-label {
+      font-family: monospace;
+      font-weight: 700;
+      color: var(--text-secondary);
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    .bar-track { height: 14px; background: #f1f5f9; border-radius: 7px; overflow: hidden; }
+    .bar-fill { height: 100%; border-radius: 7px; min-width: 2px; }
+    .bar-value { text-align: right; font-family: monospace; color: var(--text-primary); font-size: 0.78rem; }
+
+    .summary-box {
+      background: var(--card-bg);
+      padding: 1.5rem;
+      border-radius: 12px;
+      border: 1px solid var(--border);
+      margin-bottom: 1.5rem;
+      break-inside: avoid;
+    }
+    .summary-box h2 { font-size: 1.2rem; margin-bottom: 0.75rem; }
+    .summary-stats {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+      gap: 12px;
+      margin-top: 1rem;
+    }
+    .stat-pill {
+      padding: 10px 14px;
+      border-radius: 8px;
+      font-size: 0.85rem;
+      text-align: center;
+    }
+    .stat-pill strong { display: block; font-size: 1.4rem; margin-top: 4px; }
+
+    /* ============================================= */
+    /* CSS DE IMPRESSÃO / SALVAR COMO PDF             */
+    /* ============================================= */
+    @page {
+      margin: 1.5cm;
+      size: A4;
+    }
+
+    @media print {
+      html, body {
+        background: white !important;
+        padding: 0 !important;
+        margin: 0 !important;
+        -webkit-print-color-adjust: exact !important;
+        print-color-adjust: exact !important;
+        color-adjust: exact !important;
+      }
+
+      /* Esconde a área de input e botões na impressão */
+      .input-section,
+      button {
+        display: none !important;
+      }
+
+      .container {
+        max-width: 100% !important;
+        padding: 0 !important;
+      }
+
+      .subtitle {
+        margin-bottom: 1rem !important;
+      }
+
+      .metrics-grid {
+        grid-template-columns: 1fr !important;
+        gap: 1rem !important;
+      }
+
+      .metric-card {
+        box-shadow: none !important;
+        border: 1px solid #ccc !important;
+        page-break-inside: avoid !important;
+        break-inside: avoid !important;
+        margin-bottom: 1rem !important;
+      }
+
+      .summary-box {
+        page-break-inside: avoid !important;
+        break-inside: avoid !important;
+        box-shadow: none !important;
+        border: 1px solid #ccc !important;
+      }
+
+      .chart-container {
+        height: 220px !important;
+      }
+
+      h1 {
+        font-size: 1.5rem !important;
+        color: #000 !important;
+      }
+
+      a { text-decoration: none !important; color: inherit !important; }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container" id="reportContainer">
+    <h1>📊 Visualizador de Métricas de Teste de Carga</h1>
+    <p class="subtitle">
+      Cole o JSON de saída da caixa preta / k6 abaixo. O sistema converte siglas técnicas
+      em nomes legíveis, gera gráficos e analisa automaticamente a saúde do sistema.
+    </p>
+
+    <div class="input-section" id="inputSection">
+      <textarea
+        id="jsonInput"
+        placeholder='Cole aqui o JSON completo. Ex.: {"root_group": {...}, "metrics": {...}}'
+      ></textarea>
+
+      <div class="button-row">
+        <button onclick="processarDados()">📈 Gerar Dashboard</button>
+        <button class="secondary" onclick="carregarExemplo()">📋 Carregar Exemplo</button>
+        <button class="success" id="exportBtn" onclick="exportarPDF()" disabled>📄 Exportar PDF</button>
+      </div>
+
+      <div id="errorMsg" class="error-msg"></div>
+    </div>
+
+    <div id="summary"></div>
+    <div id="dashboard" class="metrics-grid"></div>
+  </div>
+
+  <script>
+    const METRIC_DICTIONARY = {
+      iteration_duration: { label: "Duração da Iteração", desc: "Tempo total para completar uma execução completa do script de usuário virtual.", type: "time" },
+      vus: { label: "Usuários Virtuais Ativos", desc: "Quantidade de usuários virtuais simultâneos durante o teste.", type: "count" },
+      vus_max: { label: "VUs Máximos", desc: "Número máximo de usuários virtuais simultâneos configurados/executados.", type: "count" },
+      http_reqs: { label: "Requisições HTTP Totais", desc: "Quantidade total de requisições HTTP feitas e taxa por segundo.", type: "http_reqs" },
+      http_req_blocked: { label: "Bloqueio da Requisição HTTP", desc: "Tempo aguardando por socket livre, fila ou resolução antes de conectar.", type: "time" },
+      http_req_connecting: { label: "Conexão TCP", desc: "Tempo gasto estabelecendo a conexão TCP com o servidor.", type: "time" },
+      http_req_tls_handshaking: { label: "Handshake TLS/SSL", desc: "Tempo gasto na negociação de segurança TLS/SSL.", type: "time" },
+      http_req_sending: { label: "Envio da Requisição", desc: "Tempo gasto enviando dados da requisição ao servidor.", type: "time" },
+      http_req_waiting: { label: "Tempo de Resposta do Servidor (TTFB)", desc: "Tempo entre enviar a requisição e receber o primeiro byte da resposta.", type: "time" },
+      http_req_receiving: { label: "Recebimento da Resposta", desc: "Tempo gasto recebendo o corpo da resposta do servidor.", type: "time" },
+      http_req_duration: { label: "Duração Total da Requisição HTTP", desc: "Tempo total da requisição HTTP: envio + espera + recebimento.", type: "time" },
+      http_req_failed: { label: "Falhas HTTP", desc: "Percentual ou contagem de requisições HTTP com falha.", type: "percent" },
+      checks: { label: "Validações / Checks", desc: "Resultado das validações lógicas definidas no script de teste.", type: "percent" },
+      data_received: { label: "Dados Recebidos", desc: "Volume total de dados recebidos do servidor.", type: "bytes" },
+      data_sent: { label: "Dados Enviados", desc: "Volume total de dados enviados ao servidor.", type: "bytes" }
+    };
+
+    const THRESHOLDS = {
+      http_req_waiting:        { type: "time_lower", excellent: 100, good: 300, acceptable: 800, unit: "ms",
+        advice: "TTFB é o principal indicador da saúde do backend. Acima de 300ms investigue gargalos no servidor." },
+      http_req_duration:       { type: "time_lower", excellent: 500, good: 1000, acceptable: 2000, unit: "ms",
+        advice: "Tempo total da requisição. Usuários abandonam após ~3s; mantenha abaixo disso." },
+      http_req_blocked:        { type: "time_lower", excellent: 20,  good: 50,  acceptable: 200, unit: "ms",
+        advice: "Alto bloqueio indica limite de conexões ou DNS lento. Considere keep-alive e HTTP/2." },
+      http_req_connecting:     { type: "time_lower", excellent: 20,  good: 50,  acceptable: 200, unit: "ms",
+        advice: "Latência de conexão TCP. Alta em regiões distantes do servidor." },
+      http_req_tls_handshaking:{ type: "time_lower", excellent: 20,  good: 50,  acceptable: 200, unit: "ms",
+        advice: "Handshake TLS lento pode indicar problemas com cadeia de certificados ou TLS antigo." },
+      http_req_sending:        { type: "time_lower", excellent: 10,  good: 50,  acceptable: 200, unit: "ms",
+        advice: "Tempo de envio alto indica payloads grandes ou largura de banda limitada." },
+      http_req_receiving:      { type: "time_lower", excellent: 50,  good: 200, acceptable: 1000, unit: "ms",
+        advice: "Recebimento lento indica respostas grandes ou banda limitada." },
+      iteration_duration:      { type: "time_lower", excellent: 1000, good: 3000, acceptable: 5000, unit: "ms",
+        advice: "Tempo do fluxo completo do usuário virtual. Depende do cenário de teste." },
+      http_req_failed:         { type: "percent_lower", excellent: 0,   good: 1,   acceptable: 5, unit: "%",
+        advice: "Taxa de falhas acima de 5% indica instabilidade crítica no sistema." },
+      checks:                  { type: "percent_higher", excellent: 99, good: 95, acceptable: 90, unit: "%",
+        advice: "Abaixo de 95% de checks positivos é um alerta de regressão funcional." }
+    };
+
+    const COLORS = ["#3b82f6","#10b981","#f59e0b","#ef4444","#8b5cf6","#ec4899","#14b8a6","#f97316"];
+    let chartInstances = [];
+    let lastAnalysis = []; 
+
+    function escapeHtml(value) {
+      return String(value ?? "").replace(/[&<>"']/g, (ch) => ({
+        "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;"
+      }[ch]));
+    }
+
+    function decodeHtmlEntities(text) {
+      return String(text ?? "")
+        .replace(/&amp;/g, "&")
+        .replace(/&quot;/g, '"')
+        .replace(/&#34;/g, '"')
+        .replace(/&#39;/g, "'");
+    }
+
+    function parseFlexibleJson(text) {
+      const decoded = decodeHtmlEntities(text).trim();
+      if (!decoded) throw new Error("Nenhum texto foi informado.");
+
+      const variants = [decoded];
+      if (decoded.startsWith('"') && decoded.endsWith('"') && decoded.length > 1) variants.push(decoded.slice(1, -1));
+      if (decoded.startsWith('"')) variants.push(decoded.slice(1));
+      if (decoded.endsWith('"')) variants.push(decoded.slice(0, -1));
+
+      const baseVariants = [...variants];
+      baseVariants.forEach(v => variants.push(v.replace(/,\s*([\]}])/g, "$1")));
+
+      let lastError = null;
+      for (const variant of variants) {
+        try {
+          let parsed = JSON.parse(variant);
+          if (typeof parsed === "string") {
+            try { parsed = JSON.parse(parsed); } catch (_) {}
+          }
+          if (parsed && typeof parsed === "object") return parsed;
+        } catch (error) { lastError = error; }
+      }
+      throw lastError || new Error("Não foi possível interpretar o JSON.");
+    }
+
+    function getMetricInfo(key) {
+      return METRIC_DICTIONARY[key] || {
+        label: key.replace(/_/g, " ").replace(/\b\w/g, c => c.toUpperCase()),
+        desc: "Métrica personalizada ou não mapeada no dicionário.",
+        type: "generic"
+      };
+    }
+
+    function formatValue(value, type, label = "") {
+      if (typeof value !== "number" || !Number.isFinite(value)) return "-";
+      const lowerLabel = String(label).toLowerCase();
+
+      if (lowerLabel === "rate") return `${value.toFixed(2)}/s`;
+      if (lowerLabel === "count") return new Intl.NumberFormat("pt-BR", { maximumFractionDigits: 0 }).format(value);
+      if (lowerLabel === "value") return new Intl.NumberFormat("pt-BR", { maximumFractionDigits: 2 }).format(value);
+
+      switch (type) {
+        case "time": return `${value.toFixed(2)} ms`;
+        case "percent": {
+          const percentValue = value <= 1 ? value * 100 : value;
+          return `${percentValue.toFixed(2)}%`;
+        }
+        case "bytes":
+          if (value >= 1048576) return `${(value / 1048576).toFixed(2)} MB`;
+          if (value >= 1024) return `${(value / 1024).toFixed(2)} KB`;
+          return `${value.toFixed(0)} B`;
+        case "http_reqs":
+          if (lowerLabel === "rate") return `${value.toFixed(2)} req/s`;
+          return new Intl.NumberFormat("pt-BR", { maximumFractionDigits: 0 }).format(value);
+        case "count": return new Intl.NumberFormat("pt-BR", { maximumFractionDigits: 0 }).format(value);
+        default: return new Intl.NumberFormat("pt-BR", { maximumFractionDigits: 2 }).format(value);
+      }
+    }
+
+    function avaliarMetrica(key, valuesObj) {
+      const threshold = THRESHOLDS[key];
+      if (!threshold) return null;
+
+      const priority = ["avg", "med", "p(90)", "p(95)", "p(99)"];
+      let refValue = null;
+      let refLabel = "";
+      for (const p of priority) {
+        if (valuesObj[p] !== undefined && Number.isFinite(valuesObj[p])) {
+          refValue = valuesObj[p];
+          refLabel = p;
+          break;
+        }
+      }
+      if (refValue === null) {
+        const numEntries = Object.entries(valuesObj).filter(([, v]) => typeof v === "number" && Number.isFinite(v));
+        if (numEntries.length === 0) return null;
+        [refLabel, refValue] = numEntries[0];
+      }
+
+      let v = refValue;
+      if (threshold.type.startsWith("percent") && v <= 1) v = v * 100;
+
+      let level, classLevel, icon, text;
+      const { type, excellent, good, acceptable } = threshold;
+
+      if (type === "time_lower" || type === "percent_lower") {
+        if (v <= excellent)      { level = "Excelente"; classLevel = "excellent"; icon = "🟢"; text = `Valor ${v.toFixed(2)}${threshold.unit} dentro da faixa ideal (≤ ${excellent}${threshold.unit}).`; }
+        else if (v <= good)      { level = "Bom";        classLevel = "good";       icon = "🟢"; text = `Valor ${v.toFixed(2)}${threshold.unit} dentro da faixa boa (≤ ${good}${threshold.unit}).`; }
+        else if (v <= acceptable){ level = "Aceitável";  classLevel = "acceptable"; icon = "🟡"; text = `Valor ${v.toFixed(2)}${threshold.unit} dentro do limite aceitável (≤ ${acceptable}${threshold.unit}).`; }
+        else                     { level = "Crítico";    classLevel = "critical";   icon = "🔴"; text = `Valor ${v.toFixed(2)}${threshold.unit} acima do aceitável (> ${acceptable}${threshold.unit}).`; }
+      } else { // percent_higher (checks)
+        if (v >= excellent)      { level = "Excelente"; classLevel = "excellent"; icon = "🟢"; text = `Taxa de ${v.toFixed(2)}% dentro da faixa ideal (≥ ${excellent}%).`; }
+        else if (v >= good)      { level = "Bom";        classLevel = "good";       icon = "🟢"; text = `Taxa de ${v.toFixed(2)}% dentro da faixa boa (≥ ${good}%).`; }
+        else if (v >= acceptable){ level = "Aceitável";  classLevel = "acceptable"; icon = "🟡"; text = `Taxa de ${v.toFixed(2)}% dentro do limite aceitável (≥ ${acceptable}%).`; }
+        else                     { level = "Crítico";    classLevel = "critical";   icon = "🔴"; text = `Taxa de ${v.toFixed(2)}% abaixo do mínimo aceitável (< ${acceptable}%).`; }
+      }
+
+      return { level, classLevel, icon, text, advice: threshold.advice, refLabel, refValue: v };
+    }
+
+    function renderFallbackBars(container, labels, data, info) {
+      container.innerHTML = "";
+      const warning = document.createElement("div");
+      warning.className = "fallback-warning";
+      warning.textContent = "Chart.js não carregou. Exibindo gráfico em barras simples.";
+      container.appendChild(warning);
+
+      const wrapper = document.createElement("div");
+      wrapper.className = "fallback-bars";
+      const max = Math.max(...data.filter(v => Number.isFinite(v)), 1);
+
+      labels.forEach((label, index) => {
+        const value = data[index];
+        const row = document.createElement("div");
+        row.className = "bar-row";
+
+        const labelEl = document.createElement("div");
+        labelEl.className = "bar-label";
+        labelEl.title = label;
+        labelEl.textContent = label.toUpperCase();
+
+        const track = document.createElement("div");
+        track.className = "bar-track";
+        const fill = document.createElement("div");
+        fill.className = "bar-fill";
+        fill.style.width = `${max > 0 ? Math.max(0, Math.min(100, (value / max) * 100)) : 0}%`;
+        fill.style.backgroundColor = COLORS[index % COLORS.length];
+
+        const valueEl = document.createElement("div");
+        valueEl.className = "bar-value";
+        valueEl.textContent = formatValue(value, info.type, label);
+
+        track.appendChild(fill);
+        row.appendChild(labelEl);
+        row.appendChild(track);
+        row.appendChild(valueEl);
+        wrapper.appendChild(row);
+      });
+      container.appendChild(wrapper);
+    }
+
+    function renderMetricVisual(container, labels, data, info) {
+      container.innerHTML = "";
+      if (typeof Chart === "undefined") {
+        renderFallbackBars(container, labels, data, info);
+        return;
+      }
+      try {
+        const canvas = document.createElement("canvas");
+        container.appendChild(canvas);
+        const chartType = labels.length > 1 ? "bar" : "doughnut";
+
+        const chart = new Chart(canvas.getContext("2d"), {
+          type: chartType,
+          data: {
+            labels: labels.map(l => l.toUpperCase()),
+            datasets: [{
+              label: info.label,
+              data: data,
+              backgroundColor: data.map((_, i) => COLORS[i % COLORS.length]),
+              borderWidth: 0,
+              borderRadius: 4
+            }]
+          },
+          options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            plugins: {
+              legend: { display: chartType === "doughnut", position: "bottom" },
+              tooltip: {
+                callbacks: {
+                  label: (ctx) => ` ${formatValue(ctx.raw, info.type, labels[ctx.dataIndex] || "")}`
+                }
+              }
+            },
+            scales: chartType === "bar" ? {
+              y: { beginAtZero: true, grid: { color: "#f1f5f9" } },
+              x: { grid: { display: false } }
+            } : {}
+          }
+        });
+        chartInstances.push(chart);
+      } catch (e) {
+        renderFallbackBars(container, labels, data, info);
+      }
+    }
+
+    function renderSummary(analysis) {
+      const summary = document.getElementById("summary");
+      if (analysis.length === 0) { summary.innerHTML = ""; return; }
+
+      const counts = { excellent: 0, good: 0, acceptable: 0, poor: 0, critical: 0 };
+      analysis.forEach(a => { if (counts[a.classLevel] !== undefined) counts[a.classLevel]++; });
+
+      const total = analysis.length;
+      let overall, overallClass;
+      const score = (counts.excellent * 1 + counts.good * 0.75 + counts.acceptable * 0.5) / total;
+      if (counts.critical > 0 || score < 0.4) { overall = "Sistema com problemas críticos"; overallClass = "critical"; }
+      else if (counts.poor > 0 || score < 0.6) { overall = "Sistema com pontos de atenção"; overallClass = "poor"; }
+      else if (score < 0.8) { overall = "Sistema aceitável"; overallClass = "acceptable"; }
+      else if (score < 0.95) { overall = "Sistema bom"; overallClass = "good"; }
+      else { overall = "Sistema excelente"; overallClass = "excellent"; }
+
+      summary.innerHTML = `
+        <div class="summary-box">
+          <h2>📝 Parecer Geral do Sistema</h2>
+          <div class="assessment ${overallClass}">
+            <span class="assessment-title">Veredicto:</span> ${escapeHtml(overall)}.
+            Foram analisadas ${total} métricas-chave de performance e confiabilidade.
+          </div>
+          <div class="summary-stats">
+            <div class="stat-pill excellent">Excelente<strong>${counts.excellent}</strong></div>
+            <div class="stat-pill good">Bom<strong>${counts.good}</strong></div>
+            <div class="stat-pill acceptable">Aceitável<strong>${counts.acceptable}</strong></div>
+            <div class="stat-pill poor">Atenção<strong>${counts.poor}</strong></div>
+            <div class="stat-pill critical">Crítico<strong>${counts.critical}</strong></div>
+          </div>
+        </div>
+      `;
+    }
+
+    function showError(message) {
+      const errorDiv = document.getElementById("errorMsg");
+      errorDiv.textContent = message;
+      errorDiv.style.display = "block";
+    }
+
+    function processarDados() {
+      const errorDiv = document.getElementById("errorMsg");
+      const dashboard = document.getElementById("dashboard");
+      errorDiv.style.display = "none";
+      errorDiv.textContent = "";
+      chartInstances.forEach(c => { try { c.destroy(); } catch (_) {} });
+      chartInstances = [];
+      lastAnalysis = [];
+      dashboard.innerHTML = "";
+      document.getElementById("summary").innerHTML = "";
+
+      const rawInput = document.getElementById("jsonInput").value;
+      if (!rawInput.trim()) {
+        showError("Cole um JSON válido para processar.");
+        return;
+      }
+
+      try {
+        const json = parseFlexibleJson(rawInput);
+        const metrics = json.metrics ?? json;
+        if (!metrics || typeof metrics !== "object") {
+          throw new Error('Não foi possível encontrar o bloco "metrics".');
+        }
+
+        let renderedCount = 0;
+
+        for (const [metricKey, metricValue] of Object.entries(metrics)) {
+          if (!metricValue || typeof metricValue !== "object" || Array.isArray(metricValue)) continue;
+
+          const numericEntries = Object.entries(metricValue).filter(([, v]) => typeof v === "number" && Number.isFinite(v));
+          if (numericEntries.length === 0) continue;
+
+          const info = getMetricInfo(metricKey);
+          const labels = numericEntries.map(([k]) => k);
+          const data = numericEntries.map(([, v]) => v);
+
+          const card = document.createElement("div");
+          card.className = "metric-card";
+
+          const avaliacao = avaliarMetrica(metricKey, metricValue);
+
+          let assessmentHtml = "";
+          if (avaliacao) {
+            assessmentHtml = `
+              <div class="assessment ${avaliacao.classLevel}">
+                <span class="assessment-title">${avaliacao.icon} ${avaliacao.level}:</span>
+                ${escapeHtml(avaliacao.text)}<br/>
+                <em style="font-size:0.8rem; opacity:0.85;">${escapeHtml(avaliacao.advice)}</em>
+              </div>
+            `;
+            lastAnalysis.push({ key: metricKey, ...avaliacao });
+          }
+
+          card.innerHTML = `
+            <div class="metric-header">
+              <div class="metric-title-row">
+                <div>
+                  <span class="metric-title">${escapeHtml(info.label)}</span>
+                  <span class="metric-sigla">${escapeHtml(metricKey)}</span>
+                </div>
+              </div>
+              <div class="metric-desc">${escapeHtml(info.desc)}</div>
+              ${assessmentHtml}
+            </div>
+            <div class="chart-container chart-area"></div>
+          `;
+
+          dashboard.appendChild(card);
+          renderMetricVisual(card.querySelector(".chart-area"), labels, data, info);
+          renderedCount++;
+        }
+
+        renderSummary(lastAnalysis);
+
+        if (renderedCount === 0) {
+          showError(
+            "Nenhuma métrica numérica foi encontrada no JSON informado.\n" +
+            "Verifique se o JSON contém o campo metrics e se os valores são numéricos."
+          );
+          document.getElementById("exportBtn").disabled = true;
+        } else {
+          document.getElementById("exportBtn").disabled = false;
+        }
+      } catch (error) {
+        console.error(error);
+        showError(
+          "Erro ao processar JSON: " + error.message +
+          "\n\nVerifique se o JSON está completo, sem truncamento e com aspas válidas."
+        );
+      }
+    }
+
+    function carregarScript(url) {
+      return new Promise((resolve, reject) => {
+        if (typeof html2pdf !== "undefined") { resolve(); return; }
+        const script = document.createElement("script");
+        script.src = url;
+        script.async = true;
+        script.onload = () => resolve();
+        script.onerror = () => reject(new Error("Falha ao carregar: " + url));
+        document.head.appendChild(script);
+      });
+    }
+
+    async function exportarPDF() {
+      const btn = document.getElementById("exportBtn");
+      btn.disabled = true;
+      const originalText = btn.textContent;
+      btn.textContent = "⏳ Gerando PDF...";
+
+      const inputSection = document.getElementById("inputSection");
+      inputSection.style.display = "none";
+
+      let html2pdfCarregado = typeof html2pdf !== "undefined";
+
+      if (!html2pdfCarregado) {
+        const cdnUrls = [
+          "https://cdn.jsdelivr.net/npm/html2pdf.js@2.1.0/dist/html2pdf.bundle.min.js",
+          "https://unpkg.com/html2pdf.js@2.1.0/dist/html2pdf.bundle.min.js",
+          "https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/2.1.0/html2pdf.bundle.min.js"
+        ];
+
+        for (const url of cdnUrls) {
+          try {
+            btn.textContent = `⏳ Tentando CDN...`;
+            await carregarScript(url);
+            if (typeof html2pdf !== "undefined") {
+              html2pdfCarregado = true;
+              break;
+            }
+          } catch (e) {
+            console.warn("CDN falhou:", url);
+          }
+        }
+      }
+
+      const element = document.getElementById("reportContainer");
+
+      try {
+        if (html2pdfCarregado) {
+          const opt = {
+            margin: [10, 10, 10, 10],
+            filename: `dashboard-metricas-k6-${new Date().toISOString().slice(0,10)}.pdf`,
+            image: { type: "jpeg", quality: 0.98 },
+            html2canvas: { scale: 2, useCORS: true, logging: false },
+            jsPDF: { unit: "mm", format: "a4", orientation: "portrait" },
+            pagebreak: { mode: ["avoid-all", "css", "legacy"] }
+          };
+          await html2pdf().set(opt).from(element).save();
+        } else {
+          btn.textContent = "🖨️ Abrindo diálogo de impressão...";
+          await new Promise(r => setTimeout(r, 200)); 
+
+          const header = document.createElement("div");
+          header.className = "print-only-header";
+          header.style.cssText = "display:none; text-align:center; margin-bottom:20px; padding-bottom:15px; border-bottom:2px solid #333;";
+          header.innerHTML = `
+            <h1 style="font-size:1.4rem; color:#1e293b;">Relatório de Teste de Carga - k6</h1>
+            <p style="font-size:0.85rem; color:#64748b;">Gerado em ${new Date().toLocaleString("pt-BR")}</p>
+          `;
+          element.insertBefore(header, element.firstChild);
+
+          window.print();
+
+          setTimeout(() => {
+            if (header.parentNode) header.parentNode.removeChild(header);
+          }, 1000);
+        }
+      } catch (e) {
+        console.error(e);
+        try {
+          window.print();
+        } catch (err) {
+          alert("Não foi possível gerar o PDF. Tente usar Ctrl+P (Cmd+P) manualmente e escolha 'Salvar como PDF'.");
+        }
+      } finally {
+        inputSection.style.display = "";
+        btn.textContent = originalText;
+        btn.disabled = false;
+      }
+    }
+
+    function carregarExemplo() {
+      const exemplo = {
+        "metrics": {
+          "http_req_duration": { "avg": 450, "med": 320, "p(90)": 780, "p(95)": 1200, "min": 45, "max": 3200 },
+          "http_req_waiting":  { "avg": 420, "med": 300, "p(90)": 740, "p(95)": 1100 },
+          "http_req_connecting": { "avg": 8, "med": 5, "p(90)": 15, "p(95)": 25 },
+          "http_req_tls_handshaking": { "avg": 22, "med": 18, "p(90)": 40, "p(95)": 60 },
+          "http_req_blocked": { "avg": 3, "med": 2, "p(90)": 5, "p(95)": 10 },
+          "http_req_failed": { "rate": 0.012 },
+          "checks": { "passes": 985, "fails": 15, "rate": 0.985 },
+          "http_reqs": { "count": 1000, "rate": 83.33 },
+          "vus": { "value": 50, "min": 50, "max": 50 },
+          "vus_max": { "value": 50, "min": 50, "max": 50 },
+          "iteration_duration": { "avg": 2800, "med": 2400, "p(90)": 4100, "p(95)": 5200 },
+          "data_received": { "count": 52428800, "rate": 4369066 },
+          "data_sent": { "count": 2048000, "rate": 170666 }
+        }
+      };
+      document.getElementById("jsonInput").value = JSON.stringify(exemplo, null, 2);
+    }
+  </script>
+</body>
+</html>

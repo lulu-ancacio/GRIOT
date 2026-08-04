@@ -2,12 +2,12 @@ import http from 'k6/http';
 import { sleep } from 'k6';
 
 export const options = {
-  vus: 20, 
+  vus: 1, 
   duration: '10s',
 };
 
 export default function loadTest () {
-  http.get('https://griot.gt.tc/Fotografias.php');
+  http.get('https://griot.gt.tc/Pinturas.html');
   sleep(1);
 }
 
