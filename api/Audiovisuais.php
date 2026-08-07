@@ -17,7 +17,7 @@ if ($busca === '') {
     $busca = urlencode("*{$busca}*");
 
     $endpoint =
-        "filmes?select=*&or=(titulo.ilike.$busca,desc.ilike.$busca)&order=titulo.asc";
+        "filmes?select=*&or=(titulo.ilike.$busca,tipo.ilike.$busca,desc.ilike.$busca)&order=titulo.asc";
 }
 
 $dados = supabaseRequest($endpoint);

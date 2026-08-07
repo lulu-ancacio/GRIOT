@@ -97,7 +97,7 @@ session_start();
 
 
             <h6>
-              Bem Vindo ao GRIOT
+              Boas-vindas ao GRIOT
             </h6>
             <h2>Seu repositório <em>com temática </em><span>racial</span></h2>
             <p>

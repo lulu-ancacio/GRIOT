@@ -7,11 +7,9 @@ export const options = {
 };
 
 export default function loadTest () {
-  http.get('https://griot.gt.tc/Pinturas.html');
+  http.get('https://griot.gt.tc/mensagemRecebida.php');
   sleep(1);
 }
 
 
-// 20 usuários virtuais acessando a página de fotografias por 10 segundos, com um intervalo de 1 segundo entre cada acesso.
-//Teste para verificar a capacidade do servidor em lidar com múltiplas requisições simultâneas e medir o tempo de resposta da página.
-// k6 run testeDeCarga/load-test.js --summary-export=summary.json (comando para executar o teste e exportar um resumo dos resultados em formato JSON).
+// k6 run testeDeCarga/load-test.js --summary-export=TesteDeCarga/Relatorios/MensagemRecebida48.json 
