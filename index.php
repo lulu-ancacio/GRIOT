@@ -65,7 +65,7 @@ session_start();
               <a href="./adm.php" class="main-red-button">
                 Painel Administrativo
               </a>
-            <?php endif;?>
+            <?php endif; ?>
             <a href="./auth/logout.php" class="main-red-button">
               Sair
             </a>
@@ -221,7 +221,7 @@ session_start();
       </div>
     </div>
 
-    <section class="content-section" id="redirection">
+    <section class="content-section" id="api">
       <div class="container">
         <div class="section-heading">
           <h2>Faça <em>igual</em>, faça <em>mais</em> com a nossa <em>API</em></h2>
@@ -229,6 +229,10 @@ session_start();
             Acesso massificado e livre dos Recursos Educacionais Digitais da plataforma GRIOT para o seu projeto!
           </p>
         </div>
+
+        <button onclick="window.location.href='./documentacao.html'" style="background: #e11d48; color: white; border: none; padding: 10px 20px; border-radius: 8px; cursor: pointer; font-weight: 600; display: inline-flex; margin: 16px;">
+          Documentação
+        </button>
 
         <div class="content-grid">
           <a href="api/Fotografias.php" class="content-card card-roxo">
@@ -274,12 +278,9 @@ session_start();
             <div class="icon-box">
               <i class="fa-solid fa-gear"></i>
             </div>
-
-            <h4>
-              Legislação
-              <br>
-            </h4>
+            <h4>Legislação</h4>
           </a>
+
         </div>
       </div>
     </section>
