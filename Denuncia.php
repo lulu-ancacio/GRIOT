@@ -275,7 +275,7 @@ if ($httpCode >= 200 && $httpCode < 300) {
           <button class="menu-trigger" aria-label="Abrir menu"><span></span></button>
           <ul class="menu-dropdown">
             <li><a href="Fotografias.html">Fotografias</a></li>
-            <li><a href="Biblioteca.html">Biblioteca</a></li>
+            <li><a href="Biblioteca.html">Acervo Literário</a></li>
             <li><a href="Audiovisuais.html">Audiovisuais</a></li>
             <li><a href="Pinturas.html">Pinturas</a></li>
             <li><a href="LinhadoTempo.html">Linha do Tempo</a></li>
