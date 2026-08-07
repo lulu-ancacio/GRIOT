@@ -9,7 +9,3 @@ function scrollCarousel(direction, carouselId) {
     });
 }
 
-setInterval(() => {
-    scrollCarousel(1, 'carousel-internos');
-    scrollCarousel(1, 'carousel-externos');
-}, 5000);
