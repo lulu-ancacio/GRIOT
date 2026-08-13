@@ -316,3 +316,91 @@ function supabaseDeleteItem($tabela)
     );
     echo "<script>alert('Item apagado!');</script>";
 }
+
+function supabaseUpdatePhotoPaintingBook($table)
+{
+    require_once './composer/vendor/autoload.php';
+
+    $url = $_ENV['SUPABASE_URL'];
+    $api_key = $_ENV['SUPABASE_SERVICE_ROLE'];
+
+    if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+
+        $id = $_POST['id'];
+        $titulo = $_POST['titulo'];
+        $autor = $_POST['autor'];
+        $ano = $_POST['ano'];
+
+        $client = new GuzzleHttp\Client();
+
+        $client->patch(
+            "$url/rest/v1/$table?id=eq.$id",
+            [
+                'headers' => [
+                    'apikey' => $api_key,
+                    'Authorization' => "Bearer $api_key",
+                    'Prefer' => 'return=minimal'
+                ],
+                'json' => [
+                    'titulo' => $titulo,
+                    'autor' => $autor,
+                    'ano' => $ano
+                ]
+            ]
+        );
+
+        echo "<script>alert('Mídia atualizada!');</script>";
+    }
+}
+
+function supabaseUpdateFilm($table)
+{
+    require_once './composer/vendor/autoload.php';
+
+    $url = $_ENV['SUPABASE_URL'];
+    $api_key = $_ENV['SUPABASE_SERVICE_ROLE'];
+
+    if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+
+        $id = $_POST['id'];
+        $link = $_POST['link'];
+        $titulo = $_POST['titulo'];
+        $desc = $_POST['desc'];
+        $tipomidia = $_POST['tipomidia'];
+
+        $tiposPermitidos = [
+            'curtas',
+            'filmes',
+            'desenhos',
+            'documentarios',
+            'series',
+            'biografias',
+            'clipes'
+        ];
+
+        if (!in_array($tipomidia, $tiposPermitidos)) {
+            die('Tipo de mídia inválido.');
+        }
+
+        $client = new GuzzleHttp\Client();
+
+        $client->patch(
+            "$url/rest/v1/$table?id=eq.$id",
+            [
+                'headers' => [
+                    'apikey' => $api_key,
+                    'Authorization' => "Bearer $api_key",
+                    'Prefer' => 'return=minimal'
+                ],
+                'json' => [
+                        'titulo' => $titulo,
+                        'desc' => $desc,
+                        'link' => $link,
+                        'tipo' => $tipomidia
+                ]
+            ]
+        );
+
+        echo "<script>alert('Mídia atualizada!');</script>";
+    }
+}

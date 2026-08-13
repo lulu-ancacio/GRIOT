@@ -8,11 +8,11 @@ if (empty($_SESSION['adm'])) {
 require_once 'config/functions.php';
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    match ($_POST['secao']) {
-        'fotografias' => supabaseDeleteItem(''),
-        'pinturas' => supabaseDeleteItem('pinturas'),
-        'filmes' => supabaseDeleteItem('filmes'),
-        'livros' => supabaseDeleteItem('livros'),
+    match ($_POST['tipo']) {
+        'fotografias' => supabaseUpdatePhotoPaintingBook('fotografias'),
+        'pinturas' => supabaseUpdatePhotoPaintingBook('pinturas'),
+        'filmes' => supabaseUpdateFilm('filmes'),
+        'livros' => supabaseUpdatePhotoPaintingBook('livros'),
         default => null
     };
 }
@@ -27,7 +27,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" href="mainStyle/assets/images/FavIcon_SF.png">
     <meta name="description" content="Painel Administrativo ">
-    <title>GRIOT - Exclusão de Conteúdo</title>
+    <title>GRIOT - Painel de Edição</title>
 
 
     <link rel="stylesheet" href="mainStyle/assets/fonts/poppins.css">
@@ -141,7 +141,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         }
 
         .btn-submit {
-            width: 10%;
+            width: 100%;
             padding: 0.85rem;
             background: var(--primary);
             color: white;
@@ -149,7 +149,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             border-radius: 8px;
             cursor: pointer;
             transition: 0.3s;
-            margin-left: 20px;
         }
 
         .btn-submit:hover {
@@ -227,16 +226,174 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         </div>
     </section>
 
-
     <main class="container">
         <a href="adm.php">
             <div class="icon-box">
                 <i class="fa-solid fa-arrow-left"></i>
             </div>
         </a>
-
         <h2 class="section-title">Edição de Conteúdo</h2>
 
+        <div class="forms-grid">
+
+
+            <article class="form-card">
+                <h3>Obras</h3>
+                <form method="POST" enctype="multipart/form-data">
+
+                    <label for="secao">Selecione a seção *</label>
+                    <select id="secao" name="secao" required>
+                        <option value="">Selecione...</option>
+                        <option value="pinturas">🎨 Pinturas</option>
+                        <option value="fotografias">📷 Fotografias</option>
+                        <option value="filmes">🎬 Audiovisuais</option>
+                        <option value="livros">📚 Acervo literário</option>
+                    </select>
+
+                    <div id="sugestoes" style=" max-height:400px; overflow-y:auto; overflow-x:hidden; background:white; border:2px solid #e5e7eb; border-radius:8px; margin:20px"></div>
+                </form>
+            </article>
+
+            <article class="form-card">
+                <h3>📷 Fotografias</h3>
+                <form method="POST" enctype="multipart/form-data">
+                    <input type="hidden" name="tipo" value="fotografias">
+
+                    <div class="form-group">
+                        <label for="foto_id">ID *</label>
+                        <input type="number" id="foto_id" name="id" required placeholder="Ex: 13">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="foto_titulo">Título *</label>
+                        <input type="text" id="foto_titulo" name="titulo" required placeholder="Ex: Retrato da Liberdade">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="foto_autor">Autor(a) *</label>
+                        <input type="text" id="foto_autor" name="autor" required placeholder="Nome do artista">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="foto_ano">Ano</label>
+                        <input type="number" id="foto_ano" name="ano" min="1800" max="2100" placeholder="Ex: 2024">
+                    </div>
+
+
+                    <button type="submit" class="btn-submit">Atualizar Fotografia</button>
+                    <p>Adicione uma fotografia por vez.</p>
+                </form>
+            </article>
+
+            <!-- 🎨 FORM: PINTURAS -->
+            <article class="form-card">
+                <h3>🎨 Pinturas</h3>
+                <form method="POST" enctype="multipart/form-data">
+                    <input type="hidden" name="tipo" value="pinturas">
+
+                    <div class="form-group">
+                        <label for="foto_id">ID *</label>
+                        <input type="number" id="foto_id" name="id" required placeholder="Ex: 13">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="pint_titulo">Título *</label>
+                        <input type="text" id="pint_titulo" name="titulo" required placeholder="Ex: Raízes Ancestrais">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="pint_autor">Autor(a) *</label>
+                        <input type="text" id="pint_autor" name="autor" required placeholder="Nome do artista">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="pint_ano">Ano</label>
+                        <input type="number" id="pint_ano" name="ano" min="1800" max="2100" placeholder="Ex: 2023">
+                    </div>
+
+
+                    <button type="submit" class="btn-submit">Atualizar Pintura</button>
+                    <p>Adicione uma pintura por vez.</p>
+                </form>
+            </article>
+
+            <!-- 📚 FORM: BIBLIOTECA -->
+            <article class="form-card">
+                <h3>📚 Acervo literário</h3>
+                <form method="POST" enctype="multipart/form-data">
+                    <input type="hidden" name="tipo" value="livros">
+
+                    <div class="form-group">
+                        <label for="foto_id">ID *</label>
+                        <input type="number" id="foto_id" name="id" required placeholder="Ex: 13">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="livros_titulo">Título *</label>
+                        <input type="text" id="livros_titulo" name="titulo" required placeholder="Ex: Querido estudante negro">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="livros_autor">Autor(a) *</label>
+                        <input type="text" id="livros_autor" name="autor" required placeholder="Nome do autor">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="livros_ano">Ano</label>
+                        <input type="number" id="livros_ano" name="ano" min="1800" max="2100" placeholder="Ex: 2023">
+                    </div>
+
+                    <button type="submit" class="btn-submit">Atualizar Obra</button>
+                    <p>Adicione uma obra por vez.</p>
+                </form>
+            </article>
+
+            <!-- 🎬 FORM: FILMES -->
+            <article class="form-card">
+                <h3>🎬 Audiovisuais</h3>
+                <form method="POST" enctype="multipart/form-data">
+                    <input type="hidden" name="tipo" value="filmes">
+
+                    <div class="form-group">
+                        <label for="foto_id">ID *</label>
+                        <input type="number" id="foto_id" name="id" required placeholder="Ex: 13">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="filme_titulo">Título *</label>
+                        <input type="text" id="filme_titulo" name="titulo" required placeholder="Ex: Quilombo dos Palmares">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="filme_desc">Descrição *</label>
+                        <input type="text" id="filme_desc" name="desc" required placeholder="Breve descrição da obra">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="filme_link">Link *</label>
+                        <input type="url" id="filme_link" name="link" required placeholder="https://...">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="filme_tipo">Tipo de Mídia *</label>
+                        <select id="filme_tipo" name="tipomidia" required>
+                            <option value="">Selecione...</option>
+                            <option value="filmes">🎬 Longas de Ficção</option>
+                            <option value="curtas">🎞️ Curtas</option>
+                            <option value="desenhos">✏️ Animações</option>
+                            <option value="documentarios">🎥 Documentários</option>
+                            <option value="series">📺 Séries</option>
+                            <option value="biografias">👤 Biografias</option>
+                            <option value="clipes">🎵 Musicais</option>
+                        </select>
+                    </div>
+
+                    <button type="submit" class="btn-submit">Atualizar Mídia</button>
+                    <p>Adicione uma mídia por vez.</p>
+                </form>
+            </article>
+
+        </div>
     </main>
 
 
@@ -266,6 +423,128 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 window.SUPABASE_KEY
             );
 
+        }
+    </script>
+
+    <script>
+        document.getElementById('secao').addEventListener('change', function() {
+
+            switch (this.value) {
+
+                case 'fotografias':
+                    mostrarFotografias();
+                    break;
+
+                case 'pinturas':
+                    mostrarPinturas();
+                    break;
+
+                case 'filmes':
+                    mostrarFilmes();
+                    break;
+
+                case 'livros':
+                    mostrarLivros();
+                    break;
+
+                default:
+                    break;
+            }
+
+        });
+    </script>
+
+    <script>
+        let dados = [];
+
+        async function mostrarFotografias() {
+            try {
+                const response = await fetch('api/Fotografias.php');
+                dados = await response.json();
+                let html = '';
+                dados.forEach((item) => {
+                    html += `
+                    <p style="padding: 12px 15px; cursor: pointer; border-bottom: 1px solid rgb(243, 244, 246); transition: background 0.2s; background: white;" onmouseover="this.style.background='#fef3c7'" onmouseout="this.style.background='white'">
+                    <img style="width: 200px; height: 100px; object-fit: cover; border-radius: 8px;" src="${item.url}"/>
+                    <strong>${item.titulo}</strong><br>
+                    ${item.autor} • ${item.ano}<br>
+                    <strong>ID: ${item.id}</strong>
+                    </p>
+                    `;
+                });
+                document.getElementById('sugestoes').innerHTML = html;
+            } catch (erro) {
+                console.error(erro);
+                document.getElementById('sugestoes').innerHTML =
+                    'Erro ao consumir API';
+            }
+        }
+
+        async function mostrarPinturas() {
+            try {
+                const response = await fetch('api/Pinturas.php');
+                dados = await response.json();
+                let html = '';
+                dados.forEach((item) => {
+                    html += `
+                    <p style="padding: 12px 15px; cursor: pointer; border-bottom: 1px solid rgb(243, 244, 246); transition: background 0.2s; background: white;" onmouseover="this.style.background='#fef3c7'" onmouseout="this.style.background='white'">
+                    <img style="width: 200px; height: 100px; object-fit: cover; border-radius: 8px;" src="${item.url}"/>
+                    <strong>${item.titulo}</strong><br>
+                    ${item.autor} • ${item.ano}<br>
+                    <strong>ID: ${item.id}</strong>
+                    </p>
+                    `;
+                });
+                document.getElementById('sugestoes').innerHTML = html;
+            } catch (erro) {
+                console.error(erro);
+                document.getElementById('sugestoes').innerHTML =
+                    'Erro ao consumir API';
+            }
+        }
+
+        async function mostrarFilmes() {
+            try {
+                const response = await fetch('api/Audiovisuais.php');
+                dados = await response.json();
+                let html = '';
+                dados.forEach((item) => {
+                    html += `
+                    <p style="padding: 12px 15px; cursor: pointer; border-bottom: 1px solid rgb(243, 244, 246); transition: background 0.2s; background: white;" onmouseover="this.style.background='#fef3c7'" onmouseout="this.style.background='white'">
+                    <img style="width: 200px; height: 100px; object-fit: cover; border-radius: 8px;" src="${item.url}"/>
+                    <strong>${item.titulo}</strong><br>
+                    <strong>ID: ${item.id}</strong>
+                    </p>
+                    `;
+                });
+                document.getElementById('sugestoes').innerHTML = html;
+            } catch (erro) {
+                console.error(erro);
+                document.getElementById('sugestoes').innerHTML =
+                    'Erro ao consumir API';
+            }
+        }
+
+        async function mostrarLivros() {
+            try {
+                const response = await fetch('api/Biblioteca.php');
+                dados = await response.json();
+                let html = '';
+                dados.forEach((item) => {
+                    html += `
+                    <p style="padding: 12px 15px; cursor: pointer; border-bottom: 1px solid rgb(243, 244, 246); transition: background 0.2s; background: white;" onmouseover="this.style.background='#fef3c7'" onmouseout="this.style.background='white'">
+                    <img style="width: 90px; height: 135px; object-fit: cover; border-radius: 8px;" src="${item.url}"/>
+                    <strong>${item.titulo}</strong><br>
+                    <strong>ID: ${item.id}</strong>
+                    </p>
+                    `;
+                });
+                document.getElementById('sugestoes').innerHTML = html;
+            } catch (erro) {
+                console.error(erro);
+                document.getElementById('sugestoes').innerHTML =
+                    'Erro ao consumir API';
+            }
         }
     </script>
 
