@@ -40,7 +40,7 @@ function supabaseRequest($endpoint)
     return json_decode($response, true);
 }
 
-function supabaseCreatePhotoPainting($bucket, $table)
+function supabaseCreatePhotoPainting($bucket, $table, $id_user)
 {
     require_once './composer/vendor/autoload.php';
 
@@ -54,6 +54,7 @@ function supabaseCreatePhotoPainting($bucket, $table)
         $titulo = $_POST['titulo'];
         $autor = $_POST['autor'];
         $ano = $_POST['ano'];
+        $id_usuario = $id_user;
 
         if ($file['error'] === 0) {
 
@@ -91,7 +92,8 @@ function supabaseCreatePhotoPainting($bucket, $table)
                         'titulo' => $titulo,
                         'autor' => $autor,
                         'ano' => $ano,
-                        'url' => $publicUrl
+                        'url' => $publicUrl,
+                        'id_usuario' => $id_usuario
                     ]
                 ]
             );
@@ -100,7 +102,7 @@ function supabaseCreatePhotoPainting($bucket, $table)
     }
 }
 
-function supabaseCreateBook()
+function supabaseCreateBook($id_user)
 {
     require_once './composer/vendor/autoload.php';
 
@@ -114,6 +116,7 @@ function supabaseCreateBook()
         $autor = $_POST['autor'];
         $ano = $_POST['ano'];
         $cc0 = $_POST['cc0'];
+        $id_usuario = $id_user;
 
         if ($file['error'] === UPLOAD_ERR_OK || $file['error'] === UPLOAD_ERR_NO_FILE) {
 
@@ -178,7 +181,8 @@ function supabaseCreateBook()
                         'ano' => $ano,
                         'url' => $publicUrlImage,
                         'link' => $linkTratado,
-                        'cc0' => $cc0
+                        'cc0' => $cc0,
+                        'id_usuario' => $id_usuario
                     ]
                 ]
             );
@@ -187,7 +191,7 @@ function supabaseCreateBook()
     }
 }
 
-function supabaseCreateFilm()
+function supabaseCreateFilm($id_user)
 {
     require_once './composer/vendor/autoload.php';
     $url = $_ENV['SUPABASE_URL'];
@@ -200,6 +204,7 @@ function supabaseCreateFilm()
         $titulo = $_POST['titulo'];
         $desc = $_POST['desc'];
         $tipomidia = $_POST['tipomidia'];
+        $id_usuario = $id_user; 
 
         $tiposPermitidos = [
             'curtas',
@@ -256,7 +261,8 @@ function supabaseCreateFilm()
                         'desc' => $desc,
                         'link' => $link,
                         'url' => $publicUrl,
-                        'tipo' => $tipomidia
+                        'tipo' => $tipomidia,
+                        'id_usuario' =>$id_usuario
                     ]
                 ]
             );
@@ -285,6 +291,35 @@ function getUserAdm($user_id, $token)
 
         if (!empty($data) && isset($data[0]->adm)) {
             return (bool)$data[0]->adm;
+        }
+
+        return false;
+    } catch (Exception $e) {
+        echo 'Erro: ' . $e->getMessage();
+        exit;
+    }
+}
+
+function getUserId($user_id, $token)
+{
+    require_once '../composer/vendor/autoload.php';
+    $client = new GuzzleHttp\Client();
+
+    $url = $_ENV['SUPABASE_URL'];
+    $url = $url . '/rest/v1/usuarios?id_usuario=eq.' . urlencode($user_id);
+
+    try {
+        $response = $client->get($url, [
+            'headers' => [
+                'apikey' => $_ENV['SUPABASE_SERVICE_ROLE'],
+                'Authorization' => 'Bearer ' . $token
+            ]
+        ]);
+
+        $data = json_decode($response->getBody());
+
+        if (!empty($data) && isset($data[0]->id)) {
+            return (int)$data[0]->id;
         }
 
         return false;

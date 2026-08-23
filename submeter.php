@@ -9,10 +9,10 @@ require_once 'config/functions.php';
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     match ($_POST['tipo']) {
-        'fotografias' => supabaseCreatePhotoPainting('Fotografias', 'fotografias'),
-        'pinturas' => supabaseCreatePhotoPainting('Pinturas', 'pinturas'),
-        'filmes' => supabaseCreateFilm(),
-        'livros' => supabaseCreateBook(),
+        'fotografias' => supabaseCreatePhotoPainting('Fotografias', 'fotografias', $_SESSION['id']),
+        'pinturas' => supabaseCreatePhotoPainting('Pinturas', 'pinturas', $_SESSION['id']),
+        'filmes' => supabaseCreateFilm($_SESSION['id']),
+        'livros' => supabaseCreateBook($_SESSION['id']),
         default => null
     };
 }
