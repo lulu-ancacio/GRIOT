@@ -56,7 +56,7 @@ session_start();
         </a>
 
         <div class="right-menu">
-          <a href=" " class="main-red-button">
+          <a href="QuemSomos/quemsomos.html" class="main-red-button">
               Quem Somos
             </a>
           <?php if (empty($_SESSION['email'])): ?>
