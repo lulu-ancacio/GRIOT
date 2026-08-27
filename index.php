@@ -56,10 +56,13 @@ session_start();
         </a>
 
         <div class="right-menu">
+          <a href=" " class="main-red-button">
+              Quem Somos
+            </a>
           <?php if (empty($_SESSION['email'])): ?>
             <a href="./auth/login.php" class="main-blue-button">
               Login
-            </a>
+          </a>
           <?php else: ?>
             <?php if ($_SESSION['adm']): ?>
               <a href="./adm.php" class="main-red-button">
@@ -304,11 +307,6 @@ session_start();
 
             <div class="phone-info">
               <h4>
-                <i class="fa fa-phone"></i>
-                Ligue para nosso telefone:
-                <a href="tel:+5541984748028">
-                  41 98474-8028
-                </a>
               </h4>
             </div>
           </div>

@@ -546,25 +546,6 @@ ul {
   margin-bottom: 30px;
 }
 
-.phone-info {
-  background: #fff5f5;
-  padding: 20px 25px;
-  border-radius: 18px;
-  border-left: 5px solid #3f72fe;
-  display: inline-block;
-}
-.phone-info h4 {
-  font-size: 18px;
-  color: #2a2a2a;
-}
-.phone-info i {
-  color: #fe3f40;
-  margin-right: 8px;
-}
-.phone-info a {
-  color: #03a4ed;
-  font-weight: 600;
-}
 
 #contact {
   background: #f9ffac;
@@ -676,9 +657,6 @@ ul {
     width: 100%;
   }
 
-  .phone-info {
-    width: 100%;
-  }
 
   .contact-dec {
     display: none;
@@ -846,15 +824,6 @@ button {
     width: 100%;
   }
 
-  .phone-info {
-    width: 100%;
-    text-align: center;
-  }
-
-  .phone-info h4 {
-    font-size: 15px;
-    line-height: 1.6;
-  }
 
   .main-blue-button,
   .main-red-button {
