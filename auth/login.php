@@ -40,6 +40,7 @@ if (
             $_SESSION['nome'] = $data->user->user_metadata->nome;
             $_SESSION['pronome'] = $data->user->user_metadata->pronome;
             $user_id = $data->user->id;
+            $_SESSION['id'] = getUserId($user_id, $_SESSION['token']);
             $_SESSION['adm'] = getUserAdm($user_id, $_SESSION['token']);
 
             header("Location: ../index.php");
