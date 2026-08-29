@@ -1,4 +1,4 @@
-  #DA3A2D red
+ #DA3A2D red
  #5F3554 purple
  #3260B9 blue
  #EECC3F amarelo

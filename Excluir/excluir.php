@@ -200,7 +200,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
         async function mostrarFotografias() {
             try {
-                const response = await fetch('api/Fotografias.php');
+                const response = await fetch('../api/Fotografias.php');
                 dados = await response.json();
                 let html = '';
                 dados.forEach((item) => {
