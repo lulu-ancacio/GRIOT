@@ -36,7 +36,7 @@
   <h2>📝 Método</h2>
   <p>
      O método para selecionar obras que povoam o sistema consiste em: 1 - Procura e seleção livre das obras; 2 - Curadoria da obra em relação à licença de uso; 3 - Levantamento de dados sobre a obra para contextualização no acervo. A plataforma GRIOT busca ainda servir de espaço para valorização de produtores de cultura afro-brasileira da Região Metropolitana de Curitiba, garantindo representatividade local com as devidas burocracias legais em relação a licenças de uso. Desta maneira, a aplicação entrega recursos educacionais digitais com descrições completas e sem inconsistências quanto ao uso de mídias.
-    A plataforma contempla seções como pinturas, fotografias, músicas, literatura, produções audiovisuais, legislação e linha do tempo, organizadas de maneira responsiva.
+    A plataforma contempla seções como pinturas, fotografias, músicas, literatura, produções  <li><a href="../Filmes/Audiovisuais.html">Audiovisuais</a></li>, legislação e linha do tempo, organizadas de maneira responsiva.
   </p>
 </div>
 

@@ -112,8 +112,7 @@ if ($httpCode >= 200 && $httpCode < 300) {
   <link rel="stylesheet" href="mainStyle/assets/css/templatemo-space-dynamic.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
     integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
-    crossorigin="anonymous"
-    referrerpolicy="no-referrer" />
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
   <style>
     body {
       background: #f3f4f6;
@@ -276,13 +275,14 @@ if ($httpCode >= 200 && $httpCode < 300) {
           <ul class="menu-dropdown">
             <li><a href="Fotografias.html">Fotografias</a></li>
             <li><a href="Biblioteca.html">Acervo Literário</a></li>
-            <li><a href="Audiovisuais.html">Audiovisuais</a></li>
+            <li><a href=" <li><a href=" ../Filmes/Audiovisuais.html">Audiovisuais</a></li>.html"> <li><a
+                href="../Filmes/Audiovisuais.html">Audiovisuais</a></li></a></li>
             <li><a href="Pinturas.html">Pinturas</a></li>
-            <li><a href="LinhadoTempo.html">Linha do Tempo</a></li>
-            <li><a href="Personalidades.html">Personalidades</a></li>
-            <li><a href="Musica.html">Músicas</a></li>
-            <li><a href="MensagemRecebida.php">Sugestões</a></li>
-            <li><a href="adm.php">Administrador</a></li>
+            <li><a href="LinhaDoTempo/LinhadoTempo.html">Linha do Tempo</a></li>
+            <li><a href="personalidades/Personalidades.html">Personalidades</a></li>
+            <li><a href="../musica/Musica.html">Músicas</a></li>
+            <li><a href="../mensagemRecebida/mensagemRecebida.php">Sugestões</a></li>
+            <li><a href="adm/adm.php">Administrador</a></li>
 
           </ul>
         </div>
@@ -307,7 +307,7 @@ if ($httpCode >= 200 && $httpCode < 300) {
   </section>
 
   <main class="container">
-    <a href="adm.php">
+    <a href="adm/adm.php">
       <div class="icon-box">
         <i class="fa-solid fa-arrow-left"></i>
       </div>
@@ -337,7 +337,9 @@ if ($httpCode >= 200 && $httpCode < 300) {
               <?php endif; ?>
             </h3>
 
-            <p><strong>Obra:</strong> <span style="color: #e11d48; font-weight: 600;"><?= htmlspecialchars($item['nome_pintura'] ?? 'Não informado') ?></span></p>
+            <p><strong>Obra:</strong> <span
+                style="color: #e11d48; font-weight: 600;"><?= htmlspecialchars($item['nome_pintura'] ?? 'Não informado') ?></span>
+            </p>
             <p><strong>Motivo:</strong> <?= htmlspecialchars($item['motivo']) ?></p>
             <p><strong>ID da Pintura:</strong> <?= $item['id_pintura'] ?></p>
 

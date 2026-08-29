@@ -10,183 +10,27 @@ session_start();
   <meta name="description" content="Museu virtual com tematica racial">
   <meta name="author" content="">
   <meta charset="UTF-8">
-  <link rel="icon" href="galeria/assets/images/FavIcon_SF.png">
-  <link rel="stylesheet" href="mainStyle/assets/fonts/poppins.css">
+  <link rel="icon" href="../galeria/assets/images/FavIcon_SF.png">
+  <link rel="stylesheet" href="../mainStyle/assets/fonts/poppins.css">
 
   <title>GRIOT - Controle de Sugestões</title>
 
-  <script src="Supabase/supabase.min.js"></script>
+  <script src="../Supabase/supabase.min.js"></script>
 
-  <link rel="stylesheet" href="mainStyle/assets/css/templatemo-space-dynamic.css">
+  <link rel="stylesheet" href="../mainStyle/assets/css/templatemo-space-dynamic.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
     integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
-    crossorigin="anonymous"
-    referrerpolicy="no-referrer" />
-  <link rel="stylesheet" href="mainStyle/assets/css/fontawesome.css">
-  <link rel="stylesheet" href="mainStyle/assets/css/templatemo-space-dynamic.css">
-
-  <style>
-    .banner {
-      background: #ff5845;
-      padding: 7rem 1.5rem 2.5rem;
-      text-align: center;
-    }
-
-    .banner h1 {
-      font-size: 1.8rem;
-      margin-bottom: 0.5rem;
-      color: white;
-    }
-
-    .banner p {
-      color: white;
-    }
-
-    .section-title {
-      text-align: center;
-      margin-bottom: 2rem;
-    }
-
-    .user-badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.5rem;
-      background: rgba(255, 255, 255, 0.15);
-      padding: 0.4rem 1rem;
-      border-radius: 50px;
-      margin-top: 1rem;
-      color: white;
-    }
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="../mainStyle/assets/css/fontawesome.css">
+  <link rel="stylesheet" href="../mainStyle/assets/css/templatemo-space-dynamic.css">
+  <link rel="stylesheet" href="style.css">
 
 
-    #lista {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-      gap: 20px;
-      padding: 0 20px;
-    }
-
-
-    .card {
-      position: relative;
-      background: #dcfce7;
-      border-radius: 20px;
-      padding: 20px;
-      box-shadow: 0 4px 10px rgba(34, 197, 94, 0.15);
-      transition: all 0.3s ease;
-      cursor: pointer;
-    }
-
-    .card::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      height: 10px;
-      border-radius: 20px 20px 0 0;
-    }
-
-
-    .card.visto {
-      background: #fee2e2;
-      opacity: 0.9;
-      box-shadow: 0 2px 8px rgba(239, 68, 68, 0.1);
-    }
-
-    .card p {
-      font-size: 14px;
-      color: #4a5568;
-    }
-
-    .card .enderecoOnline a {
-      color: #4f46e5;
-      font-size: 12px;
-      text-decoration: none;
-    }
-
-    .card p strong {
-      color: #2d3748;
-      font-weight: 600;
-    }
-
-    .card p:last-child {
-      margin-top: 16px;
-      padding-top: 16px;
-      border-top: 5px solid #e2e8f0;
-      color: #2d3748;
-      font-style: italic;
-    }
-
-    .btn-email {
-      margin-top: 10px;
-      background: #ff9e78;
-      color: rgb(0, 0, 0);
-      border: none;
-      padding: 8px 12px;
-      border-radius: 10px;
-      cursor: pointer;
-      font-size: 12px
-    }
-
-    @media (max-width: 768px) {
-      .comments-title {
-        font-size: 1.8rem;
-      }
-
-      #lista {
-        grid-template-columns: 1fr;
-        padding: 0 10px;
-      }
-
-      .card {
-        padding: 20px;
-      }
-    }
-
-    .card h3 {
-      padding-right: 30px;
-      display: flex;
-      align-items: center;
-      flex-wrap: wrap;
-      gap: 8px;
-    }
-
-    .card h3 a {
-      color: #2d3748;
-      text-decoration: none;
-      transition: color 0.3s;
-      pointer-events: none;
-    }
-
-    .card h3 a:hover {
-      color: #4f46e5;
-    }
-
-
-    .status-badge {
-      font-size: 10px;
-      padding: 4px 8px;
-      border-radius: 12px;
-      font-weight: 600;
-      text-transform: uppercase;
-    }
-
-    .status-novo {
-      background: #22c55e;
-      color: white;
-    }
-
-    .status-lido {
-      background: #ef4444;
-      color: white;
-    }
-  </style>
 </head>
 
 
 <body>
-  <!-- Preloader -->
+
   <div id="js-preloader" class="js-preloader">
     <div class="preloader-inner">
       <span class="dot"></span>
@@ -196,32 +40,32 @@ session_start();
     </div>
   </div>
 
-  <!-- Header -->
   <header class="header-area">
     <div class="container">
       <nav class="main-nav">
         <div class="left-menu">
           <button class="menu-trigger" aria-label="Abrir menu"><span></span></button>
           <ul class="menu-dropdown">
-            <li><a href="Fotografias.html">Fotografias</a></li>
-            <li><a href="Biblioteca.html">Acervo Literário</a></li>
-            <li><a href="Audiovisuais.html">Audiovisuais</a></li>
-            <li><a href="Pinturas.html">Pinturas</a></li>
-            <li><a href="LinhadoTempo.html">Linha do Tempo</a></li>
-            <li><a href="Personalidades.html">Personalidades</a></li>
-            <li><a href="adm.php">Administrador</a></li>
-            <li><a href="Musica.html">Músicas</a></li>
-            <li><a href="Denuncia.php">Denúncias</a></li>
+            <li><a href="../Fotografias.html">Fotografias</a></li>
+            <li><a href="../Biblioteca.html">Acervo Literário</a></li>
+            <li><a href="../ <li><a href=" ../Filmes/Audiovisuais.html">Audiovisuais</a></li>.html"> <li><a
+                href="../Filmes/Audiovisuais.html">Audiovisuais</a></li></a></li>
+            <li><a href="../Pinturas.html">Pinturas</a></li>
+            <li><a href="../LinhaDoTempo/LinhadoTempo.html">Linha do Tempo</a></li>
+            <li><a href="../personalidades/Personalidades.html">Personalidades</a></li>
+            <li><a href="../adm/adm.php">Administrador</a></li>
+            <li><a href="../musica/Musica.html">Músicas</a></li>
+            <li><a href="../Denuncia.php">Denúncias</a></li>
           </ul>
         </div>
         <div class="logo">
-          <a href="index.php">
-            <img src="mainStyle/assets/images/LogoEst_SF.png"
+          <a href="../index.php">
+            <img src="../mainStyle/assets/images/LogoEst_SF.png"
               alt="Logotipo do projeto GRIOT com tipografia colorida e ícone de ave estilizada, com o subtítulo Memória e História Afro-Brasileira">
           </a>
         </div>
         <div class="right-menu">
-          <a href="index.php" class="main-red-button">Início</a>
+          <a href="../index.php" class="main-red-button">Início</a>
         </div>
       </nav>
     </div>
@@ -237,7 +81,7 @@ session_start();
   </section>
 
   <main class="container">
-    <a href="adm.php">
+    <a href="../adm/adm.php">
       <div class="icon-box">
         <i class="fa-solid fa-arrow-left"></i>
       </div>
@@ -398,7 +242,7 @@ session_start();
       }, 500);
     });
   </script>
-  <script src="mainStyle/script.js"></script>
+  <script src="../mainStyle/script.js"></script>
 </body>
 
 </html>

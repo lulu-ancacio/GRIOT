@@ -5,7 +5,7 @@ if (empty($_SESSION['adm'])) {
     exit;
 }
 
-require_once 'config/functions.php';
+require_once '../config/functions.php';
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     match ($_POST['tipo']) {
@@ -25,158 +25,22 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" href="mainStyle/assets/images/FavIcon_SF.png">
+    <link rel="icon" href="../mainStyle/assets/images/FavIcon_SF.png">
     <meta name="description" content="Painel Administrativo ">
     <title>GRIOT - Painel de Submissão</title>
-
-
-    <link rel="stylesheet" href="mainStyle/assets/fonts/poppins.css">
-    <link rel="stylesheet" href="mainStyle/assets/css/templatemo-space-dynamic.css">
+    <link rel="stylesheet" href="../mainStyle/assets/fonts/poppins.css">
+    <link rel="stylesheet" href="../mainStyle/assets/css/templatemo-space-dynamic.css">
+    <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
         integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
-        crossorigin="anonymous"
-        referrerpolicy="no-referrer" />
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
 
 
-    <style>
-        :root {
-            --primary: #e74c3c;
-            --accent: #03a4ed;
-            --bg-light: #f8f9fa;
-            --white: #ffffff;
-            --secondary: #2c3e50;
-            --border: #dee2e6;
-            --shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
-            --radius: 12px;
-            --transition: all 0.3s ease;
-        }
 
-        body {
-            font-family: 'Poppins', sans-serif;
-            background: var(--bg-light);
-            color: var(--secondary);
-        }
-
-
-        .banner {
-            background: #ff5845;
-            padding: 7rem 1.5rem 2.5rem;
-            text-align: center;
-        }
-
-        .banner h1 {
-            font-size: 1.8rem;
-            margin-bottom: 0.5rem;
-            color: white;
-        }
-
-        .banner p {
-            color: white;
-        }
-
-        .user-badge {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            background: rgba(255, 255, 255, 0.15);
-            padding: 0.4rem 1rem;
-            border-radius: 50px;
-            margin-top: 1rem;
-            color: white;
-        }
-
-
-        main.container {
-            padding-top: 3rem;
-            padding-bottom: 3rem;
-        }
-
-        .section-title {
-            text-align: center;
-            margin-bottom: 2rem;
-        }
-
-
-        .forms-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 1.5rem;
-        }
-
-
-        .form-card {
-            background: white;
-            border-radius: var(--radius);
-            padding: 1.75rem;
-            box-shadow: var(--shadow);
-            transition: var(--transition);
-        }
-
-        .form-card:hover {
-            transform: translateY(-4px);
-        }
-
-        .form-card h3 {
-            color: var(--primary);
-            margin-bottom: 1rem;
-        }
-
-
-        .form-group {
-            margin-bottom: 1rem;
-        }
-
-        .form-group label {
-            display: block;
-            margin-bottom: 0.4rem;
-            font-weight: 500;
-        }
-
-        .form-group input,
-        .form-group select {
-            width: 100%;
-            padding: 0.75rem 1rem;
-            border: 1px solid var(--border);
-            border-radius: 8px;
-        }
-
-        .btn-submit {
-            width: 100%;
-            padding: 0.85rem;
-            background: var(--primary);
-            color: white;
-            border: none;
-            border-radius: 8px;
-            cursor: pointer;
-            transition: 0.3s;
-        }
-
-        .btn-submit:hover {
-            background: var(--accent);
-        }
-
-        .footer {
-            text-align: center;
-            padding: 2rem;
-        }
-
-        /* ===== MOBILE ===== */
-        @media (max-width: 768px) {
-            .banner {
-                padding-top: 6rem;
-            }
-
-            .forms-grid {
-                grid-template-columns: 1fr;
-            }
-        }
-    </style>
 
 </head>
 
 <body>
-
-
     <div id="js-preloader" class="js-preloader">
         <div class="preloader-inner">
             <span class="dot"></span>
@@ -186,31 +50,32 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         </div>
     </div>
 
-
     <header class="header-area">
         <div class="container">
             <nav class="main-nav">
                 <div class="left-menu">
                     <button class="menu-trigger" aria-label="Abrir menu"><span></span></button>
                     <ul class="menu-dropdown">
-                        <li><a href="Fotografias.html">Fotografias</a></li>
-                        <li><a href="Biblioteca.html">Acervo Literário</a></li>
-                        <li><a href="Audiovisuais.html">Audiovisuais</a></li>
-                        <li><a href="Pinturas.html">Pinturas</a></li>
-                        <li><a href="LinhadoTempo.html">Linha do Tempo</a></li>
-                        <li><a href="Personalidades.html">Personalidades</a></li>
-                        <li><a href="Musica.html"> Músicas</a>
+                        <li><a href="../Fotografias.html">Fotografias</a></li>
+                        <li><a href="../Biblioteca.html">Acervo Literário</a></li>
+                        <li><a href="../ <li><a href=" ../Filmes/Audiovisuais.html">Audiovisuais</a></li>.html"> <li><a
+                                href="../Filmes/Audiovisuais.html">Audiovisuais</a></li></a></li>
+                        <li><a href="../Pinturas.html">Pinturas</a></li>
+                        <li><a href="../LinhaDoTempo/LinhadoTempo.html">Linha do Tempo</a></li>
+                        <li><a href="../Personalidades/Personalidades.html">Personalidades</a></li>
+                        <li><a href="../Musica.html"> Músicas</a>
                         <li>
-                        <li><a href="mensagemRecebida.php">Sugestões</a></li>
+                        <li><a href="../mensagemRecebida/mensagemRecebida.php">Sugestões</a></li>
                     </ul>
                 </div>
                 <div class="logo">
-                    <a href="index.php">
-                        <img src="mainStyle/assets/images/LogoEst_SF.png" alt="Logotipo do projeto GRIOT com tipografia colorida e ícone de ave estilizada, com o subtítulo Memória e História Afro-Brasileira">
+                    <a href="../index.php">
+                        <img src="../mainStyle/assets/images/LogoEst_SF.png"
+                            alt="Logotipo do projeto GRIOT com tipografia colorida e ícone de ave estilizada, com o subtítulo Memória e História Afro-Brasileira">
                     </a>
                 </div>
                 <div class="right-menu">
-                    <a href="index.php" class="main-red-button">Início</a>
+                    <a href="../index.php" class="main-red-button">Início</a>
                 </div>
             </nav>
         </div>
@@ -227,7 +92,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     </section>
 
     <main class="container">
-        <a href="adm.php">
+        <a href="../adm/adm.php">
             <div class="icon-box">
                 <i class="fa-solid fa-arrow-left"></i>
             </div>
@@ -244,7 +109,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
                     <div class="form-group">
                         <label for="foto_titulo">Título *</label>
-                        <input type="text" id="foto_titulo" name="titulo" required placeholder="Ex: Retrato da Liberdade">
+                        <input type="text" id="foto_titulo" name="titulo" required
+                            placeholder="Ex: Retrato da Liberdade">
                     </div>
 
                     <div class="form-group">
@@ -267,7 +133,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 </form>
             </article>
 
-            <!-- 🎨 FORM: PINTURAS -->
             <article class="form-card">
                 <h3>🎨 Pinturas</h3>
                 <form method="POST" enctype="multipart/form-data">
@@ -298,7 +163,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 </form>
             </article>
 
-            <!-- 📚 FORM: BIBLIOTECA -->
+
             <article class="form-card">
                 <h3>📚 Acervo literário</h3>
                 <form method="POST" enctype="multipart/form-data">
@@ -306,7 +171,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
                     <div class="form-group">
                         <label for="livros_titulo">Título *</label>
-                        <input type="text" id="livros_titulo" name="titulo" required placeholder="Ex: Querido estudante negro">
+                        <input type="text" id="livros_titulo" name="titulo" required
+                            placeholder="Ex: Querido estudante negro">
                     </div>
 
                     <div class="form-group">
@@ -332,9 +198,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
                     <div class="form-group">
                         <p>Esta obra literário possui capa?</p>
-                        <input type="radio" id="livros_capa_true" name="capa" value="True" onClick="showImagemInput(this)">
+                        <input type="radio" id="livros_capa_true" name="capa" value="True"
+                            onClick="showImagemInput(this)">
                         <label for="livros_capa_true">Sim</label><br>
-                        <input type="radio" id="livros_capa_false" name="capa" value="False" onClick="showImagemInput(this)">
+                        <input type="radio" id="livros_capa_false" name="capa" value="False"
+                            onClick="showImagemInput(this)">
                         <label for="livros_capa_false">Não</label><br>
                     </div>
 
@@ -346,15 +214,17 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 </form>
             </article>
 
-            <!-- 🎬 FORM: FILMES -->
+
             <article class="form-card">
-                <h3>🎬 Audiovisuais</h3>
+                <h3>🎬 <li><a href="../Filmes/Audiovisuais.html">Audiovisuais</a></li>
+                </h3>
                 <form method="POST" enctype="multipart/form-data">
                     <input type="hidden" name="tipo" value="filmes">
 
                     <div class="form-group">
                         <label for="filme_titulo">Título *</label>
-                        <input type="text" id="filme_titulo" name="titulo" required placeholder="Ex: Quilombo dos Palmares">
+                        <input type="text" id="filme_titulo" name="titulo" required
+                            placeholder="Ex: Quilombo dos Palmares">
                     </div>
 
                     <div class="form-group">
@@ -401,23 +271,19 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     </footer>
 
 
-    <script src="mainStyle/script.js" defer></script>
+    <script src="../mainStyle/script.js" defer></script>
 
-<div vw class="enabled">
-  <div vw-access-button class="active"></div>
-  <div vw-plugin-wrapper>
-    <div class="vw-plugin-top-wrapper"></div>
-  </div>
-</div>
+    <div vw class="enabled">
+        <div vw-access-button class="active"></div>
+        <div vw-plugin-wrapper>
+            <div class="vw-plugin-top-wrapper"></div>
+        </div>
+    </div>
 
-<!-- Troque o caminho local pelo CDN oficial atualizado -->
-<script src="https://vlibras.gov.br/app/vlibras-plugin.js"></script>
-
-<script>
-  new window.VLibras.Widget('https://vlibras.gov.br/app');
-</script>
-
-
+    <script src="https://vlibras.gov.br/app/vlibras-plugin.js"></script>
+    <script>
+        new window.VLibras.Widget('https://vlibras.gov.br/app');
+    </script>
     <script src="Supabase/supabase.min.js"></script>
     <script>
         if (typeof window.SUPABASE_URL !== 'undefined') {
@@ -466,7 +332,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         }
     </script>
 
-    <script src="mainStyle/script.js"></script>
+    <script src="../mainStyle/script.js"></script>
 
 </body>
 

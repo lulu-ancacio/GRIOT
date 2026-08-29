@@ -15,15 +15,13 @@ session_start();
 
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
     integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
-    crossorigin="anonymous"
-    referrerpolicy="no-referrer" />
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
 
   <link rel="stylesheet" href="mainStyle/assets/css/templatemo-space-dynamic.css">
   <link rel="stylesheet" href="mapaInterativo/style.css">
 
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
-    integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
-    crossorigin="anonymous" />
+    integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="anonymous" />
 
 
 
@@ -42,30 +40,31 @@ session_start();
           <ul class="menu-dropdown">
             <li><a href="Pinturas.html">Pinturas</a></li>
             <li><a href="Fotografias.html">Fotografias</a></li>
-            <li><a href="Biblioteca.html">Acervo Literário</a></li>
-            <li><a href="Audiovisuais.html">Audiovisuais</a></li>
-            <li><a href="Personalidades.html">Personalidades</a></li>
-            <li><a href="LinhadoTempo.html">Linha do Tempo</a></li>
-            <li><a href="Legislacao.html">Legislação</a></li>
-            <li><a href="Musica.html">Músicas</a></li>
+            <li><a href="biblioteca/Biblioteca.html">Acervo Literário</a></li>
+            <li><a href="Filmes/Audiovisuais.html">Audiovisuais</a></li>
+            <li><a href="Personalidades/Personalidades.html">Personalidades</a></li>
+            <li><a href="LinhaDoTempo/LinhadoTempo.html">Linha do Tempo</a></li>
+            <li><a href="Legislacao/Legislacao.html">Legislação</a></li>
+            <li><a href="musica/Musica.html">Músicas</a></li>
 
           </ul>
         </div>
         <a href="index.php" class="logo">
-          <img src="mainStyle/assets/images/LogoEst_SF.png" alt="Logotipo do projeto GRIOT com tipografia colorida e ícone de ave estilizada, com o subtítulo Memória e História Afro-Brasileira">
+          <img src="mainStyle/assets/images/LogoEst_SF.png"
+            alt="Logotipo do projeto GRIOT com tipografia colorida e ícone de ave estilizada, com o subtítulo Memória e História Afro-Brasileira">
         </a>
 
         <div class="right-menu">
           <a href="QuemSomos/quemsomos.html" class="main-red-button">
-              Quem Somos
-            </a>
+            Quem Somos
+          </a>
           <?php if (empty($_SESSION['email'])): ?>
             <a href="./auth/login.php" class="main-blue-button">
               Login
-          </a>
+            </a>
           <?php else: ?>
             <?php if ($_SESSION['adm']): ?>
-              <a href="./adm.php" class="main-red-button">
+              <a href="./adm/adm.php" class="main-red-button">
                 Painel Administrativo
               </a>
             <?php endif; ?>
@@ -92,7 +91,9 @@ session_start();
                 </h5>
                 <?php if (!empty($_SESSION['adm'])): ?>
                   <p>
-                    <?php if (($_SESSION['pronome']) == "M"): ?>Você está logado como administrador<?php elseif (($_SESSION['pronome']) == "F"): ?> Você está logada como administradora <?php else: ?> Você está com função de administrar<?php endif; ?>
+                    <?php if (($_SESSION['pronome']) == "M"): ?>Você está logado como
+                      administrador<?php elseif (($_SESSION['pronome']) == "F"): ?> Você está logada como administradora
+                    <?php else: ?> Você está com função de administrar<?php endif; ?>
                   </p>
                 <?php endif; ?>
               </div>
@@ -147,7 +148,7 @@ session_start();
           </a>
 
 
-          <a href="Biblioteca.html" class="content-card card-vermelho">
+          <a href="biblioteca/Biblioteca.html" class="content-card card-vermelho">
             <div class="icon-box">
               <i class="fa fa-book"></i>
             </div>
@@ -155,15 +156,18 @@ session_start();
           </a>
 
 
-          <a href="Audiovisuais.html" class="content-card card-marrom">
+          <a href="Filmes/Audiovisuais.html" class="content-card
+          card-marrom">
             <div class="icon-box">
               <i class="fa fa-film"></i>
             </div>
-            <h4>Audiovisuais</h4>
+            <h4>
+              Audiovisuais
+            </h4>
           </a>
 
 
-          <a href="Personalidades.html" class="content-card card-azul">
+          <a href="personalidades/Personalidades.html" class="content-card card-azul">
             <div class="icon-box">
               <i class="fa-solid fa-person"></i>
             </div>
@@ -171,7 +175,7 @@ session_start();
           </a>
 
 
-          <a href="LinhadoTempo.html" class="content-card card-roxo">
+          <a href="LinhaDoTempo/LinhadoTempo.html" class="content-card card-roxo">
             <div class="icon-box">
               <i class="fa fa-clock"></i>
             </div>
@@ -183,7 +187,7 @@ session_start();
 
           </a>
 
-          <a href="Musica.html" class="content-card card-amarela">
+          <a href="musica/Musica.html" class="content-card card-amarela">
             <div class="icon-box">
               <i class="fa-solid fa-headphones-simple"></i>
             </div>
@@ -195,7 +199,7 @@ session_start();
 
           </a>
 
-          <a href="Legislacao.html" class="content-card card-vermelho">
+          <a href="Legislacao/Legislacao.html" class="content-card card-vermelho">
             <div class="icon-box">
               <i class="fa fa-gavel"></i>
             </div>
@@ -233,7 +237,8 @@ session_start();
           </p>
         </div>
 
-        <button onclick="window.location.href='./documentacao.html'" style="background: #e11d48; color: white; border: none; padding: 10px 20px; border-radius: 8px; cursor: pointer; font-weight: 600; display: inline-flex; margin: 16px;">
+        <button onclick="window.location.href='./Documentacao/documentacao.html'"
+          style="background: #e11d48; color: white; border: none; padding: 10px 20px; border-radius: 8px; cursor: pointer; font-weight: 600; display: inline-flex; margin: 16px;">
           Documentação
         </button>
 
@@ -261,11 +266,14 @@ session_start();
           </a>
 
 
-          <a href="api/Audiovisuais.php" class="content-card card-marrom">
+          <a href="api/Audiovisuais.php" class="content-card
+          card-marrom">
             <div class="icon-box">
               <i class="fa-solid fa-gear"></i>
             </div>
-            <h4>Audiovisuais</h4>
+            <h4>
+              Audiovisuais
+            </h4>
           </a>
 
 
@@ -357,7 +365,7 @@ session_start();
 
     document
       .getElementById("contact")
-      .addEventListener("submit", async function(e) {
+      .addEventListener("submit", async function (e) {
 
         e.preventDefault();
 
@@ -376,14 +384,14 @@ session_start();
         const {
           error
         } =
-        await supabaseClient
-          .from("comentarios")
-          .insert([{
-            nome: nome,
-            sobrenome: sobrenome,
-            email: email,
-            msg: msg
-          }]);
+          await supabaseClient
+            .from("comentarios")
+            .insert([{
+              nome: nome,
+              sobrenome: sobrenome,
+              email: email,
+              msg: msg
+            }]);
 
         if (error) {
 
@@ -402,21 +410,21 @@ session_start();
       });
   </script>
 
- <script src="mainStyle/script.js" defer></script>
+  <script src="mainStyle/script.js" defer></script>
 
-<div vw class="enabled">
-  <div vw-access-button class="active"></div>
-  <div vw-plugin-wrapper>
-    <div class="vw-plugin-top-wrapper"></div>
+  <div vw class="enabled">
+    <div vw-access-button class="active"></div>
+    <div vw-plugin-wrapper>
+      <div class="vw-plugin-top-wrapper"></div>
+    </div>
   </div>
-</div>
 
 
-<script src="https://vlibras.gov.br/app/vlibras-plugin.js"></script>
+  <script src="https://vlibras.gov.br/app/vlibras-plugin.js"></script>
 
-<script>
-  new window.VLibras.Widget('https://vlibras.gov.br/app');
-</script>
+  <script>
+    new window.VLibras.Widget('https://vlibras.gov.br/app');
+  </script>
 
   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 

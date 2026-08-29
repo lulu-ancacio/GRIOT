@@ -7,14 +7,14 @@
   <meta name="description" content="Museu virtual com tematica racial">
   <meta name="author" content=" ">
   <meta charset="UTF-8">
-  <link rel="icon" href=" mainStyle\assets\images\FavIcon_SF.png">
-  <link rel="stylesheet" href="mainStyle/assets/fonts/poppins.css">
+  <link rel="icon" href=" ../mainStyle\assets\images\FavIcon_SF.png">
+  <link rel="stylesheet" href="../mainStyle/assets/fonts/poppins.css">
 
   <title>GRIOT - Legislação</title>
 
-  <link rel="stylesheet" href="Legislacao/style.css">
-  <link rel="stylesheet" href="mainStyle/assets/css/fontawesome.css">
-  <link rel="stylesheet" href="mainStyle/assets/css/templatemo-space-dynamic.css">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="../mainStyle/assets/css/fontawesome.css">
+  <link rel="stylesheet" href="../mainStyle/assets/css/templatemo-space-dynamic.css">
 
 
 </head>
@@ -35,23 +35,23 @@
         <div class="left-menu">
           <button class="menu-trigger" aria-label="Abrir menu"><span></span></button>
           <ul class="menu-dropdown">
-            <li><a href="Fotografias.html">Fotografias</a></li>
-            <li><a href="Biblioteca.html">Biblioteca</a></li>
-            <li><a href="Audiovisuais.html">Audiovisuais</a></li>
-            <li><a href="Pinturas.html">Pinturas</a></li>
-            <li><a href="LinhadoTempo.html">Linha do Tempo</a></li>
-            <li><a href="Personalidades.html">Personalidades</a></li>
-            <li><a href="Musica.html">Músicas</a></li>
+            <li><a href="../Fotografias.html">Fotografias</a></li>
+            <li><a href="../Biblioteca.html">Biblioteca</a></li>
+            <li><a href="../Filmes/Audiovisuais.html">Audiovisuais</a></li>
+            <li><a href="../Pinturas.html">Pinturas</a></li>
+             <li><a href="../LinhaDoTempo/LinhadoTempo.html">Linha do Tempo</a></li>
+            <li><a href="../Personalidades/Personalidades.html">Personalidades</a></li>
+            <li><a href="../musica/Musica.html">Músicas</a></li>
           </ul>
         </div>
         <div class="logo">
-          <a href="index.php">
-            <img src="mainStyle/assets/images/LogoEst_SF.png"
+          <a href="../index.php">
+            <img src="../mainStyle/assets/images/LogoEst_SF.png"
               alt="Logotipo do projeto GRIOT com tipografia colorida e ícone de ave estilizada, com o subtítulo Memória e História Afro-Brasileira">
           </a>
         </div>
         <div class="right-menu">
-          <a href="index.php" class="main-red-button">Início</a>
+          <a href="../index.php" class="main-red-button">Início</a>
         </div>
       </nav>
     </div>
@@ -72,7 +72,7 @@
             escrevemos a nossa própria libertação.</p>
         </div>
         <div class="right-image">
-          <img src="mainStyle/assets/images/Legislacao.jpg"
+          <img src="../mainStyle/assets/images/Legislacao.jpg"
             alt="Fotografia em tom sépia de uma mulher negra personificando a deusa da Justiça. Ela está de olhos vendados, veste mantos tradicionais e segura uma balança na mão esquerda e uma espada na mão direita.">
         </div>
       </div>
@@ -97,7 +97,7 @@
     </div>
   </footer>
 
-  <script src="mainStyle/script.js" defer></script>
+  <script src="../mainStyle/script.js" defer></script>
 
 <div vw class="enabled">
   <div vw-access-button class="active"></div>
@@ -113,7 +113,7 @@
   new window.VLibras.Widget('https://vlibras.gov.br/app');
 </script>
  
-  <script src="mainStyle/script.js"></script>
+  <script src="../mainStyle/script.js"></script>
   <script>
 
     let leis = []
@@ -121,7 +121,7 @@
     async function chamarApi() {
       try {
 
-        const response = await fetch('api/Legislacao.php?q=');
+        const response = await fetch('../api/Legislacao.php?q=');
         let dados = await response.json();
         leis.length = 0;
         dados.forEach((item, i) => {

@@ -7,7 +7,7 @@ function scrollCarousel(direction, carouselId) {
 
     const itemWidth = 295;
     carousel.scrollBy({
-        left: direction * itemWidth,
+           left: direction * itemWidth,
         behavior: 'smooth'
     });
 }

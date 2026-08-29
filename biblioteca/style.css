@@ -1,178 +1,180 @@
-
 h1 {
-    text-align: center;
-    color: white;
-    margin-bottom: 40px;
-    font-size: 2.5em;
-    text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+  text-align: center;
+  color: white;
+  margin-bottom: 40px;
+  font-size: 2.5em;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
 }
-
 
 .carousel-containePagos,
 .carousel-containeNPagos {
-    position: relative;
-    max-width: 1200px;
-    margin: 40px auto; 
-    padding: 20px;
+  position: relative;
+  max-width: 1200px;
+  margin: 40px auto;
+  padding: 20px;
 }
 
 .Classificacao {
-    font-size: 25px;
-    color:#EECC3F;
-    margin-bottom: 5px;
-  
+  font-size: 25px;
+  color: #eecc3f;
+  margin-bottom: 5px;
 }
-
 
 .carousel-containePagos > p,
 .carousel-containeNPagos > p {
-    margin-bottom: 20px;
-    font-weight: bold;
-
+  margin-bottom: 20px;
+  font-weight: bold;
 }
 
-
 .carousel {
-    display: flex;
-    overflow-x: auto;
-    gap: 25px;
-    scroll-behavior: smooth;
-    padding: 15px 5px; 
-    scrollbar-width: none; 
+  display: flex;
+  overflow-x: auto;
+  gap: 25px;
+  scroll-behavior: smooth;
+  padding: 15px 5px;
+  scrollbar-width: none;
 }
 
 .carousel::-webkit-scrollbar {
-    display: none; 
+  display: none;
 }
 
-.livro-cardNP, .livro-cardP {
-    flex: 0 0 220px; 
-    border-radius: 15px;
-    padding: 20px;
-    text-align: center;
-    background: #ffd6d6;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.08);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between; 
+.livro-cardNP,
+.livro-cardP {
+  flex: 0 0 220px;
+  border-radius: 15px;
+  padding: 20px;
+  text-align: center;
+  background: #ffd6d6;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
-
 
 .livro-cardP img {
-    width: 100%;
-    height: 200px;
-    object-fit: cover;
-    border-radius: 10px;
-    margin-bottom: 15px;
-    box-shadow: 0 3px 10px rgba(0,0,0,0.2);
-        }
-
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 10px;
+  margin-bottom: 15px;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.2);
+}
 
 .livro-cardP {
-    background: #ffd6d6;
-    box-shadow: 0 5px 15px rgba(235, 65, 65, 0.1);
+  background: #ffd6d6;
+  box-shadow: 0 5px 15px rgba(235, 65, 65, 0.1);
 }
 
-
-.livro-cardNP:hover, .livro-cardP:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+.livro-cardNP:hover,
+.livro-cardP:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
 }
 
-
-.livro-cardNP img, .livro-cardP img {
-    width: 100%;
-    height: 260px; 
-    object-fit: cover;
-    border-radius: 10px;
-    margin-bottom: 15px;
-    box-shadow: 0 3px 10px rgba(0,0,0,0.15);
+.livro-cardNP img,
+.livro-cardP img {
+  width: 100%;
+  height: 260px;
+  object-fit: cover;
+  border-radius: 10px;
+  margin-bottom: 15px;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.15);
 }
 
-
-.livro-cardNP h3, .livro-cardP h3 {
-    color: #222;
-    margin-bottom: 8px;
-    font-size: 1.1em;
-    line-height: 1.3;
-    display: -webkit-box;
-    -webkit-line-clamp: 2; 
-    -webkit-box-orient: vertical;
-    overflow: hidden;
+.livro-cardNP h3,
+.livro-cardP h3 {
+  color: #222;
+  margin-bottom: 8px;
+  font-size: 1.1em;
+  line-height: 1.3;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
 }
 
-.livro-cardNP p, .livro-cardP p {
-    color: #555;
-    margin-bottom: 5px;
-    font-size: 0.9em;
+.livro-cardNP p,
+.livro-cardP p {
+  color: #555;
+  margin-bottom: 5px;
+  font-size: 0.9em;
 }
 
-.livro-cardNP .ano, .livro-cardP .ano {
-    color: #777;
-    font-size: 0.85em;
-    margin-bottom: 12px;
+.livro-cardNP .ano,
+.livro-cardP .ano {
+  color: #777;
+  font-size: 0.85em;
+  margin-bottom: 12px;
 }
-
 
 .carousel-btn {
-    position: absolute;
-    top: 55%; 
-    transform: translateY(-50%);
-    background: rgba(143, 143, 143, 0.8);
-    color: white;
-    border: none;
-    width: 45px;
-    height: 45px;
-    border-radius: 50%;
-    font-size: 20px;
-    cursor: pointer;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-    transition: background 0.3s, transform 0.2s;
-    z-index: 10;
+  position: absolute;
+  top: 55%;
+  transform: translateY(-50%);
+  background: rgba(143, 143, 143, 0.8);
+  color: white;
+  border: none;
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  font-size: 20px;
+  cursor: pointer;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  transition:
+    background 0.3s,
+    transform 0.2s;
+  z-index: 10;
 }
 
 .carousel-btn:hover {
-    background: #d33535;
-    transform: translateY(-50%) scale(1.1);
+  background: #d33535;
+  transform: translateY(-50%) scale(1.1);
 }
 
-.carousel-btn.prev { left: -15px; }
-.carousel-btn.next { right: -15px; }
-
+.carousel-btn.prev {
+  left: -15px;
+}
+.carousel-btn.next {
+  right: -15px;
+}
 
 .link-btn {
-    background: #fe3f40;
-    color: #ffffff; 
-    padding: 10px 22px;
-    border-radius: 999px;
-    font-weight: 500;
-    transition: 0.3s;
-    text-decoration: none;
-    border: none;
-    width: 100%; 
-    cursor: pointer;
+  background: #fe3f40;
+  color: #ffffff;
+  padding: 10px 22px;
+  border-radius: 999px;
+  font-weight: 500;
+  transition: 0.3s;
+  text-decoration: none;
+  border: none;
+  width: 100%;
+  cursor: pointer;
 }
 
 .link-btn:hover {
-    background: #03a4ed;
+  background: #03a4ed;
 }
 
-
 @media (max-width: 768px) {
-    .carousel-btn {
-        display: none; 
-    }
-    .carousel {
-        gap: 15px;
-        padding-left: 15px;
-        padding-right: 15px;
-    }
-    .livro-cardNP, .livro-cardP {
-        flex: 0 0 170px;
-        padding: 12px;
-    }
-    .livro-cardNP img, .livro-cardP img {
-        height: 220px;
-    }
+  .carousel-btn {
+    display: none;
+  }
+  .carousel {
+    gap: 15px;
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+  .livro-cardNP,
+  .livro-cardP {
+    flex: 0 0 170px;
+    padding: 12px;
+  }
+  .livro-cardNP img,
+  .livro-cardP img {
+    height: 220px;
+  }
 }
