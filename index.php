@@ -392,7 +392,7 @@ session_start();
 
         } else {
 
-          alert("Mensagem enviada com sucesso! 🚀");
+          alert("Mensagem enviada com sucesso!");
 
           document
             .getElementById("contact")
@@ -402,21 +402,21 @@ session_start();
       });
   </script>
 
-  <script src="mainStyle/script.js" defer></script>
+ <script src="mainStyle/script.js" defer></script>
 
-  <div vw class="enabled">
-    <div vw-access-button class="active"></div>
-
-    <div vw-plugin-wrapper>
-      <div class="vw-plugin-top-wrapper"></div>
-    </div>
+<div vw class="enabled">
+  <div vw-access-button class="active"></div>
+  <div vw-plugin-wrapper>
+    <div class="vw-plugin-top-wrapper"></div>
   </div>
+</div>
 
-  <script src="Vlibras/vlibras-plugin.js"></script>
 
-  <script>
-    new window.VLibras.Widget('https://vlibras.gov.br/app');
-  </script>
+<script src="https://vlibras.gov.br/app/vlibras-plugin.js"></script>
+
+<script>
+  new window.VLibras.Widget('https://vlibras.gov.br/app');
+</script>
 
   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 

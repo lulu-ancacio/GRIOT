@@ -137,28 +137,21 @@
   </footer>
 
 
+<script src="mainStyle/script.js" defer></script>
 
-  
-  <div vw class="enabled">
-    <div vw-access-button class="active"></div>
-    <div vw-plugin-wrapper>
-      <div class="vw-plugin-top-wrapper"></div>
-    </div>
+<div vw class="enabled">
+  <div vw-access-button class="active"></div>
+  <div vw-plugin-wrapper>
+    <div class="vw-plugin-top-wrapper"></div>
   </div>
+</div>
 
+<!-- Troque o caminho local pelo CDN oficial atualizado -->
+<script src="https://vlibras.gov.br/app/vlibras-plugin.js"></script>
 
-  <script>
-    (function(){
-      var s = document.createElement('script');
-      s.src = 'https://vlibras.gov.br/app/vlibras-plugin.js';
-      s.async = true;
-      s.crossOrigin = 'anonymous';
-      s.onload = function(){
-        try{ if(window.VLibras) new window.VLibras.Widget('https://vlibras.gov.br/app'); }catch(e){console.error('VLibras init error', e);} }
-      s.onerror = function(){ console.error('Failed to load VLibras plugin. Accessibility widget unavailable.'); };
-      document.head.appendChild(s);
-    })();
-  </script>
+<script>
+  new window.VLibras.Widget('https://vlibras.gov.br/app');
+</script>
 
  
   <script type="text/javascript">

@@ -401,16 +401,21 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     </footer>
 
 
-    <div vw class="enabled">
-        <div vw-access-button class="active"></div>
-        <div vw-plugin-wrapper>
-            <div class="vw-plugin-top-wrapper"></div>
-        </div>
-    </div>
-    <script src="Vlibras/vlibras-plugin.js"></script>
-    <script>
-        globalThis.VLibras.Widget('https://vlibras.gov.br/app');
-    </script>
+    <script src="mainStyle/script.js" defer></script>
+
+<div vw class="enabled">
+  <div vw-access-button class="active"></div>
+  <div vw-plugin-wrapper>
+    <div class="vw-plugin-top-wrapper"></div>
+  </div>
+</div>
+
+<!-- Troque o caminho local pelo CDN oficial atualizado -->
+<script src="https://vlibras.gov.br/app/vlibras-plugin.js"></script>
+
+<script>
+  new window.VLibras.Widget('https://vlibras.gov.br/app');
+</script>
 
 
     <script src="Supabase/supabase.min.js"></script>

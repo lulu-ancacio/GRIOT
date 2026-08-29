@@ -1,42 +1,48 @@
-const wrappers = document.querySelectorAll(".movie-list-wrapper");
-
-wrappers.forEach((wrapper) => {
-
+document.querySelectorAll(".movie-list-wrapper").forEach((wrapper) => {
     const movieList = wrapper.querySelector(".movie-list");
     const leftArrow = wrapper.querySelector(".left-arrow");
     const rightArrow = wrapper.querySelector(".right-arrow");
-
-    let currentPosition = 0;
-
     const itemWidth = 295;
-
-    rightArrow.addEventListener("click", () => {
-
-        const items = movieList.querySelectorAll(".movie-list-item");
-
-        const totalWidth = items.length * itemWidth;
-        const visibleWidth = wrapper.offsetWidth;
-
-        const maxScroll = totalWidth - visibleWidth;
-
-        currentPosition -= itemWidth;
-
-        if (Math.abs(currentPosition) > maxScroll) {
-            currentPosition = -maxScroll;
-        }
-
-        movieList.style.transform = `translateX(${currentPosition}px)`;
+    let isDragging = false;
+    let startX = 0;
+    let scrollLeft = 0;
+    rightArrow?.addEventListener("click", () => {
+        movieList.scrollBy({ left: itemWidth, behavior: "smooth" });
     });
 
-    leftArrow.addEventListener("click", () => {
-
-        currentPosition += itemWidth;
-
-        if (currentPosition > 0) {
-            currentPosition = 0;
-        }
-
-        movieList.style.transform = `translateX(${currentPosition}px)`;
+    leftArrow?.addEventListener("click", () => {
+        movieList.scrollBy({ left: -itemWidth, behavior: "smooth" });
     });
 
+    const startDrag = (pageX) => {
+        isDragging = true;
+        startX = pageX;
+        scrollLeft = movieList.scrollLeft;
+        movieList.style.scrollBehavior = "auto"; 
+    };
+
+
+    const moveDrag = (pageX) => {
+        if (!isDragging) return;
+        const deltaX = pageX - startX;
+        movieList.scrollLeft = scrollLeft - deltaX; 
+    };
+
+  
+    const endDrag = () => {
+        if (!isDragging) return;
+        isDragging = false;
+        movieList.style.scrollBehavior = "smooth";
+    };
+
+   
+    movieList.addEventListener("touchstart", (e) => startDrag(e.touches[0].pageX), { passive: true });
+    window.addEventListener("touchmove", (e) => moveDrag(e.touches[0].pageX), { passive: true });
+    window.addEventListener("touchend", endDrag);
+    movieList.addEventListener("mousedown", (e) => {
+        e.preventDefault();
+        startDrag(e.pageX);
+    });
+    window.addEventListener("mousemove", (e) => moveDrag(e.pageX));
+    window.addEventListener("mouseup", endDrag);
 });

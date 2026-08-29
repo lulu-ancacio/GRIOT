@@ -1,3 +1,10 @@
+.spotify-lazy {
+    min-width: 300px;
+    height: 152px;
+    border-radius: 12px;
+    background: rgba(255, 255, 255, 0.05);
+    display: inline-block;}
+
 h1 {
     text-align: center;
     color: white;
