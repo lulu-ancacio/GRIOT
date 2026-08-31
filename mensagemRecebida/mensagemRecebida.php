@@ -46,16 +46,13 @@ session_start();
         <div class="left-menu">
           <button class="menu-trigger" aria-label="Abrir menu"><span></span></button>
           <ul class="menu-dropdown">
-            <li><a href="../Fotografias.html">Fotografias</a></li>
-            <li><a href="../Biblioteca.html">Acervo Literário</a></li>
-            <li><a href="../ <li><a href=" ../Filmes/Audiovisuais.html">Audiovisuais</a></li>.html"> <li><a
-                href="../Filmes/Audiovisuais.html">Audiovisuais</a></li></a></li>
-            <li><a href="../Pinturas.html">Pinturas</a></li>
+            <li><a href="../galeria/Fotografias.html">Fotografias</a></li>
+            <li><a href="../biblioteca/Biblioteca.html">Acervo Literário</a></li>
+            <li><a href="../Filmes/Audiovisuais.html">Audiovisuais</a></li>
+            <li><a href="../galeria/Pinturas.html">Pinturas</a></li>
             <li><a href="../LinhaDoTempo/LinhadoTempo.html">Linha do Tempo</a></li>
             <li><a href="../personalidades/Personalidades.html">Personalidades</a></li>
-            <li><a href="../adm/adm.php">Administrador</a></li>
             <li><a href="../musica/Musica.html">Músicas</a></li>
-            <li><a href="../Denuncia.php">Denúncias</a></li>
           </ul>
         </div>
         <div class="logo">

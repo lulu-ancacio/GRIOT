@@ -38,8 +38,8 @@ session_start();
             <span></span>
           </button>
           <ul class="menu-dropdown">
-            <li><a href="Pinturas.html">Pinturas</a></li>
-            <li><a href="Fotografias.html">Fotografias</a></li>
+            <li><a href="galeria/Pinturas.html">Pinturas</a></li>
+            <li><a href="galeria/Fotografias.html">Fotografias</a></li>
             <li><a href="biblioteca/Biblioteca.html">Acervo Literário</a></li>
             <li><a href="Filmes/Audiovisuais.html">Audiovisuais</a></li>
             <li><a href="Personalidades/Personalidades.html">Personalidades</a></li>
@@ -133,14 +133,14 @@ session_start();
         </div>
 
         <div class="content-grid">
-          <a href="Fotografias.html" class="content-card card-roxo">
+          <a href="galeria/Fotografias.html" class="content-card card-roxo">
             <div class="icon-box">
               <i class="fa fa-camera"></i>
             </div>
             <h4>Fotografias</h4>
           </a>
 
-          <a href="Pinturas.html" class="content-card card-amarela">
+          <a href="galeria/Pinturas.html" class="content-card card-amarela">
             <div class="icon-box">
               <i class="fa fa-paint-brush"></i>
             </div>
@@ -237,8 +237,7 @@ session_start();
           </p>
         </div>
 
-        <button onclick="window.location.href='./Documentacao/documentacao.html'"
-          style="background: #e11d48; color: white; border: none; padding: 10px 20px; border-radius: 8px; cursor: pointer; font-weight: 600; display: inline-flex; margin: 16px;">
+        <button onclick="window.location.href='./Documentacao/documentacao.html'" class="btn-documentacao">
           Documentação
         </button>
 

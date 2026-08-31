@@ -108,162 +108,12 @@ if ($httpCode >= 200 && $httpCode < 300) {
   <title>GRIOT - Moderação de Conteúdo</title>
 
 
-  <link rel="stylesheet" href="mainStyle/assets/fonts/poppins.css">
-  <link rel="stylesheet" href="mainStyle/assets/css/templatemo-space-dynamic.css">
+  <link rel="stylesheet" href="../mainStyle/assets/fonts/poppins.css">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="../mainStyle/assets/css/templatemo-space-dynamic.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
     integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
     crossorigin="anonymous" referrerpolicy="no-referrer" />
-  <style>
-    body {
-      background: #f3f4f6;
-      font-family: 'Poppins', sans-serif;
-    }
-
-    .banner {
-      background: #ff5845;
-      padding: 7rem 1.5rem 2.5rem;
-      text-align: center;
-    }
-
-    .banner h1 {
-      font-size: 1.8rem;
-      margin-bottom: 0.5rem;
-      color: white;
-    }
-
-    .banner p {
-      color: white;
-    }
-
-    .user-badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.5rem;
-      background: rgba(255, 255, 255, 0.15);
-      padding: 0.4rem 1rem;
-      border-radius: 50px;
-      margin-top: 1rem;
-      color: white;
-    }
-
-    main.container {
-      padding-top: 3rem;
-      padding-bottom: 3rem;
-    }
-
-    .section-title {
-      text-align: center;
-      margin-bottom: 2rem;
-    }
-
-    .alerta-sucesso {
-      background: #10b981;
-      color: white;
-      padding: 15px 20px;
-      border-radius: 10px;
-      margin-bottom: 20px;
-      text-align: center;
-      font-weight: 600;
-    }
-
-    #lista {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-      gap: 20px;
-      padding: 60px;
-    }
-
-    .card {
-      position: relative;
-      background: #d6ffd2;
-      border-radius: 20px;
-      padding: 20px;
-      box-shadow: 0 4px 10px rgba(234, 179, 8, 0.15);
-      transition: all 0.3s ease;
-    }
-
-    .card.visto {
-      background: #ffb9b9;
-      opacity: 0.8;
-    }
-
-    .card h3 {
-      padding-right: 30px;
-      display: flex;
-      align-items: center;
-      flex-wrap: wrap;
-      gap: 8px;
-      font-size: 1.1rem;
-      margin-bottom: 15px;
-    }
-
-    .status-badge {
-      font-size: 10px;
-      padding: 4px 8px;
-      border-radius: 12px;
-      font-weight: 600;
-      text-transform: uppercase;
-    }
-
-    .status-novo {
-      background: #ef4444;
-      color: white;
-    }
-
-    .status-lido {
-      background: #64748b;
-      color: white;
-    }
-
-    .card p {
-      font-size: 14px;
-      color: #4a5568;
-      margin-bottom: 10px;
-    }
-
-    .card p strong {
-      color: #2d3748;
-      font-weight: 600;
-    }
-
-    .card p:last-child {
-      margin-top: 16px;
-      padding-top: 16px;
-      border-top: 5px solid #cbd5e1;
-      color: #2d3748;
-      font-style: italic;
-    }
-
-    .btn-marcar-visto {
-      margin-top: 10px;
-      background: #10b981;
-      color: white;
-      border: none;
-      padding: 8px 12px;
-      border-radius: 10px;
-      cursor: pointer;
-      font-size: 12px;
-      text-decoration: none;
-      display: inline-block;
-    }
-
-    .btn-marcar-visto:hover {
-      background: #059669;
-    }
-
-    .vazio {
-      text-align: center;
-      padding: 60px 20px;
-      color: #6b7280;
-      font-size: 1.1rem;
-    }
-
-    @media (max-width: 768px) {
-      #lista {
-        grid-template-columns: 1fr;
-      }
-    }
-  </style>
 </head>
 
 <body>
@@ -273,26 +123,24 @@ if ($httpCode >= 200 && $httpCode < 300) {
         <div class="left-menu">
           <button class="menu-trigger" aria-label="Abrir menu"><span></span></button>
           <ul class="menu-dropdown">
-            <li><a href="Fotografias.html">Fotografias</a></li>
-            <li><a href="Biblioteca.html">Acervo Literário</a></li>
-            <li><a href=" <li><a href=" ../Filmes/Audiovisuais.html">Audiovisuais</a></li>.html"> <li><a
-                href="../Filmes/Audiovisuais.html">Audiovisuais</a></li></a></li>
-            <li><a href="Pinturas.html">Pinturas</a></li>
-            <li><a href="LinhaDoTempo/LinhadoTempo.html">Linha do Tempo</a></li>
-            <li><a href="personalidades/Personalidades.html">Personalidades</a></li>
+            <li><a href="../galeria/Fotografias.html">Fotografias</a></li>
+            <li><a href="../biblioteca/Biblioteca.html">Acervo Literário</a></li>
+            <li><a href="../Filmes/Audiovisuais.html">Audiovisuais</a></li>
+            <li><a href="../galeria/Pinturas.html">Pinturas</a></li>
+            <li><a href="../LinhaDoTempo/LinhadoTempo.html">Linha do Tempo</a></li>
+            <li><a href="../personalidades/Personalidades.html">Personalidades</a></li>
             <li><a href="../musica/Musica.html">Músicas</a></li>
-            <li><a href="../mensagemRecebida/mensagemRecebida.php">Sugestões</a></li>
-            <li><a href="adm/adm.php">Administrador</a></li>
+
 
           </ul>
         </div>
         <div class="logo">
-          <a href="index.php">
-            <img src="mainStyle/assets/images/LogoEst_SF.png" alt="Logotipo GRIOT">
+          <a href="../index.php">
+            <img src="../mainStyle/assets/images/LogoEst_SF.png" alt="Logotipo GRIOT">
           </a>
         </div>
         <div class="right-menu">
-          <a href="index.php" class="main-red-button">Início</a>
+          <a href="../index.php" class="main-red-button">Início</a>
         </div>
       </nav>
     </div>
@@ -338,7 +186,7 @@ if ($httpCode >= 200 && $httpCode < 300) {
             </h3>
 
             <p><strong>Obra:</strong> <span
-                style="color: #e11d48; font-weight: 600;"><?= htmlspecialchars($item['nome_pintura'] ?? 'Não informado') ?></span>
+                id="nomeObra"><?= htmlspecialchars($item['nome_pintura'] ?? 'Não informado') ?></span>
             </p>
             <p><strong>Motivo:</strong> <?= htmlspecialchars($item['motivo']) ?></p>
             <p><strong>ID da Pintura:</strong> <?= $item['id_pintura'] ?></p>
@@ -369,7 +217,7 @@ if ($httpCode >= 200 && $httpCode < 300) {
     </div>
   </footer>
 
-  <script src="mainStyle/script.js"></script>
+  <script src="../mainStyle/script.js"></script>
 </body>
 
 </html>

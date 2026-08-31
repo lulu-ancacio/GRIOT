@@ -59,16 +59,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 <div class="left-menu">
                     <button class="menu-trigger" aria-label="Abrir menu"><span></span></button>
                     <ul class="menu-dropdown">
-                        <li><a href="../Fotografias.html">Fotografias</a></li>
-                        <li><a href="../Biblioteca.html">Acervo Literário</a></li>
-                        <li><a href="../ <li><a href=" ../Filmes/Audiovisuais.html">Audiovisuais</a></li>.html"> <li><a
-                                href="../Filmes/Audiovisuais.html">Audiovisuais</a></li></a></li>
-                        <li><a href="../Pinturas.html">Pinturas</a></li>
+                        <li><a href="../galeria/Fotografias.html">Fotografias</a></li>
+                        <li><a href="../biblioteca/Biblioteca.html">Acervo Literário</a></li>
+                        <li><a href="../Filmes/Audiovisuais.html">Audiovisuais</a></li>
+                        <li><a href="../galeria/Pinturas.html">Pinturas</a></li>
                         <li><a href="../LinhaDoTempo/LinhadoTempo.html">Linha do Tempo</a></li>
                         <li><a href="../Personalidades/personalidades/Personalidades.html">Personalidades</a></li>
-                        <li><a href="../musica/Musica.html"> Músicas</a>
-                        <li>
-                        <li><a href="../mensagemRecebida/mensagemRecebida.php">Sugestões</a></li>
+                        <li><a href="../musica/Musica.html"> Músicas</a></li>
                     </ul>
                 </div>
                 <div class="logo">
@@ -116,8 +113,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                         <option value="">Selecione...</option>
                         <option value="pinturas">🎨 Pinturas</option>
                         <option value="fotografias">📷 Fotografias</option>
-                        <option value="filmes">🎬 <li><a href="../Filmes/Audiovisuais.html">Audiovisuais</a></li>
-                        </option>
+                        <option value="filmes">🎬 Audiovisuais</option>
                         <option value="livros">📚 Acervo literário</option>
                     </select>
 
@@ -223,7 +219,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
         async function mostrarPinturas() {
             try {
-                const response = await fetch('api/Pinturas.php');
+                const response = await fetch('../api/Pinturas.php');
                 dados = await response.json();
                 let html = '';
                 dados.forEach((item) => {
@@ -246,7 +242,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
         async function mostrarFilmes() {
             try {
-                const response = await fetch('api/ <li><a href="../Filmes/Audiovisuais.html">Audiovisuais</a></li>.php');
+                const response = await fetch('../api/Filmes.php');
                 dados = await response.json();
                 let html = '';
                 dados.forEach((item) => {
@@ -268,7 +264,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
         async function mostrarLivros() {
             try {
-                const response = await fetch('api/Biblioteca.php');
+                const response = await fetch('../api/Biblioteca.php');
                 dados = await response.json();
                 let html = '';
                 dados.forEach((item) => {
