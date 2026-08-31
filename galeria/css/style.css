@@ -163,18 +163,6 @@
   font-weight: normal;
 }
 
-.btn-documentacao {
-  background: #e11d48;
-  color: white;
-  border: none;
-  padding: 10px 20px;
-  border-radius: 8px;
-  cursor: pointer;
-  font-weight: 600;
-  display: inline-flex;
-  margin: 16px;
-}
-
 .btn-denunciar {
   background: #e11d48;
   color: white;
