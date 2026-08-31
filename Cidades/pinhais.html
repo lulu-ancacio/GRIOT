@@ -78,7 +78,15 @@
                         </p>
                     </div>
                     <div class="right-image">
-                        <img src="../mainStyle/assets/images/Pinhais.jpg" />
+                        <img src="../mainStyle/assets/images/Pinhais.jpg" alt = "Vista aérea diurna de
+                        um parque urbano sob um céu azul vibrante, destacando no centro um lago oval de 
+                        águas esverdeadas contornado por pedras e dividido ao meio por uma passarela de madeira. 
+                        A entrada principal, no primeiro plano, possui um pórtico rústico de madeira localizado logo
+                        após uma faixa de pedestres na rua asfaltada. Ao redor da água, a estrutura conta com uma praça
+                        circular pavimentada com o desenho de uma estrela à esquerda, uma pista de caminhada contornando
+                        o local e um pequeno estacionamento à direita. O fundo traz gramados bem cuidados, áreas de lazer,
+                        casas baixas à esquerda
+                        e uma encosta arborizada com o contorno de uma araucária à direita." />
                     </div>
         </section>
 
@@ -151,11 +159,17 @@
                     <div class="titulo">
                         <h3>Músicas</h3>
                     </div>
-                    <iframe data-testid="embed-iframe" style="border-radius:12px"
-                        src="https://open.spotify.com/embed/track/6MrnySNH4BqzI8iioFCdp0?utm_source=generator&si=a6c207e784f64fb3"
-                        width="100%" height="352" frameBorder="0" allowfullscreen=""
-                        allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
-                        loading="lazy"></iframe>
+                         <iframe 
+                            title = "Player de áudio: Música Tipo - Cantor Djonga"
+                            data-testid="embed-iframe"
+                            style="border-radius: 12px; border: 0;"
+                            src="https://open.spotify.com/embed/track/6MrnySNH4BqzI8iioFCdp0?utm_source=generator&si=a6c207e784f64fb3"
+                            width="100%"
+                            height="352"
+                            allowfullscreen=""
+                            allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+                            loading="lazy">
+                      </iframe>
                 </section>
 
                 <section class="tours-section">
@@ -198,24 +212,36 @@
                 </div>
             </footer>
 
-            <div vw class="enabled">
-                <div vw-access-button class="active"></div>
-                <div vw-plugin-wrapper>
-                    <div class="vw-plugin-top-wrapper"></div>
-                </div>
-            </div>
-            <script src="../Vlibras/vlibras-plugin.js"></script>
-            <script>
-                globalThis.VLibras.Widget('https://vlibras.gov.br/app');
-            </script>
+                     
+  <div vw class="enabled">
+    <div vw-access-button class="active"></div>
+    <div vw-plugin-wrapper>
+      <div class="vw-plugin-top-wrapper"></div>
+    </div>
+  </div>
+
+
+  <script>
+    (function(){
+      var s = document.createElement('script');
+      s.src = 'https://vlibras.gov.br/app/vlibras-plugin.js';
+      s.async = true;
+      s.crossOrigin = 'anonymous';
+      s.onload = function(){
+        try{ if(globalThis.VLibras) new globalThis.VLibras.Widget('https://vlibras.gov.br/app'); }catch(e){console.error('VLibras init error', e);} }
+      s.onerror = function(){ console.error('Failed to load VLibras plugin. Accessibility widget unavailable.'); };
+      document.head.appendChild(s);
+    })();
+  </script>
+
 
 
             <script src="../Supabase/supabase.min.js"></script>
             <script>
-                if (typeof window.SUPABASE_URL !== 'undefined') {
-                    const supabase = window.supabase.createClient(
-                        window.SUPABASE_URL,
-                        window.SUPABASE_KEY
+                if (window.SUPABASE_URL !== 'undefined') {
+                window.supabaseClient = window.supabase.createClient(
+                window.SUPABASE_URL,
+                window.SUPABASE_KEY 
                     );
 
                 }
@@ -234,7 +260,7 @@
             <div class="modalConteudo">
                 <span class="fechar" id="fecharModal">&times;</span>
                 <img id="fotoPessoa" src="" alt="">
-                <h2 id="nomePessoa"></h2>
+                <h2 id="nomePessoa"> Nome da Pessoa</h2>
                 <p id="nascimento"></p> <br>
                 <p id="biografia"></p>
             </div>

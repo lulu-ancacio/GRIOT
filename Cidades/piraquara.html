@@ -75,7 +75,14 @@
                             a preservação de suas tradições e a promoção da diversidade e da igualdade racial. </p>
                     </div>
                     <div class="right-image">
-                        <img src="../mainStyle/assets/images/Piraquara.jpg" />
+                        <img src="../mainStyle/assets/images/Piraquara.jpg" alt="Vista de um parque ao ar livre
+                        em dia ensolarado, destacando no primeiro plano uma passarela curvilínea de madeira com
+                        guarda-corpo de troncos roliços que se estende sobre um lago calmo. À esquerda, nas águas
+                        serenas que refletem o entorno, nadam alguns patos brancos, enquanto a estrutura da ponte
+                        faz a curva em direção à margem oposta. O gramado bem cuidado ao fundo abriga pequenas áreas
+                        de lazer e é contornado por uma densa mata de árvores verdes, entre as quais se destacam 
+                        algumas araucárias. O céu azul intenso, preenchido por
+                        nuvens brancas e macias, completa a cena com iluminação natural marcante."/>
                     </div>
         </section>
 
@@ -133,14 +140,31 @@
                     <div class="titulo">
                         <h3>Músicas</h3>
                     </div>
-                    <iframe data-testid="embed-iframe" style="border-radius:12px"
-                        src="https://open.spotify.com/embed/track/6hn1i19H1dlVM68yl0l8HH?utm_source=generator&si=f54b3dc104fb42ef"
-                        width="100%" height="352" frameBorder="0" allowfullscreen=""
-                        allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
-                        loading="lazy"></iframe>
 
-                        <iframe data-testid="embed-iframe" style="border-radius:12px" src="https://open.spotify.com/embed/track/7Bd62nnfGiUopCAvxWZx0b?utm_source=generator&si=c6741659da2f4aec" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
-                </section>
+                <iframe 
+                    title = "Player de áudio: Música Tudo que posso - Cantora Brisada"
+                    data-testid="embed-iframe"
+                    style="border-radius: 12px; border: 0;"
+                    src="https://open.spotify.com/embed/track/6hn1i19H1dlVM68yl0l8HH?utm_source=generator&si=f54b3dc104fb42ef"
+                    width="100%"
+                    height="352"
+                    allowfullscreen=""
+                    allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+                    loading="lazy">
+              </iframe>
+
+              <iframe 
+                    title = "Player de áudio: Pela Arte"
+                    data-testid="embed-iframe"
+                    style="border-radius: 12px; border: 0;"
+                    src="https://open.spotify.com/embed/track/7Bd62nnfGiUopCAvxWZx0b?utm_source=generator&si=c6741659da2f4aec"
+                       width="100%"
+                    height="352"
+                    allowfullscreen=""
+                    allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+                    loading="lazy">
+              </iframe>
+            </section>
 
                 <section class="tours-section">
                     <div class="titulo">
@@ -183,27 +207,37 @@
                 </div>
             </footer>
 
-            <div vw class="enabled">
-                <div vw-access-button class="active"></div>
-                <div vw-plugin-wrapper>
-                    <div class="vw-plugin-top-wrapper"></div>
-                </div>
-            </div>
-            <script src="../Vlibras/vlibras-plugin.js"></script>
-            <script>
-                globalThis.VLibras.Widget('https://vlibras.gov.br/app');
-            </script>
+<div vw class="enabled">
+    <div vw-access-button class="active"></div>
+    <div vw-plugin-wrapper>
+      <div class="vw-plugin-top-wrapper"></div>
+    </div>
+  </div>
 
 
-            <script src="../Supabase/supabase.min.js"></script>
+  <script>
+    (function(){
+      var s = document.createElement('script');
+      s.src = 'https://vlibras.gov.br/app/vlibras-plugin.js';
+      s.async = true;
+      s.crossOrigin = 'anonymous';
+      s.onload = function(){
+        try{ if(globalThis.VLibras) new globalThis.VLibras.Widget('https://vlibras.gov.br/app'); }catch(e){console.error('VLibras init error', e);} }
+      s.onerror = function(){ console.error('Failed to load VLibras plugin. Accessibility widget unavailable.'); };
+      document.head.appendChild(s);
+    })();
+  </script>
+
+
+<script src="../Supabase/supabase.min.js"></script>
             <script>
-                if (typeof window.SUPABASE_URL !== 'undefined') {
-                    const supabase = window.supabase.createClient(
-                        window.SUPABASE_URL,
-                        window.SUPABASE_KEY
+                 if (window.SUPABASE_URL !== 'undefined') {
+                window.supabaseClient = window.supabase.createClient(
+                window.SUPABASE_URL,
+                window.SUPABASE_KEY 
                     );
-
                 }
+
             </script>
             <style>
                 .vw-access-button,
@@ -219,7 +253,7 @@
             <div class="modalConteudo">
                 <span class="fechar" id="fecharModal">&times;</span>
                 <img id="fotoPessoa" src="" alt="">
-                <h2 id="nomePessoa"></h2>
+                <h2 id="nomePessoa"> Nome da Pessoa </h2>
                 <p id="nascimento"></p> <br>
                 <p id="biografia"></p>
             </div>

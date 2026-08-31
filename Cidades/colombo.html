@@ -32,17 +32,18 @@
                 <button class="menu-trigger" aria-label="Abrir menu">
                 <span></span>
                 </button>
+                
                 <ul class="menu-dropdown">
                 <li><a href="../Pinturas.html">Pinturas</a></li>
                 <li><a href="../Fotografias.html">Fotografias</a></li>
                 <li><a href="../Biblioteca.html">Acervo Literário</a></li>
                 <li><a href="../Filmes/Audiovisuais.html">Audiovisuais</a></li>
-                <li><a href="../LinhaDoTempo/LinhadoTempo.html">Linha do Tempo
+                <li><a href="../LinhaDoTempo/LinhadoTempo.html">Linha do Tempo</a></li>
                 <li><a href="../musica/Musica.html">Músicas</a></li>
                 <li><a href="../Personalidades/Personalidades.html">Personalidades</a></li>
                 <li><a href="../Legislacao/Legislacao.html">Legislação</a></li>
                 </ul>
-            </div><!-- ***** Logo Start ***** -->
+            </div>
             <div class="logo">
                 <a href="../index.php">
                 <img src="../mainStyle/assets/images/LogoEst_SF.png" alt="Logotipo do projeto GRIOT com tipografia colorida e ícone de ave estilizada, com o subtítulo Memória e História Afro-Brasileira">
@@ -77,7 +78,21 @@
                     </p>
                 </div>
                 <div class="right-image">
-                    <img src="../mainStyle/assets/images/Colombo.jpg" />
+                    <img src="../mainStyle/assets/images/Colombo.jpg" alt = "Uma fotografia em formato de
+                    paisagem, horizontal, ao ar livre, de dia, com sol brilhando, de um canteiro central em
+                    uma via pavimentada em uma cidade. O canteiro central estreito, de pedestres, no primeiro plano,
+                    é repleto de flores roxas, amarelas, brancas, verdes e azuis, plantadas em arbustos. Mais ao longe, 
+                    uma escultura branca de uma figura alada com as asas abertas voltada para cima em cima de um pedestal
+                    estreito, com formato de coluna cinza. O canteiro é dividido em canteiros menores, gramados,
+                    com árvores frondosas que projetam sombras no chão. As árvores têm troncos e galhos escuros e 
+                    folhagem verde e amarelada nas copas. Do lado esquerdo, do outro lado do canteiro, uma fileira 
+                    de prédios comerciais baixos e brancos, vermelhos e cinza, com toldos vermelhos, janelas e 
+                    letreiros. Há também alguns carros estacionados. À direita, atrás da escultura, uma árvore frondosa,
+                    e ao lado, um banco de madeira. À direita do canteiro central, alguns postes de luz e de fios de alta tensão.
+                    No fundo, a cidade continua com mais prédios comerciais e residenciais brancos, marrons, amarelos e
+                    cinza, que se estendem até a linha do horizonte, sob o céu azul e limpo, sem nuvens. O sol ilumina
+                    a cena de cima, deixando as sombras no chão. Uma pessoa sentada em um banco à esquerda, um pouco 
+                    mais atrás das árvores. Uma moldura branca arredondada, em torno da fotografia."/>
         </div>
     </section>
 
@@ -151,10 +166,20 @@
 
 
         <section class="musica">
-             <div class="titulo">
-                <h3>Músicas</h3>
-            </div>
-                <iframe data-testid="embed-iframe" style="border-radius:12px" src="https://open.spotify.com/embed/track/6MrnySNH4BqzI8iioFCdp0?utm_source=generator&si=a6c207e784f64fb3" width="100%" height="352" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+                <div class="titulo">
+                    <h3>Músicas</h3>
+                </div>
+                <iframe 
+                    title = "Player de áudio: Música Tipo - Cantor Djonga"
+                    data-testid="embed-iframe"
+                    style="border-radius: 12px; border: 0;"
+                    src="https://open.spotify.com/embed/track/6MrnySNH4BqzI8iioFCdp0?utm_source=generator&si=a6c207e784f64fb3"
+                    width="100%"
+                    height="352"
+                    allowfullscreen=""
+                    allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+                    loading="lazy">
+            </iframe>
         </section>
 
         <section class="tours-section">
@@ -196,24 +221,35 @@
          </p>
   </div></footer>
 
-     <div vw class="enabled">
-        <div vw-access-button class="active"></div>
-        <div vw-plugin-wrapper>
-            <div class="vw-plugin-top-wrapper"></div>
-        </div>
-    </div>
-    <script src="../Vlibras/vlibras-plugin.js"></script>
-    <script>
-        globalThis.VLibras.Widget('https://vlibras.gov.br/app');
-    </script>
 
+  <div vw class="enabled">
+    <div vw-access-button class="active"></div>
+    <div vw-plugin-wrapper>
+      <div class="vw-plugin-top-wrapper"></div>
+    </div>
+  </div>
+
+
+  <script>
+    (function(){
+      var s = document.createElement('script');
+      s.src = 'https://vlibras.gov.br/app/vlibras-plugin.js';
+      s.async = true;
+      s.crossOrigin = 'anonymous';
+      s.onload = function(){
+        try{ if(globalThis.VLibras) new globalThis.VLibras.Widget('https://vlibras.gov.br/app'); }catch(e){console.error('VLibras init error', e);} }
+      s.onerror = function(){ console.error('Failed to load VLibras plugin. Accessibility widget unavailable.'); };
+      document.head.appendChild(s);
+    })();
+  </script>
 
     <script src="../Supabase/supabase.min.js"></script>
+
     <script>
-        if (typeof window.SUPABASE_URL !== 'undefined') {
-            const supabase = window.supabase.createClient(
+        if (window.SUPABASE_URL !== 'undefined') {
+            window.supabaseClient = window.supabase.createClient(
                 window.SUPABASE_URL,
-                window.SUPABASE_KEY
+                window.SUPABASE_KEY 
             );
 
         }
@@ -232,9 +268,9 @@
     <div class = "modalConteudo">
         <span class = "fechar" id = "fecharModal">&times;</span>
         <img  id = "fotoPessoa" src = "" alt = "">
-        <h2 id = "nomePessoa"></h2> 
-        <p id = "nascimento"></p> <br>
-        <p id = "biografia"></p>
+        <h2 id = "nomePessoa"> Nome Pessoa</h2> 
+        <p id = "nascimento"> xxxxxxxxxx</p> <br>
+        <p id = "biografia">xxxxxxxxxxxxxxx</p>
     </div>
 </div>
   
