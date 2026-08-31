@@ -86,7 +86,7 @@
 
     <section class="linha">
       <div class="circulo">
-        <img src="../mainStyle/assets/images/Duda.jpeg" alt="Descrição da primeira imagem">
+        <img src="../mainStyle/assets/images/Duda.jpeg" alt="Mulher negra sorridente com cabelo crespo volumoso, vestindo vestido vermelho com estampas florais amarelas, apoiada na barra de proteção de uma janela em arco com ampla vista panorâmica da cidade ao fundo.">
       </div>
       <div class="caixa-texto">
         <h2>Maria Eduarda Gomes</h2>
@@ -99,7 +99,7 @@
 
          <section class="linha invertida">
       <div class="circulo">
-        <img src="../mainStyle/assets/images/Lucas.jpeg" alt="Descrição da segunda imagem">
+        <img src="../mainStyle/assets/images/Lucas.jpeg" alt="Homem de pele negra e cabelos pretos curtos e cacheados, com barba rala e bigode, usando um colar longo feito de contas de madeira rústicas e claras sobre uma blusa preta de manga comprida.">
       </div>
       <div class="caixa-texto">
         <h2>Lucas Ancacio </h2>
@@ -112,7 +112,7 @@
 
     <section class="linha">
       <div class="circulo">
-        <img src="../mainStyle/assets/images/Lauri.jpeg" alt="Descrição da primeira imagem">
+        <img src="../mainStyle/assets/images/Lauri.jpeg" alt="Mulher de pele clara e cabelos loiros compridos, usando óculos de grau com armação preta estilo gatinho, vestindo blazer bege claro sobre blusa estampada.">
       </div>
       <div class="caixa-texto">
         <h2>Lauriana Paludo</h2>
@@ -130,7 +130,7 @@
 
     <section class="linha invertida">
       <div class="circulo">
-        <img src="../mainStyle/assets/images/JAS.jpeg" alt="Descrição da segunda imagem">
+        <img src="../mainStyle/assets/images/JAS.jpeg" alt="Homem de pele clara e cabelos grisalhos curtos, usando óculos de sol pretos e cavanhaque, vestindo camiseta preta com estampa amarela centralizada e tatuagens visíveis nos braços.">
       </div>
       <div class="caixa-texto">
         <h2>Aparício</h2>
@@ -157,33 +157,17 @@
          </p>
   </div></footer>
 
- 
-  <div vw class="enabled">
-    <div vw-access-button class="active"></div>
-    <div vw-plugin-wrapper>
-      <div class="vw-plugin-top-wrapper"></div>
-    </div>
-  </div>
 
-
-  <script>
-    (function(){
-      var s = document.createElement('script');
-      s.src = 'https://vlibras.gov.br/app/vlibras-plugin.js';
-      s.async = true;
-      s.crossOrigin = 'anonymous';
-      s.onload = function(){
-        try{ if(globalThis.VLibras) new globalThis.VLibras.Widget('https://vlibras.gov.br/app'); }catch(e){console.error('VLibras init error', e);} }
-      s.onerror = function(){ console.error('Failed to load VLibras plugin. Accessibility widget unavailable.'); };
-      document.head.appendChild(s);
-    })();
-  </script>
-
-
-<script src="../mainStyle/script.js"></script>
-
-
-
-  </div>
+  <!-- Widget VLibras -->
+        <div vw class="enabled">
+            <div vw-access-button class="active"></div>
+            <div vw-plugin-wrapper>
+                <div class="vw-plugin-top-wrapper"></div>
+            </div>
+        </div>
+        <script src="https://vlibras.gov.br/app/vlibras-plugin.js"></script>
+        <script>
+            const vw = new window.VLibras.Widget('https://vlibras.gov.br/app');
+        </script>
   </body>
 </html>

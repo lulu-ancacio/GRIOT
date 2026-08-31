@@ -162,8 +162,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     <input type="hidden" name="tipo" value="pinturas">
 
                     <div class="form-group">
-                        <label for="foto_id">ID *</label>
-                        <input type="number" id="foto_id" name="id" required placeholder="Ex: 13">
+                        <label for="pint_id">ID *</label>
+                        <input type="number" id="pint_id" name="id" required placeholder="Ex: 13">
                     </div>
 
                     <div class="form-group">
@@ -194,8 +194,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     <input type="hidden" name="tipo" value="livros">
 
                     <div class="form-group">
-                        <label for="foto_id">ID *</label>
-                        <input type="number" id="foto_id" name="id" required placeholder="Ex: 13">
+                        <label for="capa_id">ID *</label>
+                        <input type="number" id="capa_id" name="id" required placeholder="Ex: 13">
                     </div>
 
                     <div class="form-group">
@@ -227,8 +227,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     <input type="hidden" name="tipo" value="filmes">
 
                     <div class="form-group">
-                        <label for="foto_id">ID *</label>
-                        <input type="number" id="foto_id" name="id" required placeholder="Ex: 13">
+                        <label for="filme_id">ID *</label>
+                        <input type="number" id="filme_id" name="id" required placeholder="Ex: 13">
                     </div>
 
                     <div class="form-group">
@@ -276,15 +276,16 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     </footer>
 
 
+    <!-- VLibras Atualizadp -->
     <div vw class="enabled">
         <div vw-access-button class="active"></div>
         <div vw-plugin-wrapper>
             <div class="vw-plugin-top-wrapper"></div>
         </div>
     </div>
-    <script src="Vlibras/vlibras-plugin.js"></script>
+    <script src="https://vlibras.gov.br/app/vlibras-plugin.js"></script>
     <script>
-        globalThis.VLibras.Widget('https://vlibras.gov.br/app');
+        const vw = new window.VLibras.Widget('https://vlibras.gov.br/app');
     </script>
 
 

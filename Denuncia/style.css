@@ -19,17 +19,6 @@ body {
   color: white;
 }
 
-.user-badge {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.5rem;
-  background: rgba(255, 255, 255, 0.15);
-  padding: 0.4rem 1rem;
-  border-radius: 50px;
-  margin-top: 1rem;
-  color: white;
-}
-
 main.container {
   padding-top: 3rem;
   padding-bottom: 3rem;
@@ -40,14 +29,43 @@ main.container {
   margin-bottom: 2rem;
 }
 
+.user-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: rgba(0, 0, 0, 0.5);
+  padding: 0.4rem 1rem;
+  border-radius: 50px;
+  margin-top: 1rem;
+  color: #ffffff;
+}
+
 .alerta-sucesso {
-  background: #10b981;
-  color: white;
+  background: #047857;
+  color: #ffffff;
   padding: 15px 20px;
   border-radius: 10px;
   margin-bottom: 20px;
   text-align: center;
   font-weight: 600;
+}
+
+.status-novo {
+  background: #dc2626;
+  color: #ffffff;
+}
+
+.btn-marcar-visto {
+  margin-top: 10px;
+  background: #047857;
+  color: #ffffff;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 12px;
+  text-decoration: none;
+  display: inline-block;
 }
 
 #nomeObra {
@@ -94,11 +112,6 @@ main.container {
   text-transform: uppercase;
 }
 
-.status-novo {
-  background: #ef4444;
-  color: white;
-}
-
 .status-lido {
   background: #64748b;
   color: white;
@@ -121,19 +134,6 @@ main.container {
   border-top: 5px solid #cbd5e1;
   color: #2d3748;
   font-style: italic;
-}
-
-.btn-marcar-visto {
-  margin-top: 10px;
-  background: #10b981;
-  color: white;
-  border: none;
-  padding: 8px 12px;
-  border-radius: 10px;
-  cursor: pointer;
-  font-size: 12px;
-  text-decoration: none;
-  display: inline-block;
 }
 
 .btn-marcar-visto:hover {

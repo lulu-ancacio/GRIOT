@@ -91,7 +91,7 @@
                 <p>
                 <pre><code>?q=: Busca insensível a maiúsculas e minúsculas a nível de substring nas colunas de título e autor, e busca por strings completas na coluna de tags.</code></pre>
                 </p>
-                <img src="../mainStyle/assets/images/exemplo-api-fotos.png"/>
+                <img src="../mainStyle/assets/images/exemplo-api-fotos.png" alt = "Estrutura de dados em formato de objeto JSON contendo os campos id igual a 19, autor Alberto Henschel, título Mulher negra da Bahia, ano 1869 e uma lista de tags com os valores baiana, escravizada, leque e turbante."/>
             </article>
 
         
@@ -105,7 +105,7 @@
                 <p>
                 <pre><code>?q=: Busca insensível a maiúsculas e minúsculas a nível de substring nas colunas de título e autor, e busca por strings completas na coluna de tags.</code></pre>
                 </p>
-                <img src="../mainStyle/assets/images/exemplo-api-pinturas.png"/>
+                <img src="../mainStyle/assets/images/exemplo-api-pinturas.png" alt = "Estrutura de dados JSON com o campo id 38, autor Di Cavalcanti, título Scene Brésilienne, ano 1937 e tags contendo brasil e pessoas."/>
             </article>
 
            
@@ -119,7 +119,7 @@
                 <p>
                 <pre><code>?q=: Busca insensível a maiúsculas e minúsculas a nível de substring nas colunas de título e autor.</code></pre>
                 </p>
-                <img src="../mainStyle/assets/images/exemplo-api-livros.png"/>
+                <img src="../mainStyle/assets/images/exemplo-api-livros.png" alt = "Estrutura de dados JSON com o campo id igual a 36, autor Djamila Ribeiro, ano 2021, título Cartas para minha avó, parâmetro cc0 igual a false e links de acesso ao arquivo e à loja."/>
             </article>
 
         
@@ -133,7 +133,7 @@
                 <p>
                 <pre><code>?q=: Busca insensível a maiúsculas e minúsculas a nível de substring nas colunas de título, descrição e tipo.</code></pre>
                 </p>
-                <img src="../mainStyle/assets/images/exemplo-api-filmes.png"/>
+                <img src="../mainStyle/assets/images/exemplo-api-filmes.png" alt = "Estrutura de dados JSON com id igual a 16, título Cores e Botas, tipo curtas e descrição sobre Joana, uma menina negra dos anos 80 que sonha em ser Paquita."/>
             </article>
 
             <article class="form-card">
@@ -146,7 +146,7 @@
                 <p>
                 <pre><code>?q=: Busca insensível a maiúsculas e minúsculas a nível de substring nas colunas de nome, profissão e biografia.</code></pre>
                 </p>
-                <img src="../mainStyle/assets/images/exemplo-api-persona.png"/>
+                <img src="../mainStyle/assets/images/exemplo-api-persona.png" alt = "Estrutura de dados JSON com o campo id igual a 30, nome Abdias do Nascimento, profissões como ator, escritor, dramaturgo, artista plástico, professor, político e ativista, além de biografia detalhada."/>
             </article>
 
             <article class="form-card">
@@ -159,7 +159,7 @@
                 <p>
                 <pre><code>?q=: Busca insensível a maiúsculas e minúsculas a nível de substring nas colunas de título, norma e data.</code></pre>
                 </p>
-                <img src="../mainStyle/assets/images/exemplo-api-legislacao.png"/>
+                <img src="../mainStyle/assets/images/exemplo-api-legislacao.png" alt = "Estrutura de dados JSON com id igual a 1, título Lei Áurea, norma Lei número 3.353/1888, data 13 de maio de 1888 e link oficial do Planalto."/>
             </article>
 
         </div>
@@ -171,25 +171,25 @@
             Trabalho de Conclusão de Curso apresentado ao curso técnico em Informática IFPR Pinhais
     </footer>
 
-
-    <div vw class="enabled">
-        <div vw-access-button class="active"></div>
-        <div vw-plugin-wrapper>
-            <div class="vw-plugin-top-wrapper"></div>
-        </div>
+ <!-- VLibras Atualizadp -->
+  <div vw class="enabled">
+    <div vw-access-button class="active"></div>
+    <div vw-plugin-wrapper>
+      <div class="vw-plugin-top-wrapper"></div>
     </div>
-    <script src="Vlibras/vlibras-plugin.js"></script>
-    <script>
-        globalThis.VLibras.Widget('https://vlibras.gov.br/app');
-    </script>
+  </div>
+  <script src="https://vlibras.gov.br/app/vlibras-plugin.js"></script>
+  <script>
+    const vw = new window.VLibras.Widget('https://vlibras.gov.br/app');
+  </script>
 
 
     <script src="../Supabase/supabase.min.js"></script>
     <script>
-        if (typeof window.SUPABASE_URL !== 'undefined') {
-            const supabase = window.supabase.createClient(
+         if (window.SUPABASE_URL !== 'undefined') {
+                window.supabaseClient = window.supabase.createClient(
                 window.SUPABASE_URL,
-                window.SUPABASE_KEY
+                window.SUPABASE_KEY 
             );
 
         }

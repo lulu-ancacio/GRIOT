@@ -28,7 +28,7 @@ if (
             baseUri('token?grant_type=password'),
             [
                 'headers' => getHeader(),
-                'body'    => json_encode($body)
+                'body' => json_encode($body)
             ]
         );
         $data = json_decode($response->getBody());
@@ -71,7 +71,7 @@ if (
             margin: 0;
             padding: 0;
             box-sizing: border-box;
-            
+
         }
 
         .container {
@@ -122,7 +122,8 @@ if (
             font-size: 26px;
         }
 
-        label, p {
+        label,
+        p {
             display: block;
             margin-top: 16px;
             margin-bottom: 6px;
@@ -152,15 +153,15 @@ if (
             font-weight: 600;
             cursor: pointer;
             transition: all 0.3s ease;
-             margin-top: 25px;
+            margin-top: 25px;
         }
 
         input[type="submit"]:hover {
-             background: #fe3f40;
-               transform: translateY(-3px);
+            background: #fe3f40;
+            transform: translateY(-3px);
         }
 
-              
+
         /* Link de cadastro */
         .cadastro-link {
             display: block;
@@ -230,13 +231,14 @@ if (
         </div>
 
         <form method="post" class="form">
-            <!-- ***** Logo Start ***** -->
+
             <div class="logo">
-                 <a href="../index.php" class="logo">
-                      <img src="../mainStyle/assets/images/LogoEst_SF.png" alt="Logotipo do projeto GRIOT com tipografia colorida e ícone de ave estilizada, com o subtítulo Memória e História Afro-Brasileira">
-                 </a>
+                <a href="../index.php" class="logo">
+                    <img src="../mainStyle/assets/images/LogoEst_SF.png"
+                        alt="Logotipo do projeto GRIOT com tipografia colorida e ícone de ave estilizada, com o subtítulo Memória e História Afro-Brasileira">
+                </a>
             </div>
-            <!-- ***** Logo End ***** -->
+
             <p><?php echo $msg ?></p>
             <label for="email_login">Digite seu e-mail</label>
             <input type="email" id="email_login" name="email_login" required autocomplete="email">
@@ -250,20 +252,17 @@ if (
 
         </form>
     </div>
-    <!-- VLibras -->
-<div vw class="enabled">
-  <div vw-access-button class="active"></div>
-  <div vw-plugin-wrapper>
-    <div class="vw-plugin-top-wrapper"></div>
-  </div>
-</div>
-
-<script src="Vlibras/vlibras-plugin.js"></script>
-
-<script>
-  new window.VLibras.Widget('https://vlibras.gov.br/app');
-</script>
-
+    <!-- VLibras Atualizadp -->
+    <div vw class="enabled">
+        <div vw-access-button class="active"></div>
+        <div vw-plugin-wrapper>
+            <div class="vw-plugin-top-wrapper"></div>
+        </div>
+    </div>
+    <script src="https://vlibras.gov.br/app/vlibras-plugin.js"></script>
+    <script>
+        const vw = new window.VLibras.Widget('https://vlibras.gov.br/app');
+    </script>
 
 </body>
 

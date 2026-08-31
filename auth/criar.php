@@ -230,7 +230,8 @@ if (
                 <!-- ***** Logo Start ***** -->
                 <div class="logo">
                     <a href="../index.php" class="logo">
-                        <img src="../mainStyle/assets/images/LogoEst_SF.png" alt="Logotipo do projeto GRIOT com tipografia colorida e ícone de ave estilizada, com o subtítulo Memória e História Afro-Brasileira">
+                        <img src="../mainStyle/assets/images/LogoEst_SF.png"
+                            alt="Logotipo do projeto GRIOT com tipografia colorida e ícone de ave estilizada, com o subtítulo Memória e História Afro-Brasileira">
                     </a>
                 </div>
                 <p><?php echo $msg ?></p>
@@ -258,18 +259,17 @@ if (
             <a href='../index.php'>◃ Voltar ao início..</a>
         </div>
     </div>
-    <!-- VLibras -->
+
+    <!-- VLibras Atualizadp -->
     <div vw class="enabled">
         <div vw-access-button class="active"></div>
         <div vw-plugin-wrapper>
             <div class="vw-plugin-top-wrapper"></div>
         </div>
     </div>
-
-    <script src="Vlibras/vlibras-plugin.js"></script>
-
+    <script src="https://vlibras.gov.br/app/vlibras-plugin.js"></script>
     <script>
-        new window.VLibras.Widget('https://vlibras.gov.br/app');
+        const vw = new window.VLibras.Widget('https://vlibras.gov.br/app');
     </script>
 
 

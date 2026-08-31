@@ -184,9 +184,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
                     <div class="form-group">
                         <p>Esta obra literário é de <strong>domínio público</strong>?</p>
-                        <input type="radio" id="livros_cc0_true" name="cc0" value="True" onClick="painelCc0(this)">
+                        <input type="radio" id="livros_cc0_true" name="cc0" value="True" onClick="painelCc0(this)"
+                            onkeydown="if(event.keyCode === 13 || event.keyCode === 32 painelCc0(this)">
                         <label for="livros_cc0_true">Sim</label><br>
-                        <input type="radio" id="livros_cc0_false" name="cc0" value="False" onClick="painelCc0(this)">
+                        <input type="radio" id="livros_cc0_false" name="cc0" value="False" onClick="painelCc0(this)"
+                            onkeydown="if(event.keyCode === 13 || event.keyCode === 32 painelCc0(this)">
                         <label for="livros_cc0_false">Não</label><br>
                     </div>
 
@@ -196,10 +198,15 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     <div class="form-group">
                         <p>Esta obra literário possui capa?</p>
                         <input type="radio" id="livros_capa_true" name="capa" value="True"
-                            onClick="showImagemInput(this)">
+                            onClick="showImagemInput(this)"
+                            onkeydown="if(event.keyCode === 13 || event.keyCode === 32) showImagemInput(this)">
+
+
+                        >
                         <label for="livros_capa_true">Sim</label><br>
                         <input type="radio" id="livros_capa_false" name="capa" value="False"
-                            onClick="showImagemInput(this)">
+                            onClick="showImagemInput(this)"
+                            onkeydown="if(event.keyCode === 13 || event.keyCode === 32) showImagemInput(this)">
                         <label for="livros_capa_false">Não</label><br>
                     </div>
 
@@ -269,17 +276,19 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     <script src="../mainStyle/script.js" defer></script>
 
+    <!-- VLibras Atualizadp -->
     <div vw class="enabled">
         <div vw-access-button class="active"></div>
         <div vw-plugin-wrapper>
             <div class="vw-plugin-top-wrapper"></div>
         </div>
     </div>
-
     <script src="https://vlibras.gov.br/app/vlibras-plugin.js"></script>
     <script>
-        new window.VLibras.Widget('https://vlibras.gov.br/app');
+        const vw = new window.VLibras.Widget('https://vlibras.gov.br/app');
     </script>
+
+
     <script src="Supabase/supabase.min.js"></script>
     <script>
         if (typeof window.SUPABASE_URL !== 'undefined') {
