@@ -227,42 +227,50 @@ const vw = new window.VLibras.Widget('https://vlibras.gov.br/app');
     <script src="main.js" defer></script>
     <script src="../Supabase/supabase.min.js" defer></script>
     <script>
-        if (typeof window.SUPABASE_URL !== 'undefined') {
-            const supabase = window.supabase.createClient(
+        if (window.SUPABASE_URL !== 'undefined') {
+            window.supabaseClient = window.supabase.createClient(
                 window.SUPABASE_URL,
-                window.SUPABASE_KEY
+                window.SUPABASE_KEY 
             );
         }
     </script>
     <script>
-        document.addEventListener("DOMContentLoaded", () => {
-            const lazyPlaceholders = document.querySelectorAll('.spotify-lazy');
+  document.addEventListener("DOMContentLoaded", () => {
+    const lazyPlaceholders = document.querySelectorAll('.spotify-lazy');
 
-            const observer = new IntersectionObserver((entries, observer) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        const placeholder = entry.target;
-                        const src = placeholder.getAttribute('data-src');
+    const observer = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const placeholder = entry.target;
+                const src = placeholder.dataset.src;
 
-                        const iframe = document.createElement('iframe');
-                        iframe.src = `${src}?utm_source=generator`;
-                        iframe.style.borderRadius = "12px";
-                        iframe.style.border = "0";
-                        iframe.width = "100%";
-                        iframe.height = "152";
-                        iframe.allow = "autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture";
-                        iframe.loading = "lazy";
+               
+                if (!src) {
+                    observer.unobserve(placeholder);
+                    return;
+                }
 
-                        placeholder.replaceWith(iframe);
-                        observer.unobserve(placeholder);
-                    }
-                });
-            }, {
-                rootMargin: "300px 0px" 
-            });
+               
+                const iframe = document.createElement('iframe');
+                iframe.src = `${src}?utm_source=generator`;
+                iframe.style.borderRadius = "12px";
+                iframe.style.border = "0";
+                iframe.width = "100%";
+                iframe.height = "152";
+                iframe.allow = "autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture";
+                iframe.loading = "lazy";
+                iframe.title = placeholder.dataset.title || "Player do Spotify";
 
-            lazyPlaceholders.forEach(el => observer.observe(el));
+                placeholder.replaceWith(iframe);
+                observer.unobserve(placeholder);
+            }
         });
+    }, {
+        rootMargin: "300px 0px" 
+    });
+
+    lazyPlaceholders.forEach(el => observer.observe(el));
+});
     </script>
 </body>
 

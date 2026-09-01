@@ -59,7 +59,7 @@ session_start();
             Quem Somos
           </a>
           <?php if (empty($_SESSION['email'])): ?>
-            <a href=" " class="main-blue-button">
+            <a href="./auth/login.php" class="main-blue-button">
               Login
             </a>
           <?php else: ?>
@@ -320,13 +320,21 @@ session_start();
           <div class="contact-form">
             <form id="contact">
               <div class="input-group">
-                <input type="text" name="name" id="name" placeholder="Nome" autocomplete="on" required>
-                <input type="text" name="surname" id="surname" placeholder="Sobrenome" autocomplete="on" required>
+                <label for="name" class="sr-only">Nome</label>
+                <input type="text" name="name" id="name" placeholder="Nome" autocomplete="given-name" required>
+
+                <label for="surname" class="sr-only">Sobrenome</label>
+                <input type="text" name="surname" id="surname" placeholder="Sobrenome" autocomplete="family-name"
+                  required>
               </div>
 
-              <input type="email" name="email" id="email" placeholder="Seu Email" required>
+              <label for="email" class="sr-only">Seu Email</label>
+              <input type="email" name="email" id="email" placeholder="Seu Email" autocomplete="email" required>
+
+              <label for="message" class="sr-only">Digite aqui sua mensagem</label>
               <textarea name="message" id="message" placeholder="Digite aqui sua mensagem" required></textarea>
-              <button type="submit" id="form-submit" class="main-blue-button"> Enviar Mensagem </button>
+
+              <button type="submit" id="form-submit" class="main-blue-button">Enviar Mensagem</button>
             </form>
           </div>
         </div>

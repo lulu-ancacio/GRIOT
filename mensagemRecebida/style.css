@@ -23,11 +23,11 @@
   display: inline-flex;
   align-items: center;
   gap: 0.5rem;
-  background: rgba(255, 255, 255, 0.15);
+  background: rgba(0, 0, 0, 0.55);
   padding: 0.4rem 1rem;
   border-radius: 50px;
   margin-top: 1rem;
-  color: white;
+  color: #ffffff;
 }
 
 #lista {
@@ -141,11 +141,17 @@
 }
 
 .status-novo {
-  background: #22c55e;
-  color: white;
+  background-color: #e0f2fe;
+  color: #0369a1;
+  font-weight: 600;
+  padding: 4px 8px;
+  border-radius: 4px;
 }
 
 .status-lido {
-  background: #ef4444;
-  color: white;
+  background-color: #dcfce7;
+  color: #15803d;
+  font-weight: 600;
+  padding: 4px 8px;
+  border-radius: 4px;
 }

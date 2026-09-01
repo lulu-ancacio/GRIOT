@@ -82,10 +82,9 @@
         </section>
 
         <div class="search-box">
-            <label for="pesquisa"> </label>
+            <label for="pesquisa" class="sr-only">Pesquisar</label>
             <input type="text" id="pesquisa" placeholder="Pesquisar...">
-            <i class="fa-solid fa-magnifying-glass search-icon">
-            </i>
+            <i class="fa-solid fa-magnifying-glass search-icon" aria-hidden="true"></i>
         </div>
  
         <div class="credito-ia">
@@ -97,7 +96,7 @@
         </div>
 
 
-        <div class="overlay" onclick="closeSidebar()"></div>
+
 
         <div class="sidebar" id="sidebar">
             <div class="sidebar-header">
@@ -145,7 +144,12 @@
 
             }
         </script>
-
+    <button 
+        type="button" 
+        class="overlay" 
+        onclick="closeSidebar()" 
+        aria-label="Fechar menu lateral">
+    </button>
         <script>
 
             let dados = [];

@@ -112,13 +112,13 @@ session_start();
 
 
     if (typeof supabase === 'undefined') {
-      console.error("❌ Erro: Script do Supabase não carregou! Verifique o caminho de 'Supabase/supabase.min.js'");
+      console.error(" Erro: Script do Supabase não carregou! Verifique o caminho de 'Supabase/supabase.min.js'");
     }
 
     const supabaseClient = supabase.createClient(supabaseUrl, supabaseKey);
 
     async function carregarComentarios() {
-      console.log("🔄 Carregando comentários do Supabase...");
+      console.log(" Carregando comentários do Supabase...");
 
       const {
         data,
@@ -131,9 +131,9 @@ session_start();
         });
 
       if (error) {
-        console.error("❌ Erro ao carregar dados:", error);
+        console.error(" Erro ao carregar dados:", error);
         document.getElementById("lista").innerHTML =
-          "<p style='color:red; padding:20px;'>⚠️ Erro ao carregar sugestões. Verifique o console (F12).</p>";
+          "<p style='color:red; padding:20px;'>Erro ao carregar sugestões. Verifique o console (F12).</p>";
         return;
       }
 
@@ -173,7 +173,7 @@ session_start();
                         <strong>Data:</strong>
                         ${new Intl.DateTimeFormat('pt-BR').format(new Date(item.criado_em))}
                     </p>
-                      <button 
+                      <button
                       class="btn-email"
                       onclick="event.stopPropagation(); window.location.href='mailto:${item.email}?subject=${assunto}&body=${mensagem}'">
                       Responder por email
@@ -188,11 +188,11 @@ session_start();
 
 
             if (item.visto) {
-              console.log("ℹ️ Card já marcado como lido");
+              console.log("Card já marcado como lido");
               return;
             }
 
-            console.log(`🔄 Marcando comentário #${item.id} como lido...`);
+            console.log(` Marcando comentário #${item.id} como lido...`);
 
             const {
               data: updateData,
@@ -206,10 +206,10 @@ session_start();
               .select();
 
             if (updateError) {
-              console.error("❌ Erro ao atualizar no Supabase:", updateError);
-              alert("⚠️ Não foi possível salvar a marcação como lido. Verifique as permissões no Supabase.");
+              console.error("Erro ao atualizar no Supabase:", updateError);
+              alert(" Não foi possível salvar a marcação como lido. Verifique as permissões no Supabase.");
             } else {
-              console.log("✅ Atualização realizada com sucesso!", updateData);
+              console.log(" Atualização realizada com sucesso!", updateData);
 
 
               div.classList.add("visto");
@@ -225,7 +225,7 @@ session_start();
           lista.appendChild(div);
         });
       } else {
-        lista.innerHTML = "<p style='padding:20px; text-align:center;'>📭 Nenhuma sugestão recebida ainda.</p>";
+        lista.innerHTML = "<p style='padding:20px; text-align:center;'> Nenhuma sugestão recebida ainda.</p>";
       }
     }
 

@@ -109,6 +109,7 @@
   opacity: 0;
   transition: opacity 0.3s ease;
   display: -webkit-box;
+  line-clamp: 4;
   -webkit-line-clamp: 4;
   -webkit-box-orient: vertical;
   overflow: hidden;
@@ -127,8 +128,8 @@
   padding: 10px 20px;
   border: none;
   border-radius: 8px;
-  background: #fe3f40;
-  color: #fff;
+  background: #d81f20;
+  color: #ffffff;
   cursor: pointer;
   opacity: 0;
   transition:
