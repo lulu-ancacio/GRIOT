@@ -215,19 +215,17 @@
 
                     dados.forEach(item => {
                         if (item.tipo === i) {
-                            html += `
-                                <div class="movie-list">
-                                    <div class="movie-list-item">
-                                        <img class="movie-list-item-img" src="${item.url}" alt="">
-                                        <span class="movie-list-item-title">${item.titulo}</span>
-                                        <p class="movie-list-item-desc">${item.desc}</p>
-                                        <button class="movie-list-item-button"
-                                            onclick="window.open('${item.link}', '_blank')">
-                                            Assistir
-                                        </button>
-                                    </div>
-                                </div>
-                            `;
+                          html += `
+                            <div class="movie-list-item">
+                                <img class="movie-list-item-img" src="${item.url}" alt="">
+                                <span class="movie-list-item-title">${item.titulo}</span>
+                                <p class="movie-list-item-desc">${item.desc}</p>
+                                <button class="movie-list-item-button" 
+                                    onclick="window.open('${item.link}', '_blank')">
+                                    Assistir
+                                </button>
+                            </div>
+                        `;
                         }
                     });
                     document.getElementById(`movie-list-${i}`).innerHTML = html;
