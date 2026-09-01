@@ -132,7 +132,7 @@
 
 
                 dados.forEach(item => {
-                    if (item.cc0 == true) {
+                    if (item.cc0) {
                         html += `
                     <div class="livro-cardNP">
                         <img src="${item.url}" alt="Erro ao carregar imagem" onerror="this.src='https://via.placeholder.com/250x350?text=Sem+Capa'">
@@ -147,7 +147,7 @@
                 document.getElementById('carousel-internos').innerHTML = html;
                 html = '';
                 dados.forEach(item => {
-                    if (item.cc0 == false) {
+                    if (!item.cc0) {
                         html += `
                     <div class="livro-cardP">
                         <img src="${item.url}" alt="Erro ao carregar imagem" onerror="this.src='https://via.placeholder.com/356x511?text=Sem+Capa'">
@@ -160,8 +160,8 @@
                 });
                 document.getElementById('carousel-externos').innerHTML = html;
 
-            } catch (erro) {
-                console.error(erro);
+            } catch (error_) {
+                console.error(error_);
                 document.getElementById('carousel-internos').innerHTML = 'Erro ao consumir API';
             }
         }

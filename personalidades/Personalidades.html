@@ -90,7 +90,7 @@
  
         <div class="credito-ia">
             <p>Biografias geradas pelo Gemini</p>
-            <img src="../mainStyle/assets/images/gemini.webp">
+            <img src="../mainStyle/assets/images/gemini.webp" alt="Logotipo do Gemini, representado por um círculo azul com duas linhas curvas que se entrelaçam, formando um símbolo de infinito estilizado.">
         </div>
 
         <div class="gallery">
@@ -131,16 +131,16 @@
   </div>
   <script src="https://vlibras.gov.br/app/vlibras-plugin.js"></script>
   <script>
-    new window.VLibras.Widget('https://vlibras.gov.br/app');
+    const vw = new window.VLibras.Widget('https://vlibras.gov.br/app');
   </script>
 
 
         <script src="../Supabase/supabase.min.js"></script>
         <script>
-            if (typeof window.SUPABASE_URL !== 'undefined') {
-                const supabase = window.supabase.createClient(
-                    window.SUPABASE_URL,
-                    window.SUPABASE_KEY
+             if (window.SUPABASE_URL !== 'undefined') {
+                window.supabaseClient = window.supabase.createClient(
+                window.SUPABASE_URL,
+                window.SUPABASE_KEY 
                 );
 
             }
@@ -172,9 +172,9 @@
                     });
 
                     document.querySelector('.gallery').innerHTML = html;
-                } catch (erro) {
+                } catch (error_) {
 
-                    console.error(erro);
+                    console.error(error_);
 
                     document.querySelector('.gallery').innerHTML =
                         'Erro ao consumir API';

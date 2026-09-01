@@ -60,17 +60,14 @@ if (
                 true
             );
 
-            // EMAIL JÁ CADASTRADO
+
             if (
                 isset($erro['msg']) &&
                 str_contains(strtolower($erro['msg']), 'already registered')
             ) {
 
                 $msg = 'Usuário já cadastrado!';
-            }
-
-            // OUTROS ERROS DO SUPABASE
-            else {
+            } else {
 
                 $msg = $erro['msg'] ?? 'Erro no cadastro.';
             }
@@ -227,7 +224,7 @@ if (
         <div class="form">
             <form method="post">
 
-                <!-- ***** Logo Start ***** -->
+
                 <div class="logo">
                     <a href="../index.php" class="logo">
                         <img src="../mainStyle/assets/images/LogoEst_SF.png"
@@ -235,23 +232,23 @@ if (
                     </a>
                 </div>
                 <p><?php echo $msg ?></p>
-                <!-- ***** Logo End ***** -->
+
 
                 <label for="nome_criar">Como devemos te chamar?</label>
                 <input id="nome_criar" type="text" name="nome_criar" required>
 
                 <label for="email_criar">Digite seu email:</label>
-                <input id="nome_criar " type="email" name="email_criar" required>
+                <input id="email_criar" type="email" name="email_criar" required>
 
-                <label for="pronome_criar">Com que pronome você prefere ser tratado?</label>
-                <select name="pronome_criar" required="required">
+                <label for="pronome_criar">Selecione seu pronome:</label>
+                <select id="pronome_criar" name="pronome_criar" required="required">
                     <option value="F">Ela/Dela</option>
                     <option value="M">Ele/Dele</option>
                     <option value="N">Nenhum</option>
                 </select>
 
                 <label for="senha_criar">Digite sua senha:</label>
-                <input type="password" name="senha_criar" required>
+                <input id="senha_criar" type="password" name="senha_criar" required>
 
                 <input type="submit" value="Criar conta">
 

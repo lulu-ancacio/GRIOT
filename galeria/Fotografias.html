@@ -107,7 +107,7 @@
     </div>
 
       <div class="search-box">
-        <label for="pesquisa"> </label>
+        <label for="pesquisa"></label>
         <input type="text" id="pesquisa" placeholder="Pesquisar...">
         <i class="fa-solid fa-magnifying-glass search-icon">
         </i>
@@ -375,11 +375,11 @@ document.getElementById('buscaNomeDenuncia').addEventListener('input', function(
   );
   
   if (filtradas.length > 0) {
-    // Agora as divs internas usam classes CSS em vez de style="..." inline
+  
     container.innerHTML = filtradas.map(p => `
       <div class="item-sugestao" 
            data-id="${p.id}" 
-           data-titulo="${String(p.titulo).replace(/"/g, '&quot;')}">
+           data-titulo="${String(p.titulo).replaceAll('"', '&quot;')}">
         <div class="sugestao-titulo">${escapeHtml(p.titulo)}</div>
         <div class="sugestao-autor">${escapeHtml(p.autor)} • ${escapeHtml(p.ano)}</div>
       </div>

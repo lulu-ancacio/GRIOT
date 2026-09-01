@@ -206,9 +206,9 @@
 
         document.getElementById('resultado').innerHTML = html;
 
-      } catch (erro) {
+      } catch (error_) {
 
-        console.error(erro);
+        console.error(error_);
 
         document.getElementById('resultado').textContent =
           'Erro ao consumir API';
@@ -335,8 +335,8 @@
         const response = await fetch('../api/Pinturas.php');
         todasPinturas = await response.json();
         pinturasCarregadas = true;
-      } catch (erro) {
-        console.error('Erro ao carregar pinturas:', erro);
+      } catch (error_) {
+        console.error('Erro ao carregar pinturas:', error_);
       }
     }
     carregarPinturasParaBusca();
@@ -374,11 +374,11 @@ document.getElementById('buscaNomeDenuncia').addEventListener('input', function(
   );
   
   if (filtradas.length > 0) {
-    // Agora as divs internas usam classes CSS em vez de style="..." inline
+   
     container.innerHTML = filtradas.map(p => `
       <div class="item-sugestao" 
            data-id="${p.id}" 
-           data-titulo="${String(p.titulo).replace(/"/g, '&quot;')}">
+           data-titulo="${String(p.titulo).replaceAll('"', '&quot;')}">
         <div class="sugestao-titulo">${escapeHtml(p.titulo)}</div>
         <div class="sugestao-autor">${escapeHtml(p.autor)} • ${escapeHtml(p.ano)}</div>
       </div>
