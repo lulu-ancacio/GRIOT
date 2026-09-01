@@ -59,7 +59,7 @@ session_start();
             Quem Somos
           </a>
           <?php if (empty($_SESSION['email'])): ?>
-            <a href="./auth/login.php" class="main-blue-button">
+            <a href=" " class="main-blue-button">
               Login
             </a>
           <?php else: ?>
