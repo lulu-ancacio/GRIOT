@@ -244,7 +244,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
         async function mostrarFilmes() {
             try {
-                const response = await fetch('../api/Filmes.php');
+                const response = await fetch('../api/Audiovisuais.php');
                 dados = await response.json();
                 let html = '';
                 dados.forEach((item) => {

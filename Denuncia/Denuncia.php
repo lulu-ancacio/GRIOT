@@ -1,8 +1,14 @@
 <?php
 session_start();
+if (empty($_SESSION['adm'])) {
+    header('Location: index.php');
+    exit;
+}
 
 $supabaseUrl = "https://cdhjzkmlucahtllfpdlx.supabase.co";
 $supabaseKey = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImNkaGp6a21sdWNhaHRsbGZwZGx4Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzUyNDgxNzMsImV4cCI6MjA5MDgyNDE3M30.ZaP_y-A2t32z8FRT4vAA8xsMqjhsdA0QuQIGTP5f36g";
+define('HEADER_APIKEY', 'apikey: ' . $supabaseKey);
+define('HEADER_AUTH', 'Authorization: Bearer ' . $supabaseKey);
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
@@ -36,8 +42,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   curl_setopt($ch, CURLOPT_POST, true);
   curl_setopt($ch, CURLOPT_POSTFIELDS, $jsonDados);
   curl_setopt($ch, CURLOPT_HTTPHEADER, [
-    "apikey: " . $supabaseKey,
-    "Authorization: Bearer " . $supabaseKey,
+    HEADER_APIKEY,
+    HEADER_AUTH,
     "Content-Type: application/json",
     "Prefer: return=minimal"
   ]);
@@ -67,8 +73,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'PUT' || isset($_GET['marcar_visto'])) {
     curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "PATCH");
     curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode(['visto' => true]));
     curl_setopt($ch, CURLOPT_HTTPHEADER, [
-      "apikey: " . $supabaseKey,
-      "Authorization: Bearer " . $supabaseKey,
+      HEADER_APIKEY,
+      HEADER_AUTH,
       "Content-Type: application/json",
       "Prefer: return=minimal"
     ]);
@@ -84,8 +90,8 @@ $ch = curl_init();
 curl_setopt($ch, CURLOPT_URL, $supabaseUrl . "/rest/v1/denuncias?order=criado_em.desc");
 curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
 curl_setopt($ch, CURLOPT_HTTPHEADER, [
-  "apikey: " . $supabaseKey,
-  "Authorization: Bearer " . $supabaseKey
+  HEADER_APIKEY,
+  HEADER_AUTH
 ]);
 $response = curl_exec($ch);
 $httpCode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
@@ -155,7 +161,7 @@ if ($httpCode >= 200 && $httpCode < 300) {
   </section>
 
   <main class="container">
-    <a href="adm/adm.php">
+    <a href="../adm/adm.php">
       <div class="icon-box">
         <i class="fa-solid fa-arrow-left"></i>
       </div>

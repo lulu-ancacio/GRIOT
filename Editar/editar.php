@@ -64,10 +64,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                         <li><a href="../Filmes/Audiovisuais.html">Audiovisuais</a></li>
                         <li><a href="../galeria/Pinturas.html">Pinturas</a></li>
                         <li><a href="../Legislacao/Legislacao.html">Personalidades</a></li>
-                        <li><a href=" ../LinhaDoTempo/LinhadoTempo.html">Linha do Tempo</a></li>">Linha do
-                        Tempo</a></li>
+                        <li><a href=" ../LinhaDoTempo/LinhadoTempo.html">Linha do Tempo</a></li>
                         <li><a href="../personalidades/Personalidades.html">Personalidades</a></li>
-                        <li><a href="../musica/Musica .html"> Músicas</a></li>
+                        <li><a href="../musica/Musica.html">Músicas</a></li>
                     </ul>
                 </div>
                 <div class="logo">
@@ -94,7 +93,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     </section>
 
     <main class="container">
-        <a href="adm/adm.php">
+        <a href="../adm/adm.php">
             <div class="icon-box">
                 <i class="fa-solid fa-arrow-left"></i>
             </div>

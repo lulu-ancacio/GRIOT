@@ -4,19 +4,6 @@ if (empty($_SESSION['adm'])) {
     header('Location: index.php');
     exit;
 }
-
-require_once '../config/functions.php';
-
-if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    match ($_POST['tipo']) {
-        'fotografias' => supabaseCreatePhotoPainting('Fotografias', 'fotografias'),
-        'pinturas' => supabaseCreatePhotoPainting('Pinturas', 'pinturas'),
-        'filmes' => supabaseCreateFilm(),
-        'livros' => supabaseCreateBook(),
-        default => null
-    };
-}
-
 ?>
 
 <!DOCTYPE html>
@@ -143,43 +130,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 window.SUPABASE_KEY
             );
 
-        }
-    </script>
-
-    <script>
-        function painelCc0(elemento) {
-            let valor = elemento.value;
-            let html = '';
-
-            if (valor == "True") {
-                html += `
-                    <label for="livros_arquivo">Livro (PDF) *</label>
-                    <input type="file" id="livros_arquivo" name="link" accept="application/pdf" required>
-                `;
-            } else {
-                html += `
-                    <label for="livros_arquivo">Link de compra *</label>
-                    <input type="text" id="livros_arquivo" name="link" placeholder="https://...">
-                `;
-            }
-            document.getElementById('painelToCc0').innerHTML = html;
-        }
-
-        function showImagemInput(elemento) {
-            let valor = elemento.value;
-            let html = '';
-
-            if (valor == "True") {
-                html += `
-                    <label for="livros_imagem">Capa do livro *</label>
-                    <input type="file" id="livros_imagem" name="imagem" accept="image/*" required>
-                `;
-            } else {
-                html += `
-                    <input type="file" id="livros_imagem" name="imagem" style="display: none;">
-                `;
-            }
-            document.getElementById('imagemCapa').innerHTML = html;
         }
     </script>
 

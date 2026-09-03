@@ -1,6 +1,9 @@
 <?php
 
 require_once "env.php";
+define('COMPOSER_AUTOLOAD', './composer/vendor/autoload.php');
+define('PREFER_RETURN', 'return=minimal');
+define('FORMAT', FORMAT);
 
 function baseUri($endpoint = '')
 {
@@ -42,7 +45,7 @@ function supabaseRequest($endpoint)
 
 function supabaseCreatePhotoPainting($bucket, $table, $id_user)
 {
-    require_once './composer/vendor/autoload.php';
+    require_once COMPOSER_AUTOLOAD;
 
 
     $url = $_ENV['SUPABASE_URL'];
@@ -60,7 +63,7 @@ function supabaseCreatePhotoPainting($bucket, $table, $id_user)
 
             $client = new GuzzleHttp\Client();
 
-            $extension = preg_replace('/[^a-zA-Z0-9]/', '', pathinfo($file['name'], PATHINFO_EXTENSION));
+            $extension = preg_replace(FORMAT, '', pathinfo($file['name'], PATHINFO_EXTENSION));
             $fileName = uniqid('img_', true) . '.' . $extension;
 
 
@@ -86,7 +89,7 @@ function supabaseCreatePhotoPainting($bucket, $table, $id_user)
                     'headers' => [
                         'apikey' => $api_key,
                         'Authorization' => "Bearer $api_key",
-                        'Prefer' => 'return=minimal'
+                        'Prefer' => PREFER_RETURN
                     ],
                     'json' => [
                         'titulo' => $titulo,
@@ -104,7 +107,7 @@ function supabaseCreatePhotoPainting($bucket, $table, $id_user)
 
 function supabaseCreateBook($id_user)
 {
-    require_once './composer/vendor/autoload.php';
+    require_once COMPOSER_AUTOLOAD;
 
     $url = $_ENV['SUPABASE_URL'];
     $api_key = $_ENV['SUPABASE_SERVICE_ROLE'];
@@ -124,7 +127,7 @@ function supabaseCreateBook($id_user)
 
             if ($file['error'] === UPLOAD_ERR_OK) {
 
-                $extension = preg_replace('/[^a-zA-Z0-9]/', '', pathinfo($file['name'], PATHINFO_EXTENSION));
+                $extension = preg_replace(FORMAT, '', pathinfo($file['name'], PATHINFO_EXTENSION));
                 $fileName = uniqid('img_', true) . '.' . $extension;
 
 
@@ -146,7 +149,7 @@ function supabaseCreateBook($id_user)
 
             if ($cc0 == "True") {
                 $link = $_FILES['link'];
-                $extension = preg_replace('/[^a-zA-Z0-9]/', '', pathinfo($link['name'], PATHINFO_EXTENSION));
+                $extension = preg_replace(FORMAT, '', pathinfo($link['name'], PATHINFO_EXTENSION));
                 $fileName = uniqid('pdf', true) . '.' . $extension;
 
 
@@ -173,7 +176,7 @@ function supabaseCreateBook($id_user)
                     'headers' => [
                         'apikey' => $api_key,
                         'Authorization' => "Bearer $api_key",
-                        'Prefer' => 'return=minimal'
+                        'Prefer' => PREFER_RETURN
                     ],
                     'json' => [
                         'titulo' => $titulo,
@@ -193,7 +196,7 @@ function supabaseCreateBook($id_user)
 
 function supabaseCreateFilm($id_user)
 {
-    require_once './composer/vendor/autoload.php';
+    require_once COMPOSER_AUTOLOAD;
     $url = $_ENV['SUPABASE_URL'];
     $api_key = $_ENV['SUPABASE_SERVICE_ROLE'];
 
@@ -203,8 +206,8 @@ function supabaseCreateFilm($id_user)
         $link = $_POST['link'];
         $titulo = $_POST['titulo'];
         $desc = $_POST['desc'];
-        $tipomidia = $_POST['tipomidia'];
-        $id_usuario = $id_user; 
+        $tipomidia = $_POST['tipomidia'] ?? '';
+        $id_usuario = $id_user;
 
         $tiposPermitidos = [
             'curtas',
@@ -216,18 +219,21 @@ function supabaseCreateFilm($id_user)
             'clipes'
         ];
 
-        if (!in_array($tipomidia, $tiposPermitidos)) {
+        if (!in_array($tipomidia, $tiposPermitidos, true)) {
             die('Tipo de mídia inválido.');
         }
 
-
         $bucket = 'Filmes/' . basename($tipomidia);
+
+        if ($file === null || $file['error'] !== UPLOAD_ERR_OK) {
+            die('Arquivo inválido.');
+        }
 
         if ($file['error'] === 0) {
 
             $client = new GuzzleHttp\Client();
 
-            $extension = preg_replace('/[^a-zA-Z0-9]/', '', pathinfo($file['name'], PATHINFO_EXTENSION));
+            $extension = preg_replace(FORMAT, '', pathinfo($file['name'], PATHINFO_EXTENSION));
             $fileName = uniqid('mov_', true) . '.' . $extension;
 
 
@@ -254,7 +260,7 @@ function supabaseCreateFilm($id_user)
                         'apikey' => $api_key,
                         'Authorization' => "Bearer $api_key",
                         'Content-Type' => 'application/json',
-                        'Prefer' => 'return=minimal'
+                        'Prefer' => PREFER_RETURN
                     ],
                     'json' => [
                         'titulo' => $titulo,
@@ -262,7 +268,7 @@ function supabaseCreateFilm($id_user)
                         'link' => $link,
                         'url' => $publicUrl,
                         'tipo' => $tipomidia,
-                        'id_usuario' =>$id_usuario
+                        'id_usuario' => $id_usuario
                     ]
                 ]
             );
@@ -331,7 +337,7 @@ function getUserId($user_id, $token)
 
 function supabaseDeleteItem($tabela)
 {
-    require_once './composer/vendor/autoload.php';
+    require_once COMPOSER_AUTOLOAD;
 
     $id = $_POST['id'];
     $url = $_ENV['SUPABASE_URL'];
@@ -345,7 +351,7 @@ function supabaseDeleteItem($tabela)
             'headers' => [
                 'apikey' => $api_key,
                 'Authorization' => "Bearer $api_key",
-                'Prefer' => 'return=minimal'
+                'Prefer' => PREFER_RETURN
             ]
         ]
     );
@@ -354,7 +360,7 @@ function supabaseDeleteItem($tabela)
 
 function supabaseUpdatePhotoPaintingBook($table)
 {
-    require_once './composer/vendor/autoload.php';
+    require_once COMPOSER_AUTOLOAD;
 
     $url = $_ENV['SUPABASE_URL'];
     $api_key = $_ENV['SUPABASE_SERVICE_ROLE'];
@@ -374,7 +380,7 @@ function supabaseUpdatePhotoPaintingBook($table)
                 'headers' => [
                     'apikey' => $api_key,
                     'Authorization' => "Bearer $api_key",
-                    'Prefer' => 'return=minimal'
+                    'Prefer' => PREFER_RETURN
                 ],
                 'json' => [
                     'titulo' => $titulo,
@@ -390,7 +396,7 @@ function supabaseUpdatePhotoPaintingBook($table)
 
 function supabaseUpdateFilm($table)
 {
-    require_once './composer/vendor/autoload.php';
+    require_once COMPOSER_AUTOLOAD;
 
     $url = $_ENV['SUPABASE_URL'];
     $api_key = $_ENV['SUPABASE_SERVICE_ROLE'];
@@ -425,13 +431,13 @@ function supabaseUpdateFilm($table)
                 'headers' => [
                     'apikey' => $api_key,
                     'Authorization' => "Bearer $api_key",
-                    'Prefer' => 'return=minimal'
+                    'Prefer' => PREFER_RETURN
                 ],
                 'json' => [
-                        'titulo' => $titulo,
-                        'desc' => $desc,
-                        'link' => $link,
-                        'tipo' => $tipomidia
+                    'titulo' => $titulo,
+                    'desc' => $desc,
+                    'link' => $link,
+                    'tipo' => $tipomidia
                 ]
             ]
         );
