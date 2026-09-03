@@ -14,7 +14,6 @@ if (
     isset($_POST['pronome_criar'])
 ) {
 
-
     $email = $_POST['email_criar'];
     $senha = $_POST['senha_criar'];
     $nome = $_POST['nome_criar'];
