@@ -3,7 +3,7 @@
 require_once "env.php";
 define('COMPOSER_AUTOLOAD', './composer/vendor/autoload.php');
 define('PREFER_RETURN', 'return=minimal');
-define('FORMAT', FORMAT);
+define('FORMAT', '/[^a-zA-Z0-9]/');
 
 function baseUri($endpoint = '')
 {
