@@ -67,6 +67,7 @@ if (empty($_SESSION['adm'])) {
                 </div>
                 <div class="right-menu">
                     <a href="../index.php" class="main-red-button">Início</a>
+                    <a href="../Curso/curso.html" class="main-blue-button">Dúvidas na Curadoria?</a>
                 </div>
             </nav>
         </div>

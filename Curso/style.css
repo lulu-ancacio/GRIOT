@@ -1,0 +1,68 @@
+.conteudo {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 100px;
+  max-width: 1000px;
+  width: 100%;
+}
+
+.card {
+  background-color: #ffffff;
+  border-radius: 12px;
+  box-shadow:
+    0 4px 6px rgba(0, 0, 0, 0.05),
+    0 10px 15px rgba(0, 0, 0, 0.03);
+  padding: 24px;
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+  border: 1px solid #3260b9;
+  margin-bottom: 30px;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+.secao-card h1 {
+  color: #da3a2d;
+  font-size: 2rem;
+  margin-bottom: 14px;
+}
+
+.card h2 {
+  margin-top: 0;
+  color: #1a1a1a;
+  font-size: 1.5rem;
+  border-bottom: 2px solid #f0f2f5;
+  padding-bottom: 12px;
+  margin-bottom: 16px;
+}
+
+.card p {
+  color: #555555;
+  line-height: 1.6;
+  margin: 0 0 20px 0;
+}
+
+.card .btn {
+  display: inline-block;
+  background-color: #2b5480;
+  color: white;
+  text-decoration: none;
+  padding: 10px 20px;
+  border-radius: 6px;
+  font-weight: bold;
+  transition: background-color 0.2s;
+}
+
+.card .btn:hover {
+  background-color: #0056b3;
+}
+
+@media (max-width: 768px) {
+  .conteudo {
+    grid-template-columns: 1fr;
+  }
+}

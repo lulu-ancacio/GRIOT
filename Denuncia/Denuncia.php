@@ -1,8 +1,8 @@
 <?php
 session_start();
 if (empty($_SESSION['adm'])) {
-    header('Location: index.php');
-    exit;
+  header('Location: index.php');
+  exit;
 }
 
 $supabaseUrl = "https://cdhjzkmlucahtllfpdlx.supabase.co";
@@ -10,20 +10,16 @@ $supabaseKey = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJ
 define('HEADER_APIKEY', 'apikey: ' . $supabaseKey);
 define('HEADER_AUTH', 'Authorization: Bearer ' . $supabaseKey);
 
+
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-
   $id_pintura = $_POST['id_pintura'] ?? '';
-
   $nome_pintura = $_POST['nome_pintura'] ?? 'Não informado';
-
   $motivo = $_POST['motivo'] ?? '';
-
 
   if (empty($id_pintura) || empty($motivo)) {
     header('Location: Pinturas.html?erro=1');
     exit;
   }
-
 
   $dados = [
     'id_pintura' => $id_pintura,
@@ -32,9 +28,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     'visto' => false
   ];
 
-
   $jsonDados = json_encode($dados);
-
 
   $ch = curl_init();
   curl_setopt($ch, CURLOPT_URL, $supabaseUrl . "/rest/v1/denuncias");
@@ -48,11 +42,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     "Prefer: return=minimal"
   ]);
 
-
   $response = curl_exec($ch);
   $httpCode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
   curl_close($ch);
-
 
   if ($httpCode >= 200 && $httpCode < 300) {
     header('Location: Denuncia.php?denuncia=ok');
@@ -62,9 +54,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
   exit;
 }
 
-
-if ($_SERVER['REQUEST_METHOD'] === 'PUT' || isset($_GET['marcar_visto'])) {
-  $id = $_GET['marcar_visto'] ?? null;
+if (isset($_GET['marcar_visto'])) {
+  $id = filter_var($_GET['marcar_visto'], FILTER_VALIDATE_INT);
 
   if ($id) {
     $ch = curl_init();
@@ -76,15 +67,24 @@ if ($_SERVER['REQUEST_METHOD'] === 'PUT' || isset($_GET['marcar_visto'])) {
       HEADER_APIKEY,
       HEADER_AUTH,
       "Content-Type: application/json",
-      "Prefer: return=minimal"
+      "Prefer: return=representation"
     ]);
-    curl_exec($ch);
+
+    $response = curl_exec($ch);
+    $httpCode = curl_getinfo($ch, CURLINFO_HTTP_CODE);
     curl_close($ch);
+
+
+    if ($httpCode < 200 || $httpCode >= 300) {
+      header('Location: Denuncia.php?erro_atualizar=' . $httpCode);
+      exit;
+    }
   }
 
   header('Location: Denuncia.php');
   exit;
 }
+
 
 $ch = curl_init();
 curl_setopt($ch, CURLOPT_URL, $supabaseUrl . "/rest/v1/denuncias?order=criado_em.desc");
@@ -170,7 +170,7 @@ if ($httpCode >= 200 && $httpCode < 300) {
 
     <?php if (isset($_GET['denuncia'])): ?>
       <div class="alerta-sucesso">
-        ✅ Denúncia recebida com sucesso!
+        Denúncia recebida com sucesso!
       </div>
     <?php endif; ?>
 
@@ -199,7 +199,11 @@ if ($httpCode >= 200 && $httpCode < 300) {
 
             <p>
               <strong>Data:</strong>
-              <?= date('d/m/Y H:i', strtotime($item['criado_em'])) ?>
+              <?php
+              $data = new DateTime($item['criado_em']);
+              $data->setTimezone(new DateTimeZone('America/Sao_Paulo'));
+              echo $data->format('d/m/Y H:i');
+              ?>
             </p>
 
             <?php if (!$item['visto']): ?>
