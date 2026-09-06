@@ -16,6 +16,10 @@ body {
   color: var(--secondary);
 }
 
+a {
+  color: inherit;
+}
+
 .banner {
   background: #ff5845;
   padding: 7rem 1.5rem 2.5rem;

@@ -5,11 +5,12 @@ require_once '../config/functions.php';
 header('Content-Type: application/json; charset=utf-8');
 
 $busca = trim($_GET['q'] ?? '');
+$colunas = 'id,nome,url,prof,bio,dedicatoria';
 
 if ($busca === '') {
 
     $endpoint =
-        'personalidades?select=*&order=nome.asc';
+        "personalidades?select={$colunas}&order=nome.asc";
 
 } else {
 
@@ -17,7 +18,7 @@ if ($busca === '') {
     $busca = urlencode("*{$busca}*");
 
     $endpoint =
-        "personalidades?select=*&or=(nome.ilike.$busca,prof.ilike.$busca,bio.ilike.$busca)&order=nome.asc";
+        "personalidades?select={$colunas}&or=(nome.ilike.$busca,prof.ilike.$busca,bio.ilike.$busca)&order=nome.asc";
 }
 
 $dados = supabaseRequest($endpoint);

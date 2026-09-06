@@ -143,7 +143,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
         </div>
         <button onclick="window.open('https://docs.google.com/document/d/1u9u89bEDej1IgfXIat2Dl9XtmB2pfP5ahr8ODmKS5Iw/edit?usp=sharing')" class="btn-documentacao">
-          Acessar modelo de Termo de Uso
+            Acessar modelo de Termo de Uso
         </button>
     </main>
 
@@ -187,12 +187,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 let html = '';
                 dados.forEach((item) => {
                     html += `
-                    <p style="padding: 12px 15px; cursor: pointer; border-bottom: 1px solid rgb(243, 244, 246); transition: background 0.2s; background: white;" onmouseover="this.style.background='#fef3c7'" onmouseout="this.style.background='white'">
                     <a href="${item.link}" target="_blank">
-                        Termo de uso de <strong>${item.autor}</strong><br>
+                        <p style="padding: 12px 15px; cursor: pointer; border-bottom: 1px solid rgb(243, 244, 246); transition: background 0.2s; background: white;" onmouseover="this.style.background='#fef3c7'" onmouseout="this.style.background='white'">                 
+                            Termo de uso de <strong>${item.autor}</strong><br>
+                            <strong>ID: ${item.id}</strong>
+                        </p>
                     </a>
-                    <strong>ID: ${item.id}</strong>
-                    </p>
                     `;
                 });
                 document.getElementById('sugestoes').innerHTML = html;

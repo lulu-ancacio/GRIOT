@@ -505,3 +505,79 @@ function supabaseCreateTerm($id_user)
         }
     }
 }
+
+function supabaseCreateLegislation($id_user)
+{
+    require_once COMPOSER_AUTOLOAD;
+
+    $url = $_ENV['SUPABASE_URL'];
+    $api_key = $_ENV['SUPABASE_SERVICE_ROLE'];
+
+    if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+
+        $titulo = $_POST['titulo'];
+        $norma = $_POST['norma'];
+        $data = $_POST['data'];
+        $link = $_POST['link'];
+        $id_usuario = $id_user;
+
+        $client = new GuzzleHttp\Client();
+
+        $client->post(
+            "$url/rest/v1/legislacao",
+            [
+                'headers' => [
+                    'apikey' => $api_key,
+                    'Authorization' => "Bearer $api_key",
+                    'Prefer' => PREFER_RETURN
+                ],
+                'json' => [
+                    'titulo' => $titulo,
+                    'norma' => $norma,
+                    'data' => $data,
+                    'link' => $link,
+                    'id_usuario' => $id_usuario
+                ]
+            ]
+        );
+
+        echo "<script>alert('Legislação submetida!');</script>";
+    }
+}
+
+function supabaseUpdateLegislation($id_user){
+    require_once COMPOSER_AUTOLOAD;
+
+    $url = $_ENV['SUPABASE_URL'];
+    $api_key = $_ENV['SUPABASE_SERVICE_ROLE'];
+
+    if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+
+        $id = $_POST['id'];
+        $titulo = $_POST['titulo'];
+        $norma = $_POST['norma'];
+        $data = $_POST['data'];
+        $link = $_POST['link'];
+
+        $client = new GuzzleHttp\Client();
+
+        $client->patch(
+            "$url/rest/v1/legislacao?id=eq.$id",
+            [
+                'headers' => [
+                    'apikey' => $api_key,
+                    'Authorization' => "Bearer $api_key",
+                    'Prefer' => PREFER_RETURN
+                ],
+                'json' => [
+                    'titulo' => $titulo,
+                    'norma' => $norma,
+                    'data' => $data,
+                    'link' => $link
+                ]
+            ]
+        );
+
+        echo "<script>alert('Legislação atualizada!');</script>";
+    }
+}

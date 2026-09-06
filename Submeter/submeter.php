@@ -13,6 +13,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         'pinturas' => supabaseCreatePhotoPainting('Pinturas', 'pinturas', $_SESSION['id']),
         'filmes' => supabaseCreateFilm($_SESSION['id']),
         'livros' => supabaseCreateBook($_SESSION['id']),
+        'legislacao' => supabaseCreateLegislation($_SESSION['id']),
         default => null
     };
 }
@@ -56,11 +57,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 <div class="left-menu">
                     <button class="menu-trigger" aria-label="Abrir menu"><span></span></button>
                     <ul class="menu-dropdown">
-                        <li><a href="../galeriaFotografias.html">Fotografias</a></li>
+                        <li><a href="../galeria/Fotografias.html">Fotografias</a></li>
                         <li><a href="../biblioteca/Biblioteca.html">Acervo Literário</a></li>
-                        <li><a href="../galeria/Pinturas.html">Pinturas</a></li>
                         <li><a href="../Filmes/Audiovisuais.html">Audiovisuais</a></li>
+                        <li><a href="../galeria/Pinturas.html">Pinturas</a></li>
                         <li><a href="../LinhaDoTempo/LinhadoTempo.html">Linha do Tempo</a></li>
+                        <li><a href="../Legislacao/Legislacao.html">Legislação</a></li>
                         <li><a href="../Personalidades/Personalidades.html">Personalidades</a></li>
                         <li><a href="../musica/Musica.html"> Músicas</a></li>
                     </ul>
@@ -261,6 +263,40 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
                     <button type="submit" class="btn-submit">Enviar Mídia</button>
                     <p>Adicione uma mídia por vez.</p>
+                </form>
+            </article>
+
+            <article class="form-card">
+                <h3>⚖️ Legislação</h3>
+                <form method="POST" enctype="multipart/form-data">
+                    <input type="hidden" name="tipo" value="legislacao">
+
+                    <div class="form-group">
+                        <label for="leg_titulo">Título *</label>
+                        <input type="text" id="leg_titulo" name="titulo" required
+                            placeholder="Ex: Lei Afonso Arinos">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="leg_norma">Norma *</label>
+                        <input type="text" id="leg_norma" name="norma" required
+                            placeholder="Ex: Lei nº 2.848/1940">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="leg_data">Data</label>
+                        <input type="text" id="leg_data" name="data" required
+                            placeholder="Ex: 7 de dezembro de 1940">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="leg_link">Link</label>
+                        <input type="text" id="leg_link" name="link" required
+                            placeholder="Ex: https://...">
+                    </div>
+
+                    <button type="submit" class="btn-submit">Enviar Legislação</button>
+                    <p>Adicione uma lesgilação por vez.</p>
                 </form>
             </article>
 

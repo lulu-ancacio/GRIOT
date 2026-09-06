@@ -13,6 +13,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         'pinturas' => supabaseUpdatePhotoPaintingBook('pinturas'),
         'filmes' => supabaseUpdateFilm('filmes'),
         'livros' => supabaseUpdatePhotoPaintingBook('livros'),
+        'legislacao' => supabaseUpdateLegislation('legislacao'),
         default => null
     };
 }
@@ -63,10 +64,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                         <li><a href="../biblioteca/Biblioteca.html">Acervo Literário</a></li>
                         <li><a href="../Filmes/Audiovisuais.html">Audiovisuais</a></li>
                         <li><a href="../galeria/Pinturas.html">Pinturas</a></li>
-                        <li><a href="../Legislacao/Legislacao.html">Personalidades</a></li>
-                        <li><a href=" ../LinhaDoTempo/LinhadoTempo.html">Linha do Tempo</a></li>
-                        <li><a href="../personalidades/Personalidades.html">Personalidades</a></li>
-                        <li><a href="../musica/Musica.html">Músicas</a></li>
+                        <li><a href="../LinhaDoTempo/LinhadoTempo.html">Linha do Tempo</a></li>
+                        <li><a href="../Legislacao/Legislacao.html">Legislação</a></li>
+                        <li><a href="../Personalidades/Personalidades.html">Personalidades</a></li>
+                        <li><a href="../musica/Musica.html"> Músicas</a></li>
                     </ul>
                 </div>
                 <div class="logo">
@@ -104,7 +105,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
 
             <article class="form-card">
-                <h3>Obras</h3>
+                <h3>Exibir Obras</h3>
                 <form method="POST" enctype="multipart/form-data">
 
                     <label for="secao">Selecione a seção *</label>
@@ -114,6 +115,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                         <option value="fotografias">📷 Fotografias</option>
                         <option value="filmes">🎬 Audiovisuais</option>
                         <option value="livros">📚 Acervo literário</option>
+                        <option value="legislacao">⚖️ Legislação</option>
                     </select>
 
                     <div id="sugestoes"
@@ -265,6 +267,45 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 </form>
             </article>
 
+            <article class="form-card">
+                <h3>⚖️ Legislação</h3>
+                <form method="POST" enctype="multipart/form-data">
+                    <input type="hidden" name="tipo" value="legislacao">
+
+                    <div class="form-group">
+                        <label for="leg_id">ID *</label>
+                        <input type="number" id="leg_id" name="id" required placeholder="Ex: 13">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="leg_titulo">Título *</label>
+                        <input type="text" id="leg_titulo" name="titulo" required
+                            placeholder="Ex: Lei Afonso Arinos">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="leg_norma">Norma *</label>
+                        <input type="text" id="leg_norma" name="norma" required
+                            placeholder="Ex: Lei nº 2.848/1940">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="leg_data">Data</label>
+                        <input type="text" id="leg_data" name="data" required
+                            placeholder="Ex: 7 de dezembro de 1940">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="leg_link">Link</label>
+                        <input type="text" id="leg_link" name="link" required
+                            placeholder="Ex: https://...">
+                    </div>
+
+                    <button type="submit" class="btn-submit">Enviar Legislação</button>
+                    <p>Adicione uma lesgilação por vez.</p>
+                </form>
+            </article>
+
         </div>
     </main>
 
@@ -300,7 +341,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     </script>
 
     <script>
-        document.getElementById('secao').addEventListener('change', function () {
+        document.getElementById('secao').addEventListener('change', function() {
 
             switch (this.value) {
 
@@ -318,6 +359,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
                 case 'livros':
                     mostrarLivros();
+                    break;
+
+                case 'legislacao':
+                    mostrarLegislacao();
                     break;
 
                 default:
@@ -408,6 +453,30 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     <p style="padding: 12px 15px; cursor: pointer; border-bottom: 1px solid rgb(243, 244, 246); transition: background 0.2s; background: white;" onmouseover="this.style.background='#fef3c7'" onmouseout="this.style.background='white'">
                     <img style="width: 90px; height: 135px; object-fit: cover; border-radius: 8px;" src="${item.url}"/>
                     <strong>${item.titulo}</strong><br>
+                    <strong>ID: ${item.id}</strong>
+                    </p>
+                    `;
+                });
+                document.getElementById('sugestoes').innerHTML = html;
+            } catch (erro) {
+                console.error(erro);
+                document.getElementById('sugestoes').innerHTML =
+                    'Erro ao consumir API';
+            }
+        }
+
+        async function mostrarLegislacao() {
+            try {
+                const response = await fetch('../api/Legislacao.php');
+                dados = await response.json();
+                let html = '';
+                dados.forEach((item) => {
+                    html += `
+                    <p style="padding: 12px 15px; cursor: pointer; border-bottom: 1px solid rgb(243, 244, 246); transition: background 0.2s; background: white;" onmouseover="this.style.background='#fef3c7'" onmouseout="this.style.background='white'">
+                    <strong>Título: </strong>${item.titulo}<br>
+                    <strong>Norma: </strong>${item.norma}<br>
+                    <strong>Data: </strong>${item.data}<br>
+                    <strong>Link: </strong>${item.link}<br>
                     <strong>ID: ${item.id}</strong>
                     </p>
                     `;

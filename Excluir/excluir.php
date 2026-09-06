@@ -9,10 +9,11 @@ require_once '../config/functions.php';
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     match ($_POST['secao']) {
-        'fotografias' => supabaseDeleteItem(''),
+        'fotografias' => supabaseDeleteItem('fotografias'),
         'pinturas' => supabaseDeleteItem('pinturas'),
         'filmes' => supabaseDeleteItem('filmes'),
         'livros' => supabaseDeleteItem('livros'),
+        'legislacao' => supabaseDeleteItem('legislacao'),
         default => null
     };
 }
@@ -64,7 +65,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                         <li><a href="../Filmes/Audiovisuais.html">Audiovisuais</a></li>
                         <li><a href="../galeria/Pinturas.html">Pinturas</a></li>
                         <li><a href="../LinhaDoTempo/LinhadoTempo.html">Linha do Tempo</a></li>
-                        <li><a href="../Personalidades/personalidades/Personalidades.html">Personalidades</a></li>
+                        <li><a href="../Legislacao/Legislacao.html">Legislação</a></li>
+                        <li><a href="../Personalidades/Personalidades.html">Personalidades</a></li>
                         <li><a href="../musica/Musica.html"> Músicas</a></li>
                     </ul>
                 </div>
@@ -105,7 +107,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
 
             <article class="form-card">
-                <h3>Obras</h3>
+                <h3>Exibir Obras</h3>
                 <form method="POST" enctype="multipart/form-data">
 
                     <label for="secao">Selecione a seção *</label>
@@ -115,6 +117,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                         <option value="fotografias">📷 Fotografias</option>
                         <option value="filmes">🎬 Audiovisuais</option>
                         <option value="livros">📚 Acervo literário</option>
+                        <option value="legislacao">⚖️ Legislação</option>
                     </select>
 
                     <div id="sugestoes"
@@ -166,7 +169,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     </script>
 
     <script>
-        document.getElementById('secao').addEventListener('change', function () {
+        document.getElementById('secao').addEventListener('change', function() {
 
             switch (this.value) {
 
@@ -184,6 +187,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
                 case 'livros':
                     mostrarLivros();
+                    break;
+
+                case 'legislacao':
+                    mostrarLegislacao();
                     break;
 
                 default:
@@ -274,6 +281,30 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     <p style="padding: 12px 15px; cursor: pointer; border-bottom: 1px solid rgb(243, 244, 246); transition: background 0.2s; background: white;" onmouseover="this.style.background='#fef3c7'" onmouseout="this.style.background='white'">
                     <img style="width: 90px; height: 135px; object-fit: cover; border-radius: 8px;" src="${item.url}"/>
                     <strong>${item.titulo}</strong><br>
+                    <strong>ID: ${item.id}</strong>
+                    </p>
+                    `;
+                });
+                document.getElementById('sugestoes').innerHTML = html;
+            } catch (erro) {
+                console.error(erro);
+                document.getElementById('sugestoes').innerHTML =
+                    'Erro ao consumir API';
+            }
+        }
+
+        async function mostrarLegislacao() {
+            try {
+                const response = await fetch('../api/Legislacao.php');
+                dados = await response.json();
+                let html = '';
+                dados.forEach((item) => {
+                    html += `
+                    <p style="padding: 12px 15px; cursor: pointer; border-bottom: 1px solid rgb(243, 244, 246); transition: background 0.2s; background: white;" onmouseover="this.style.background='#fef3c7'" onmouseout="this.style.background='white'">
+                    <strong>Título: </strong>${item.titulo}<br>
+                    <strong>Norma: </strong>${item.norma}<br>
+                    <strong>Data: </strong>${item.data}<br>
+                    <strong>Link: </strong>${item.link}<br>
                     <strong>ID: ${item.id}</strong>
                     </p>
                     `;

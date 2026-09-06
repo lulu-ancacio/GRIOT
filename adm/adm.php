@@ -90,15 +90,19 @@ if (empty($_SESSION['adm'])) {
         <div class="forms-grid">
             <button onclick="window.location.href='../Submeter/submeter.php'" class="btn-submit">Submissão de
                 obras</button>
+
             <button onclick="window.location.href='../Excluir/excluir.php'" class="btn-submit"><a>Exclusão de
                     obras</a></button>
+
             <button onclick="window.location.href='../Editar/editar.php'" class="btn-submit"><a>Edição de
                     obras</a></button>
+
             <button onclick="window.location.href='../Denuncia/Denuncia.php'" class="btn-submit"><a>Moderação de
                     Contéudo</a></button>
-            <button onclick="window.location.href='../mensagemRecebida/mensagemRecebida.php'"
-                class="btn-submit"><a>Controle de
+
+            <button onclick="window.location.href='../mensagemRecebida/mensagemRecebida.php'" class="btn-submit"><a>Controle de
                     Sugestões</a></button>
+
             <button onclick="window.location.href='../Termos/termos.php'"
                 class="btn-submit"><a>Controle de
                     Termos de Uso</a></button>
