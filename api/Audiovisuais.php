@@ -8,7 +8,7 @@ $busca = trim($_GET['q'] ?? '');
 $colunas = 'id,titulo,url,tipo,desc,link';
 
 if ($busca === '') {
-
+    
     $endpoint =
         "filmes?select={$colunas}&order=titulo.asc";
 
