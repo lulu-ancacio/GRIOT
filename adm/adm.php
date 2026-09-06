@@ -99,6 +99,9 @@ if (empty($_SESSION['adm'])) {
             <button onclick="window.location.href='../mensagemRecebida/mensagemRecebida.php'"
                 class="btn-submit"><a>Controle de
                     Sugestões</a></button>
+            <button onclick="window.location.href='../Termos/termos.php'"
+                class="btn-submit"><a>Controle de
+                    Termos de Uso</a></button>
         </div>
     </main>
 

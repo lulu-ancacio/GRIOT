@@ -1,7 +1,7 @@
 <?php
 
 require_once "env.php";
-define('COMPOSER_AUTOLOAD', './composer/vendor/autoload.php');
+define('COMPOSER_AUTOLOAD', '../composer/vendor/autoload.php');
 define('PREFER_RETURN', 'return=minimal');
 define('FORMAT', '/[^a-zA-Z0-9]/');
 
@@ -443,5 +443,65 @@ function supabaseUpdateFilm($table)
         );
 
         echo "<script>alert('Mídia atualizada!');</script>";
+    }
+}
+
+function supabaseCreateTerm($id_user)
+{
+    require_once COMPOSER_AUTOLOAD;
+
+    $url = $_ENV['SUPABASE_URL'];
+    $api_key = $_ENV['SUPABASE_SERVICE_ROLE'];
+
+    if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+
+        $link = $_FILES['link'];
+        $autor = $_POST['autor'];
+        $id_usuario = $id_user;
+
+        if ($link['error'] === UPLOAD_ERR_OK || $link['error'] === UPLOAD_ERR_NO_FILE) {
+
+            $client = new GuzzleHttp\Client();
+
+            $extension = preg_replace(
+                FORMAT,
+                '',
+                pathinfo($link['name'], PATHINFO_EXTENSION)
+            );
+
+            $fileName = uniqid('pdf', true) . '.' . $extension;
+
+            $client->post(
+                "$url/storage/v1/object/Termos/$fileName",
+                [
+                    'headers' => [
+                        'apikey' => $api_key,
+                        'Authorization' => "Bearer $api_key",
+                        'Content-Type' => $link['type']
+                    ],
+                    'body' => file_get_contents($link['tmp_name'])
+                ]
+            );
+
+            $linkTratado = "$url/storage/v1/object/public/Termos/$fileName";
+
+            $client->post(
+                "$url/rest/v1/termos_uso",
+                [
+                    'headers' => [
+                        'apikey' => $api_key,
+                        'Authorization' => "Bearer $api_key",
+                        'Prefer' => PREFER_RETURN
+                    ],
+                    'json' => [
+                        'autor' => $autor,
+                        'link' => $linkTratado,
+                        'id_usuario' => $id_usuario
+                    ]
+                ]
+            );
+
+            echo "<script>alert('Termo submetido!');</script>";
+        }
     }
 }
