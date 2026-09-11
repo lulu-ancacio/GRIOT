@@ -39,8 +39,8 @@
             <li><a href="../biblioteca/Biblioteca.html">Biblioteca</a></li>
             <li><a href="../Filmes/Audiovisuais.html">Audiovisuais</a></li>
             <li><a href="../galeria/Pinturas.html">Pinturas</a></li>
-             <li><a href="../LinhaDoTempo/LinhadoTempo.html">Linha do Tempo</a></li>
-            <li><a href="../Personalidades/Personalidades.html">Personalidades</a></li>
+            <li><a href="../LinhaDoTempo/LinhadoTempo.html">Linha do Tempo</a></li>
+            <li><a href="../personalidades/Personalidades.html">Personalidades</a></li>
             <li><a href="../musica/Musica.html">Músicas</a></li>
           </ul>
         </div>
@@ -100,7 +100,7 @@
   <script src="../mainStyle/script.js" defer></script>
 
 
- 
+
   <div vw class="enabled">
     <div vw-access-button class="active"></div>
     <div vw-plugin-wrapper>
@@ -109,10 +109,10 @@
   </div>
   <script src="https://vlibras.gov.br/app/vlibras-plugin.js"></script>
   <script>
-   const vw = new window.VLibras.Widget('https://vlibras.gov.br/app');
+    const vw = new window.VLibras.Widget('https://vlibras.gov.br/app');
   </script>
 
- 
+
   <script src="../mainStyle/script.js"></script>
   <script>
 
@@ -126,7 +126,7 @@
         leis.length = 0;
         dados.forEach((item, i) => {
 
-          leis.push( {
+          leis.push({
             id: item.id,
             nome: item.titulo,
             numero: item.norma,
@@ -137,11 +137,11 @@
         });
         renderizarLeis();
       } catch (error_) {
-          console.error(error_);
+        console.error(error_);
       }
-  }
+    }
 
-  
+
     function renderizarLeis() {
       const container = document.getElementById('container-leis');
       container.innerHTML = '';
