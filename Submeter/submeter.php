@@ -302,7 +302,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     <footer class="footer">
         <p>
-            Trabalho de Conclusão de Curso apresentado ao curso técnico em informática IFPR Campus Pinhais no ano de 2026.
+            Trabalho de Conclusão de Curso apresentado no curso técnico em informática do IFPR Campus Pinhais no ano de 2026.
     </footer>
 
 

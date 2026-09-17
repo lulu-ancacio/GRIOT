@@ -222,7 +222,7 @@ if ($httpCode >= 200 && $httpCode < 300) {
     <div class="container">
       <div class="row">
         <div class="col-lg-12">
-          <p>Trabalho de Conclusão de Curso apresentado ao curso técnico em Informática - IFPR Pinhais</p>
+          <p>Trabalho de Conclusão de Curso apresentado no curso técnico em informática do IFPR Campus Pinhais no ano de 2026.</p>
         </div>
       </div>
     </div>

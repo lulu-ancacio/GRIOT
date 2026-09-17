@@ -346,7 +346,7 @@ session_start();
   <footer class="footer">
     <div class="container">
       <p>
-        Trabalho de Conclusão de Curso apresentado ao curso técnico em informática IFPR Campus Pinhais no ano de 2026.
+        Trabalho de Conclusão de Curso apresentado no curso técnico em informática do IFPR Campus Pinhais no ano de 2026.
       </p>
     </div>
   </footer>
