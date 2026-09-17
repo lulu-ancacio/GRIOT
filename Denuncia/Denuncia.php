@@ -6,7 +6,7 @@ if (empty($_SESSION['adm'])) {
 }
 
 $supabaseUrl = "https://cdhjzkmlucahtllfpdlx.supabase.co";
-$supabaseKey = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImNkaGp6a21sdWNhaHRsbGZwZGx4Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzUyNDgxNzMsImV4cCI6MjA5MDgyNDE3M30.ZaP_y-A2t32z8FRT4vAA8xsMqjhsdA0QuQIGTP5f36g";
+$supabaseKey = $_ENV['SUPABASE_SERVICE_ROLE'];
 define('HEADER_APIKEY', 'apikey: ' . $supabaseKey);
 define('HEADER_AUTH', 'Authorization: Bearer ' . $supabaseKey);
 
