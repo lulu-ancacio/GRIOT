@@ -54,7 +54,7 @@ if (empty($_SESSION['adm'])) {
                         <li><a href="../galeria/Pinturas.html">Pinturas</a></li>
                         <li><a href="../LinhaDoTempo/LinhadoTempo.html">Linha do Tempo</a></li>
                         <li><a href="../personalidades/Personalidades.html">Personalidades</a></li>
-                        <li><a href="../musica/Musica.html"> Músicas</a></li>
+                        <li><a href="../musica/Musica.html">Músicas</a></li>
                         <li><a href="../Legislacao/Legislacao.html">Legislação</a></li>
                     </ul>
                 </div>

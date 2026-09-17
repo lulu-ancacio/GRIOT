@@ -38,15 +38,14 @@ session_start();
             <span></span>
           </button>
           <ul class="menu-dropdown">
-            <li><a href="galeria/Pinturas.html">Pinturas</a></li>
-            <li><a href="galeria/Fotografias.html">Fotografias</a></li>
-            <li><a href="biblioteca/Biblioteca.html">Acervo Literário</a></li>
-            <li><a href="Filmes/Audiovisuais.html">Audiovisuais</a></li>
-            <li><a href="Personalidades/Personalidades.html">Personalidades</a></li>
-            <li><a href="LinhaDoTempo/LinhadoTempo.html">Linha do Tempo</a></li>
-            <li><a href="Legislacao/Legislacao.html">Legislação</a></li>
-            <li><a href="musica/Musica.html">Músicas</a></li>
-
+            <li><a href="./galeria/Fotografias.html">Fotografias</a></li>
+            <li><a href="./biblioteca/Biblioteca.html">Acervo Literário</a></li>
+            <li><a href="./Filmes/Audiovisuais.html">Audiovisuais</a></li>
+            <li><a href="./galeria/Pinturas.html">Pinturas</a></li>
+            <li><a href="./LinhaDoTempo/LinhadoTempo.html">Linha do Tempo</a></li>
+            <li><a href="./personalidades/Personalidades.html">Personalidades</a></li>
+            <li><a href="./musica/Musica.html">Músicas</a></li>
+            <li><a href="./Legislacao/Legislacao.html">Legislação</a></li>
           </ul>
         </div>
         <a href="index.php" class="logo">
@@ -92,8 +91,8 @@ session_start();
                 <?php if (!empty($_SESSION['adm'])): ?>
                   <p>
                     <?php if (($_SESSION['pronome']) == "M"): ?>Você está logado como
-                      administrador<?php elseif (($_SESSION['pronome']) == "F"): ?> Você está logada como administradora
-                    <?php else: ?> Você está com função de administrar<?php endif; ?>
+                    administrador<?php elseif (($_SESSION['pronome']) == "F"): ?> Você está logada como administradora
+                  <?php else: ?> Você está com função de administrar<?php endif; ?>
                   </p>
                 <?php endif; ?>
               </div>
@@ -371,7 +370,7 @@ session_start();
 
     document
       .getElementById("contact")
-      .addEventListener("submit", async function (e) {
+      .addEventListener("submit", async function(e) {
 
         e.preventDefault();
 
@@ -390,14 +389,14 @@ session_start();
         const {
           error
         } =
-          await supabaseClient
-            .from("comentarios")
-            .insert([{
-              nome: nome,
-              sobrenome: sobrenome,
-              email: email,
-              msg: msg
-            }]);
+        await supabaseClient
+          .from("comentarios")
+          .insert([{
+            nome: nome,
+            sobrenome: sobrenome,
+            email: email,
+            msg: msg
+          }]);
 
         if (error) {
 

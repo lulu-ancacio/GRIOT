@@ -61,10 +61,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                         <li><a href="../biblioteca/Biblioteca.html">Acervo Literário</a></li>
                         <li><a href="../Filmes/Audiovisuais.html">Audiovisuais</a></li>
                         <li><a href="../galeria/Pinturas.html">Pinturas</a></li>
-                        <li><a href="../Legislacao/Legislacao.html">Personalidades</a></li>
-                        <li><a href=" ../LinhaDoTempo/LinhadoTempo.html">Linha do Tempo</a></li>
+                        <li><a href="../LinhaDoTempo/LinhadoTempo.html">Linha do Tempo</a></li>
                         <li><a href="../personalidades/Personalidades.html">Personalidades</a></li>
                         <li><a href="../musica/Musica.html">Músicas</a></li>
+                        <li><a href="../Legislacao/Legislacao.html">Legislação</a></li>
                     </ul>
                 </div>
                 <div class="logo">

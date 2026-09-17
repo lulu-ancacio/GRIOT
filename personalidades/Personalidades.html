@@ -29,13 +29,13 @@
                         <span></span>
                     </button>
                     <ul class="menu-dropdown">
-                        <li><a href="../galeria/Pinturas.html">Pinturas</a></li>
                         <li><a href="../galeria/Fotografias.html">Fotografias</a></li>
                         <li><a href="../biblioteca/Biblioteca.html">Acervo Literário</a></li>
-                       <li><a href="../Filmes/Audiovisuais.html">Audiovisuais</a></li>
-                         <li><a href="../LinhaDoTempo/LinhadoTempo.html">Linha do Tempo</a></li>
-                        <li><a href="../Legislacao/Legislacao.html">Legislação</a></li>
+                        <li><a href="../Filmes/Audiovisuais.html">Audiovisuais</a></li>
+                        <li><a href="../galeria/Pinturas.html">Pinturas</a></li>
+                        <li><a href="../LinhaDoTempo/LinhadoTempo.html">Linha do Tempo</a></li>
                         <li><a href="../musica/Musica.html">Músicas</a></li>
+                        <li><a href="../Legislacao/Legislacao.html">Legislação</a></li>
                     </ul>
                 </div>
                 <div class="logo">
@@ -64,13 +64,13 @@
                             Rainhas <em>Reis...</em> <span>GRIOT!</span>
                         </h2>
                         <p>
-                            Conhecer quem veio antes de nós é o primeiro passo para compreender 
-                            quem podemos ser. No GRIOT, cada personalidade catalogada representa 
+                            Conhecer quem veio antes de nós é o primeiro passo para compreender
+                            quem podemos ser. No GRIOT, cada personalidade catalogada representa
                             não apenas uma trajetória individual, mas um pilar na construção da nossa história,
-                             cultura e identidade afro-brasileira.Dar visibilidade a essas vidas é resgatar memórias
-                              muitas vezes apagadas, celebrando a resistência, a liderança e a contribuição de mestres,
-                               intelectuais e artistas que transformaram, e continuam transformando, a nossa sociedade.
-                                Explore, inspire-se e fortaleça essa rede de conhecimento e pertencimento.
+                            cultura e identidade afro-brasileira.Dar visibilidade a essas vidas é resgatar memórias
+                            muitas vezes apagadas, celebrando a resistência, a liderança e a contribuição de mestres,
+                            intelectuais e artistas que transformaram, e continuam transformando, a nossa sociedade.
+                            Explore, inspire-se e fortaleça essa rede de conhecimento e pertencimento.
                         </p>
                     </div>
                     <div class="right-image">
@@ -86,10 +86,11 @@
             <input type="text" id="pesquisa" placeholder="Pesquisar...">
             <i class="fa-solid fa-magnifying-glass search-icon" aria-hidden="true"></i>
         </div>
- 
+
         <div class="credito-ia">
             <p>Biografias geradas pelo Gemini</p>
-            <img src="../mainStyle/assets/images/gemini.webp" alt="Logotipo do Gemini, representado por um círculo azul com duas linhas curvas que se entrelaçam, formando um símbolo de infinito estilizado.">
+            <img src="../mainStyle/assets/images/gemini.webp"
+                alt="Logotipo do Gemini, representado por um círculo azul com duas linhas curvas que se entrelaçam, formando um símbolo de infinito estilizado.">
         </div>
 
         <div class="gallery">
@@ -118,38 +119,34 @@
         <script src="script.js"></script>
         <script src="../mainStyle/script.js"></script>
 
-      
-       <script src="../mainStyle/script.js" defer></script>
 
- <!-- VLibras Atualizadp -->
-  <div vw class="enabled">
-    <div vw-access-button class="active"></div>
-    <div vw-plugin-wrapper>
-      <div class="vw-plugin-top-wrapper"></div>
-    </div>
-  </div>
-  <script src="https://vlibras.gov.br/app/vlibras-plugin.js"></script>
-  <script>
-    const vw = new window.VLibras.Widget('https://vlibras.gov.br/app');
-  </script>
+        <script src="../mainStyle/script.js" defer></script>
+
+        <!-- VLibras Atualizadp -->
+        <div vw class="enabled">
+            <div vw-access-button class="active"></div>
+            <div vw-plugin-wrapper>
+                <div class="vw-plugin-top-wrapper"></div>
+            </div>
+        </div>
+        <script src="https://vlibras.gov.br/app/vlibras-plugin.js"></script>
+        <script>
+            const vw = new window.VLibras.Widget('https://vlibras.gov.br/app');
+        </script>
 
 
         <script src="../Supabase/supabase.min.js"></script>
         <script>
-             if (window.SUPABASE_URL !== 'undefined') {
+            if (window.SUPABASE_URL !== 'undefined') {
                 window.supabaseClient = window.supabase.createClient(
-                window.SUPABASE_URL,
-                window.SUPABASE_KEY 
+                    window.SUPABASE_URL,
+                    window.SUPABASE_KEY
                 );
 
             }
         </script>
-    <button 
-        type="button" 
-        class="overlay" 
-        onclick="closeSidebar()" 
-        aria-label="Fechar menu lateral">
-    </button>
+        <button type="button" class="overlay" onclick="closeSidebar()" aria-label="Fechar menu lateral">
+        </button>
         <script>
 
             let dados = [];
@@ -190,7 +187,7 @@
             document.getElementById('pesquisa').addEventListener('input', function () {
                 chamarApi(this.value);
             });
-        
+
             async function openSidebar(id) {
                 const person = dados[id];
                 if (!person) return;
@@ -220,7 +217,7 @@
                 document.getElementById('sidebar').classList.add('active');
                 document.querySelector('.overlay').classList.add('active');
                 document.body.style.overflow = 'hidden';
-                }
+            }
         </script>
 
         <style>
