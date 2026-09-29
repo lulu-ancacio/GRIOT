@@ -6,7 +6,7 @@ if (empty($_SESSION['adm'])) {
 }
 
 $supabaseUrl = "https://cdhjzkmlucahtllfpdlx.supabase.co";
-$supabaseKey = $_ENV['SUPABASE_SERVICE_ROLE'];
+$supabaseKey = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImNkaGp6a21sdWNhaHRsbGZwZGx4Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzUyNDgxNzMsImV4cCI6MjA5MDgyNDE3M30.ZaP_y-A2t32z8FRT4vAA8xsMqjhsdA0QuQIGTP5f36g";
 define('HEADER_APIKEY', 'apikey: ' . $supabaseKey);
 define('HEADER_AUTH', 'Authorization: Bearer ' . $supabaseKey);
 
@@ -222,7 +222,7 @@ if ($httpCode >= 200 && $httpCode < 300) {
     <div class="container">
       <div class="row">
         <div class="col-lg-12">
-          <p>Trabalho de Conclusão de Curso apresentado no curso técnico em informática do IFPR Campus Pinhais no ano de 2026.</p>
+          <p>Trabalho de Conclusão de Curso apresentado ao curso técnico em Informática - IFPR Pinhais</p>
         </div>
       </div>
     </div>
