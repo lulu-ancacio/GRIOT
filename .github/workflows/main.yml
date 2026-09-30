@@ -1,0 +1,28 @@
+name: Gerar Video Gource
+
+on:
+  workflow_dispatch: # Permite rodar manualmente a qualquer momento
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout do código
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0 # Baixa todo o histórico de commits
+
+      - name: Instalar Gource e FFmpeg
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y gource ffmpeg xvfb
+
+      - name: Gerar Vídeo em MP4
+        run: |
+          xvfb-run -a gource -1280x720 -r 60 -s 0.1 --auto-skip-seconds 1 --stop-at-end -o - | ffmpeg -y -r 60 -f image2pipe -vcodec ppm -i - -c:v libx264 -pix_fmt yuv420p gource.mp4
+
+      - name: Disponibilizar para Download
+        uses: actions/upload-artifact@v4
+        with:
+          name: gource-video
+          path: gource.mp4
