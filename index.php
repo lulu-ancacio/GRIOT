@@ -6,6 +6,7 @@ session_start();
 <html lang="pt-br">
 
 <head>
+  <meta name="google-site-verification" content="lv__5ZQXjjoNRsbuSH4Od-ZbcFHiHw08rD9FZ6f8hsQ" />
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="Museu virtual com temática racial">
@@ -91,8 +92,8 @@ session_start();
                 <?php if (!empty($_SESSION['adm'])): ?>
                   <p>
                     <?php if (($_SESSION['pronome']) == "M"): ?>Você está logado como
-                    administrador<?php elseif (($_SESSION['pronome']) == "F"): ?> Você está logada como administradora
-                  <?php else: ?> Você está com função de administrar<?php endif; ?>
+                      administrador<?php elseif (($_SESSION['pronome']) == "F"): ?> Você está logada como administradora
+                    <?php else: ?> Você está com função de administrar<?php endif; ?>
                   </p>
                 <?php endif; ?>
               </div>
@@ -346,7 +347,8 @@ session_start();
   <footer class="footer">
     <div class="container">
       <p>
-        Trabalho de Conclusão de Curso apresentado no curso técnico em informática do IFPR Campus Pinhais no ano de 2026.
+        Trabalho de Conclusão de Curso apresentado no curso técnico em informática do IFPR Campus Pinhais no ano de
+        2026.
       </p>
     </div>
   </footer>
@@ -370,7 +372,7 @@ session_start();
 
     document
       .getElementById("contact")
-      .addEventListener("submit", async function(e) {
+      .addEventListener("submit", async function (e) {
 
         e.preventDefault();
 
@@ -389,14 +391,14 @@ session_start();
         const {
           error
         } =
-        await supabaseClient
-          .from("comentarios")
-          .insert([{
-            nome: nome,
-            sobrenome: sobrenome,
-            email: email,
-            msg: msg
-          }]);
+          await supabaseClient
+            .from("comentarios")
+            .insert([{
+              nome: nome,
+              sobrenome: sobrenome,
+              email: email,
+              msg: msg
+            }]);
 
         if (error) {
 
