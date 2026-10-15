@@ -15,6 +15,8 @@ session_start();
   <link rel="icon" type="image/png" href="/mainStyle/assets/images/FavIcon_SF.png">
   <link rel="stylesheet" href="mainStyle/assets/fonts/poppins.css">
 
+  <script src=" https://cdn.userway.org/widget.js " data - account=" IXQddAYaNu "> </script>
+
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
     integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
     crossorigin="anonymous" referrerpolicy="no-referrer" />
