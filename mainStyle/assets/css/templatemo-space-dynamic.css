@@ -673,6 +673,14 @@ button {
   z-index: 999999 !important;
 }
 
+#userwayAccessibilityIcon {
+  position: fixed !important;
+  right: 20px !important;
+  bottom: 90px !important;
+  top: auto !important;
+  z-index: 999998 !important;
+}
+
 @media screen and (max-width: 992px) {
   .banner-content,
   .contact-content,
