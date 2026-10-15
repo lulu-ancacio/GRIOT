@@ -9,9 +9,10 @@ session_start();
   <meta name="google-site-verification" content="lv__5ZQXjjoNRsbuSH4Od-ZbcFHiHw08rD9FZ6f8hsQ" />
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Museu virtual com temática racial">
-  <title>GRIOT - Início</title>
-  <link rel="icon" href="mainStyle/assets/images/FavIcon_SF.png">
+  <meta name="description"
+    content="Plataforma web educacional dedicada à valorização da memória, história e cultura afro-brasileira, com recursos educativos para promover a educação antirracista.">
+  <title>GRIOT | Memória e História Afro-Brasileira</title>
+  <link rel="icon" type="image/png" href="/mainStyle/assets/images/FavIcon_SF.png">
   <link rel="stylesheet" href="mainStyle/assets/fonts/poppins.css">
 
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
@@ -23,7 +24,6 @@ session_start();
 
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
     integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="anonymous" />
-
 
 
 </head>
