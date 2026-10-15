@@ -30,7 +30,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <meta name="description" content="Painel Administrativo ">
     <title>GRIOT - Painel de Edição</title>
 
-
+    <script src=" https://cdn.userway.org/widget.js " data-account=" IXQddAYaNu "></script>
     <link rel="stylesheet" href="../mainStyle/assets/fonts/poppins.css">
     <link rel="stylesheet" href="../mainStyle/assets/css/templatemo-space-dynamic.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
@@ -308,7 +308,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     <footer class="footer">
         <p>
-            Trabalho de Conclusão de Curso apresentado no curso técnico em informática do IFPR Campus Pinhais no ano de 2026.
+            Trabalho de Conclusão de Curso apresentado no curso técnico em informática do IFPR Campus Pinhais no ano de
+            2026.
     </footer>
 
 
