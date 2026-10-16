@@ -40,6 +40,14 @@
     <img width="60" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/git/git-original.svg" alt="Git" /> &nbsp;&nbsp;
     <img width="60" src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/github/github-original.svg" alt="GitHub" />
   </div>
+<br>
+  <div>
+    Assista a construção do GRIOT cronologicamente, a visualização do controle das versões do sistema, gerado pelo Gource.
+    <br><br>
+    <div>
+      <video src="https://github.com/user-attachments/assets/68d1de38-cd20-48ae-a76f-215b5cd28143"/>
+  </div>
+  </div>
 </div>
 <div>
   <h2>🧪 Qualidade de Código, Performance & Testes</h2>
