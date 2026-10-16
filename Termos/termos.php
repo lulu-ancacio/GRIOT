@@ -28,7 +28,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <title>GRIOT - Painel de Edição</title>
 
 
-    <script src=" https://cdn.userway.org/widget.js " data-account=" IXQddAYaNu "></script>
+    <script src="https://cdn.userway.org/widget.js" data-account="IXQddAYaNu" async>
+    </script>
     <link rel="stylesheet" href="../mainStyle/assets/fonts/poppins.css">
     <link rel="stylesheet" href="../mainStyle/assets/css/templatemo-space-dynamic.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"

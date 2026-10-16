@@ -29,7 +29,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <link rel="icon" href="../mainStyle/assets/images/FavIcon_SF.png">
     <meta name="description" content="Painel Administrativo ">
     <title>GRIOT - Painel de Submissão</title>
-    <script src=" https://cdn.userway.org/widget.js " data-account=" IXQddAYaNu "></script>
+    <script src="https://cdn.userway.org/widget.js" data-account="IXQddAYaNu" async>
+    </script>
     <link rel="stylesheet" href="../mainStyle/assets/fonts/poppins.css">
     <link rel="stylesheet" href="../mainStyle/assets/css/templatemo-space-dynamic.css">
     <link rel="stylesheet" href="style.css">

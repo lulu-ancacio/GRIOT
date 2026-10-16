@@ -16,7 +16,8 @@ if (empty($_SESSION['adm'])) {
     <meta name="description" content="Painel Administrativo ">
     <title>GRIOT - Painel Administrativo</title>
 
-    <script src=" https://cdn.userway.org/widget.js " data-account=" IXQddAYaNu "></script>
+    <script src="https://cdn.userway.org/widget.js" data-account="IXQddAYaNu" async>
+    </script>
     <link rel="stylesheet" href="../mainStyle/assets/fonts/poppins.css">
     <link rel="stylesheet" href="../mainStyle/assets/css/templatemo-space-dynamic.css">
     <link rel="stylesheet" href="style.css">
