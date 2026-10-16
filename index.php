@@ -6,7 +6,6 @@ session_start();
 <html lang="pt-br">
 
 <head>
-  <meta name="google-site-verification" content="lv__5ZQXjjoNRsbuSH4Od-ZbcFHiHw08rD9FZ6f8hsQ" />
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description"
