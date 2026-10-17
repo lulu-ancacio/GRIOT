@@ -5,7 +5,7 @@ require_once '../config/functions.php';
 header('Content-Type: application/json; charset=utf-8');
 
 $busca = trim($_GET['q'] ?? '');
-$colunas = 'id,url,autor,titulo,ano,tags';
+$colunas = 'id,url,autor,titulo,ano,tags,alt';
 
 if ($busca === '') {
 

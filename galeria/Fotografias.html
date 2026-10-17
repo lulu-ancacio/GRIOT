@@ -25,7 +25,7 @@
   <link rel="stylesheet" href="css/style.css" />
   <link rel="stylesheet" href="css/lc_lightbox.css" />
   <link rel="stylesheet" href="skins/minimal.css" />
-  <script src="lib/AlloyFinger/alloy_finger.min.js" type="text/javascript"></script>
+  
   <script src="../Supabase/supabase.min.js"></script>
 
 </head>
@@ -201,7 +201,7 @@
           dados.forEach(item => {
 
             html += `
-          <a class="elem" href="${item.url}" title="${escapeHtml(item.titulo)}"
+          <a class="elem" href="${item.url}" title="${escapeHtml(item.titulo)}" data-lcl-alt="${escapeHtml(item.alt)}"
             data-lcl-author="${escapeHtml(item.autor)} (${escapeHtml(item.ano)})">
             <span style="background-image: url('${item.url}');"></span>
           </a>
@@ -235,7 +235,7 @@
         dados.forEach(item => {
 
           html += `
-          <a class="elem" href="${item.url}" title="${escapeHtml(item.titulo)}"
+          <a class="elem" href="${item.url}" title="${escapeHtml(item.titulo)}" data-lcl-alt="${escapeHtml(item.alt)}
             data-lcl-author="${escapeHtml(item.autor)} (${escapeHtml(item.ano)})">
             <span style="background-image: url('${item.url}');"></span>
           </a>

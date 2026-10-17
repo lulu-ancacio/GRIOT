@@ -49,7 +49,7 @@
 			'</div>'+
 			'<div id="lcl_contents_wrap">'+
 				'<div id="lcl_subj">'+
-					'<div id="lcl_elem_wrap"></div>'+
+					'<div id="lcl_elem_wrap" role="img" aria-label="Descrição detalhada do que a imagem representa"></div>'+
 				'</div>'+
 				'<div id="lcl_txt"></div>'+
 			'</div>'+	
@@ -116,6 +116,7 @@
 			title_attr		: 'title', // attribute containing the title - is possible to specify a selector with this syntax: "> .selector" or "> span" 
 			txt_attr		: 'data-lcl-txt', // attribute containing the description - is possible to specify a selector with this syntax: "> .selector" or "> span" 
 			author_attr		: 'data-lcl-author', // attribute containing the author - is possible to specify a selector with this syntax: "> .selector" or "> span" 
+			alt_attr        : 'data-lcl-alt', // attribute containing the alt text - is possible to specify a selector with this syntax: "> .selector" or "> span"
 			author_by_txt   : 'Por', // which text is used before the author name, by default is "by"
             
 			slideshow		: true, // whether to enable slideshow
@@ -153,6 +154,7 @@
 			show_title		: true, // bool / whether to display titles
 			show_descr		: true, // bool / whether to display descriptions
 			show_author		: true, // bool / whether to display authors
+			show_alt        : true, // bool / whether to display alt text
 			
 			thumbs_nav		: true, // enables thumbnails navigation (requires elements poster or images)
 			tn_icons		: true, // print type icons on thumbs if types are mixed
@@ -328,7 +330,8 @@
 							hash	: false,
 							title 	: (o.show_title) 	? attr_or_selector_data($e, 'title_attr') : '',	
 							txt 	: (o.show_descr) 	? attr_or_selector_data($e, 'txt_attr') : '',	
-							author 	: (o.show_author) 	? attr_or_selector_data($e, 'author_attr') : '',	
+							author 	: (o.show_author) 	? attr_or_selector_data($e, 'author_attr') : '',
+							alt 	: (o.show_alt) 		? attr_or_selector_data($e, 'alt_attr') : '',
 							thumb	: (o.thumb_attr && typeof(o.thumb_attr) != 'undefined')	? $e.attr(o.thumb_attr) : '',	
 							
 							width	: (type != 'image' && typeof($e.data('lcl-w')) != 'undefined') ? $e.data('lcl-w') : false,
@@ -514,7 +517,8 @@
 							
 							el.title	= (typeof(v.title) == 'undefined') ? '' : revert_html_entit(v.title); 
 							el.txt	 	= (typeof(v.txt) == 'undefined') ? '' : revert_html_entit(v.txt); 
-							el.author 	= (typeof(v.author) == 'undefined') ? '' : revert_html_entit(v.author); 
+							el.author 	= (typeof(v.author) == 'undefined') ? '' : revert_html_entit(v.author);
+							el.alt 		= v.alt;
 
 							el.width 	= (typeof(v.width) == 'undefined') ? false : v.width;
 							el.height 	= (typeof(v.height) == 'undefined') ? false : v.height;
@@ -1046,11 +1050,12 @@
 		
 		/* element has text ? */
 		const elem_has_txt = function(el) {
-			return (el.title || el.txt || el.author) ? true : false;	
+			return (el.title || el.txt || el.author || el.alt) ? true : false;	
 		};
 		
         
 		
+		/* populate lightbox */
 		/* populate lightbox */
 		const populate_lb = function(el){
 			const el_index = lcl_ai_vars.elem_index;
@@ -1066,6 +1071,7 @@
 			switch(el.type) {
 				case 'image' :
                     $('#lcl_elem_wrap').css('background-image', 'url(\''+ el.src +'\')').html('<img src="'+ el.src +'" draggable="false" />');
+			
 					break;
 				
 				default : // error message size
@@ -1092,7 +1098,7 @@
 					$('.lcl_download').hide();	
 				}
 			}
-			
+
 			// counter
 			$('.lcl_counter').html( (el_index+1) +' / '+ lcl_ai_vars.elems.length );
 			
@@ -1124,6 +1130,7 @@
 				$('#lcl_wrap').addClass('lcl_no_txt');	
 			}
 			
+			$('#lcl_elem_wrap').attr({'role': 'img','aria-label': ""+ el.alt +""});
 			
 			// prevent body scroll moving text
 			no_body_touch_scroll('#lcl_txt');
