@@ -203,7 +203,7 @@
         dados.forEach(item => {
 
           html += `
-          <a class="elem" href="${item.url}" title="${escapeHtml(item.titulo)}"
+          <a class="elem" href="${item.url}" title="${escapeHtml(item.titulo)}"  data-lcl-alt="${escapeHtml(item.alt)}"
             data-lcl-author="${escapeHtml(item.autor)} (${escapeHtml(item.ano)})">
             <span style="background-image: url('${item.url}');"></span>
           </a>
@@ -237,7 +237,7 @@
       dados.forEach(item => {
 
         html += `
-          <a class="elem" href="${item.url}" title="${escapeHtml(item.titulo)}"
+          <a class="elem" href="${item.url}" title="${escapeHtml(item.titulo)}"  data-lcl-alt="${escapeHtml(item.alt)}"
             data-lcl-author="${escapeHtml(item.autor)} (${escapeHtml(item.ano)})">
             <span style="background-image: url('${item.url}');"></span>
           </a>

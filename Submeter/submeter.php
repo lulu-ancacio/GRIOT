@@ -129,6 +129,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                         <input type="file" id="foto_imagem" name="imagem" accept="image/*" required>
                     </div>
 
+                    <div class="form-group">
+                        <label for="foto_alt">Texto descritivo da imagem anexada</label>
+                        <input type="text" id="foto_alt" name="alt" placeholder="Recomendado gerar usando IA">
+                    </div>
+
                     <button type="submit" class="btn-submit">Enviar Fotografia</button>
                     <p>Adicione uma fotografia por vez.</p>
                 </form>
@@ -157,6 +162,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     <div class="form-group">
                         <label for="pint_imagem">Imagem *</label>
                         <input type="file" id="pint_imagem" name="imagem" accept="image/*" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="pint_alt">Texto descritivo da imagem anexada</label>
+                        <input type="text" id="pint_alt" name="alt" placeholder="Recomendado gerar usando IA">
                     </div>
 
                     <button type="submit" class="btn-submit">Enviar Pintura</button>
@@ -217,6 +227,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     <div class="form-group" id="imagemCapa">
                     </div>
 
+                    <div class="form-group">
+                        <label for="livros_alt">Texto descritivo da imagem anexada</label>
+                        <input type="text" id="livros_alt" name="alt" placeholder="Recomendado gerar usando IA">
+                    </div>
+
                     <button type="submit" class="btn-submit">Enviar Obra</button>
                     <p>Adicione uma obra por vez.</p>
                 </form>
@@ -261,6 +276,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     <div class="form-group">
                         <label for="filme_capa">Imagem de Capa *</label>
                         <input type="file" id="filme_capa" name="imagem" accept="image/*" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="filme_alt">Texto descritivo da imagem anexada</label>
+                        <input type="text" id="filme_alt" name="alt" placeholder="Recomendado gerar usando IA">
                     </div>
 
                     <button type="submit" class="btn-submit">Enviar Mídia</button>

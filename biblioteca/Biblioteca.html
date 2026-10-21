@@ -133,7 +133,7 @@
                     if (item.cc0) {
                         html += `
                     <div class="livro-cardNP">
-                        <img src="${item.url}" alt="Erro ao carregar imagem" onerror="this.src='https://via.placeholder.com/250x350?text=Sem+Capa'">
+                        <img src="${item.url}" alt="${item.alt}" onerror="this.src='https://via.placeholder.com/250x350?text=Sem+Capa'">
                         <h3>${item.titulo}</h3>
                         <p><strong>${item.autor}</strong></p>
                         <p class="ano">${item.ano}</p>
@@ -148,7 +148,7 @@
                     if (!item.cc0) {
                         html += `
                     <div class="livro-cardP">
-                        <img src="${item.url}" alt="Erro ao carregar imagem" onerror="this.src='https://via.placeholder.com/356x511?text=Sem+Capa'">
+                        <img src="${item.url}" alt="${item.alt}" onerror="this.src='https://via.placeholder.com/356x511?text=Sem+Capa'">
                         <h3>${item.titulo}</h3>
                         <p><strong>${item.autor}</strong></p>
                         <p class="ano">${item.ano}</p>

@@ -138,19 +138,23 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     <div class="form-group">
                         <label for="foto_titulo">Título *</label>
                         <input type="text" id="foto_titulo" name="titulo" required
-                            placeholder="Ex: Retrato da Liberdade">
+                            placeholder="Inserir novo texto">
                     </div>
 
                     <div class="form-group">
                         <label for="foto_autor">Autor(a) *</label>
-                        <input type="text" id="foto_autor" name="autor" required placeholder="Nome do artista">
+                        <input type="text" id="foto_autor" name="autor" required placeholder="Inserir novo texto">
                     </div>
 
                     <div class="form-group">
                         <label for="foto_ano">Ano</label>
-                        <input type="number" id="foto_ano" name="ano" min="1800" max="2100" placeholder="Ex: 2024">
+                        <input type="number" id="foto_ano" name="ano" min="1800" max="2100" placeholder="Inserir nova data">
                     </div>
 
+                    <div class="form-group">
+                        <label for="foto_alt">Texto descritivo da imagem anexada</label>
+                        <input type="text" id="foto_alt" name="alt" placeholder="Inserir novo texto">
+                    </div>
 
                     <button type="submit" class="btn-submit">Atualizar Fotografia</button>
                     <p>Adicione uma fotografia por vez.</p>
@@ -170,19 +174,23 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
                     <div class="form-group">
                         <label for="pint_titulo">Título *</label>
-                        <input type="text" id="pint_titulo" name="titulo" required placeholder="Ex: Raízes Ancestrais">
+                        <input type="text" id="pint_titulo" name="titulo" required placeholder="Inserir novo texto">
                     </div>
 
                     <div class="form-group">
                         <label for="pint_autor">Autor(a) *</label>
-                        <input type="text" id="pint_autor" name="autor" required placeholder="Nome do artista">
+                        <input type="text" id="pint_autor" name="autor" required placeholder="Inserir novo texto">
                     </div>
 
                     <div class="form-group">
                         <label for="pint_ano">Ano</label>
-                        <input type="number" id="pint_ano" name="ano" min="1800" max="2100" placeholder="Ex: 2023">
+                        <input type="number" id="pint_ano" name="ano" min="1800" max="2100" placeholder="Inserir nova data">
                     </div>
 
+                    <div class="form-group">
+                        <label for="pint_alt">Texto descritivo da imagem anexada</label>
+                        <input type="text" id="pint_alt" name="alt" placeholder="Inserir novo texto">
+                    </div>
 
                     <button type="submit" class="btn-submit">Atualizar Pintura</button>
                     <p>Adicione uma pintura por vez.</p>
@@ -203,17 +211,22 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     <div class="form-group">
                         <label for="livros_titulo">Título *</label>
                         <input type="text" id="livros_titulo" name="titulo" required
-                            placeholder="Ex: Querido estudante negro">
+                            placeholder="Inserir novo texto">
                     </div>
 
                     <div class="form-group">
                         <label for="livros_autor">Autor(a) *</label>
-                        <input type="text" id="livros_autor" name="autor" required placeholder="Nome do autor">
+                        <input type="text" id="livros_autor" name="autor" required placeholder="Inserir novo texto">
                     </div>
 
                     <div class="form-group">
                         <label for="livros_ano">Ano</label>
-                        <input type="number" id="livros_ano" name="ano" min="1800" max="2100" placeholder="Ex: 2023">
+                        <input type="number" id="livros_ano" name="ano" min="1800" max="2100" placeholder="Inserir nova data">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="livros_alt">Texto descritivo da imagem anexada</label>
+                        <input type="text" id="livros_alt" name="alt" placeholder="Inserir novo texto">
                     </div>
 
                     <button type="submit" class="btn-submit">Atualizar Obra</button>
@@ -236,17 +249,17 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                     <div class="form-group">
                         <label for="filme_titulo">Título *</label>
                         <input type="text" id="filme_titulo" name="titulo" required
-                            placeholder="Ex: Quilombo dos Palmares">
+                            placeholder="Inserir novo texto">
                     </div>
 
                     <div class="form-group">
                         <label for="filme_desc">Descrição *</label>
-                        <input type="text" id="filme_desc" name="desc" required placeholder="Breve descrição da obra">
+                        <input type="text" id="filme_desc" name="desc" required placeholder="Inserir novo texto">
                     </div>
 
                     <div class="form-group">
                         <label for="filme_link">Link *</label>
-                        <input type="url" id="filme_link" name="link" required placeholder="https://...">
+                        <input type="url" id="filme_link" name="link" required placeholder="Inserir novo link">
                     </div>
 
                     <div class="form-group">
@@ -261,6 +274,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                             <option value="biografias">👤 Biografias</option>
                             <option value="clipes">🎵 Musicais</option>
                         </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="filme_alt">Texto descritivo da imagem anexada</label>
+                        <input type="text" id="filme_alt" name="alt" placeholder="Inserir novo texto">
                     </div>
 
                     <button type="submit" class="btn-submit">Atualizar Mídia</button>
@@ -280,22 +298,22 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
                     <div class="form-group">
                         <label for="leg_titulo">Título *</label>
-                        <input type="text" id="leg_titulo" name="titulo" required placeholder="Ex: Lei Afonso Arinos">
+                        <input type="text" id="leg_titulo" name="titulo" required placeholder="Inserir novo texto">
                     </div>
 
                     <div class="form-group">
                         <label for="leg_norma">Norma *</label>
-                        <input type="text" id="leg_norma" name="norma" required placeholder="Ex: Lei nº 2.848/1940">
+                        <input type="text" id="leg_norma" name="norma" required placeholder="Inserir nova norma">
                     </div>
 
                     <div class="form-group">
                         <label for="leg_data">Data</label>
-                        <input type="text" id="leg_data" name="data" required placeholder="Ex: 7 de dezembro de 1940">
+                        <input type="text" id="leg_data" name="data" required placeholder="Inserir nova data">
                     </div>
 
                     <div class="form-group">
                         <label for="leg_link">Link</label>
-                        <input type="text" id="leg_link" name="link" required placeholder="Ex: https://...">
+                        <input type="text" id="leg_link" name="link" required placeholder="Inserir novo link">
                     </div>
 
                     <button type="submit" class="btn-submit">Enviar Legislação</button>
@@ -339,7 +357,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     </script>
 
     <script>
-        document.getElementById('secao').addEventListener('change', function () {
+        document.getElementById('secao').addEventListener('change', function() {
 
             switch (this.value) {
 

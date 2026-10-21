@@ -57,6 +57,7 @@ function supabaseCreatePhotoPainting($bucket, $table, $id_user)
         $titulo = $_POST['titulo'];
         $autor = $_POST['autor'];
         $ano = $_POST['ano'];
+        $alt = $_POST['alt'];
         $id_usuario = $id_user;
 
         if ($file['error'] === 0) {
@@ -95,6 +96,7 @@ function supabaseCreatePhotoPainting($bucket, $table, $id_user)
                         'titulo' => $titulo,
                         'autor' => $autor,
                         'ano' => $ano,
+                        'alt' => $alt,
                         'url' => $publicUrl,
                         'id_usuario' => $id_usuario
                     ]
@@ -118,6 +120,7 @@ function supabaseCreateBook($id_user)
         $titulo = $_POST['titulo'];
         $autor = $_POST['autor'];
         $ano = $_POST['ano'];
+        $alt = $_POST['alt'];
         $cc0 = $_POST['cc0'];
         $id_usuario = $id_user;
 
@@ -185,6 +188,7 @@ function supabaseCreateBook($id_user)
                         'url' => $publicUrlImage,
                         'link' => $linkTratado,
                         'cc0' => $cc0,
+                        'alt' => $alt,
                         'id_usuario' => $id_usuario
                     ]
                 ]
@@ -207,6 +211,7 @@ function supabaseCreateFilm($id_user)
         $titulo = $_POST['titulo'];
         $desc = $_POST['desc'];
         $tipomidia = $_POST['tipomidia'] ?? '';
+        $alt = $_POST['alt'];
         $id_usuario = $id_user;
 
         $tiposPermitidos = [
@@ -269,6 +274,7 @@ function supabaseCreateFilm($id_user)
                         'link' => $link,
                         'url' => $publicUrl,
                         'tipo' => $tipomidia,
+                        'alt' => $alt,
                         'id_usuario' => $id_usuario
                     ]
                 ]
@@ -372,6 +378,7 @@ function supabaseUpdatePhotoPaintingBook($table)
         $titulo = $_POST['titulo'];
         $autor = $_POST['autor'];
         $ano = $_POST['ano'];
+        $alt = $_POST['alt'];
 
         $client = new GuzzleHttp\Client();
 
@@ -386,7 +393,8 @@ function supabaseUpdatePhotoPaintingBook($table)
                 'json' => [
                     'titulo' => $titulo,
                     'autor' => $autor,
-                    'ano' => $ano
+                    'ano' => $ano,
+                    'alt' => $alt
                 ]
             ]
         );
@@ -409,6 +417,7 @@ function supabaseUpdateFilm()
         $titulo = $_POST['titulo'];
         $desc = $_POST['desc'];
         $tipomidia = $_POST['tipomidia'];
+        $alt = $_POST['alt'];
 
         $tiposPermitidos = [
             'curtas',
@@ -438,7 +447,8 @@ function supabaseUpdateFilm()
                     'titulo' => $titulo,
                     'desc' => $desc,
                     'link' => $link,
-                    'tipo' => $tipomidia
+                    'tipo' => $tipomidia,
+                    'alt' => $alt
                 ]
             ]
         );

@@ -5,7 +5,7 @@ require_once '../config/functions.php';
 header('Content-Type: application/json; charset=utf-8');
 
 $busca = trim($_GET['q'] ?? '');
-$colunas = 'id,url,autor,titulo,ano,tags';
+$colunas = 'id,url,autor,titulo,ano,tags,alt';
 
 if ($busca === '') {
 
@@ -18,7 +18,7 @@ if ($busca === '') {
     $busca = urlencode("*{$busca}*");
 
     $endpoint =
-        "pinturas?select={$colunas}&or=(titulo.ilike.$busca,autor.ilike.$busca,tags.cs.{{$buscaNaoEncodada}})&order=autor.asc";
+        "pinturas?select={$colunas}&or=(titulo.ilike.$busca,alt.ilike.$busca,autor.ilike.$busca,tags.cs.{{$buscaNaoEncodada}})&order=autor.asc";
 }
 
 $dados = supabaseRequest($endpoint);

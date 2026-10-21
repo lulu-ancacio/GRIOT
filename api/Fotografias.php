@@ -18,7 +18,7 @@ if ($busca === '') {
     $busca = urlencode("*{$busca}*");
 
     $endpoint =
-        "fotografias?select={$colunas}&or=(titulo.ilike.$busca,autor.ilike.$busca,tags.cs.{{$buscaNaoEncodada}})&order=autor.asc";
+        "fotografias?select={$colunas}&or=(titulo.ilike.$busca,alt.ilike.$busca,autor.ilike.$busca,tags.cs.{{$buscaNaoEncodada}})&order=autor.asc";
 }
 
 $dados = supabaseRequest($endpoint);
