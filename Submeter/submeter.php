@@ -216,7 +216,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                             onkeydown="if(event.keyCode === 13 || event.keyCode === 32) showImagemInput(this)">
 
 
-                        >
+                        
                         <label for="livros_capa_true">Sim</label><br>
                         <input type="radio" id="livros_capa_false" name="capa" value="False"
                             onClick="showImagemInput(this)"
