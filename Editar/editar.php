@@ -137,8 +137,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
                     <div class="form-group">
                         <label for="foto_titulo">Título *</label>
-                        <input type="text" id="foto_titulo" name="titulo" required
-                            placeholder="Inserir novo texto">
+                        <input type="text" id="foto_titulo" name="titulo" required placeholder="Inserir novo texto">
                     </div>
 
                     <div class="form-group">
@@ -148,7 +147,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
                     <div class="form-group">
                         <label for="foto_ano">Ano</label>
-                        <input type="number" id="foto_ano" name="ano" min="1800" max="2100" placeholder="Inserir nova data">
+                        <input type="number" id="foto_ano" name="ano" min="1800" max="2100"
+                            placeholder="Inserir nova data">
                     </div>
 
                     <div class="form-group">
@@ -184,7 +184,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
                     <div class="form-group">
                         <label for="pint_ano">Ano</label>
-                        <input type="number" id="pint_ano" name="ano" min="1800" max="2100" placeholder="Inserir nova data">
+                        <input type="number" id="pint_ano" name="ano" min="1800" max="2100"
+                            placeholder="Inserir nova data">
                     </div>
 
                     <div class="form-group">
@@ -210,8 +211,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
                     <div class="form-group">
                         <label for="livros_titulo">Título *</label>
-                        <input type="text" id="livros_titulo" name="titulo" required
-                            placeholder="Inserir novo texto">
+                        <input type="text" id="livros_titulo" name="titulo" required placeholder="Inserir novo texto">
                     </div>
 
                     <div class="form-group">
@@ -221,7 +221,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
                     <div class="form-group">
                         <label for="livros_ano">Ano</label>
-                        <input type="number" id="livros_ano" name="ano" min="1800" max="2100" placeholder="Inserir nova data">
+                        <input type="number" id="livros_ano" name="ano" min="1800" max="2100"
+                            placeholder="Inserir nova data">
                     </div>
 
                     <div class="form-group">
@@ -248,8 +249,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
                     <div class="form-group">
                         <label for="filme_titulo">Título *</label>
-                        <input type="text" id="filme_titulo" name="titulo" required
-                            placeholder="Inserir novo texto">
+                        <input type="text" id="filme_titulo" name="titulo" required placeholder="Inserir novo texto">
                     </div>
 
                     <div class="form-group">
@@ -357,7 +357,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     </script>
 
     <script>
-        document.getElementById('secao').addEventListener('change', function() {
+        document.getElementById('secao').addEventListener('change', function () {
 
             switch (this.value) {
 
